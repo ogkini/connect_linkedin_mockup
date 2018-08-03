@@ -1,0 +1,14 @@
+html,
+body,
+header,
+#intro {
+  height: 100%;
+}
+
+#intro {
+  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
