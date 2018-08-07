@@ -4,14 +4,17 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    CoreModule,
     MDBBootstrapModule.forRoot()
+  ],
+  declarations: [
+    AppComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],

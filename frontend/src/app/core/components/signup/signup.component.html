@@ -1,0 +1,46 @@
+<div class="col-md-6 offset-md-3 col-xs-12">
+  <form class="text-center border rounded border-light p-5" [formGroup]="signupForm" (ngSubmit)=onSubmit()>
+
+    <p class="h4 mb-4">Sign up</p>
+
+    <!--Error-->
+    <!-- <div class="alert alert-danger" role="alert">{{error}}</div> -->
+
+    <!--Email-->
+    <input
+      type="email"
+      id="defaultLoginFormEmail"
+      class="form-control mb-4"
+      placeholder="Email"
+      formControlName="email"
+      autofocus>
+
+    <!--Username-->
+    <input
+      type="text"
+      id="defaultLoginFormUsername"
+      class="form-control mb-4"
+      placeholder="Username"
+      formControlName="username">
+
+    <!--Password-->
+    <input
+      type="password"
+      id="defaultLoginFormPassword"
+      class="form-control mb-4"
+      placeholder="Password"
+      formControlName="password">
+
+    <!--Confirm Password-->
+    <input
+      type="password"
+      id="defaultLoginFormConfirmPassword"
+      class="form-control mb-4"
+      placeholder="Confirm password"
+      formControlName="confirmPassword">
+
+    <!--Sign in button-->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign up</button>
+
+  </form>
+</div>
