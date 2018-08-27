@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
-  singinForm: FormGroup;
+  title = 'SignIn';
+
+  signInForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     // Use FormBuilder to create a form group
-    this.singinForm = this.formBuilder.group({
+    this.signInForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });

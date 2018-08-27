@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { WelcomeAdminComponent } from './components/admin/welcome-admin/welcome-admin.component';
+import { WelcomeProfessionalComponent } from './components/professional/welcome-professional/welcome-professional.component';
 
 const routes: Routes = [
   {
@@ -11,12 +13,16 @@ const routes: Routes = [
     component: WelcomeComponent
   },
   {
-    path: 'signin',
-    component: SigninComponent
+    path: 'sign-in',
+    component: SignInComponent
   },
   {
-    path: 'signup',
-    component: SignupComponent
+    path: 'sign-up',
+    component: SignUpComponent
+  },
+  {
+    path: 'welcome-professional',
+    component: WelcomeProfessionalComponent
   }
 ];
 

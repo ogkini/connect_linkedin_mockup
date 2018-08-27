@@ -1,14 +1,21 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreRoutingModule } from './core-routing.module';
-import { HeaderComponent } from './components/header/header.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { WelcomeAdminComponent } from './components/admin/welcome-admin/welcome-admin.component';
+import { WelcomeProfessionalComponent } from './components/professional/welcome-professional/welcome-professional.component';
+
+import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
+import { AdminNavBarComponent } from './components/admin/admin-nav-bar/admin-nav-bar.component';
+import { ProfessionalNavBarComponent } from './components/professional/professional-nav-bar/professional-nav-bar.component';
+
 
 @NgModule({
   imports: [
@@ -18,16 +25,20 @@ import { SignupComponent } from './components/signup/signup.component';
     MDBBootstrapModule.forRoot()
   ],
   declarations: [
-    HeaderComponent,
     FooterComponent,
     WelcomeComponent,
-    SigninComponent,
-    SignupComponent
+    SignInComponent,
+    SignUpComponent,
+    WelcomeAdminComponent,
+    WelcomeProfessionalComponent,
+    MainNavBarComponent,
+    AdminNavBarComponent,
+    ProfessionalNavBarComponent
   ],
   exports: [
-    HeaderComponent,
     FooterComponent,
     WelcomeComponent
-  ]
+  ],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class CoreModule { }

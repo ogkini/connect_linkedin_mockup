@@ -1,5 +1,10 @@
+<!--{{ setTitle("title") }}-->
+
+<app-main-nav-bar></app-main-nav-bar>
+
+
 <div class="col-md-6 offset-md-3 col-xs-12">
-  <form class="text-center border rounded border-light p-5" [formGroup]="signupForm" (ngSubmit)=onSubmit()>
+  <form class="text-center border rounded border-light p-5" [formGroup]="signUpForm" (ngSubmit)=onSubmit()>
 
     <p class="h4 mb-4">Sign up</p>
 
@@ -15,7 +20,7 @@
       formControlName="firstName"
       autofocus>
 
-    <!--First name-->
+    <!--Last name-->
     <input
       type="text"
       id="defaultLoginFormLastName"
@@ -49,8 +54,9 @@
       placeholder="Confirm password"
       formControlName="confirmPassword">
 
-    <!--Sign in button-->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign up</button>
+    <!--Sign-up button-->
+    <button class="btn btn-info btn-block my-4" type="submit" routerLink="/welcome-professional">Sign up</button>
 
   </form>
 </div>
+
