@@ -10,11 +10,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { WelcomeAdminComponent } from './components/admin/welcome-admin/welcome-admin.component';
-import { WelcomeProfessionalComponent } from './components/professional/welcome-professional/welcome-professional.component';
+import { WelcomeUserComponent } from './components/user/welcome-user/welcome-user.component';
 
 import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
 import { AdminNavBarComponent } from './components/admin/admin-nav-bar/admin-nav-bar.component';
-import { ProfessionalNavBarComponent } from './components/professional/professional-nav-bar/professional-nav-bar.component';
+import { UserNavBarComponent } from './components/user/user-nav-bar/user-nav-bar.component';
 
 
 @NgModule({
@@ -30,10 +30,10 @@ import { ProfessionalNavBarComponent } from './components/professional/professio
     SignInComponent,
     SignUpComponent,
     WelcomeAdminComponent,
-    WelcomeProfessionalComponent,
+    WelcomeUserComponent,
     MainNavBarComponent,
     AdminNavBarComponent,
-    ProfessionalNavBarComponent
+    UserNavBarComponent
   ],
   exports: [
     FooterComponent,

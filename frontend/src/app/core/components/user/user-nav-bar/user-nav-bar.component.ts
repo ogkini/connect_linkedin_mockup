@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @Component({
-  selector: 'app-professional-nav-bar',
-  templateUrl: './professional-nav-bar.component.html',
-  styleUrls: ['./professional-nav-bar.component.scss']
+  selector: 'app-user-nav-bar',
+  templateUrl: './user-nav-bar.component.html',
+  styleUrls: ['./user-nav-bar.component.scss']
 })
 
 @NgModule({
@@ -12,7 +12,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 })
 
 
-export class ProfessionalNavBarComponent implements OnInit {
+export class UserNavBarComponent implements OnInit {
 
   title: ""
 

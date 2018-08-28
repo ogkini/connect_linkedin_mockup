@@ -5,7 +5,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { WelcomeAdminComponent } from './components/admin/welcome-admin/welcome-admin.component';
-import { WelcomeProfessionalComponent } from './components/professional/welcome-professional/welcome-professional.component';
+import { WelcomeUserComponent } from './components/user/welcome-user/welcome-user.component';
 
 const routes: Routes = [
   {
@@ -21,8 +21,8 @@ const routes: Routes = [
     component: SignUpComponent
   },
   {
-    path: 'welcome-professional',
-    component: WelcomeProfessionalComponent
+    path: 'welcome-user',
+    component: WelcomeUserComponent
   }
 ];
 
