@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 
 
@@ -16,9 +16,11 @@ import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 
 export class WelcomeComponent implements OnInit {
 
-  title = 'Welcome';
+  title = 'Connect';
 
-  constructor() { }
+  public constructor(private titleService: Title ) {
+    this.titleService.setTitle( this.title );
+  }
 
   ngOnInit() {
   }

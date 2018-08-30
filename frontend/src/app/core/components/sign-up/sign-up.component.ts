@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 
@@ -9,11 +10,15 @@ import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 })
 export class SignUpComponent implements OnInit {
 
-  title = 'SignUp';
+  title = 'Sign Up to Connect';
 
   signUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private titleService: Title, private formBuilder: FormBuilder) {
+    this.titleService.setTitle( this.title );
+  }
+
+  ngOnInit() {
     // Use FormBuilder to create a form group
     this.signUpForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -23,8 +28,6 @@ export class SignUpComponent implements OnInit {
       confirmPassword: ['', Validators.required]
     });
   }
-
-  ngOnInit() {}
 
   // Submits the form
   onSubmit() {}

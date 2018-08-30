@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 
 @Component({
@@ -10,7 +11,9 @@ export class WelcomeUserComponent implements OnInit {
 
   title = 'Welcome User';
 
-  constructor() { }
+  public constructor(private titleService: Title ) {
+    this.titleService.setTitle( this.title );
+  }
 
   ngOnInit() {
   }

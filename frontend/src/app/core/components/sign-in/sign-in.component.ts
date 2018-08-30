@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 
@@ -9,11 +10,13 @@ import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 })
 export class SignInComponent implements OnInit {
 
-  title = 'SignIn';
+  title = 'Sign In to Connect';
 
   signInForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  public constructor(private titleService: Title, private formBuilder: FormBuilder) {
+    this.titleService.setTitle( this.title );
+  }
 
   ngOnInit() {
     // Use FormBuilder to create a form group

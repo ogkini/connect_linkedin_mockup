@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { AdminNavBarComponent } from './../admin-nav-bar/admin-nav-bar.component';
 
 @Component({
@@ -10,7 +11,9 @@ export class WelcomeAdminComponent implements OnInit {
 
   title = 'Welcome admin';
 
-  constructor() { }
+  public constructor(private titleService: Title ) {
+    this.titleService.setTitle( this.title );
+  }
 
   ngOnInit() {
   }
