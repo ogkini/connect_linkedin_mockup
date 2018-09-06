@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Roles` (
   PRIMARY KEY (`role_id`))
 ENGINE = InnoDB;
 
+INSERT INTO Roles (name) VALUES ('ROLE_ADMIN');
+INSERT INTO Roles (name) VALUES ('ROLE_USER');
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Users`
@@ -27,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `birthdate` DATE NOT NULL,
   `email` VARCHAR(60) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `role_id` BIGINT NOT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
