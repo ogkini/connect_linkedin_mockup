@@ -36,6 +36,11 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="role_id", nullable=false)
+    private Role role;
+
     // @JsonIgnore
     // @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     // @JoinTable(name = "UserRoles",
@@ -53,11 +58,12 @@ public class User {
 
     public User () {}
 
-    public User(String firstname, String lastname, String password, String email) {
+    public User(String firstname, String lastname, Date birthdate, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.password = password;
+        this.birthdate = birthdate;
         this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -84,12 +90,12 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getPassword() {
-        return password;
+    public Date getBirthdate() {
+        return birthdate;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getEmail() {
@@ -98,6 +104,22 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     // public Set<Role> getRoles() {
@@ -116,6 +138,7 @@ public class User {
         return Objects.equals(id, that.id) &&
                 Objects.equals(firstname, that.firstname) &&
                 Objects.equals(lastname, that.lastname) &&
+                Objects.equals(birthdate, that.birthdate) &&
                 Objects.equals(password, that.password) &&
                 Objects.equals(email, that.email);
     }

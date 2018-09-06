@@ -1,13 +1,20 @@
 package com.ted.security;
 
 import com.ted.model.User;
+import com.ted.model.Role;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.stream.*;
+import java.util.stream.Collectors;
 
 /*
  * This is the class whose instances will be returned from our custom UserDetailsServiceImpl.
@@ -37,7 +44,10 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     public static UserDetailsImpl create(User user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
+        Set<Role> roles = new HashSet<Role>();
+        roles.add(user.getRole());
+        
+        List<GrantedAuthority> authorities = roles.stream().map(role ->
                 new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
 
         return new UserDetailsImpl(
@@ -68,6 +78,10 @@ public class UserDetailsImpl implements UserDetails {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getUsername() {
+        return email;
     }
 
     @Override

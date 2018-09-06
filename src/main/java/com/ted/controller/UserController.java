@@ -1,10 +1,10 @@
 package com.ted.controller;
 
 import com.ted.model.User;
-// import com.ted.model.Role;
-// import com.ted.model.RoleName;
+import com.ted.model.Role;
+import com.ted.model.RoleName;
 import com.ted.repository.UserRepository;
-// import com.ted.repository.RoleRepository;
+import com.ted.repository.RoleRepository;
 import com.ted.exception.UserExistsException;
 // import com.ted.exception.AppException;
 // import com.ted.exception.BadRequestException;
@@ -12,9 +12,9 @@ import com.ted.exception.UserExistsException;
 import com.ted.request.SignUpRequest;
 import com.ted.response.ApiResponse;
 // import com.ted.response.SignInResponse;
-// import com.ted.security.CurrentUser;
-// import com.ted.security.JwtTokenProvider;
-// import com.ted.security.UserDetailsImpl;
+import com.ted.security.CurrentUser;
+import com.ted.security.JwtTokenProvider;
+import com.ted.security.UserDetailsImpl;
 // import com.ted.service.UserService;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,14 +37,14 @@ import java.util.Collections;
 @RequestMapping("/api")
 public class UserController {
 
-    // @Autowired
-    // private AuthenticationManager authenticationManager;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Autowired
     private UserRepository userRepository;
 
-    // @Autowired
-    // private RoleRepository roleRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -52,8 +52,8 @@ public class UserController {
     // @Autowired
     // private UserService userService;
 
-    // @Autowired
-    // private JwtTokenProvider tokenProvider;
+    @Autowired
+    private JwtTokenProvider tokenProvider;
 
     /*
      * This method handles POST requests issued to "/users",
@@ -70,19 +70,20 @@ public class UserController {
         User user = new User(
                 signUpRequest.getFirstname(),
                 signUpRequest.getLastname(),
-                signUpRequest.getPassword(),
-                signUpRequest.getEmail()
+                signUpRequest.getBirthdate(),
+                signUpRequest.getEmail(),
+                signUpRequest.getPassword()
         );
 
         // Encrypt the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         // Assign a user role
-        // Role userRole = roleRepository.findByName(RoleName.ROLE_USER);
-        // if (userRole == null) {
-        //     throw new AppException("User Role not set.");
-        // }
-        // user.setRoles(Collections.singleton(userRole));
+        Role role = roleRepository.findByName(RoleName.ROLE_USER);
+        if (role == null) {
+            // throw new AppException("User Role not set.");
+        }
+        user.setRole(role);
 
         User result = userRepository.save(user);
 
