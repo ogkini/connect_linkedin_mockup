@@ -40,6 +40,9 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO Users (firstname, lastname, birthdate, email, password, role_id)
+VALUES ('admin', 'admin', '1990-01-01', 'admin@mail.com', 'admin123', 1);
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
