@@ -6,12 +6,12 @@ import com.ted.model.RoleName;
 import com.ted.repository.UserRepository;
 import com.ted.repository.RoleRepository;
 import com.ted.exception.UserExistsException;
-// import com.ted.exception.AppException;
-// import com.ted.exception.BadRequestException;
-// import com.ted.request.SignInRequest;
+import com.ted.exception.AppException;
+import com.ted.exception.BadRequestException;
+import com.ted.request.SignInRequest;
 import com.ted.request.SignUpRequest;
 import com.ted.response.ApiResponse;
-// import com.ted.response.SignInResponse;
+import com.ted.response.SignInResponse;
 import com.ted.security.CurrentUser;
 import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
@@ -81,7 +81,7 @@ public class UserController {
         // Assign a user role
         Role role = roleRepository.findByName(RoleName.ROLE_USER);
         if (role == null) {
-            // throw new AppException("User Role not set.");
+            throw new AppException("User Role not set.");
         }
         user.setRole(role);
 
@@ -94,28 +94,31 @@ public class UserController {
         return ResponseEntity.created(uri).body(new ApiResponse(true, "User created successfully."));
     }
 
-    // @PostMapping("signin")
-    // public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signInRequest) {
-    //     // Check if the user exists
-    //     User user = userRepository.findByUsername(signInRequest.getUsername()).orElse(null);
-    //     if (user == null) {
-    //         throw new BadRequestException("Invalid username or password.");
-    //     }
+    /*
+     * This method handles POST requests issued to "/signin",
+     * which are used to sign an existing user to the app.
+     */
+    @PostMapping("signin")
+    public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signInRequest) {
+        // Check if the user exists
+        User user = userRepository.findByEmail(signInRequest.getEmail()).orElse(null);
+        if (user == null) {
+            throw new BadRequestException("Invalid email or password.");
+        }
 
-    //     Authentication authentication = authenticationManager.authenticate(
-    //             new UsernamePasswordAuthenticationToken(
-    //                     signInRequest.getUsername(),
-    //                     signInRequest.getPassword()
-    //             )
-    //     );
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        signInRequest.getEmail(),
+                        signInRequest.getPassword()
+                )
+        );
 
-    //     SecurityContextHolder.getContext().setAuthentication(authentication);
-    //     String jwt = tokenProvider.generateToken(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = tokenProvider.generateToken(authentication);
 
-    //     return ResponseEntity.ok(new SignInResponse(jwt, user.getUsername(), user.getFirstName(), user.getLastName()));
-    // }
+        return ResponseEntity.ok(new SignInResponse(jwt, user.getEmail(), user.getFirstname(), user.getLastname()));
+    }
 
-    // //we use SignUpRequest because it has the fields for the update
     // @PutMapping("/users/{userId}")
     // @PreAuthorize("hasRole('USER')")
     // public User updateUserById(@PathVariable(value = "userId") Long userId,
