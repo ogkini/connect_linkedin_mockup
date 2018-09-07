@@ -5,16 +5,17 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreRoutingModule } from './core-routing.module';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { WelcomeAdminComponent } from './components/admin/welcome-admin/welcome-admin.component';
-import { WelcomeUserComponent } from './components/user/welcome-user/welcome-user.component';
+import { WelcomeComponent } from './_components/welcome/welcome.component';
+import { FooterComponent } from './_components/footer/footer.component';
+import { SignInComponent } from './_components/sign-in/sign-in.component';
+import { SignUpComponent } from './_components/sign-up/sign-up.component';
+import { WelcomeAdminComponent } from './_components/admin/welcome-admin/welcome-admin.component';
+import { WelcomeUserComponent } from './_components/user/welcome-user/welcome-user.component';
 
-import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
-import { AdminNavBarComponent } from './components/admin/admin-nav-bar/admin-nav-bar.component';
-import { UserNavBarComponent } from './components/user/user-nav-bar/user-nav-bar.component';
+import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.component';
+import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
+import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-bar.component';
+import { AlertComponent } from './_directives/alert/alert.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { UserNavBarComponent } from './components/user/user-nav-bar/user-nav-bar
     WelcomeUserComponent,
     MainNavBarComponent,
     AdminNavBarComponent,
-    UserNavBarComponent
+    UserNavBarComponent,
+    AlertComponent
   ],
   exports: [
     FooterComponent,
