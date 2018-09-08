@@ -9,8 +9,8 @@ import { WelcomeComponent } from './_components/welcome/welcome.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { SignInComponent } from './_components/sign-in/sign-in.component';
 import { SignUpComponent } from './_components/sign-up/sign-up.component';
-import { WelcomeAdminComponent } from './_components/admin/welcome-admin/welcome-admin.component';
-import { WelcomeUserComponent } from './_components/user/welcome-user/welcome-user.component';
+import { HomeAdminComponent } from './_components/admin/home-admin/home-admin.component';
+import { HomeUserComponent } from './_components/user/home-user/home-user.component';
 
 import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.component';
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
@@ -34,8 +34,8 @@ import { JwtInterceptor } from './_helpers/index';
     WelcomeComponent,
     SignInComponent,
     SignUpComponent,
-    WelcomeAdminComponent,
-    WelcomeUserComponent,
+    HomeAdminComponent,
+    HomeUserComponent,
     MainNavBarComponent,
     AdminNavBarComponent,
     UserNavBarComponent,
