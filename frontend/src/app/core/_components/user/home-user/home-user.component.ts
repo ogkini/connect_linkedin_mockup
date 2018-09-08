@@ -3,13 +3,13 @@ import { Title } from '@angular/platform-browser';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 
 @Component({
-  selector: 'app-welcome-user',
-  templateUrl: './welcome-user.component.html',
-  styleUrls: ['./welcome-user.component.scss']
+  selector: 'app-home-user',
+  templateUrl: './home-user.component.html',
+  styleUrls: ['./home-user.component.scss']
 })
-export class WelcomeUserComponent implements OnInit {
+export class HomeUserComponent implements OnInit {
 
-  title = 'Welcome User';
+  title = 'Welcome to Connect!';
 
   public constructor(private titleService: Title ) {
     this.titleService.setTitle( this.title );
