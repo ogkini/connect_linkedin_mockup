@@ -5,37 +5,40 @@
 
     <p class="h4 mb-4">Sign up</p>
 
-    <!--First name-->
+    <!-- Alert component-->
+    <app-alert></app-alert>
+
+    <!-- First name -->
     <input type="text" class="form-control mb-4" placeholder="First Name" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" autofocus>
     <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
         <div *ngIf="f.firstname.errors.required">First name is required.</div>
     </div>
 
-    <!--Last name-->
+    <!-- Last name -->
     <input type="text" class="form-control mb-4" placeholder="Last Name" formControlName="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
     <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
         <div *ngIf="f.lastname.errors.required">Last name is required.</div>
     </div>
 
-    <!--Email-->
+    <!-- Email -->
     <input type="email" class="form-control mb-4" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
         <div *ngIf="f.email.errors.required">Email is required.</div>
     </div>
 
-    <!--Password-->
+    <!-- Password -->
     <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
         <div *ngIf="f.password.errors.required">Password is required.</div>
     </div>
 
-    <!--Confirm Password-->
+    <!-- Confirm Password -->
     <input type="password" class="form-control mb-4" placeholder="Confirm password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
     <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
         <div *ngIf="f.confirmPassword.errors.required">Password confirmation is required.</div>
     </div>
 
-    <!--Sign-up button-->
+    <!-- Sign-up button -->
     <button class="btn btn-info btn-block my-4" type="submit">Sign up</button>
 
   </form>

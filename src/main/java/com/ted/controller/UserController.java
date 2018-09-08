@@ -77,6 +77,8 @@ public class UserController {
         // Encrypt the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
+        System.out.println(user.getPassword());
+
         // Assign a user role
         Role role = roleRepository.findByName(RoleName.ROLE_USER);
         if (role == null) {
@@ -106,10 +108,10 @@ public class UserController {
         }
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        signInRequest.getEmail(),
-                        signInRequest.getPassword()
-                )
+            new UsernamePasswordAuthenticationToken(
+                signInRequest.getEmail(),
+                signInRequest.getPassword()
+            )
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);

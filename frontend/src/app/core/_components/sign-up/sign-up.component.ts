@@ -68,14 +68,12 @@ export class SignUpComponent implements OnInit {
 
     // Send user to server
     this.userService.create(user)
-      .pipe(
-        first()
-      )
+      .pipe(first())
       .subscribe(
         data => {
           this.data = data;
           this.alertService.success('Registration successful.', true);
-          this.router.navigate([this.returnUrl]);
+          setTimeout(() => { this.router.navigate([this.returnUrl]); }, 2000);
         },
         error => {
           this.alertService.error(error.error.message);

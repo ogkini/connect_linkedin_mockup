@@ -5,36 +5,32 @@
 
     <p class="h4 mb-4">Sign in</p>
 
-    <!--Error-->
-    <!-- <div class="alert alert-danger" role="alert">{{error}}</div> -->
+    <!-- Alert component-->
+    <app-alert></app-alert>
 
-    <!--Email-->
-    <input
-      type="email"
-      id="defaultLoginFormEmail"
-      class="form-control mb-4"
-      placeholder="Email"
-      formControlName="email"
-      required autofocus>
+    <!-- Email -->
+    <input type="email" class="form-control mb-4" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autofocus>
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required.</div>
+    </div>
 
-    <!--Password-->
-    <input
-      type="password"
-      id="defaultLoginFormPassword"
-      class="form-control mb-4"
-      placeholder="Password"
-      formControlName="password"
-      required>
+    <!-- Password -->
+    <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required.</div>
+    </div>
 
-    <!--Forgot password-->
+    <!-- Forgot password -->
+    <!--
     <div class="d-flex justify-content-around">
       <div>
           <a href="">Forgot password?</a>
       </div>
     </div>
+    -->
 
-    <!--Sign-in button-->
-    <button class="btn btn-info btn-block my-4" type="submit" routerLink="/welcome-user">Sign in</button>
+    <!-- Sign-in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
 
   </form>
 </div>

@@ -10,7 +10,7 @@ CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8mb4;
 USE `teddb`;
 
 -- -----------------------------------------------------
--- root-user
+-- User with privileges
 -- -----------------------------------------------------
 #DROP USER IF EXISTS ‘ted_user’@‘localhost’;
 CREATE USER IF NOT EXISTS 'ted_user'@'localhost' IDENTIFIED BY 'ted';
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
 ENGINE = InnoDB;
 
 INSERT INTO Users (firstname, lastname, email, password, role_id)
-VALUES ('admin', 'admin', 'admin@mail.com', 'admin123', 1);
+VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 1);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
