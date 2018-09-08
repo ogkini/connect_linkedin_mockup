@@ -1,8 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { WelcomeComponent } from './_components/welcome/welcome.component';
@@ -15,14 +15,17 @@ import { WelcomeUserComponent } from './_components/user/welcome-user/welcome-us
 import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.component';
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
 import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-bar.component';
-import { AlertComponent } from './_directives/alert/alert.component';
 
+import { AlertComponent } from './_directives/alert/alert.component';
+import { AlertService, AuthenticationService, UserService, ConnectionConfigService } from './_services/index';
 
 @NgModule({
   imports: [
     CommonModule,
     CoreRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot()
   ],
   declarations: [
@@ -40,6 +43,12 @@ import { AlertComponent } from './_directives/alert/alert.component';
   exports: [
     FooterComponent,
     WelcomeComponent
+  ],
+  providers: [
+    AlertService,
+    AuthenticationService,
+    UserService,
+    ConnectionConfigService
   ],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

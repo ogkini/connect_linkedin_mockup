@@ -26,9 +26,6 @@ public class User {
     @Column(name = "lastname")
     private String lastname;
 
-    @Column(name = "birthdate")
-    private Date birthdate;
-
     @Column(name = "email")
     private String email;
 
@@ -58,10 +55,9 @@ public class User {
 
     public User () {}
 
-    public User(String firstname, String lastname, Date birthdate, String email, String password) {
+    public User(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.birthdate = birthdate;
         this.email = email;
         this.password = password;
     }
@@ -90,14 +86,6 @@ public class User {
         this.lastname = lastname;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -122,14 +110,6 @@ public class User {
         this.role = role;
     }
 
-    // public Set<Role> getRoles() {
-    //     return roles;
-    // }
-
-    // public void setRoles(Set<Role> roles) {
-    //     this.roles = roles;
-    // }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -138,7 +118,6 @@ public class User {
         return Objects.equals(id, that.id) &&
                 Objects.equals(firstname, that.firstname) &&
                 Objects.equals(lastname, that.lastname) &&
-                Objects.equals(birthdate, that.birthdate) &&
                 Objects.equals(password, that.password) &&
                 Objects.equals(email, that.email);
     }

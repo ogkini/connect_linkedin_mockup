@@ -27,7 +27,6 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `user_id` BIGINT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
-  `birthdate` DATE NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
   `role_id` BIGINT NOT NULL,
@@ -40,9 +39,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO Users (firstname, lastname, birthdate, email, password, role_id)
-VALUES ('admin', 'admin', '1990-01-01', 'admin@mail.com', 'admin123', 1);
-
+INSERT INTO Users (firstname, lastname, email, password, role_id)
+VALUES ('admin', 'admin', 'admin@mail.com', 'admin123', 1);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

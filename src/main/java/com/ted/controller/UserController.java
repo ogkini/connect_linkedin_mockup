@@ -70,7 +70,6 @@ public class UserController {
         User user = new User(
                 signUpRequest.getFirstname(),
                 signUpRequest.getLastname(),
-                signUpRequest.getBirthdate(),
                 signUpRequest.getEmail(),
                 signUpRequest.getPassword()
         );

@@ -2,8 +2,6 @@ package com.ted.request;
 
 import javax.validation.constraints.*;
 
-import java.util.Date;
-
 /*
  * This class provides the json specification
  * for a Sign Up request.
@@ -17,8 +15,6 @@ public class SignUpRequest {
     @NotBlank
     @Size(min = 2, max = 45)
     private String lastname;
-
-    private Date birthdate;
 
     @NotBlank
     @Size(max = 65)
@@ -46,14 +42,6 @@ public class SignUpRequest {
         this.lastname = lastname;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-    
     public String getEmail() {
         return email;
     }
