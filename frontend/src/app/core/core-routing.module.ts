@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'welcome-user',
     component: WelcomeUserComponent
+  },
+  {
+    path: 'welcome-admin',
+    component: WelcomeAdminComponent
   }
 ];
 

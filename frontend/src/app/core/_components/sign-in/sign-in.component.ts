@@ -39,9 +39,6 @@ export class SignInComponent implements OnInit {
 
     // Reset login status
     this.authenticationService.logout();
-
-    // Get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/welcome';
   }
 
   // Convenience getter for easy access to form fields
@@ -50,6 +47,13 @@ export class SignInComponent implements OnInit {
   // Submits the form
   onSubmit() {
     this.submitted = true;
+
+    // Set url to redirect to after signin
+    if (this.f.email.value === 'admin@mail.com') {
+      this.returnUrl = '/welcome-admin';
+    } else {
+      this.returnUrl = '/welcome-user';
+    }
 
     this.authenticationService.login(this.f.email.value, this.f.password.value)
       .pipe(first())

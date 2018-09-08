@@ -15,7 +15,7 @@ import com.ted.response.SignInResponse;
 import com.ted.security.CurrentUser;
 import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
-// import com.ted.service.UserService;
+import com.ted.service.UserService;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -32,6 +32,7 @@ import org.springframework.http.ResponseEntity;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -49,8 +50,8 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // @Autowired
-    // private UserService userService;
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private JwtTokenProvider tokenProvider;
@@ -59,7 +60,7 @@ public class UserController {
      * This method handles POST requests issued to "/users",
      * which are used to register a new user.
      */
-    @PostMapping("users")
+    @PostMapping("/users")
     @ResponseBody
     public ResponseEntity<?> signUp(@Valid @RequestBody SignUpRequest signUpRequest) {
         // Check if the user already exists
@@ -77,8 +78,6 @@ public class UserController {
         // Encrypt the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        System.out.println(user.getPassword());
-
         // Assign a user role
         Role role = roleRepository.findByName(RoleName.ROLE_USER);
         if (role == null) {
@@ -93,6 +92,13 @@ public class UserController {
                 .buildAndExpand(result.getId()).toUri();
 
         return ResponseEntity.created(uri).body(new ApiResponse(true, "User created successfully."));
+    }
+
+    /* Returns all registered users for the admin. */
+    @GetMapping("/users")
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     /*
