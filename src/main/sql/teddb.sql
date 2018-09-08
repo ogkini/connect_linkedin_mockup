@@ -5,8 +5,17 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
-USE `teddb` ;
+#DROP SCHEMA IF EXISTS `teddb`;
+CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8mb4;
+USE `teddb`;
+
+-- -----------------------------------------------------
+-- root-user
+-- -----------------------------------------------------
+#DROP USER IF EXISTS ‘ted_user’@‘localhost’;
+CREATE USER IF NOT EXISTS 'ted_user'@'localhost' IDENTIFIED BY 'ted';
+GRANT ALL PRIVILEGES ON * . * TO 'ted_user'@'localhost';
+FLUSH PRIVILEGES;
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Roles`
