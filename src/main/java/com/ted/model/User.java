@@ -33,6 +33,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "picture")
+    private String picture;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="role_id", nullable=false)
@@ -55,11 +58,12 @@ public class User {
 
     public User () {}
 
-    public User(String firstname, String lastname, String email, String password) {
+    public User(String firstname, String lastname, String email, String password, String picture) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.picture = picture;
     }
 
     public Long getId() {
@@ -100,6 +104,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public Role getRole() {

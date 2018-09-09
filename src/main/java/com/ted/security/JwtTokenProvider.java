@@ -21,11 +21,12 @@ public class JwtTokenProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
-    public String generateToken(Authentication authentication) {
+    public String generateToken(Authentication authentication, String role) {
         UserDetailsImpl userDetailsImpl = (UserDetailsImpl) authentication.getPrincipal();
 
         return Jwts.builder()
                 .setSubject(Long.toString(userDetailsImpl.getId()))
+                .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET)
@@ -59,5 +60,5 @@ public class JwtTokenProvider {
 
         return false;
     }
-    
+
 }

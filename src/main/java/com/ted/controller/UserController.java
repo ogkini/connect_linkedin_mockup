@@ -71,7 +71,8 @@ public class UserController {
                 signUpRequest.getFirstname(),
                 signUpRequest.getLastname(),
                 signUpRequest.getEmail(),
-                signUpRequest.getPassword()
+                signUpRequest.getPassword(),
+                signUpRequest.getPicture()
         );
 
         // Encrypt the password
@@ -123,9 +124,17 @@ public class UserController {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = tokenProvider.generateToken(authentication);
+        String jwt = tokenProvider.generateToken(authentication, user.getRole().getName().name());
 
-        return ResponseEntity.ok(new SignInResponse(jwt, user.getEmail(), user.getFirstname(), user.getLastname()));
+        return ResponseEntity.ok(
+            new SignInResponse(
+                jwt,
+                user.getEmail(),
+                user.getFirstname(),
+                user.getLastname(),
+                user.getRole().getName().name()
+            )
+        );
     }
 
     // @PutMapping("/users/{userId}")

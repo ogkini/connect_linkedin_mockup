@@ -25,6 +25,7 @@ public class SignUpRequest {
     @Size(min = 2, max = 100)
     private String password;
 
+    private String picture;
 
     public String getFirstname() {
         return firstname;
@@ -56,6 +57,14 @@ public class SignUpRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
 }

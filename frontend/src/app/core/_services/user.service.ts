@@ -7,27 +7,27 @@ import { ConnectionConfigService } from './connection-config.service';
 @Injectable()
 export class UserService {
   constructor(
-    private http: HttpClient,
+    private httpClient: HttpClient,
     private connConfig: ConnectionConfigService
   ) { }
 
   getAll() {
-    return this.http.get<User[]>(this.connConfig.serverUrl + this.connConfig.signupEndpoint);
+    return this.httpClient.get<User[]>(this.connConfig.serverUrl + this.connConfig.signupEndpoint);
   }
 
   getById(id: number) {
-    return this.http.get('/api/users/' + id);
+    return this.httpClient.get('/api/users/' + id);
   }
 
   create(user: User) {
-    return this.http.post(this.connConfig.serverUrl + this.connConfig.signupEndpoint, user);
+    return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.signupEndpoint, user);
   }
 
   update(user: User) {
-    return this.http.put('/api/users/' + user.id, user);
+    return this.httpClient.put('/api/users/' + user.id, user);
   }
 
   delete(id: number) {
-    return this.http.delete('/api/users/' + id);
+    return this.httpClient.delete('/api/users/' + id);
   }
 }
