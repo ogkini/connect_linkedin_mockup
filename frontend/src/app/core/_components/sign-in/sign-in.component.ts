@@ -50,9 +50,9 @@ export class SignInComponent implements OnInit {
 
     // Set url to redirect to after signin
     if (this.f.email.value === 'admin@mail.com') {
-      this.returnUrl = '/welcome-admin';
+      this.returnUrl = '/home-admin';
     } else {
-      this.returnUrl = '/welcome-user';
+      this.returnUrl = '/home-user';
     }
 
     this.authenticationService.login(this.f.email.value, this.f.password.value)

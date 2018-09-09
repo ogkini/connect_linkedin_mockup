@@ -25,7 +25,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 
@@ -94,7 +93,10 @@ public class UserController {
         return ResponseEntity.created(uri).body(new ApiResponse(true, "User created successfully."));
     }
 
-    /* Returns all registered users for the admin. */
+    /*
+     * Returns all registered users.
+     * Only the admin can perform this action.
+     */
     @GetMapping("/users")
     @PreAuthorize("hasRole('ADMIN')")
     public List<User> getAllUsers() {
@@ -103,9 +105,9 @@ public class UserController {
 
     /*
      * This method handles POST requests issued to "/signin",
-     * which are used to sign an existing user to the app.
+     * which are used to sign a user in to the app.
      */
-    @PostMapping("signin")
+    @PostMapping("/signin")
     public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signInRequest) {
         // Check if the user exists
         User user = userRepository.findByEmail(signInRequest.getEmail()).orElse(null);
