@@ -2,8 +2,6 @@
 
 Add ```/api``` at the front of every uri.
 
-- ![#f03c15](/users)
-
 * ```/users```
 
     | Http Method | Result                                   |
