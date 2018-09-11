@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `password` VARCHAR(100) NOT NULL,
   `role_id` BIGINT NOT NULL,
   `picture` VARCHAR(45) NOT NULL,
+  `occupation` BIGINT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
@@ -51,6 +52,26 @@ ENGINE = InnoDB;
 
 INSERT INTO Users (firstname, lastname, email, password, role_id, picture)
 VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 1, 'generic.png');
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Occupation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Occupation` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Occupation` (
+  `occupation_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `title` VARCHAR(80) NOT NULL,
+  `company` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`occupation_id`),
+  INDEX `fk_Occupation_1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_Occupation_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
