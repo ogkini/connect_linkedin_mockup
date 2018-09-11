@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `password` VARCHAR(100) NOT NULL,
   `role_id` BIGINT NOT NULL,
   `picture` VARCHAR(45) NOT NULL,
-  `occupation` BIGINT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
@@ -63,8 +62,9 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Occupation` (
   `user_id` BIGINT NOT NULL,
   `title` VARCHAR(80) NOT NULL,
   `company` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`occupation_id`),
   INDEX `fk_Occupation_1_idx` (`user_id` ASC),
+  PRIMARY KEY (`occupation_id`),
+  UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
   CONSTRAINT `fk_Occupation_1`
     FOREIGN KEY (`user_id`)
     REFERENCES `teddb`.`Users` (`user_id`)

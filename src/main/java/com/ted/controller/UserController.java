@@ -13,9 +13,9 @@ import com.ted.request.SignUpRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.SignInResponse;
 import com.ted.security.CurrentUser;
-import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
 import com.ted.service.UserService;
+import com.ted.security.JwtTokenProvider;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -55,10 +55,7 @@ public class UserController {
     @Autowired
     private JwtTokenProvider tokenProvider;
 
-    /*
-     * This method handles POST requests issued to "/users",
-     * which are used to register a new user.
-     */
+    // Creates a new user
     @PostMapping("/users")
     @ResponseBody
     public ResponseEntity<?> signUp(@Valid @RequestBody SignUpRequest signUpRequest) {
@@ -94,20 +91,15 @@ public class UserController {
         return ResponseEntity.created(uri).body(new ApiResponse(true, "User created successfully."));
     }
 
-    /*
-     * Returns all registered users.
-     * Only the admin can perform this action.
-     */
+    // Returns all registered users.
+    // Only the admin can perform this action.
     @GetMapping("/users")
     @PreAuthorize("hasRole('ADMIN')")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<User> getAll() {
+        return userService.getAll();
     }
 
-    /*
-     * This method handles POST requests issued to "/signin",
-     * which are used to sign a user in to the app.
-     */
+    // Signs a user in to the app
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signInRequest) {
         // Check if the user exists

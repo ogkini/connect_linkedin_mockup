@@ -20,8 +20,8 @@ public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     // Returns all users
-    public List<User> getAllUsers() {
-        return userRepository.getAllUsers();
+    public List<User> getAll() {
+        return userRepository.getAll();
     }
 
 }

@@ -1,5 +1,7 @@
 package com.ted.model;
 
+import com.ted.model.Occupation;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -33,13 +35,16 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "picture")
-    private String picture;
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="role_id", nullable=false)
     private Role role;
+
+    @Column(name = "picture")
+    private String picture;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Occupation occupation;
 
     // @JsonIgnore
     // @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -106,6 +111,14 @@ public class User {
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public String getPicture() {
         return picture;
     }
@@ -114,12 +127,12 @@ public class User {
         this.picture = picture;
     }
 
-    public Role getRole() {
-        return role;
+    public Occupation getOccupation() {
+        return occupation;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setOccupation(Occupation occupation) {
+        this.occupation = occupation;
     }
 
     @Override
