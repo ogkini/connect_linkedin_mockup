@@ -4,9 +4,10 @@ Add ```/api``` at the front of every uri.
 
 * ```/users```
 
-    #### Http Methods
-    | **GET**  | returns a list of all users |
-    | **POST** | creates a new user |
+    | Http Method | Result                      |
+    | ----------- | ----------------------------|
+    | **GET**     | returns a list of all users |
+    | **POST**    | creates a new user          |
 
 * ```/users/{id}```
 
