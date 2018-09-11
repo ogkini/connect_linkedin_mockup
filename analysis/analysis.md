@@ -3,7 +3,7 @@
 Add ```/api``` at the front of every uri.
 
 * ```diff
-  - /users
+  /users
   ```
 
     | Http Method | Result                                   |
