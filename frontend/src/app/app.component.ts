@@ -10,10 +10,7 @@ export class AppComponent {
 
   title = 'Connect';
 
-  public constructor(private titleService: Title ) { }
-
-  public setTitle( newTitle: string) {
-    this.titleService.setTitle( newTitle );
+  public constructor(private titleService: Title ) {
+    this.titleService.setTitle(this.title);
   }
-
 }
