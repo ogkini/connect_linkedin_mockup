@@ -1,6 +1,7 @@
 buildscript {
 	ext {
 		springBootVersion = '2.0.4.RELEASE'
+		springVersion = "5.0.8.RELEASE"
 	}
 	repositories {
 		mavenCentral()
@@ -24,13 +25,14 @@ repositories {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
 	compile("io.jsonwebtoken:jjwt:0.9.1")
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
-	runtime('org.springframework.boot:spring-boot-devtools')
+	runtime("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
 	runtime('mysql:mysql-connector-java')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.security:spring-security-test')
+	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+	testCompile("org.springframework.security:spring-security-test:${springVersion}")
 }
