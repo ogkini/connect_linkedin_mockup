@@ -12,11 +12,14 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    // Returns a user with a specific id
+    Optional<User> findById(Long id);
+
     // Returns a user with a specific email
     Optional<User> findByEmail(String email);
 
     // Returns all users
     @Query("from User user")
-    List<User> getAllUsers();
+    List<User> getAll();
 
 }

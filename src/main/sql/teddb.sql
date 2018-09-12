@@ -54,6 +54,27 @@ ENGINE = InnoDB;
 INSERT INTO Users (firstname, lastname, email, password, picture, role_id)
 VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 'generic.png', 1);
 
+-- -----------------------------------------------------
+-- Table `teddb`.`Occupation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Occupation` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Occupation` (
+  `occupation_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `title` VARCHAR(80) NOT NULL,
+  `company` VARCHAR(45) NOT NULL,
+  INDEX `fk_Occupation_1_idx` (`user_id` ASC),
+  PRIMARY KEY (`occupation_id`),
+  UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
+  CONSTRAINT `fk_Occupation_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
