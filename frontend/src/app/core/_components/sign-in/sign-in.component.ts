@@ -33,8 +33,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signInForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.maxLength(65)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
     });
 
     // Reset login status

@@ -1,6 +1,8 @@
 package com.ted.request;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /*
  * This class provides the json specification
@@ -22,10 +24,11 @@ public class SignUpRequest {
     private String email;
 
     @NotBlank
-    @Size(min = 2, max = 100)
+    @Size(min = 6, max = 100)
     private String password;
 
     private String picture;
+
 
     public String getFirstname() {
         return firstname;

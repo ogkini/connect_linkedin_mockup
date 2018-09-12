@@ -16,6 +16,8 @@ import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.com
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
 import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-bar.component';
 
+import { FileUploaderService } from './_services/file-uploader/file-uploader.service';
+
 import { AuthGuard, RoleGuard } from './_guards/index';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, UserService, ConnectionConfigService } from './_services/index';
@@ -53,6 +55,7 @@ import { JwtInterceptor } from './_helpers/index';
     AuthenticationService,
     UserService,
     ConnectionConfigService,
+    FileUploaderService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

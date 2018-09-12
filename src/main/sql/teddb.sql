@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `picture` VARCHAR(45) NULL,
+  `picture` VARCHAR(200) NULL,
   `role_id` BIGINT NOT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),

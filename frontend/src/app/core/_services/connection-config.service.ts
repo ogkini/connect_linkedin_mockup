@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class ConnectionConfigService {
     signinEndpoint  = 'signin';
     signupEndpoint  = 'users';
+    uploadEndpoint = 'uploads';
 
     serverUrl = '//localhost:9090/api/';
 }
