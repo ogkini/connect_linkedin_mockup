@@ -62,13 +62,14 @@ export class SignUpComponent implements OnInit {
     if (this.signUpForm.invalid)
       return;
 
-    console.debug("Going to create user!");
+    //console.debug("Going to create user!");
     // Create the user
     this.createUser(this.f.firstname.value, this.f.lastname.value, this.f.email.value, this.f.password.value, this.fileUploader.fileName);
 
-    console.debug("Going to post the file!!");
+    //console.debug("Going to post the file!!");
     // Post the photo_prfil to the BackEnd-code.
-    this.fileUploader.postFile()
+
+    this.fileUploader.postFile(this.f.email.value)
   }
 
 

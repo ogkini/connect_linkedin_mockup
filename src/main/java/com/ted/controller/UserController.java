@@ -1,36 +1,32 @@
 package com.ted.controller;
 
-import com.ted.model.User;
-import com.ted.model.Role;
-import com.ted.model.RoleName;
-import com.ted.repository.UserRepository;
-import com.ted.repository.RoleRepository;
-import com.ted.exception.UserExistsException;
 import com.ted.exception.AppException;
 import com.ted.exception.BadRequestException;
+import com.ted.exception.UserExistsException;
+import com.ted.model.Role;
+import com.ted.model.RoleName;
+import com.ted.model.User;
+import com.ted.repository.RoleRepository;
+import com.ted.repository.UserRepository;
 import com.ted.request.SignInRequest;
 import com.ted.request.SignUpRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.SignInResponse;
-import com.ted.security.CurrentUser;
-import com.ted.security.UserDetailsImpl;
-import com.ted.service.UserService;
 import com.ted.security.JwtTokenProvider;
-
+import com.ted.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.http.ResponseEntity;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.Collections;
 import java.util.List;
 
 @RestController

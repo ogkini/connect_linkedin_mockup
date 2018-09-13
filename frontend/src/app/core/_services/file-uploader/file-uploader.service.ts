@@ -40,7 +40,9 @@ export class FileUploaderService {
       return null;
   }
 
-  postFile()
+  endpoint: string;
+
+  postFile(user_email: string)
   {
       if ( this.fileToUpload == null ) {
         console.error("FileToUpload was null. No POST was made!");
@@ -49,10 +51,16 @@ export class FileUploaderService {
       /*else
         console.debug("1 step away from the POST... Our filename is: ", this.fileName);*/
 
+      if ( user_email != null ) // Going to upload a photoProfile..
+        this.endpoint = this.connConfig.uploadProfilePhotoEndpoint;
+      else
+        this.endpoint = this.connConfig.uploadEndpoint;
+
       const formData: FormData = new FormData();
       formData.append('file', this.fileToUpload, this.fileToUpload.name);
+      formData.append("email", user_email); // It's ok to send null.. it's usefull in the backend.
 
-      return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.uploadEndpoint , formData)
+      return this.httpClient.post(this.connConfig.serverUrl + this.endpoint , formData)
                             .subscribe(response => console.log("Response: " + response));
   }
 

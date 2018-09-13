@@ -19,6 +19,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -38,7 +39,7 @@ public class FileUploadTests {
                 .andExpect(status().isFound())
                 .andExpect(header().string("Location", "/"));
 
-        then(this.storageService).should().storeFile(multipartFile);
+        then(this.storageService).should().storeFile(multipartFile, null,null);
     }
 
     @SuppressWarnings("unchecked")
