@@ -47,20 +47,8 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Experience> exprerience;
 
-    // @JsonIgnore
-    // @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    // @JoinTable(name = "UserRoles",
-    //         joinColumns = @JoinColumn(name = "user_id", referencedColumnName="id"),
-    //         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName="id"))
-    // private Set<Role> roles = new HashSet<>();
-
-    // @JsonIgnore
-    // @ManyToMany(mappedBy = "members", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    // private Set<Team> teams = new HashSet<>();
-
-    // @JsonIgnore
-    // @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
-    // private Set<Notification> notifications;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Education> education;
 
     public User () {}
 
