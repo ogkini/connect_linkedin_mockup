@@ -1,8 +1,8 @@
 package com.ted.controller;
 
-import com.ted.model.Occupation;
-import com.ted.request.OccupationRequest;
-import com.ted.service.OccupationService;
+import com.ted.model.Experience;
+import com.ted.request.ExperienceRequest;
+import com.ted.service.ExperienceService;
 import com.ted.response.ApiResponse;
 import com.ted.exception.NotAuthorizedException;
 import com.ted.security.CurrentUser;
@@ -19,18 +19,19 @@ import org.slf4j.LoggerFactory;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class OccupationController {
+public class ExperienceController {
 
     @Autowired
-    private OccupationService occupationService;
+    private ExperienceService experienceService;
 
-    // Adds an occupation for a user
-    @PostMapping("/users/{userId}/occupation")
+    // Adds an experience for a user
+    @PostMapping("/users/{userId}/experience")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<?> create(@Valid @RequestBody OccupationRequest occupationRequest,
+    public ResponseEntity<?> create(@Valid @RequestBody ExperienceRequest experienceRequest,
                                     @PathVariable(value = "userId") Long userId,
                                     @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
@@ -38,26 +39,26 @@ public class OccupationController {
             throw new NotAuthorizedException("You are not authorized to create this resource.");
         }
 
-        Occupation occupation = occupationService.create(userId, occupationRequest);
+        Experience experience = experienceService.create(userId, experienceRequest);
 
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("")
-                .buildAndExpand().toUri();
+                .fromCurrentRequest().path("/{experienceId}")
+                .buildAndExpand(experience.getId()).toUri();
 
-        return ResponseEntity.created(location).body(new ApiResponse(true, "Occupation Created.", occupation));
+        return ResponseEntity.created(location).body(new ApiResponse(true, "Experience Created.", experience));
     }
 
-    // Returns a user's occupation
-    @GetMapping("/users/{userId}/occupation")
+    // Returns a user's experience
+    @GetMapping("/users/{userId}/experience")
     @PreAuthorize("hasRole('USER')")
-    public Occupation get(@PathVariable(value = "userId") Long userId,
-                          @Valid @CurrentUser UserDetailsImpl currentUser) {
+    public List<Experience> getAll(@PathVariable(value = "userId") Long userId,
+                                   @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
         if (currentUser.getId() != userId) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
-        return occupationService.get(userId);
+        return experienceService.getAll(userId);
     }
 
 }

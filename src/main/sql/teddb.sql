@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO Users (firstname, lastname, email, password, role_id, picture)
-VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 1, 'generic.png');
+INSERT INTO Users (firstname, lastname, email, password, picture, role_id)
+VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 'generic.png', 1);
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Occupation`
@@ -66,6 +66,50 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Occupation` (
   PRIMARY KEY (`occupation_id`),
   UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
   CONSTRAINT `fk_Occupation_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Experience`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Experience` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Experience` (
+  `experience_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `title` VARCHAR(80) NOT NULL,
+  `company` VARCHAR(45) NOT NULL,
+  `start_date` DATE NOT NULL,
+  `end_date` DATE NOT NULL,
+  PRIMARY KEY (`experience_id`),
+  INDEX `fk_Experience_1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_Experience_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Education`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Education` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Education` (
+  `education_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `title` VARCHAR(80) NOT NULL,
+  `school` VARCHAR(80) NOT NULL,
+  `start_date` DATE NOT NULL,
+  `end_date` DATE NOT NULL,
+  PRIMARY KEY (`education_id`),
+  INDEX `fk_Education_1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_Education_1`
     FOREIGN KEY (`user_id`)
     REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION

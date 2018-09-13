@@ -1,7 +1,5 @@
 package com.ted.model;
 
-import com.ted.model.Occupation;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -45,6 +43,9 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Occupation occupation;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Experience> exprerience;
 
     // @JsonIgnore
     // @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

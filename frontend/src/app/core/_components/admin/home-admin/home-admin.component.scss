@@ -14,9 +14,9 @@ body {
   margin: 30px auto;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
-  // -webkit-box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.15);
-  // -moz-box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.15);
-  // box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 .product-img {

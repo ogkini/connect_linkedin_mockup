@@ -3,7 +3,9 @@ package com.ted.request;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class OccupationRequest {
+import java.util.Date;
+
+public class ExperienceRequest {
 
     @NotBlank
     @Size(max = 80)
@@ -12,6 +14,9 @@ public class OccupationRequest {
     @NotBlank
     @Size(max = 45)
     private String company;
+
+    private Date startDate;
+    private Date endDate;
 
     public String getTitle() {
         return title;
@@ -27,6 +32,22 @@ public class OccupationRequest {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
 }

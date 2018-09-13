@@ -8,16 +8,16 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "Occupation", schema = "teddb")
-public class Occupation {
+@Table(name = "Experience", schema = "teddb")
+public class Experience {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "occupation_id")
+    @Column(name = "experience_id")
     private Long id;
 
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -27,11 +27,19 @@ public class Occupation {
     @Column(name = "company")
     private String company;
 
-    public Occupation () {}
+    @Column(name = "start_date")
+    private Date startDate;
 
-    public Occupation(String title, String company) {
+    @Column(name = "end_date")
+    private Date endDate;
+
+    public Experience () {}
+
+    public Experience(String title, String company, Date startDate, Date endDate) {
         this.title = title;
         this.company = company;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public Long getId() {
@@ -66,19 +74,37 @@ public class Occupation {
         this.company = company;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Occupation that = (Occupation) o;
+        Experience that = (Experience) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(title, that.title) &&
-                Objects.equals(company, that.company);
+                Objects.equals(company, that.company) &&
+                Objects.equals(startDate, that.startDate) &&
+                Objects.equals(endDate, that.endDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, company);
+        return Objects.hash(id, title, company, startDate, endDate);
     }
 
 }
