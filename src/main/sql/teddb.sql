@@ -117,6 +117,26 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Education` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `teddb`.`Skills`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Skills` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Skills` (
+  `skill_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `strength` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`skill_id`),
+  INDEX `fk_Skills_1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_Skills_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

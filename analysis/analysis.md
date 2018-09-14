@@ -25,3 +25,24 @@ Add ```/api``` at the front of every uri.
     | **POST**    | a user adds his occupation    |
     | **PUT**     | a user updates his occupation |
     | **DELETE**  | a user deletes his occupation |
+
+* ```/users/{id}/experience```
+
+    | Http Method | Result                        |
+    | ----------- | ----------------------------- |
+    | **GET**     | returns a user's experience   |
+    | **POST**    | a user adds experience        |
+
+* ```/users/{id}/education```
+
+    | Http Method | Result                       |
+    | ----------- | ---------------------------- |
+    | **GET**     | returns a user's education   |
+    | **POST**    | a user adds education        |
+
+* ```/users/{id}/skills```
+
+    | Http Method | Result                    |
+    | ----------- | ------------------------- |
+    | **GET**     | returns a user's skills   |
+    | **POST**    | a user adds a skill       |

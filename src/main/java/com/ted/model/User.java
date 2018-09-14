@@ -50,6 +50,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Education> education;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Skill> skills;
+
     public User () {}
 
     public User(String firstname, String lastname, String email, String password, String picture) {
@@ -122,6 +125,30 @@ public class User {
 
     public void setOccupation(Occupation occupation) {
         this.occupation = occupation;
+    }
+
+    public List<Experience> getExperience() {
+        return exprerience;
+    }
+
+    public void setExperience(List<Experience> exprerience) {
+        this.exprerience = exprerience;
+    }
+
+    public List<Education> getEducation() {
+        return education;
+    }
+
+    public void setEducation(List<Education> education) {
+        this.education = education;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 
     @Override

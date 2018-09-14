@@ -1,8 +1,8 @@
 package com.ted.controller;
 
-import com.ted.model.Education;
-import com.ted.request.EducationRequest;
-import com.ted.service.EducationService;
+import com.ted.model.Skill;
+import com.ted.request.SkillRequest;
+import com.ted.service.SkillService;
 import com.ted.response.ApiResponse;
 import com.ted.exception.NotAuthorizedException;
 import com.ted.security.CurrentUser;
@@ -23,15 +23,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class EducationController {
+public class SkillController {
 
     @Autowired
-    private EducationService educationService;
+    private SkillService skillService;
 
-    // Adds an education for a user
-    @PostMapping("/users/{userId}/education")
+    // Adds a skill for a user
+    @PostMapping("/users/{userId}/skills")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<?> create(@Valid @RequestBody EducationRequest educationRequest,
+    public ResponseEntity<?> create(@Valid @RequestBody SkillRequest skillRequest,
                                     @PathVariable(value = "userId") Long userId,
                                     @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
@@ -39,26 +39,26 @@ public class EducationController {
             throw new NotAuthorizedException("You are not authorized to create this resource.");
         }
 
-        Education education = educationService.create(userId, educationRequest);
+        Skill skill = skillService.create(userId, skillRequest);
 
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{educationId}")
-                .buildAndExpand(education.getId()).toUri();
+                .fromCurrentRequest().path("/{skillId}")
+                .buildAndExpand(skill.getId()).toUri();
 
-        return ResponseEntity.created(location).body(new ApiResponse(true, "Education Created.", education));
+        return ResponseEntity.created(location).body(new ApiResponse(true, "Skill Created.", skill));
     }
 
-    // Returns a user's education
-    @GetMapping("/users/{userId}/education")
+    // Returns a user's skills
+    @GetMapping("/users/{userId}/skills")
     @PreAuthorize("hasRole('USER')")
-    public List<Education> getAll(@PathVariable(value = "userId") Long userId,
-                                  @Valid @CurrentUser UserDetailsImpl currentUser) {
+    public List<Skill> getAll(@PathVariable(value = "userId") Long userId,
+                              @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
         if (currentUser.getId() != userId) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
-        return educationService.getAll(userId);
+        return skillService.getAll(userId);
     }
 
 }
