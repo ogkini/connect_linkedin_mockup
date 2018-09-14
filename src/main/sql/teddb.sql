@@ -5,19 +5,22 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `teddb` ;
-
--- -----------------------------------------------------
--- Schema teddb
--- -----------------------------------------------------
+#DROP SCHEMA IF EXISTS `teddb` ;
 CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
 USE `teddb` ;
 
 -- -----------------------------------------------------
+-- User with privileges
+-- -----------------------------------------------------
+#DROP USER IF EXISTS ‘ted_user’@‘localhost’;
+CREATE USER IF NOT EXISTS 'ted_user'@'localhost' IDENTIFIED BY 'ted';
+GRANT ALL PRIVILEGES ON * . * TO 'ted_user'@'localhost';
+FLUSH PRIVILEGES;
+
+-- -----------------------------------------------------
 -- Table `teddb`.`Roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Roles` ;
-
+#DROP TABLE IF EXISTS `teddb`.`Roles` ;
 CREATE TABLE IF NOT EXISTS `teddb`.`Roles` (
   `role_id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
@@ -30,16 +33,15 @@ INSERT INTO Roles (name) VALUES ('ROLE_USER');
 -- -----------------------------------------------------
 -- Table `teddb`.`Users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Users` ;
-
+#DROP TABLE IF EXISTS `teddb`.`Users` ;
 CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `user_id` BIGINT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
+  `picture` VARCHAR(200) NULL,
   `role_id` BIGINT NOT NULL,
-  `picture` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
