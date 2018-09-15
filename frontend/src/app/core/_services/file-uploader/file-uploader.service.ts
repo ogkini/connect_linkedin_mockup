@@ -45,7 +45,7 @@ export class FileUploaderService {
   postFile(user_email: string)
   {
       if ( this.fileToUpload == null ) {
-        console.error("FileToUpload was null. No POST was made!");
+        console.warn("FileToUpload was null. No POST was made!");
         return;
       }
       /*else

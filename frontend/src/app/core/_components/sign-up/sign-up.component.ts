@@ -8,6 +8,8 @@ import { User } from '../../_models/index';
 import { AlertService, UserService } from '../../_services/index';
 import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
 import { FileUploaderService } from './../../_services/file-uploader/file-uploader.service';
+import { PasswordConfirmValidatorDirective } from '../../_directives/validators/password-confirm-validator.directive';
+import { TextValidatorDirective } from "../../_directives/validators/text_validator.directive";
 
 
 @Component({
@@ -38,11 +40,11 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signUpForm = this.formBuilder.group({
-      firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]],
-      lastname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(45)]],
-      email: ['', [Validators.required, Validators.maxLength(65)]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
+      firstname: ['', Validators.compose([Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(2), Validators.maxLength(45)])],
+      lastname: ['', Validators.compose([Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(2), Validators.maxLength(45)])],
+      email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(65)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])],
+      confirmPassword: ['', Validators.compose([Validators.required, PasswordConfirmValidatorDirective.validatePasswordConfirmation, Validators.minLength(6), Validators.maxLength(100)])]
     });
 
     // Get return url from route parameters or default to '/sign-in'

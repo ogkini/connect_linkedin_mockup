@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
 ENGINE = InnoDB;
 
 INSERT INTO Users (firstname, lastname, email, password, picture, role_id)
-VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 'generic.png', 1);
+VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 'generic_profile_photo.png', 1);
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Occupation`

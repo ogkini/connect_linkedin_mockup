@@ -28,6 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)
     int getId(@Param("email") String email);
 
+    // Update the "picture" of a user.
     @Transactional
     @Modifying
     @Query(value = "update Users u set u.picture = :picture where u.user_id = :user_id", nativeQuery = true)
