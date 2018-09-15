@@ -3,6 +3,7 @@ package com.ted.service;
 import com.ted.exception.FileNotFoundException;
 import com.ted.exception.FileStorageException;
 import com.ted.property.FileStorageProperties;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -18,7 +19,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-
 @Service
 public class FileStorageService {
 
@@ -26,24 +26,23 @@ public class FileStorageService {
 
     @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) {
-        this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
-                .toAbsolutePath().normalize();
+        this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir()).toAbsolutePath().normalize();
 
         try {
             Files.createDirectories(this.fileStorageLocation);
-        } catch (Exception ex) {
-            throw new FileStorageException("Could not create the directory where the uploaded files will be stored.", ex);
+        } catch (Exception exception) {
+            throw new FileStorageException("Could not create target directory.", exception);
         }
     }
 
     public String storeFile(MultipartFile file, String fileName, String innerDir) throws IOException {
-        // Normalize file name
-
         String file_name;
-        if ( fileName != null )
+
+        if (fileName != null) {
             file_name = StringUtils.cleanPath(fileName);
-        else
+        } else {
             file_name = StringUtils.cleanPath(file.getOriginalFilename());
+        }
 
         Path path;
         if ( innerDir != null ) {
@@ -73,13 +72,13 @@ public class FileStorageService {
         try {
             Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());
-            if ( resource.exists() ) {
+            if (resource.exists()) {
                 return resource;
             } else {
                 throw new FileNotFoundException("File not found " + fileName);
             }
-        } catch (MalformedURLException ex) {
-            throw new FileNotFoundException("File not found " + fileName, ex);
+        } catch (MalformedURLException exception) {
+            throw new FileNotFoundException("File not found " + fileName, exception);
         }
     }
 

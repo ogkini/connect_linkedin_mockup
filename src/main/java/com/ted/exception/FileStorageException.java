@@ -1,6 +1,5 @@
 package com.ted.exception;
 
-
 public class FileStorageException extends RuntimeException {
 
     public FileStorageException() { }
@@ -12,4 +11,5 @@ public class FileStorageException extends RuntimeException {
     public FileStorageException(String message, Throwable cause) {
         super(message, cause);
     }
+
 }

@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.ted.property.FileStorageProperties",
+      "name": "file",
+      "type": "com.ted.property.FileStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.ted.property.FileStorageProperties",
+      "name": "file.upload-dir",
+      "type": "java.lang.String"
+    }
+  ]
+}

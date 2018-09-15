@@ -14,6 +14,7 @@ import com.ted.response.ApiResponse;
 import com.ted.response.SignInResponse;
 import com.ted.security.JwtTokenProvider;
 import com.ted.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -58,6 +59,11 @@ public class UserController {
         // Check if the user already exists
         userRepository.findByEmail(signUpRequest.getEmail())
                 .ifPresent((s) -> { throw new UserExistsException("A user with the same email already exists."); });
+
+        // If no picture was chosen use the generic one
+        if (signUpRequest.getPicture() == null) {
+            signUpRequest.setPicture("generic.png");
+        }
 
         // Create a User object from the request
         User user = new User(

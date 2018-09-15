@@ -4,10 +4,10 @@ import com.ted.exception.FileStorageException;
 import com.ted.repository.UserRepository;
 import com.ted.response.UploadFileResponse;
 import com.ted.service.FileStorageService;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api")
@@ -24,8 +26,7 @@ public class FileController {
 
     private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 
-    private static String profilePhotoBaseName = "profile_photo";
-
+    private static String profilePhotoBaseName = "profile_photo_";
 
     @Autowired
     private FileStorageService fileStorageService;
@@ -33,13 +34,12 @@ public class FileController {
     @Autowired
     private UserRepository userRepository;
 
-
     @PostMapping("/uploads/profilePhotos")
-    public UploadFileResponse uploadProfilePhoto (@RequestParam("file") MultipartFile file, @RequestParam("email") String user_email) {
-
+    public UploadFileResponse uploadProfilePhoto(@RequestParam("file") MultipartFile file,
+                                                 @RequestParam("email") String email) {
         String fileName = file.getOriginalFilename();
 
-        if ( fileName == null ) {
+        if (fileName == null) {
             logger.error("Failure when retrieving the filename of the incoming file!");
             return new UploadFileResponse(null, /*null,*/null, -1);
         }
@@ -53,15 +53,15 @@ public class FileController {
         // Find ID based on email. Connect with the DB and retrieve it.
 
         // First check if the user actually exists in DataBase.
-        if ( !userRepository.findByEmail(user_email).isPresent() ) {
-            logger.error("The user with the following email doesn't exist! email: " + user_email);
+        if ( !userRepository.findByEmail(email).isPresent() ) {
+            logger.error("The user with the following email doesn't exist! email: " + email);
             return new UploadFileResponse(fileName, /*null,*/null, -1);
         }
 
         int user_id = 0;
-        user_id = userRepository.getId(user_email); // != 0.
+        user_id = userRepository.getId(email); // != 0.
         if ( user_id == 0 ) {
-            logger.error("Could not retrieve the id of the user with the email: " + user_email);
+            logger.error("Could not retrieve the id of the user with the email: " + email);
             return new UploadFileResponse(fileName, /*null,*/null, -1);
         }
 

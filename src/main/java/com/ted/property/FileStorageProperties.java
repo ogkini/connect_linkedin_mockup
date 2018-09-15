@@ -4,7 +4,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "file")
@@ -19,4 +18,5 @@ public class FileStorageProperties {
     public void setUploadDir(String uploadDir) {
         this.uploadDir = uploadDir;
     }
+
 }
