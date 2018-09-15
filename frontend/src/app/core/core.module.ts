@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './_helpers/index';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { WelcomeComponent } from './_components/welcome/welcome.component';
@@ -21,7 +22,9 @@ import { FileUploaderService } from './_services/file-uploader/file-uploader.ser
 import { AuthGuard, RoleGuard } from './_guards/index';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, UserService, ConnectionConfigService } from './_services/index';
-import { JwtInterceptor } from './_helpers/index';
+import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
+import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
+
 
 @NgModule({
   imports: [
@@ -42,7 +45,9 @@ import { JwtInterceptor } from './_helpers/index';
     MainNavBarComponent,
     AdminNavBarComponent,
     UserNavBarComponent,
-    AlertComponent
+    AlertComponent,
+    PasswordConfirmValidatorDirective,
+    TextValidatorDirective
   ],
   exports: [
     FooterComponent,

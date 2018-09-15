@@ -9,37 +9,43 @@
     <app-alert></app-alert>
 
     <!-- First name -->
-    <input type="text" class="form-control mb-4" placeholder="First Name" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" autofocus>
+    <input type="text" class="form-control mb-4" placeholder="First Name" formControlName="firstname" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" required autofocus>
     <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
-        <div *ngIf="f.firstname.errors.required">First name is required.</div>
+        <div class="error" *ngIf="f.firstname.errors.required">First name is required.</div>
+        <div class="error" *ngIf="f.firstname.errors.minLength || f.firstname.errors.maxLength">Text should be between 2 and 45 characters.</div>
+        <div class="error" *ngIf="f.firstname.errors.text_val">First name must contain letters only.</div>
     </div>
 
     <!-- Last name -->
-    <input type="text" class="form-control mb-4" placeholder="Last Name" formControlName="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+    <input type="text" class="form-control mb-4" placeholder="Last Name" formControlName="lastname" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" required>
     <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
-        <div *ngIf="f.lastname.errors.required">Last name is required.</div>
+        <div class="error" *ngIf="f.lastname.errors.required">Last name is required.</div>
+        <div class="error" *ngIf="f.lastname.errors.minLength || f.lastname.errors.maxLength">Text should be between 2 and 45 characters.</div>
+        <div class="error" *ngIf="f.lastname.errors.text_val">Last name must contain letters only.</div>
     </div>
 
     <!-- Email -->
-    <input type="email" class="form-control mb-4" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+    <input type="email" class="form-control mb-4" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">Email is required.</div>
+        <div class="error" *ngIf="f.email.errors.required">Email is required.</div>
+        <div class="error" *ngIf="f.email.errors.email">Email is invalid.</div>
     </div>
 
     <!-- Password -->
-    <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-        <div *ngIf="f.password.errors.required">Password is required.</div>
+        <div class="error" *ngIf="f.password.errors.required">Password is required.</div>
     </div>
 
     <!-- Confirm Password -->
-    <input type="password" class="form-control mb-4" placeholder="Confirm password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
-    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-        <div *ngIf="f.confirmPassword.errors.required">Password confirmation is required.</div>
+    <input type="password" class="form-control mb-4" placeholder="Confirm password" formControlName="confirmPassword" ngModel #compare_pass="compare_pass" compare_pass [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" required>
+    <div *ngIf="submitted && f.confirmPassword.errors && (f.confirmPassword.dirty || f.confirmPassword.touched)" class="invalid-feedback">
+        <div class="error" *ngIf="f.confirmPassword.errors.required">Password confirmation is required.</div>
+        <div class="error" *ngIf="f.confirmPassword.errors.compare_pass">Passwords do not match!</div>
     </div>
 
     <div class="input-group mb-3">
-        <input id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" style="display: none" type="file" (change)="onImageChanged($event)" #fileInput>
+        <input type="file" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" style="display: none" (change)="onImageChanged($event)" #fileInput>
         <label class="btn btn-primary" for="inputGroupFile01" (click)="fileInput.click()">Add a profile picture (optional)</label>
     </div>
 

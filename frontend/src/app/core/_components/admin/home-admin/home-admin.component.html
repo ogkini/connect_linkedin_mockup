@@ -3,6 +3,8 @@
 <div class="container margin-t">
   <div class="wrapper border" *ngFor="let user of users">
     <div class="product-img">
+      <!--Here there should have the picture of each user: We should load the picture from the BackEnd having the name: {{user.picture}} -->
+      <!-- If {{user.picture}} == null, then load the "generic_profile_photo.png" -->
       <img src="http://bit.ly/2tMBBTd" height="118" width="120">
     </div>
     <div class="product-info">

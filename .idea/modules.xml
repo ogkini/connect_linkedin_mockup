@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ted_project.iml" filepath="$PROJECT_DIR$/.idea/ted_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ted.iml" filepath="$PROJECT_DIR$/.idea/modules/ted.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ted_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ted_main.iml" group="ted" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ted_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ted_test.iml" group="ted" />
     </modules>
   </component>
 </project>
