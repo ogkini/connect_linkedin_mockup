@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Update &quot;Gradle&quot; to version: 4.10.1">
+    <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Add run-scripts.">
       <change afterPath="$PROJECT_DIR$/scripts/backend/startBackend.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/scripts/frontend/startFrontend.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/scripts/frontend/startFrontendDEV.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppInstaller.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/AppInstaller.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -172,20 +158,20 @@
           <entry key="html" value="779" />
           <entry key="java" value="4548" />
           <entry key="properties" value="134" />
-          <entry key="sh" value="73" />
+          <entry key="sh" value="74" />
           <entry key="sql" value="53" />
           <entry key="ts" value="4625" />
-          <entry key="txt" value="1820" />
+          <entry key="txt" value="1838" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="33" />
+          <entry key="Bash" value="34" />
           <entry key="Groovy" value="127" />
           <entry key="HTML" value="779" />
           <entry key="JAVA" value="4548" />
-          <entry key="PLAIN_TEXT" value="1866" />
+          <entry key="PLAIN_TEXT" value="1884" />
           <entry key="Properties" value="134" />
           <entry key="SQL" value="53" />
           <entry key="TypeScript" value="4625" />
@@ -201,7 +187,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="411">
@@ -233,11 +219,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/backend/startBackend.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -728,8 +714,8 @@
         <option value="$PROJECT_DIR$/scripts/frontend/startFrontend.sh" />
         <option value="$PROJECT_DIR$/scripts/frontend/startFrontendDEV.sh" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-        <option value="$PROJECT_DIR$/scripts/backend/startBackend.sh" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/scripts/backend/startBackend.sh" />
       </list>
     </option>
   </component>
@@ -877,7 +863,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537068388368" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537068757709" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1071,7 +1057,7 @@
       <workItem from="1537034908444" duration="10639000" />
       <workItem from="1537050589446" duration="16118000" />
       <workItem from="1537067320990" duration="365000" />
-      <workItem from="1537067713723" duration="863000" />
+      <workItem from="1537067713723" duration="1043000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1150,11 +1136,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537068573394</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update &quot;Gradle&quot; to version: 4.10.1">
+      <created>1537068614388</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1537068614388</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199241000" />
+    <option name="totallyTimeSpent" value="199421000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1264,7 +1257,8 @@
     <MESSAGE value="- Add &quot;Logback&quot; as a logging implementation of SLF4J.&#10;- Set logging-levels in &quot;application.properties&quot;.&#10;- Add logging-configuration-file: &quot;logback-spring.xml&quot;." />
     <MESSAGE value="New feature &amp; optimizations (see details).&#10;- New feature: Backend for profile_photos-loading ready!&#10;- Update endpoints.&#10;- Add users' storage-directory.&#10;- Make file-paths platform-independent (use of &quot;File.separator&quot;).&#10;- Change admin's &quot;picture&quot; to &quot;NULL&quot; (this will be the default value in the DB, then the Backend will load the &quot;generic_profile_photo,png&quot;).&#10;- Code cleanup." />
     <MESSAGE value="Downgrade &quot;org.springframework.security&quot; to v.5.0.8, as this package has not yet been updated to v.5.0.9 (otherwise all other Spring-dependencies used by Spring-Boot v.2.0.5 are in v.5.0.9)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Downgrade &quot;org.springframework.security&quot; to v.5.0.8, as this package has not yet been updated to v.5.0.9 (otherwise all other Spring-dependencies used by Spring-Boot v.2.0.5 are in v.5.0.9)." />
+    <MESSAGE value="Update &quot;Gradle&quot; to version: 4.10.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update &quot;Gradle&quot; to version: 4.10.1" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
@@ -1568,17 +1562,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/backend/startBackend.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/backend/startBackend.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
