@@ -1,22 +1,24 @@
 <app-user-nav-bar ></app-user-nav-bar>
 
 <div class="container margin-t">
-  <div class="wrapper border">
 
+  <!-- Main User Info -->
+  <div class="wrapper border">
     <div class="product-img">
       <img src="http://bit.ly/2tMBBTd" height="198" width="200">
     </div>
 
     <div class="product-info">
       <div class="product-text">
-        <h1>Firstname Lastname</h1>
-        <h2>Occupation</h2>
+        <h1>{{user?.firstname}} {{user?.lastname}}</h1>
+        <h2>{{user?.occupation?.title}}</h2>
+        <h2>{{user?.occupation?.company}}</h2>
       </div>
 
-      <button type="button" class="btn btn-lg blue darken-4">Connect</button>
+      <!-- <button type="button" class="btn btn-lg blue darken-4">Connect</button> -->
     </div>
 
-    <div class="stats text-center blue darken-4">
+    <div class="stats text-center blue">
       <div class="stat first-stat">
         <div class="stat-value">150</div>
         <div class="stat-name">Followers</div>
@@ -27,6 +29,38 @@
         <div class="stat-name">Following</div>
       </div>
     </div>
-
   </div>
+
+  <!-- Experience -->
+  <div class="wrapper-2 border" *ngIf="user?.experience.length > 0">
+    <h1>Experience</h1>
+    <div *ngFor="let exp of user?.experience">
+      <hr>
+      <h2>{{exp?.title}}</h2>
+      <h3>{{exp?.company}}</h3>
+      <h4>{{exp?.startDate | date}} - {{exp?.endDate | date}}</h4>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="wrapper-2 border" *ngIf="user?.education.length > 0">
+    <h1>Education</h1>
+    <div *ngFor="let edu of user?.education">
+      <hr>
+      <h2>{{edu?.title}}</h2>
+      <h3>{{edu?.school}}</h3>
+      <h4>{{edu?.startDate | date}} - {{edu?.endDate | date}}</h4>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="wrapper-2 border" *ngIf="user?.skills.length > 0">
+    <h1>Skills</h1>
+    <div *ngFor="let skill of user?.skills">
+      <hr>
+      <h2>{{skill?.name}}</h2>
+      <h3>{{skill?.strength}}</h3>
+    </div>
+  </div>
+
 </div>

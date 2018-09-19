@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -42,16 +45,20 @@ public class User {
     private String picture;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
     private Occupation occupation;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Experience> exprerience;
+    @Fetch(FetchMode.SELECT)
+    private List<Experience> expreriences = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Education> education;
+    @Fetch(FetchMode.SELECT)
+    private List<Education> educations = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Skill> skills;
+    @Fetch(FetchMode.SELECT)
+    private List<Skill> skills = new ArrayList<>();
 
     public User () {}
 
@@ -128,19 +135,19 @@ public class User {
     }
 
     public List<Experience> getExperience() {
-        return exprerience;
+        return expreriences;
     }
 
-    public void setExperience(List<Experience> exprerience) {
-        this.exprerience = exprerience;
+    public void setExperience(List<Experience> expreriences) {
+        this.expreriences = expreriences;
     }
 
     public List<Education> getEducation() {
-        return education;
+        return educations;
     }
 
-    public void setEducation(List<Education> education) {
-        this.education = education;
+    public void setEducation(List<Education> educations) {
+        this.educations = educations;
     }
 
     public List<Skill> getSkills() {

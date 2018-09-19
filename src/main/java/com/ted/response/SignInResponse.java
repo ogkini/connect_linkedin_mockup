@@ -5,13 +5,15 @@ public class SignInResponse {
     private String accessToken;
     private String tokenType = "Bearer";
 
+    private Long id;
     private String email;
     private String firstname;
     private String lastname;
     private String role;
 
-    public SignInResponse(String accessToken, String email, String firstname, String lastname, String role) {
+    public SignInResponse(String accessToken, Long id, String email, String firstname, String lastname, String role) {
         this.accessToken = accessToken;
+        this.id = id;
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -32,6 +34,14 @@ public class SignInResponse {
 
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {

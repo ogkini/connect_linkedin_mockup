@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { User } from '../_models/index';
 import { ConnectionConfigService } from './connection-config.service';
@@ -15,8 +16,8 @@ export class UserService {
     return this.httpClient.get<User[]>(this.connConfig.serverUrl + this.connConfig.signupEndpoint);
   }
 
-  getById(id: number) {
-    return this.httpClient.get('/api/users/' + id);
+  getById(id: number): Observable<User> {
+    return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.signupEndpoint + '/' + id);
   }
 
   create(user: User) {

@@ -1,8 +1,5 @@
 package com.ted.controller;
 
-import com.ted.exception.AppException;
-import com.ted.exception.BadRequestException;
-import com.ted.exception.UserExistsException;
 import com.ted.model.Role;
 import com.ted.model.RoleName;
 import com.ted.model.User;
@@ -12,8 +9,14 @@ import com.ted.request.SignInRequest;
 import com.ted.request.SignUpRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.SignInResponse;
-import com.ted.security.JwtTokenProvider;
+import com.ted.exception.AppException;
+import com.ted.exception.BadRequestException;
+import com.ted.exception.UserExistsException;
+import com.ted.exception.NotAuthorizedException;
 import com.ted.service.UserService;
+import com.ted.security.JwtTokenProvider;
+import com.ted.security.CurrentUser;
+import com.ted.security.UserDetailsImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +26,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -101,6 +105,20 @@ public class UserController {
         return userService.getAll();
     }
 
+    // Returns a specific user.
+    // Only the admin or the user himself can perform this action.
+    @GetMapping("/users/{userId}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public User getById(@PathVariable(value = "userId") Long userId, @Valid @CurrentUser UserDetailsImpl currentUser) {
+        // Check if the logged in user is authorized to access the path
+        if (currentUser.getId() != userId &&
+            !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        return userService.getById(userId);
+    }
+
     // Signs a user in to the app
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signInRequest) {
@@ -123,6 +141,7 @@ public class UserController {
         return ResponseEntity.ok(
             new SignInResponse(
                 jwt,
+                user.getId(),
                 user.getEmail(),
                 user.getFirstname(),
                 user.getLastname(),
@@ -130,13 +149,5 @@ public class UserController {
             )
         );
     }
-
-    // @PutMapping("/users/{userId}")
-    // @PreAuthorize("hasRole('USER')")
-    // public User updateUserById(@PathVariable(value = "userId") Long userId,
-    //                            @Valid @RequestBody SignUpRequest userRequest,
-    //                            @Valid @CurrentUser UserDetailsImpl currentUser) {
-    //     return userService.updateUserById(userId, userRequest, currentUser);
-    // }
 
 }

@@ -1,6 +1,7 @@
 package com.ted.repository;
 
 import com.ted.model.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -20,9 +21,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Returns a user with a specific email
     Optional<User> findByEmail(String email);
 
-    // Returns all users
-    @Query("from User user")
-    List<User> getAll();
+    // Returns all users ordered by their firstname
+    List<User> findAllByOrderByFirstnameAsc();
 
     // Returns user_id based on user_email.
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)
