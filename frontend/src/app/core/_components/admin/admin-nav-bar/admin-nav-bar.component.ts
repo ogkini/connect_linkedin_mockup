@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import { AuthenticationService } from '../../../_services/index';
+
 @Component({
   selector: 'app-admin-nav-bar',
   templateUrl: './admin-nav-bar.component.html',
@@ -14,9 +16,12 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 export class AdminNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
 }
