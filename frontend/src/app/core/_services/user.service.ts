@@ -7,6 +7,7 @@ import { ConnectionConfigService } from './connection-config.service';
 
 @Injectable()
 export class UserService {
+  
   constructor(
     private httpClient: HttpClient,
     private connConfig: ConnectionConfigService

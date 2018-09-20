@@ -18,7 +18,8 @@ export class HomeAdminComponent implements OnInit {
 
   public constructor(
       private titleService: Title,
-      private userService: UserService) {
+      private userService: UserService
+  ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
