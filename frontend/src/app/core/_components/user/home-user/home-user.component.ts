@@ -121,6 +121,23 @@ export class HomeUserComponent implements OnInit {
     );
   }
 
+  // Delete a specific experience
+  deleteExperience(id: number) {
+    this.experienceService.delete(id, this.user.id)
+      .pipe(
+        first()
+      )
+      .subscribe(response => {
+        this.alertService.success("Successfully deleted experience.");
+
+        // Remove the experience from the array
+        this.user.experience = this.user.experience.filter(item => item.id !== id);
+      }, error => {
+        this.alertService.error(error.error.message);
+      }
+    );
+  }
+
   // Creates and returns a valid date string
   private createDate(year: number, month: number) {
     if (month < 10)

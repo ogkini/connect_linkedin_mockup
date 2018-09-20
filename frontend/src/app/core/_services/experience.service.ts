@@ -30,7 +30,8 @@ export class ExperienceService {
   //   return this.httpClient.put('/api/users/' + user.id, user);
   // }
 
-  // delete(id: number) {
-  //   return this.httpClient.delete('/api/users/' + id);
-  // }
+  delete(id: number, userId: number) {
+    return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.userEndpoint + '/' +
+        userId + '/' + this.connConfig.experienceEndpoint + '/' + id);
+  }
 }
