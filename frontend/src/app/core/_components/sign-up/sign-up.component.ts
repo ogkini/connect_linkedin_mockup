@@ -69,7 +69,7 @@ export class SignUpComponent implements OnInit {
     this.createUser(this.f.firstname.value, this.f.lastname.value, this.f.email.value, this.f.password.value, this.fileUploader.fileName);
 
     //console.debug("Going to post the file!!");
-    // Post the photo_prfil to the BackEnd-code.
+    // Post the profile_photo to the BackEnd-code.
 
     this.fileUploader.postFile(this.f.email.value)
   }
