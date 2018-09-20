@@ -26,7 +26,8 @@ export class FileUploaderService {
     // Test: We want to split the fileName into two strings and take only the fileFormat (the 2nd string). --> It works!
     //console.debug("FileType: " + this.fileToUpload.name.split(".", 2)[1])
 
-    if ( !this.imgFormatsAllowed.includes(this.fileToUpload.name.split(".", 2)[1]) ) {
+    if ( !this.imgFormatsAllowed.includes(this.fileToUpload.name.split(".", 2)[1]) ) {  // If it's not an imageType-file..
+      this.fileToUpload = null; // Don't accept this file (don't send it to the backend).
       console.debug("Invalid file detected! Allowed file types are: ");
       for( let fileType of this.imgFormatsAllowed )
         console.debug(fileType);

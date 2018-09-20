@@ -60,18 +60,13 @@ public class UserController {
         userRepository.findByEmail(signUpRequest.getEmail())
                 .ifPresent((s) -> { throw new UserExistsException("A user with the same email already exists."); });
 
-        // If no picture was chosen use the generic one
-        if (signUpRequest.getPicture() == null) {
-            signUpRequest.setPicture("generic.png");
-        }
-
         // Create a User object from the request
         User user = new User(
                 signUpRequest.getFirstname(),
                 signUpRequest.getLastname(),
                 signUpRequest.getEmail(),
                 signUpRequest.getPassword(),
-                signUpRequest.getPicture()
+                signUpRequest.getPicture()  // It may be null since it's optional, no problem.
         );
 
         // Encrypt the password

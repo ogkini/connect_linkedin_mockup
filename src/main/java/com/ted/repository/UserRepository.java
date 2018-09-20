@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
         // Returns a user with a specific email
         Optional<User> findByEmail(String email);
 
-    // Returns all users (without the admin)
+    // Returns all users (except from the admin)
     @Query("from User user where user.role = 2")
     List<User> getAll();
 
