@@ -6,13 +6,15 @@ import com.ted.repository.ExperienceRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.ExperienceRequest;
 import com.ted.exception.ResourceNotFoundException;
+import com.ted.exception.NotAuthorizedException;
+import com.ted.response.ApiResponse;
+import com.ted.security.UserDetailsImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +26,9 @@ public class ExperienceService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ValidatePathService validatePathService;
 
     private static final Logger logger = LoggerFactory.getLogger(ExperienceService.class);
 
@@ -46,6 +51,20 @@ public class ExperienceService {
     // Returns a user's experience
     public List<Experience> getAll(Long userId) {
         return experienceRepository.getAllByUserId(userId);
+    }
+
+    // Deletes a specific user experience
+    public ResponseEntity<?> deleteById(Long experienceId, UserDetailsImpl currentUser) {
+        Experience experience = validatePathService.validatePathAndGetExperience(experienceId);
+
+        // Check if the experience belongs to the current user
+        if (currentUser.getId() != experience.getUser().getId()) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        experienceRepository.delete(experience);
+
+        return ResponseEntity.ok().body(new ApiResponse(true, "Successfully deleted experience."));
     }
 
 }

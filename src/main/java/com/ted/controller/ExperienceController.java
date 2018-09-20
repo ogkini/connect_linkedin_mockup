@@ -61,4 +61,18 @@ public class ExperienceController {
         return experienceService.getAll(userId);
     }
 
+    // Deletes a specific user experience
+    @DeleteMapping("/users/{userId}/experience/{experienceId}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> deleteById(@PathVariable(value = "userId") Long userId,
+                                        @PathVariable(value = "experienceId") Long experienceId,
+                                        @Valid @CurrentUser UserDetailsImpl currentUser) {
+        // Check if the logged in user is authorized to access the path
+        if (currentUser.getId() != userId) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        return experienceService.deleteById(experienceId, currentUser);
+    }
+
 }

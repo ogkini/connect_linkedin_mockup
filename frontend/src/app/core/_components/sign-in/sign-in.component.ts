@@ -34,8 +34,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signInForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(65)])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])]
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
 
     // Reset login status
@@ -48,6 +48,11 @@ export class SignInComponent implements OnInit {
   // Submits the form
   onSubmit() {
     this.submitted = true;
+
+    // If form is invalid stop here
+    if (this.signInForm.invalid) {
+      return;
+    }
 
     // Set url to redirect to after signin
     if (this.form.email.value === 'admin@mail.com') {
