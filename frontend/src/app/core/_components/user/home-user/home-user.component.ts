@@ -4,7 +4,13 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { first } from 'rxjs/operators';
 
 import { User, Experience, Education, CreationResponse } from '../../../_models/index';
-import { UserService, ExperienceService, EducationService, AlertService } from '../../../_services/index';
+import {
+  UserService,
+  ExperienceService,
+  EducationService,
+  AlertService,
+  ConnectionConfigService
+} from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 
 @Component({
@@ -20,6 +26,7 @@ export class HomeUserComponent implements OnInit {
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
   submitted = false;
+  public profilePhotosEndpoint: string;
 
   years: { id: number, name: string }[] = [];
   months = [
@@ -43,10 +50,12 @@ export class HomeUserComponent implements OnInit {
       private experienceService: ExperienceService,
       private educationService: EducationService,
       private alertService: AlertService,
-      private formBuilder: FormBuilder
+      private formBuilder: FormBuilder,
+      private connConfig: ConnectionConfigService
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
 
     // Occupy years array
     for (let i: number = 2018; i >= 1950; i--) {

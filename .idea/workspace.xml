@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html" line="7" mnemonic="1" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/file-loader/file-loader.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/file-loader/file-loader.service.ts" afterDir="false" />
+    <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="- Update form-validators.&#10;- Initial &quot;reset-picture&quot;-code.&#10;- Code cleanup.">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -87,17 +85,17 @@
     <session id="-866693793">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.10" value="5" />
           <entry key="project.open.time.11" value="6" />
-          <entry key="project.open.time.12" value="11" />
+          <entry key="project.open.time.12" value="12" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,7 +103,7 @@
           <entry key="bat" value="2" />
           <entry key="gradle" value="12" />
           <entry key="gradlew" value="2" />
-          <entry key="html" value="37" />
+          <entry key="html" value="39" />
           <entry key="java" value="145" />
           <entry key="jpg" value="11" />
           <entry key="js" value="3" />
@@ -117,7 +115,7 @@
           <entry key="scss" value="3" />
           <entry key="sh" value="25" />
           <entry key="sql" value="15" />
-          <entry key="ts" value="191" />
+          <entry key="ts" value="197" />
           <entry key="txt" value="4" />
           <entry key="xml" value="1" />
         </counts>
@@ -126,7 +124,7 @@
         <counts>
           <entry key="Bash" value="14" />
           <entry key="Groovy" value="12" />
-          <entry key="HTML" value="37" />
+          <entry key="HTML" value="39" />
           <entry key="Image" value="18" />
           <entry key="JAVA" value="145" />
           <entry key="JSON" value="1" />
@@ -137,7 +135,7 @@
           <entry key="SCSS" value="3" />
           <entry key="SQL" value="14" />
           <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="191" />
+          <entry key="TypeScript" value="197" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -151,8 +149,8 @@
           <entry key="properties" value="134" />
           <entry key="sh" value="76" />
           <entry key="sql" value="53" />
-          <entry key="ts" value="6432" />
-          <entry key="txt" value="2664" />
+          <entry key="ts" value="6443" />
+          <entry key="txt" value="2772" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -162,16 +160,16 @@
           <entry key="Groovy" value="127" />
           <entry key="HTML" value="1269" />
           <entry key="JAVA" value="5337" />
-          <entry key="PLAIN_TEXT" value="2710" />
+          <entry key="PLAIN_TEXT" value="2818" />
           <entry key="Properties" value="134" />
           <entry key="SQL" value="53" />
-          <entry key="TypeScript" value="6432" />
+          <entry key="TypeScript" value="6443" />
           <entry key="XML" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="23" />
+          <entry key="Angular2LanguageService" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -179,27 +177,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploads/users/28/photos/profile_photo_{28}.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="29">
+              <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -208,43 +189,67 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="39" column="46" lean-forward="true" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="260">
+              <caret line="13" column="68" lean-forward="true" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="180">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="360">
+              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#5;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/file-loader/file-loader.service.ts">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="360">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="66" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -253,22 +258,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="165" selection-start-line="165" selection-end-line="165" />
+            <state relative-caret-position="42">
+              <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/FileStorageService.java">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="76" column="84" selection-start-line="76" selection-start-column="84" selection-end-line="76" selection-end-column="84" />
+            <state relative-caret-position="500">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#5;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -673,10 +681,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/response/UploadFileResponce.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/property/FileProperty.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/response/SignInResponse.java" />
-        <option value="$PROJECT_DIR$/frontend/src/index.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/file-uploader/file-uploader.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/file-uploader/file-uploader.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/app.module.ts" />
@@ -699,7 +703,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/scripts/frontend/startFrontendDEBUG.sh" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" />
         <option value="$PROJECT_DIR$/src/main/sql/teddb.sql" />
         <option value="$PROJECT_DIR$/scripts/WindowsAppExecutor.sh" />
         <option value="$PROJECT_DIR$/scripts/LinuxAppExecutor.sh" />
@@ -709,7 +712,6 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/scripts/backend/startBackend.sh" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/service/UserService.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java" />
         <option value="$PROJECT_DIR$/scripts/AppInstaller.sh" />
@@ -720,10 +722,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ted/service/FileStorageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
       </list>
     </option>
   </component>
@@ -755,7 +763,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -861,7 +868,9 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="_models" type="462c0819:PsiDirectoryNode" />
+              <item name="_components" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="home-user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
@@ -871,26 +880,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="_services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="_services" type="462c0819:PsiDirectoryNode" />
-              <item name="file-loader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="_services" type="462c0819:PsiDirectoryNode" />
-              <item name="file-uploader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
@@ -1007,13 +996,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537540124271" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537541976563" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1036,6 +1026,189 @@
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\scripts" />
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/config/WebMvcConfig.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/EducationController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/ExperienceController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/UserController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/model/User.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/repository/ExperienceRepository.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/repository/UserRepository.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/response/SignInResponse.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/EducationService.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/ExperienceService.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/UserService.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/admin/admin-nav-bar/admin-nav-bar.component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/admin/admin-nav-bar/admin-nav-bar.component.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.scss</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/index.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/user.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/alert.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/index.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/core.module.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/config/WebMvcConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/controller/EducationController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/controller/ExperienceController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/model/User.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/repository/ExperienceRepository.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/response/SignInResponse.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/service/EducationService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/service/ExperienceService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/service/UserService.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileChanges/last-build.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/gc.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/vcs-1/gc.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/UserController$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/UserController$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/ValidatePathService.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/img/generic_profile_photo.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/img/image_not_found.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/logback-spring.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/education.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/experience.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/occupation.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/response.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/skill.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/logs/ted_project.log</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/service/ValidatePathService.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1223,7 +1396,8 @@
       <workItem from="1537352860631" duration="1263000" />
       <workItem from="1537363352962" duration="4449000" />
       <workItem from="1537431951600" duration="22506000" />
-      <workItem from="1537511828103" duration="20049000" />
+      <workItem from="1537511828103" duration="20421000" />
+      <workItem from="1537540535206" duration="1343000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1344,11 +1518,25 @@
       <option name="project" value="LOCAL" />
       <updated>1537519797117</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- Update form-validators.&#10;- Initial &quot;reset-picture&quot;-code.&#10;- Code cleanup.">
+      <created>1537540323245</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1537540323245</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Resolve merge-conflicts.">
+      <created>1537541715064</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1537541715064</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258799000" />
+    <option name="totallyTimeSpent" value="260514000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1363,7 +1551,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.108742006" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20095949" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1378,12 +1566,12 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" weight="0.15726681" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989339" weight="0.19305857" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.31344903" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.19305857" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Spring" order="11" weight="0.329718" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.329718" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.329718" />
       <window_info anchor="bottom" id="TypeScript" order="15" weight="0.22342733" />
@@ -1396,7 +1584,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Gradle" order="8" weight="0.18052517" />
+      <window_info anchor="right" id="Gradle" order="8" visible="true" weight="0.18017058" />
       <window_info anchor="right" id="Database" order="9" />
       <window_info anchor="right" id="Bean Validation" order="10" />
     </layout>
@@ -1465,37 +1653,11 @@
     <MESSAGE value="- Fix a bug where a non-imageType &quot;profile_photo&quot; was being send to the backend.&#10;- Leave the &quot;user.picture=null&quot; instead of assigning the &quot;generic&quot;-one, when the user has not selected a profile_photo during SignUp." />
     <MESSAGE value="New Feature: Display user's profile_photos in &quot;home-admin&quot;." />
     <MESSAGE value="Handle case when user's profile_photo, was not found in storage, even though the user provided one.&#10;In this case, display the &quot;image_not_found.png&quot; instead." />
-    <option name="LAST_COMMIT_MESSAGE" value="Handle case when user's profile_photo, was not found in storage, even though the user provided one.&#10;In this case, display the &quot;image_not_found.png&quot; instead." />
+    <MESSAGE value="- Update form-validators.&#10;- Initial &quot;reset-picture&quot;-code.&#10;- Code cleanup." />
+    <MESSAGE value="Resolve merge-conflicts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolve merge-conflicts." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/WindowsAppExecutor.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/backend/startBackend.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/frontend/startFrontend.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1635,13 +1797,6 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/index.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/AppInstaller.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1656,13 +1811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1674,25 +1822,12 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="19" column="86" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1707,49 +1842,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/users/24/photos/profile_photo_{24}.jpg">
+    <entry file="file://$PROJECT_DIR$/uploads/users/24/photos/profile_photo_{24}.jpg" />
+    <entry file="file://$PROJECT_DIR$/uploads/users/4/photos/profile_photo_{4}.txt" />
+    <entry file="file://$PROJECT_DIR$/uploads/users/13/photos/profile_photo_{13}.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/FileStorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="76" column="84" selection-start-line="76" selection-start-column="84" selection-end-line="76" selection-end-column="84" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/uploads/users/23/photos/profile_photo_{23}.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="165" selection-start-line="165" selection-end-line="165" />
+        <state relative-caret-position="440">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uploads/users/28/photos/profile_photo_{28}.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/users/4/photos/profile_photo_{4}.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/users/13/photos/profile_photo_{13}.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/users/23/photos/profile_photo_{23}.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/file-loader/file-loader.service.ts">
@@ -1762,12 +1876,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="2880">
+          <caret line="165" selection-start-line="165" selection-end-line="165" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/FileStorageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" column="84" selection-start-line="76" selection-start-column="84" selection-end-line="76" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1775,36 +1906,91 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="39" column="46" lean-forward="true" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="500">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#5;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="66" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="68" lean-forward="true" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
