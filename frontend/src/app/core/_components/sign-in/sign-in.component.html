@@ -12,12 +12,15 @@
     <input type="email" class="form-control mb-4" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autofocus>
     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
         <div *ngIf="f.email.errors.required">Email is required.</div>
+        <div *ngIf="f.email.errors.email">Email is invalid.</div>
+        <div *ngIf="f.email.errors.maxLength">Email should not exceed the {{maxEmailLength}} characters.</div>
     </div>
 
     <!-- Password -->
     <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
         <div *ngIf="f.password.errors.required">Password is required.</div>
+        <div *ngIf="f.password.errors.minLength || f.password.errors.maxLength">Password should be between {{minPasswordLength}} and {{maxPasswordLength}} characters.</div>
     </div>
 
     <!-- Forgot password -->

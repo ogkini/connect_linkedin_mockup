@@ -37,24 +37,30 @@ export class SignUpComponent implements OnInit {
       this.titleService.setTitle(this.title);
   }
 
+  minTextLength = 2;
+  maxTextLength = 45;
+
+  maxEmailLength = 65;
+
+  minPasswordLength = 6;
+  maxPasswordLength = 100;
+
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signUpForm = this.formBuilder.group({
-      firstname: ['', Validators.compose([Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(2), Validators.maxLength(45)])],
-      lastname: ['', Validators.compose([Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(2), Validators.maxLength(45)])],
-      email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(65)])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])],
-      confirmPassword: ['', Validators.compose([Validators.required, PasswordConfirmValidatorDirective.validatePasswordConfirmation, Validators.minLength(6), Validators.maxLength(100)])]
+      firstname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
+      lastname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
+      password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]],
+      confirmPassword: ['', [PasswordConfirmValidatorDirective.validatePasswordConfirmation]]
     });
 
     // Get return url from route parameters or default to '/sign-in'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/sign-in';
   }
 
-
   // Convenience getter for easy access to form fields
   get f() { return this.signUpForm.controls; }
-
 
   // Submits the form
   onSubmit() {
@@ -70,7 +76,6 @@ export class SignUpComponent implements OnInit {
 
     //console.debug("Going to post the file!!");
     // Post the profile_photo to the BackEnd-code.
-
     this.fileUploader.postFile(this.f.email.value)
   }
 
@@ -96,9 +101,13 @@ export class SignUpComponent implements OnInit {
       );
   }
 
-
   onImageChanged($event) {
     this.fileUploader.onImageChanged($event)
+  }
+
+  onImageReset() {
+    console.debug("Going to reset the \"fileToUpload\".")
+    this.fileUploader.onFileReset();
   }
 
 }

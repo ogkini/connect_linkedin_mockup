@@ -30,11 +30,16 @@ export class SignInComponent implements OnInit {
     this.titleService.setTitle(this.title);
   }
 
+  maxEmailLength = 65;
+
+  minPasswordLength = 6;
+  maxPasswordLength = 100;
+
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signInForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(65)])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(100)])]
+      email: ['',[Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
+      password: ['',[Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]]
     });
 
     // Reset login status
