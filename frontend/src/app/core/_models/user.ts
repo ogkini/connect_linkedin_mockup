@@ -1,3 +1,5 @@
+import { Occupation, Experience, Education, Skill } from './index';
+
 export class User {
   id: number;
   firstname: string;
@@ -5,4 +7,9 @@ export class User {
   email: string;
   password: string;
   picture: string;
+
+  occupation: Occupation;
+  experience: Array<Experience>;
+  education: Array<Education>;
+  skills: Array<Skill>;
 }

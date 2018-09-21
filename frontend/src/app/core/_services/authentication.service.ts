@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { ConnectionConfigService } from './connection-config.service';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
+
+import { ConnectionConfigService } from './connection-config.service';
 
 @Injectable()
 export class AuthenticationService {
 
   constructor(
     private http: HttpClient,
+    private router: Router,
     private connConfig: ConnectionConfigService
   ) { }
 
@@ -29,5 +32,6 @@ export class AuthenticationService {
   logout() {
     // Remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    this.router.navigate(['/sign-in']);
   }
 }

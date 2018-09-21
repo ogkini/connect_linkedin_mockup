@@ -21,10 +21,10 @@ import { FileUploaderService } from './_services/file-uploader/file-uploader.ser
 
 import { AuthGuard, RoleGuard } from './_guards/index';
 import { AlertComponent } from './_directives/alert/alert.component';
-import { AlertService, AuthenticationService, UserService, ConnectionConfigService } from './_services/index';
+import { AlertService, AuthenticationService, ConnectionConfigService } from './_services/index';
+import { UserService, ExperienceService, EducationService } from './_services/index';
 import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
-
 
 @NgModule({
   imports: [
@@ -59,6 +59,8 @@ import { TextValidatorDirective } from "./_directives/validators/text_validator.
     AlertService,
     AuthenticationService,
     UserService,
+    ExperienceService,
+    EducationService,
     ConnectionConfigService,
     FileUploaderService,
     {

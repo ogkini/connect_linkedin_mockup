@@ -53,6 +53,11 @@ export class SignInComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
+    // If form is invalid stop here
+    if (this.signInForm.invalid) {
+      return;
+    }
+
     // Set url to redirect to after signin
     if (this.f.email.value === 'admin@mail.com') {
       this.returnUrl = '/home-admin';

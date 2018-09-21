@@ -18,23 +18,24 @@ import { TextValidatorDirective } from "../../_directives/validators/text_valida
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+
   title = 'Sign Up to Connect';
   signUpForm: FormGroup;
-
   returnUrl: string;
   submitted = false;
   data: object;
   fileToUpload: File;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private userService: UserService,
-    private alertService: AlertService,
-    private titleService: Title,
-    private formBuilder: FormBuilder,
-    private fileUploader: FileUploaderService) {
-      this.titleService.setTitle(this.title);
+      private route: ActivatedRoute,
+      private router: Router,
+      private userService: UserService,
+      private alertService: AlertService,
+      private titleService: Title,
+      private formBuilder: FormBuilder,
+      private fileUploader: FileUploaderService
+  ) {
+    this.titleService.setTitle(this.title);
   }
 
   minTextLength = 2;
@@ -67,20 +68,18 @@ export class SignUpComponent implements OnInit {
     this.submitted = true;
 
     // If form is invalid stop here
-    if (this.signUpForm.invalid)
+    if (this.signUpForm.invalid) {
       return;
+    }
 
-    //console.debug("Going to create user!");
     // Create the user
     this.createUser(this.f.firstname.value, this.f.lastname.value, this.f.email.value, this.f.password.value, this.fileUploader.fileName);
 
-    //console.debug("Going to post the file!!");
-    // Post the profile_photo to the BackEnd-code.
+    // Send photo to backend
     this.fileUploader.postFile(this.f.email.value)
   }
 
-
-  createUser(firstname: string, lastname: string, email: string, password: string, picture: string): void {
+  createUser(firstname: string, lastname: string, email: string, password: string, picture: string) {
     // Trim email whitespace
     email = email.trim();
 
