@@ -9,6 +9,7 @@ export class ConnectionConfigService {
 
   userEndpoint = 'users';
   experienceEndpoint = 'experience';
+  educationEndpoint = 'education';
 
   uploadEndpoint = 'uploads';
   uploadProfilePhotoEndpoint = this.uploadEndpoint +'/profilePhotos';

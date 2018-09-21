@@ -22,7 +22,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
     // Returns all users ordered by their firstname
-    List<User> findAllByOrderByFirstnameAsc();
+    @Query("from User user where user.role = 2 order by user.firstname asc")
+    List<User> findAll();
 
     // Returns user_id based on user_email.
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)

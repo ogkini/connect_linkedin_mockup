@@ -3,8 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { User, Experience, CreationResponse } from '../../../_models/index';
-import { UserService, ExperienceService, AlertService } from '../../../_services/index';
+import { User, Experience, Education, CreationResponse } from '../../../_models/index';
+import { UserService, ExperienceService, EducationService, AlertService } from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 
 @Component({
@@ -18,6 +18,7 @@ export class HomeUserComponent implements OnInit {
   currentUser: User;
   user: User;
   addExperienceForm: FormGroup;
+  addEducationForm: FormGroup;
   submitted = false;
 
   years: { id: number, name: string }[] = [];
@@ -40,6 +41,7 @@ export class HomeUserComponent implements OnInit {
       private titleService: Title,
       private userService: UserService,
       private experienceService: ExperienceService,
+      private educationService: EducationService,
       private alertService: AlertService,
       private formBuilder: FormBuilder
   ) {
@@ -57,6 +59,7 @@ export class HomeUserComponent implements OnInit {
 
     // Initialise form contents
     this.addExperienceFormInit();
+    this.addEducationFormInit();
   }
 
   private getUserById(id: number) {
@@ -89,6 +92,11 @@ export class HomeUserComponent implements OnInit {
   addExperience() {
     this.submitted = true;
 
+    // If form is invalid stop here
+    if (this.addExperienceForm.invalid) {
+      return;
+    }
+
     // Create the start and end dates
     let start = this.createDate(this.getAddExperienceForm.startYear.value, this.getAddExperienceForm.startMonth.value);
     let end = this.createDate(this.getAddExperienceForm.endYear.value, this.getAddExperienceForm.endMonth.value);
@@ -107,17 +115,18 @@ export class HomeUserComponent implements OnInit {
         first()
       )
       .subscribe((response: CreationResponse) => {
-          // Alert the user
-          this.alertService.success('Successfully added new experience.');
+        // Alert the user
+        this.alertService.success('Successfully added new experience.', false);
+        this.submitted = false;
 
-          // Add experience to the array
-          if (response.object) {
-            this.user.experience.push(response.object);
-          }
-        }, error => {
-          this.alertService.error(error.error.message);
-          console.log(error);
+        // Add experience to the array
+        if (response.object) {
+          this.user.experience.push(response.object);
         }
+      }, error => {
+        this.alertService.error(error.error.message);
+        console.log(error);
+      }
     );
   }
 
@@ -128,14 +137,83 @@ export class HomeUserComponent implements OnInit {
         first()
       )
       .subscribe(response => {
-        this.alertService.success("Successfully deleted experience.");
-
         // Remove the experience from the array
         this.user.experience = this.user.experience.filter(item => item.id !== id);
       }, error => {
         this.alertService.error(error.error.message);
       }
     );
+  }
+
+  // Initiliases the form to add a new education
+  addEducationFormInit() {
+    this.addEducationForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      school: ['', Validators.required],
+      startMonth: ['', Validators.required],
+      startYear: ['', Validators.required],
+      endMonth: ['', Validators.required],
+      endYear: ['', Validators.required]
+    });
+  }
+
+  // Convenience getter for easy access to form fields
+  get getAddEducationForm() { return this.addEducationForm.controls; }
+
+  // Adds a new education
+  addEducation() {
+    this.submitted = true;
+
+    // Create the start and end dates
+    let start = this.createDate(this.getAddEducationForm.startYear.value, this.getAddEducationForm.startMonth.value);
+    let end = this.createDate(this.getAddEducationForm.endYear.value, this.getAddEducationForm.endMonth.value);
+
+    // Create a new Education object
+    const newEducation: Education = {
+      title: this.getAddEducationForm.title.value,
+      school: this.getAddEducationForm.school.value,
+      startDate: start,
+      endDate: end
+    } as Education;
+
+    // Submit the education to the server
+    this.educationService.create(newEducation, this.user.id)
+      .pipe(
+        first()
+      )
+      .subscribe((response: CreationResponse) => {
+          // Alert the user
+          this.alertService.success('Successfully added new education.');
+          this.submitted = false;
+
+          // Add education to the array
+          if (response.object) {
+            this.user.education.push(response.object);
+          }
+        }, error => {
+          this.alertService.error(error.error.message);
+          console.log(error);
+        }
+    );
+  }
+
+  // Delete a specific education
+  deleteEducation(id: number) {
+    this.educationService.delete(id, this.user.id)
+      .pipe(
+        first()
+      )
+      .subscribe(response => {
+        // Remove the education from the array
+        this.user.education = this.user.education.filter(item => item.id !== id);
+      }, error => {
+        this.alertService.error(error.error.message);
+      }
+    );
+  }
+
+  clearAlert() {
+    this.alertService.clear();
   }
 
   // Creates and returns a valid date string

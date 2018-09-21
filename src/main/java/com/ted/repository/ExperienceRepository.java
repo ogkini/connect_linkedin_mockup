@@ -14,7 +14,7 @@ import java.util.List;
 public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 
     // Returns a user's exprerience
-    @Query("select e from Experience e where e.user.id = :userId")
+    @Query("select e from Experience e where e.user.id = :userId order by e.endDate desc")
     List<Experience> getAllByUserId(@Param("userId") Long userId);
 
 }

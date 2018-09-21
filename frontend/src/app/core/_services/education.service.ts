@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Experience } from '../_models/index';
+import { Education } from '../_models/index';
 import { ConnectionConfigService } from './connection-config.service';
 
 @Injectable()
-export class ExperienceService {
+export class EducationService {
 
   constructor(
     private httpClient: HttpClient,
     private connConfig: ConnectionConfigService
   ) { }
 
-  create(experience: Experience, userId: number) {
+  create(education: Education, userId: number) {
     return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.userEndpoint + '/' +
-        userId + '/' + this.connConfig.experienceEndpoint, experience);
+        userId + '/' + this.connConfig.educationEndpoint, education);
   }
 
   // update(user: User) {
@@ -24,6 +24,6 @@ export class ExperienceService {
 
   delete(id: number, userId: number) {
     return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.userEndpoint + '/' +
-        userId + '/' + this.connConfig.experienceEndpoint + '/' + id);
+        userId + '/' + this.connConfig.educationEndpoint + '/' + id);
   }
 }

@@ -61,4 +61,18 @@ public class EducationController {
         return educationService.getAll(userId);
     }
 
+    // Deletes a specific user education
+    @DeleteMapping("/users/{userId}/education/{educationId}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> deleteById(@PathVariable(value = "userId") Long userId,
+                                        @PathVariable(value = "educationId") Long educationId,
+                                        @Valid @CurrentUser UserDetailsImpl currentUser) {
+        // Check if the logged in user is authorized to access the path
+        if (currentUser.getId() != userId) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        return educationService.deleteById(educationId, currentUser);
+    }
+
 }

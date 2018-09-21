@@ -3,6 +3,8 @@ package com.ted.controller;
 import com.ted.model.Role;
 import com.ted.model.RoleName;
 import com.ted.model.User;
+import com.ted.model.Experience;
+import com.ted.model.Education;
 import com.ted.repository.RoleRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.SignInRequest;
@@ -32,7 +34,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -116,7 +118,23 @@ public class UserController {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
-        return userService.getById(userId);
+        User user = userService.getById(userId);
+
+        // Sort the experience list
+        Collections.sort(user.getExperience(), new Comparator<Experience>(){
+            public int compare(Experience e1, Experience e2) {
+                return e2.getEndDate().compareTo(e1.getEndDate());
+            }
+        });
+
+        // Sort the education list
+        Collections.sort(user.getEducation(), new Comparator<Education>(){
+            public int compare(Education e1, Education e2) {
+                return e2.getEndDate().compareTo(e1.getEndDate());
+            }
+        });
+
+        return user;
     }
 
     // Signs a user in to the app
