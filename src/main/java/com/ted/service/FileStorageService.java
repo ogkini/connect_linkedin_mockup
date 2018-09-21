@@ -74,7 +74,8 @@ public class FileStorageService {
         }
     }
 
-    public Resource loadFileAsResource(String fileName) {
+    public Resource loadFileAsResource(String fileName) throws FileNotFoundException
+    {
         try {
             Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
 

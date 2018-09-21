@@ -1,5 +1,6 @@
 package com.ted.controller;
 
+import com.ted.exception.FileNotFoundException;
 import com.ted.exception.FileStorageException;
 import com.ted.repository.UserRepository;
 import com.ted.response.UploadFileResponse;
@@ -39,6 +40,7 @@ public class FileController {
     private static String localImageDirectory = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "img";
     private static String profilePhotoBaseName = "profile_photo_";
     private static String genericPhotoName = "generic_profile_photo.png";
+    private static String imageNotFoundName = "image_not_found.png";
 
     /*@Autowired
     FileController() {
@@ -162,7 +164,25 @@ public class FileController {
             }
         }
 
-        Resource resource = fileStorageService.loadFileAsResource(fileFullPath);
+        Resource resource;
+        try {
+            resource = fileStorageService.loadFileAsResource(fileFullPath);
+        } catch (FileNotFoundException fnfe) {
+            if ( user_picture != null ) {   // If the dataBase says that this user has its own profilePhoto, but it was not found in storage..
+                // Loading the "image_not_found", so that the user will be notified that sth's wrong with the storage of its picture, even though one was given.
+                fileFullPath = localImageDirectory + File.separator + imageNotFoundName;
+                try {
+                    resource = fileStorageService.loadFileAsResource(fileFullPath);
+                } catch (FileNotFoundException fnfe2) {
+                    logger.error("The \"" + imageNotFoundName + "\" was not found in storage!");
+                    return ResponseEntity.notFound().build();
+                }
+            }
+            else {
+                logger.error("The \"" + genericPhotoName + "\" was not found in storage!");
+                return ResponseEntity.notFound().build();
+            }
+        }
 
         // Try to determine file's content type
         String contentType = null;
