@@ -61,7 +61,7 @@ export class SignUpComponent implements OnInit {
   }
 
   // Convenience getter for easy access to form fields
-  get f() { return this.signUpForm.controls; }
+  get form() { return this.signUpForm.controls; }
 
   // Submits the form
   onSubmit() {
@@ -73,10 +73,10 @@ export class SignUpComponent implements OnInit {
     }
 
     // Create the user
-    this.createUser(this.f.firstname.value, this.f.lastname.value, this.f.email.value, this.f.password.value, this.fileUploader.fileName);
+    this.createUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value, this.fileUploader.fileName);
 
     // Send photo to backend
-    this.fileUploader.postFile(this.f.email.value)
+    this.fileUploader.postFile(this.form.email.value)
   }
 
   createUser(firstname: string, lastname: string, email: string, password: string, picture: string) {

@@ -47,7 +47,7 @@ export class SignInComponent implements OnInit {
   }
 
   // Convenience getter for easy access to form fields
-  get f() { return this.signInForm.controls; }
+  get form() { return this.signInForm.controls; }
 
   // Submits the form
   onSubmit() {
@@ -59,13 +59,13 @@ export class SignInComponent implements OnInit {
     }
 
     // Set url to redirect to after signin
-    if (this.f.email.value === 'admin@mail.com') {
+    if (this.form.email.value === 'admin@mail.com') {
       this.returnUrl = '/home-admin';
     } else {
       this.returnUrl = '/home-user';
     }
 
-    this.authenticationService.login(this.f.email.value, this.f.password.value)
+    this.authenticationService.login(this.form.email.value, this.form.password.value)
       .pipe(first())
       .subscribe(
         data => {
