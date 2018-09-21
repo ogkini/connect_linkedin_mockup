@@ -11,6 +11,6 @@ export class ConnectionConfigService {
   experienceEndpoint = 'experience';
   educationEndpoint = 'education';
 
-  uploadEndpoint = 'uploads';
-  uploadProfilePhotoEndpoint = this.uploadEndpoint +'/profilePhotos';
+  filesEndpoint = 'uploads';
+  userFilesEndpoint = this.filesEndpoint + '/' + this.usersEndpoint;
 }

@@ -27,11 +27,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // Returns user_id based on user_email.
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)
-    int getId(@Param("email") String email);
+    int getIdByEmail(@Param("email") String email);
+
+    // Get the picture of a user.
+    @Query(value = "select picture from Users u where u.user_id = :user_id", nativeQuery = true)
+    List<String> getPictureById(@Param("user_id") int user_id); // Returns the numOfRows affected.. so either 1 or 0.
 
     // Update the "picture" of a user.
     @Transactional
     @Modifying
     @Query(value = "update Users u set u.picture = :picture where u.user_id = :user_id", nativeQuery = true)
-    Integer updatePictureName(@Param("picture") String picture, @Param("user_id") Integer user_id); // Returns the numOfRows affected.. so either 1 or 0.
+    int updatePictureById(@Param("picture") String picture, @Param("user_id") int user_id); // Returns the numOfRows affected.. so either 1 or 0.
+
 }

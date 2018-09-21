@@ -4,6 +4,8 @@ import com.ted.exception.FileNotFoundException;
 import com.ted.exception.FileStorageException;
 import com.ted.property.FileStorageProperties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -22,6 +24,8 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class FileStorageService {
 
+    private static final Logger logger = LoggerFactory.getLogger(FileStorageService.class);
+
     private final Path fileStorageLocation;
 
     @Autowired
@@ -35,10 +39,12 @@ public class FileStorageService {
         }
     }
 
+    public Path getFileStorageLocation() { return fileStorageLocation; }
+
     public String storeFile(MultipartFile file, String fileName, String innerDir) throws IOException {
         String file_name;
 
-        if (fileName != null) {
+        if ( fileName != null ) {
             file_name = StringUtils.cleanPath(fileName);
         } else {
             file_name = StringUtils.cleanPath(file.getOriginalFilename());
@@ -64,21 +70,25 @@ public class FileStorageService {
 
             return file_name;
         } catch (IOException ex) {
-            throw new FileStorageException("Could not store file " + file_name + ". Please try again!", ex);
+            throw new FileStorageException("Could not store file: " + file_name + ". Please try again!", ex);
         }
     }
 
-    public Resource loadFileAsResource(String fileName) {
+    public Resource loadFileAsResource(String fileName) throws FileNotFoundException
+    {
         try {
             Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+
+            //logger.debug("FilePath is: ", filePath.toString());
+
             Resource resource = new UrlResource(filePath.toUri());
             if (resource.exists()) {
                 return resource;
             } else {
-                throw new FileNotFoundException("File not found " + fileName);
+                throw new FileNotFoundException("File not found: " + fileName);
             }
         } catch (MalformedURLException exception) {
-            throw new FileNotFoundException("File not found " + fileName, exception);
+            throw new FileNotFoundException("File not found: " + fileName, exception);
         }
     }
 
