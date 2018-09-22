@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
+  `picture` VARCHAR(200) NULL,
   `role_id` BIGINT NOT NULL,
-  `picture` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
 ENGINE = InnoDB;
 
 INSERT INTO Users (firstname, lastname, email, password, picture, role_id)
-VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 'generic.png', 1);
+VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', NULL, 1);
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Occupation`
