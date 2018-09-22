@@ -40,7 +40,7 @@
     </div>
 
     <!-- Confirm Password -->
-    <input type="password" class="form-control mt-4 mb-1" placeholder="Confirm password" formControlName="confirmPassword" ngModel #compare_pass="compare_pass" compare_pass [ngClass]="{ 'is-invalid': submitted && form.confirmPassword.errors }" required>
+    <input type="password" class="form-control mt-4 mb-1" placeholder="Confirm password" formControlName="confirmPassword" ngModel #compare_pass_fail="compare_pass_fail" compare_pass_fail [ngClass]="{ 'is-invalid': submitted && form.confirmPassword.errors }" required>
     <div *ngIf="submitted && form.confirmPassword.errors && (form.confirmPassword.dirty || form.confirmPassword.touched)" class="invalid-feedback">
         <div *ngIf="form.confirmPassword.errors.compare_pass">Passwords do not match!</div>
     </div>

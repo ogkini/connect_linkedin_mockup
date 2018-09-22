@@ -12,6 +12,9 @@ import {
   ConnectionConfigService
 } from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
+import { DateService } from "../../../_services/date.service";
+import {DatePeriodValidatorDirective} from "../../../_directives/validators/date-period-validator.directive";
+
 
 @Component({
   selector: 'app-home-user',
@@ -90,7 +93,7 @@ export class HomeUserComponent implements OnInit {
       startMonth: ['', Validators.required],
       startYear: ['', Validators.required],
       endMonth: ['', Validators.required],
-      endYear: ['', Validators.required]
+      endYear: ['', [Validators.required, DatePeriodValidatorDirective.validateDatePeriod]]
     });
   }
 
@@ -107,8 +110,8 @@ export class HomeUserComponent implements OnInit {
     }
 
     // Create the start and end dates
-    let start = this.createDate(this.getAddExperienceForm.startYear.value, this.getAddExperienceForm.startMonth.value);
-    let end = this.createDate(this.getAddExperienceForm.endYear.value, this.getAddExperienceForm.endMonth.value);
+    let start = DateService.createDate(this.getAddExperienceForm.startYear.value, this.getAddExperienceForm.startMonth.value);
+    let end = DateService.createDate(this.getAddExperienceForm.endYear.value, this.getAddExperienceForm.endMonth.value);
 
     // Create a new Experience object
     const newExperience: Experience = {
@@ -162,7 +165,7 @@ export class HomeUserComponent implements OnInit {
       startMonth: ['', Validators.required],
       startYear: ['', Validators.required],
       endMonth: ['', Validators.required],
-      endYear: ['', Validators.required]
+      endYear: ['', [Validators.required, DatePeriodValidatorDirective.validateDatePeriod]]
     });
   }
 
@@ -173,9 +176,14 @@ export class HomeUserComponent implements OnInit {
   addEducation() {
     this.submitted = true;
 
+    // If form is invalid stop here
+    if (this.addEducationForm.invalid) {
+      return;
+    }
+
     // Create the start and end dates
-    let start = this.createDate(this.getAddEducationForm.startYear.value, this.getAddEducationForm.startMonth.value);
-    let end = this.createDate(this.getAddEducationForm.endYear.value, this.getAddEducationForm.endMonth.value);
+    let start = DateService.createDate(this.getAddEducationForm.startYear.value, this.getAddEducationForm.startMonth.value);
+    let end = DateService.createDate(this.getAddEducationForm.endYear.value, this.getAddEducationForm.endMonth.value);
 
     // Create a new Education object
     const newEducation: Education = {
@@ -223,14 +231,6 @@ export class HomeUserComponent implements OnInit {
 
   clearAlert() {
     this.alertService.clear();
-  }
-
-  // Creates and returns a valid date string
-  private createDate(year: number, month: number) {
-    if (month < 10)
-      return `${year}-0${month}-01`;
-    else
-      return `${year}-${month}-01`;
   }
 
 }

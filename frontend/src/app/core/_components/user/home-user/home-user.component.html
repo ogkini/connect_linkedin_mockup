@@ -188,11 +188,12 @@
                 </div>
 
                 <div class="col">
-                  <select class="form-control mb-2" formControlName="endYear" [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.endYear.errors }">
+                  <select class="form-control mb-2" formControlName="endYear" ngModel #date_check_fail="date_check_fail" date_check_fail [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.endYear.errors }">
                     <option *ngFor="let year of years" [value]="year.id">{{year.name}}</option>
                   </select>
                   <div *ngIf="submitted && getAddExperienceForm.endYear.errors" class="invalid-feedback">
                       <div *ngIf="getAddExperienceForm.endYear.errors.required">Ending year is required.</div>
+                      <div *ngIf="getAddExperienceForm.endYear.errors.date_check_fail">Ending date is earlier that the start date.</div>
                   </div>
                 </div>
             </div>
@@ -279,11 +280,12 @@
                 </div>
 
                 <div class="col">
-                  <select class="form-control mb-2" formControlName="endYear" [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.endYear.errors }">
+                  <select class="form-control mb-2" formControlName="endYear" ngModel #date_check_fail="date_check_fail" date_check_fail [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.endYear.errors }">
                     <option *ngFor="let year of years" [value]="year.id">{{year.name}}</option>
                   </select>
                   <div *ngIf="submitted && getAddEducationForm.endYear.errors" class="invalid-feedback">
                       <div *ngIf="getAddEducationForm.endYear.errors.required">Ending year is required.</div>
+                      <div *ngIf="getAddEducationForm.endYear.errors.date_check_fail">Ending date is earlier that the start date.</div>
                   </div>
                 </div>
             </div>
