@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Load user-profile_photo in &quot;user-home&quot;.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/date-period-validator.directive.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/date.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
@@ -14,12 +12,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/admin-nav-bar/admin-nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/admin-nav-bar/admin-nav-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/AppInstaller.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/AppInstaller.sh" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -123,7 +118,7 @@
           <entry key="scss" value="5" />
           <entry key="sh" value="27" />
           <entry key="sql" value="15" />
-          <entry key="ts" value="219" />
+          <entry key="ts" value="220" />
           <entry key="txt" value="4" />
           <entry key="xml" value="1" />
         </counts>
@@ -144,7 +139,7 @@
           <entry key="SCSS" value="5" />
           <entry key="SQL" value="14" />
           <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="219" />
+          <entry key="TypeScript" value="220" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -158,8 +153,8 @@
           <entry key="properties" value="134" />
           <entry key="sh" value="122" />
           <entry key="sql" value="53" />
-          <entry key="ts" value="7473" />
-          <entry key="txt" value="2816" />
+          <entry key="ts" value="7491" />
+          <entry key="txt" value="2919" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -169,10 +164,10 @@
           <entry key="Groovy" value="127" />
           <entry key="HTML" value="1362" />
           <entry key="JAVA" value="5337" />
-          <entry key="PLAIN_TEXT" value="2862" />
+          <entry key="PLAIN_TEXT" value="2965" />
           <entry key="Properties" value="134" />
           <entry key="SQL" value="53" />
-          <entry key="TypeScript" value="7473" />
+          <entry key="TypeScript" value="7491" />
           <entry key="XML" value="32" />
         </counts>
       </usages-collector>
@@ -206,11 +201,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="242">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#60#0" expanded="true" />
               </folding>
@@ -230,11 +225,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="170" selection-start-line="170" selection-end-line="170" />
+            <state relative-caret-position="320">
+              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -243,21 +247,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/date.service.ts">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="380">
+              <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -322,6 +317,7 @@
       <find>form</find>
       <find>form&gt;</find>
       <find>&lt;/form&gt;</find>
+      <find>curr</find>
     </findStrings>
     <replaceStrings>
       <replace>getAllUsers</replace>
@@ -696,7 +692,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/password-compare-validator.directive.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/compare-validator.directive.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/index.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/custom-validators.directive.ts" />
@@ -744,9 +739,10 @@
         <option value="$PROJECT_DIR$/scripts/AppInstaller.sh" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/date-period-validator.directive.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
       </list>
     </option>
   </component>
@@ -765,8 +761,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="363" />
-    <option name="y" value="-12" />
+    <option name="x" value="217" />
+    <option name="y" value="-15" />
     <option name="width" value="1269" />
     <option name="height" value="1047" />
   </component>
@@ -1007,7 +1003,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537638768799" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537641120942" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1219,7 +1215,7 @@
       <workItem from="1537431951600" duration="22506000" />
       <workItem from="1537511828103" duration="20421000" />
       <workItem from="1537540535206" duration="5887000" />
-      <workItem from="1537619965389" duration="15499000" />
+      <workItem from="1537619965389" duration="16653000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1361,11 +1357,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537542011273</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- Add date-validator.&#10;- Guard &quot;EducationForm&quot;-submission against invalid factors.&#10;- Code cleanup.">
+      <created>1537638880792</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1537638880792</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280557000" />
+    <option name="totallyTimeSpent" value="281711000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1485,7 +1488,8 @@
     <MESSAGE value="- Update form-validators.&#10;- Initial &quot;reset-picture&quot;-code.&#10;- Code cleanup." />
     <MESSAGE value="Resolve merge-conflicts." />
     <MESSAGE value="Load user-profile_photo in &quot;user-home&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="Load user-profile_photo in &quot;user-home&quot;." />
+    <MESSAGE value="- Add date-validator.&#10;- Guard &quot;EducationForm&quot;-submission against invalid factors.&#10;- Code cleanup." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add date-validator.&#10;- Guard &quot;EducationForm&quot;-submission against invalid factors.&#10;- Code cleanup." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/index.ts">
@@ -1649,16 +1653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1775,32 +1769,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/validators/text_validator.directive.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#5;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1815,16 +1789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="170" selection-start-line="170" selection-end-line="170" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1834,11 +1798,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="242">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#60#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#5;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
         </state>
       </provider>
     </entry>
