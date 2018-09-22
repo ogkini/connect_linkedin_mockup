@@ -2,8 +2,10 @@ package com.ted.service;
 
 import com.ted.model.Experience;
 import com.ted.model.Education;
+import com.ted.model.Relationship;
 import com.ted.repository.ExperienceRepository;
 import com.ted.repository.EducationRepository;
+import com.ted.repository.RelationshipRepository;
 import com.ted.exception.ResourceNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class ValidatePathService {
     @Autowired
     private EducationRepository educationRepository;
 
+    @Autowired
+    private RelationshipRepository relationshipRepository;
+
     private static final Logger logger = LoggerFactory.getLogger(ValidatePathService.class);
 
     // Returns an experience if the path is valid
@@ -33,6 +38,12 @@ public class ValidatePathService {
     public Education validatePathAndGetEducation(Long educationId) {
         return educationRepository.findById(educationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Education", "id", educationId));
+    }
+
+    // Returns a relationship if the path is valid
+    public Relationship validatePathAndGetRelationship(Long relationshipId) {
+        return relationshipRepository.findById(relationshipId)
+                .orElseThrow(() -> new ResourceNotFoundException("Relationship", "id", relationshipId));
     }
 
 }

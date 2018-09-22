@@ -6,6 +6,8 @@ import { SignInComponent } from './_components/sign-in/sign-in.component';
 import { SignUpComponent } from './_components/sign-up/sign-up.component';
 import { HomeAdminComponent } from './_components/admin/home-admin/home-admin.component';
 import { HomeUserComponent } from './_components/user/home-user/home-user.component';
+import { NetworkComponent } from './_components/user/network/network.component';
+
 import { AuthGuard, RoleGuard } from './_guards/index';
 
 const routes: Routes = [
@@ -24,7 +26,11 @@ const routes: Routes = [
   {
     path: 'home-user',
     component: HomeUserComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      //{ path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: 'network', component:  NetworkComponent}
+    ]
   },
   {
     path: 'home-admin',
