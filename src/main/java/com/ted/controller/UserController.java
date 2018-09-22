@@ -3,8 +3,6 @@ package com.ted.controller;
 import com.ted.model.Role;
 import com.ted.model.RoleName;
 import com.ted.model.User;
-import com.ted.model.Experience;
-import com.ted.model.Education;
 import com.ted.repository.RoleRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.SignInRequest;
@@ -113,23 +111,7 @@ public class UserController {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
-        User user = userService.getById(userId);
-
-        // Sort the experience list
-        Collections.sort(user.getExperience(), new Comparator<Experience>(){
-            public int compare(Experience e1, Experience e2) {
-                return e2.getEndDate().compareTo(e1.getEndDate());
-            }
-        });
-
-        // Sort the education list
-        Collections.sort(user.getEducation(), new Comparator<Education>(){
-            public int compare(Education e1, Education e2) {
-                return e2.getEndDate().compareTo(e1.getEndDate());
-            }
-        });
-
-        return user;
+        return userService.getById(userId);
     }
 
     // Signs a user in to the app

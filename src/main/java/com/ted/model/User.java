@@ -60,6 +60,14 @@ public class User {
     @Fetch(FetchMode.SELECT)
     private List<Skill> skills = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<Relationship> relationships = new ArrayList<>();
+
+    @Transient
+    private int friendRequests;
+
     public User () {}
 
     public User(String firstname, String lastname, String email, String password, String picture) {
@@ -156,6 +164,14 @@ public class User {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public int getFriendRequests() {
+        return friendRequests;
+    }
+
+    public void setFriendRequests(int friendRequests) {
+        this.friendRequests = friendRequests;
     }
 
     @Override
