@@ -4,8 +4,17 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { first } from 'rxjs/operators';
 
 import { User, Experience, Education, CreationResponse } from '../../../_models/index';
-import { UserService, ExperienceService, EducationService, AlertService } from '../../../_services/index';
+import {
+  UserService,
+  ExperienceService,
+  EducationService,
+  AlertService,
+  ConnectionConfigService
+} from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
+import { DateService } from "../../../_services/date.service";
+import {DatePeriodValidatorDirective} from "../../../_directives/validators/date-period-validator.directive";
+
 
 @Component({
   selector: 'app-home-user',
@@ -20,6 +29,7 @@ export class HomeUserComponent implements OnInit {
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
   submitted = false;
+  public profilePhotosEndpoint: string;
 
   years: { id: number, name: string }[] = [];
   months = [
@@ -43,10 +53,12 @@ export class HomeUserComponent implements OnInit {
       private experienceService: ExperienceService,
       private educationService: EducationService,
       private alertService: AlertService,
-      private formBuilder: FormBuilder
+      private formBuilder: FormBuilder,
+      private connConfig: ConnectionConfigService
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
 
     // Occupy years array
     for (let i: number = 2018; i >= 1950; i--) {
@@ -81,7 +93,7 @@ export class HomeUserComponent implements OnInit {
       startMonth: ['', Validators.required],
       startYear: ['', Validators.required],
       endMonth: ['', Validators.required],
-      endYear: ['', Validators.required]
+      endYear: ['', [Validators.required, DatePeriodValidatorDirective.validateDatePeriod]]
     });
   }
 
@@ -98,8 +110,8 @@ export class HomeUserComponent implements OnInit {
     }
 
     // Create the start and end dates
-    let start = this.createDate(this.getAddExperienceForm.startYear.value, this.getAddExperienceForm.startMonth.value);
-    let end = this.createDate(this.getAddExperienceForm.endYear.value, this.getAddExperienceForm.endMonth.value);
+    let start = DateService.createDate(this.getAddExperienceForm.startYear.value, this.getAddExperienceForm.startMonth.value);
+    let end = DateService.createDate(this.getAddExperienceForm.endYear.value, this.getAddExperienceForm.endMonth.value);
 
     // Create a new Experience object
     const newExperience: Experience = {
@@ -153,7 +165,7 @@ export class HomeUserComponent implements OnInit {
       startMonth: ['', Validators.required],
       startYear: ['', Validators.required],
       endMonth: ['', Validators.required],
-      endYear: ['', Validators.required]
+      endYear: ['', [Validators.required, DatePeriodValidatorDirective.validateDatePeriod]]
     });
   }
 
@@ -164,9 +176,14 @@ export class HomeUserComponent implements OnInit {
   addEducation() {
     this.submitted = true;
 
+    // If form is invalid stop here
+    if (this.addEducationForm.invalid) {
+      return;
+    }
+
     // Create the start and end dates
-    let start = this.createDate(this.getAddEducationForm.startYear.value, this.getAddEducationForm.startMonth.value);
-    let end = this.createDate(this.getAddEducationForm.endYear.value, this.getAddEducationForm.endMonth.value);
+    let start = DateService.createDate(this.getAddEducationForm.startYear.value, this.getAddEducationForm.startMonth.value);
+    let end = DateService.createDate(this.getAddEducationForm.endYear.value, this.getAddEducationForm.endMonth.value);
 
     // Create a new Education object
     const newEducation: Education = {
@@ -214,14 +231,6 @@ export class HomeUserComponent implements OnInit {
 
   clearAlert() {
     this.alertService.clear();
-  }
-
-  // Creates and returns a valid date string
-  private createDate(year: number, month: number) {
-    if (month < 10)
-      return `${year}-0${month}-01`;
-    else
-      return `${year}-${month}-01`;
   }
 
 }

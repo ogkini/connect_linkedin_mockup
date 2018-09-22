@@ -19,7 +19,7 @@ export class FileUploaderService {
 
     //console.debug("Inside 'onImageChanged' in the file-service!");
 
-    this.fileToUpload = event.target.files[0];
+    this.onFileChanged(event);
 
     //console.debug("After taking the file from event! Filename is: ", this.fileToUpload.name);
 
@@ -32,6 +32,14 @@ export class FileUploaderService {
       for( let fileType of this.imgFormatsAllowed )
         console.debug(fileType);
     }
+  }
+
+  public onFileChanged(event) {
+    this.fileToUpload = event.target.files[0];
+  }
+
+  public onFileReset() {
+    this.fileToUpload = null;
   }
 
   public get fileName() : string {

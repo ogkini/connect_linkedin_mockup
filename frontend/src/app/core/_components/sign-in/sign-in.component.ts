@@ -14,7 +14,6 @@ import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-
   title = 'Sign In to Connect';
   signInForm: FormGroup;
   submitted = false;
@@ -31,11 +30,16 @@ export class SignInComponent implements OnInit {
     this.titleService.setTitle(this.title);
   }
 
+  maxEmailLength = 65;
+
+  minPasswordLength = 6;
+  maxPasswordLength = 100;
+
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signInForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['',[Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
+      password: ['',[Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]]
     });
 
     // Reset login status

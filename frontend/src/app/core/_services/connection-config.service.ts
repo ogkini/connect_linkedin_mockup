@@ -5,9 +5,8 @@ export class ConnectionConfigService {
   serverUrl = '//localhost:9090/api/';
 
   signinEndpoint  = 'signin';
-  signupEndpoint  = 'users';
 
-  userEndpoint = 'users';
+  usersEndpoint = 'users';
   experienceEndpoint = 'experience';
   educationEndpoint = 'education';
 

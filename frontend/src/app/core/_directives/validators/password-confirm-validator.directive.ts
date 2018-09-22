@@ -4,8 +4,8 @@ import { Subscription } from "rxjs";
 
 
 @Directive({
-  exportAs: 'compare_pass',
-  selector: '[compare_pass]',
+  exportAs: 'compare_pass_fail',
+  selector: '[compare_pass_fail]',
   providers: [{ provide: NG_VALIDATORS, useExisting: PasswordConfirmValidatorDirective, multi: true }]
 })
 export class PasswordConfirmValidatorDirective implements Validator {
@@ -44,7 +44,7 @@ export class PasswordConfirmValidatorDirective implements Validator {
       });
     }
 
-    return controlToCompare && controlToCompare.value != c.value ? { compare_pass: true } : null;
+    return controlToCompare && controlToCompare.value != c.value ? { compare_pass_fail: true } : null;
   }
 
 }

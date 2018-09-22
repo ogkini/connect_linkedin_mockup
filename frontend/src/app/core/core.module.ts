@@ -18,14 +18,15 @@ import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.com
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
 import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-bar.component';
 
-import { FileUploaderService } from './_services/file-uploader/file-uploader.service';
-
 import { AuthGuard, RoleGuard } from './_guards/index';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, ConnectionConfigService } from './_services/index';
 import { UserService, ExperienceService, EducationService } from './_services/index';
+import { FileUploaderService } from './_services/file-uploader/file-uploader.service';
 import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
+import { DatePeriodValidatorDirective } from "./_directives/validators/date-period-validator.directive";
+import { DateService } from "./_services/date.service";
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { TextValidatorDirective } from "./_directives/validators/text_validator.
     AlertComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
-    NetworkComponent
+    NetworkComponent,
+    DatePeriodValidatorDirective
   ],
   exports: [
     FooterComponent,
@@ -65,6 +67,7 @@ import { TextValidatorDirective } from "./_directives/validators/text_validator.
     EducationService,
     ConnectionConfigService,
     FileUploaderService,
+    DateService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
