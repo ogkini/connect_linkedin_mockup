@@ -15,6 +15,8 @@ import { AuthenticationService } from '../../../_services/index';
 
 export class UserNavBarComponent implements OnInit {
 
+  public pendingNotifications: number = 5;
+
   constructor(
     private authenticationService: AuthenticationService
   ) { }

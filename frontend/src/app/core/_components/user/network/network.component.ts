@@ -11,6 +11,7 @@ import { Title } from "@angular/platform-browser";
 export class NetworkComponent implements OnInit {
 
   title = 'My Network';
+  public userId: number;
 
   public constructor(
     private titleService: Title,
@@ -19,7 +20,10 @@ export class NetworkComponent implements OnInit {
     console.debug("Inside NetworkComponent!");
 
     this.titleService.setTitle( this.title );
-    this.route.params.subscribe( params => console.log(params));
+    this.route.params.subscribe( params => {
+      this.userId = +params['id']; // (+) converts string 'id' to a number
+      console.debug("UserID coming from url-parameters is:", this.userId);
+    })
   }
 
   ngOnInit() {

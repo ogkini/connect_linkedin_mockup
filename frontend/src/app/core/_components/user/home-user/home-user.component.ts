@@ -31,7 +31,7 @@ export class HomeUserComponent implements OnInit {
   addEducationForm: FormGroup;
   submitted = false;
   public profilePhotosEndpoint: string;
-  private userId: number;
+  public userId: number;
 
   years: { id: number, name: string }[] = [];
   months = [
@@ -61,11 +61,11 @@ export class HomeUserComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
     this.route.params.subscribe( params => {
       this.userId = +params['id']; // (+) converts string 'id' to a number
       console.debug("UserID coming from url-parameters is:", this.userId);
     });
-    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
 
     // Test "getByEmail"..
     /*let id = 0;
