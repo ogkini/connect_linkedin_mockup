@@ -43,11 +43,6 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'pageNotFound',
-    pathMatch: 'full',
-  },
-  {
-    path: 'pageNotFound',
     component: PageNotFoundComponent
   }
 ];
