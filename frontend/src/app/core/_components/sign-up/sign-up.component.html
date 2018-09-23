@@ -46,8 +46,8 @@
     </div>
 
     <div class="input-group mt-4 mb-3">
-        <input type="file" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" style="display: none" (change)="onImageChange($event)" #fileInput>
-        <label class="btn btn-primary" for="inputGroupFile01" (click)="fileInput.click()">Add a profile picture (optional)</label>
+        <input type="file" aria-describedby="inputGroupFileAddon01" style="display: none" (change)="onImageChange($event)" #fileInput>
+        <label class="btn btn-primary" (click)="fileInput.click()">Add a profile picture (optional)</label>
     </div>
 
     <!--<div class="input-group mb-3">

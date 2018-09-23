@@ -95,7 +95,7 @@ export class SignUpComponent implements OnInit {
           setTimeout(() => { this.router.navigate([this.returnUrl]); }, 2000);
         },
         error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
         }
       );
   }
