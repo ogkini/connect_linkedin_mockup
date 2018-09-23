@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
-
 @Component({
   selector: 'app-network',
   templateUrl: './network.component.html',
@@ -16,13 +15,10 @@ export class NetworkComponent implements OnInit {
     private titleService: Title,
     private route: ActivatedRoute
   ) {
-    console.debug("Inside NetworkComponent!");
-
-    this.titleService.setTitle( this.title );
-    this.route.params.subscribe( params => console.log(params));
+    this.titleService.setTitle(this.title);
+    this.route.params.subscribe(params => console.log(params));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
