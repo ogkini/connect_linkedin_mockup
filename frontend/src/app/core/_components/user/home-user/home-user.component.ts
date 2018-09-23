@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { ActivatedRoute } from "@angular/router";
 
 import { User, Experience, Education, CreationResponse } from '../../../_models/index';
-import {
-  UserService,
-  ExperienceService,
-  EducationService,
-  AlertService,
-  ConnectionConfigService
-} from '../../../_services/index';
+import { UserService, ExperienceService, EducationService } from '../../../_services/index';
+import { AlertService, ConnectionConfigService } from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 import { DateService } from "../../../_services/date.service";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
@@ -29,6 +25,7 @@ export class HomeUserComponent implements OnInit {
   addEducationForm: FormGroup;
   submitted = false;
   public profilePhotosEndpoint: string;
+  private userId: number;
 
   years: { id: number, name: string }[] = [];
   months = [
@@ -53,10 +50,17 @@ export class HomeUserComponent implements OnInit {
       private educationService: EducationService,
       private alertService: AlertService,
       private formBuilder: FormBuilder,
-      private connConfig: ConnectionConfigService
+      private connConfig: ConnectionConfigService,
+      private route: ActivatedRoute
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    // this.route.params.subscribe( params => {
+    //   this.userId = +params['id']; // (+) converts string 'id' to a number
+    //   console.debug("UserID coming from url-parameters is:", this.userId);
+    // });
+    //
     this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
 
     // Occupy years array

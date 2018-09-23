@@ -100,18 +100,32 @@ public class UserController {
         return userService.getAll();
     }
 
-    // Returns a specific user.
+    // Returns a specific user base on its ID.
     // Only the admin or the user himself can perform this action.
     @GetMapping("/users/{userId}")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public User getById(@PathVariable(value = "userId") Long userId, @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
-        if (currentUser.getId() != userId &&
-            !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+        if ( !currentUser.getId().equals(userId)
+                && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
         return userService.getById(userId);
+    }
+
+    // Returns a specific user.
+    // Only the admin or the user himself can perform this action.
+    @GetMapping("/users/getUserByEmail")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public User getByEmail(@RequestParam("userEmail") String userEmail, @Valid @CurrentUser UserDetailsImpl currentUser) {
+        // Check if the logged in user is authorized to access the path
+        if ( !currentUser.getEmail().equals(userEmail)
+                && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        return userService.getByEmail(userEmail);
     }
 
     // Signs a user in to the app

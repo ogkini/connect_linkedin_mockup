@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import { AuthenticationService } from '../../../_services/index';
 
 @Component({
@@ -16,7 +15,9 @@ import { AuthenticationService } from '../../../_services/index';
 
 export class UserNavBarComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() { }
 

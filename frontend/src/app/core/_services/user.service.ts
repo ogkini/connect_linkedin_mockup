@@ -14,23 +14,32 @@ export class UserService {
   ) { }
 
   getAll() {
-    return this.httpClient.get<User[]>(this.connConfig.serverUrl + this.connConfig.userEndpoint);
+    return this.httpClient.get<User[]>(this.connConfig.serverUrl + this.connConfig.usersEndpoint);
   }
 
   getById(id: number): Observable<User> {
     return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + id);
   }
 
+  getByEmail(email: string): Observable<User> {
+    return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/getUserByEmail',
+      {
+          params: {
+            userEmail: email
+          }
+      })
+  }
+
   create(user: User) {
-    return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.userEndpoint, user);
+    return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.usersEndpoint, user);
   }
 
   update(user: User) {
-    return this.httpClient.put(this.connConfig.serverUrl + this.connConfig.userEndpoint + '/' + user.id, user);
+    return this.httpClient.put(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + user.id, user);
   }
 
   delete(id: number) {
-    return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.userEndpoint + '/' + id);
+    return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + id);
   }
 
 }
