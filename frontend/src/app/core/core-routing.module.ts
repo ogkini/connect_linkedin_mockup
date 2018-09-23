@@ -9,6 +9,7 @@ import { HomeUserComponent } from './_components/user/home-user/home-user.compon
 import { NetworkComponent } from './_components/user/network/network.component';
 
 import { AuthGuard, RoleGuard } from './_guards/index';
+import {PageNotFoundComponent} from "./_components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -39,6 +40,15 @@ const routes: Routes = [
     data: {
       expectedRole: 'ROLE_ADMIN'
     }
+  },
+  {
+    path: '**',
+    redirectTo: 'pageNotFound',
+    pathMatch: 'full',
+  },
+  {
+    path: 'pageNotFound',
+    component: PageNotFoundComponent
   }
 ];
 

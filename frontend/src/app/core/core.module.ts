@@ -18,6 +18,8 @@ import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.com
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
 import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-bar.component';
 
+import { PageNotFoundComponent } from "./_components/page-not-found/page-not-found.component";
+
 import { AuthGuard, RoleGuard } from './_guards/index';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, ConnectionConfigService } from './_services/index';
@@ -27,6 +29,7 @@ import { PasswordConfirmValidatorDirective } from './_directives/validators/pass
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
 import { DatePeriodValidatorDirective } from "./_directives/validators/date-period-validator.directive";
 import { DateService } from "./_services/date.service";
+
 
 @NgModule({
   imports: [
@@ -48,6 +51,7 @@ import { DateService } from "./_services/date.service";
     AdminNavBarComponent,
     UserNavBarComponent,
     AlertComponent,
+    PageNotFoundComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
     NetworkComponent,
