@@ -13,8 +13,7 @@ import {
 } from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 import { DateService } from "../../../_services/date.service";
-import {DatePeriodValidatorDirective} from "../../../_directives/validators/date-period-validator.directive";
-
+import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
 
 @Component({
   selector: 'app-home-user',

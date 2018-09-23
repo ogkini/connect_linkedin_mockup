@@ -31,7 +31,6 @@ export class SignInComponent implements OnInit {
   }
 
   maxEmailLength = 65;
-
   minPasswordLength = 6;
   maxPasswordLength = 100;
 
