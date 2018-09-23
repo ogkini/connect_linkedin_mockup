@@ -21,6 +21,15 @@ export class UserService {
     return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + id);
   }
 
+  getByEmail(email: string): Observable<User> {
+    return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/getUserByEmail',
+      {
+          params: {
+            userEmail: email
+          }
+      })
+  }
+
   create(user: User) {
     return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.usersEndpoint, user);
   }

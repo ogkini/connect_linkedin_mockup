@@ -51,10 +51,10 @@ import { DateService } from "./_services/date.service";
     AdminNavBarComponent,
     UserNavBarComponent,
     AlertComponent,
+    NetworkComponent,
     PageNotFoundComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
-    NetworkComponent,
     DatePeriodValidatorDirective
   ],
   exports: [

@@ -9,7 +9,7 @@ import { HomeUserComponent } from './_components/user/home-user/home-user.compon
 import { NetworkComponent } from './_components/user/network/network.component';
 
 import { AuthGuard, RoleGuard } from './_guards/index';
-import {PageNotFoundComponent} from "./_components/page-not-found/page-not-found.component";
+import { PageNotFoundComponent } from "./_components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -25,21 +25,22 @@ const routes: Routes = [
     component: SignUpComponent
   },
   {
-    path: 'home-user',
-    component: HomeUserComponent,
-    canActivate: [AuthGuard],
-    children: [
-      //{ path: '', redirectTo: 'overview', pathMatch: 'full' },
-      { path: 'network', component:  NetworkComponent}
-    ]
-  },
-  {
     path: 'home-admin',
     component: HomeAdminComponent,
     canActivate: [AuthGuard, RoleGuard],
     data: {
       expectedRole: 'ROLE_ADMIN'
     }
+  },
+  {
+    path: 'users/:id',
+    component: HomeUserComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component:  HomeUserComponent },
+      { path: 'network', component:  NetworkComponent }
+    ]
   },
   {
     path: '**',

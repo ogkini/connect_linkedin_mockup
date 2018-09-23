@@ -1,18 +1,19 @@
 package com.ted.service;
 
-import com.ted.model.User;
-import com.ted.model.Experience;
-import com.ted.model.Education;
-import com.ted.repository.UserRepository;
-import com.ted.repository.RelationshipRepository;
 import com.ted.exception.ResourceNotFoundException;
-
+import com.ted.model.Education;
+import com.ted.model.Experience;
+import com.ted.model.User;
+import com.ted.repository.RelationshipRepository;
+import com.ted.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -30,7 +31,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    // Returns a specific user.
+    // Returns a specific user based on its ID.
     public User getById(Long userId) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -51,6 +52,14 @@ public class UserService {
 
         // Get the pending friend requests
         user.setFriendRequests(relationshipRepository.getReceivedRequestsByUserId(userId).size());
+
+        return user;
+    }
+
+    // Returns a specific user based on its email.
+    public User getByEmail(String userEmail) {
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "email", userEmail));
 
         return user;
     }

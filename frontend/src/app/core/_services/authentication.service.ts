@@ -16,7 +16,7 @@ export class AuthenticationService {
   ) { }
 
   login(email: string, password: string) {
-    return this.http.post<any>(this.connConfig.serverUrl + this.connConfig.signinEndpoint, { email: email, password: password })
+    return this.http.post<any>(this.connConfig.serverUrl + this.connConfig.signInEndpoint, { email: email, password: password })
       .map(user => {
         // Login successful if there's a jwt token in the response
         if (user && user.accessToken) {
@@ -32,6 +32,8 @@ export class AuthenticationService {
   logout() {
     // Remove user from local storage to log user out
     localStorage.removeItem('currentUser');
-    this.router.navigate(['/sign-in']);
+    if ( !this.router.navigate(['/sign-in']) ) {
+      console.error("Navigation to \"/sign-in\" has failed!");
+    }
   }
 }

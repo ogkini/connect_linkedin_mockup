@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class ConnectionConfigService {
   serverUrl = '//localhost:9090/api/';
 
-  signinEndpoint  = 'signin';
+  signInEndpoint  = 'signin';
 
   usersEndpoint = 'users';
   experienceEndpoint = 'experience';

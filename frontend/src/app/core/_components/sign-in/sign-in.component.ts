@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../../_services/index';
 import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
+import { User } from "../../_models";
 
 @Component({
   selector: 'app-sign-in',
@@ -15,18 +16,20 @@ import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
 })
 export class SignInComponent implements OnInit {
   title = 'Sign In to Connect';
+  currentUser: User;
   signInForm: FormGroup;
   submitted = false;
   returnUrl: string;
   data: HttpResponse<{}>;
 
   public constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private alertService: AlertService,
-      private authenticationService: AuthenticationService,
-      private titleService: Title,
-      private formBuilder: FormBuilder) {
+    private route: ActivatedRoute,
+    private router: Router,
+    private alertService: AlertService,
+    private authenticationService: AuthenticationService,
+    private titleService: Title,
+    private formBuilder: FormBuilder
+  ) {
     this.titleService.setTitle(this.title);
   }
 
@@ -38,8 +41,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signInForm = this.formBuilder.group({
-      email: ['',[Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
-      password: ['',[Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]]
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
+      password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]]
     });
 
     // Reset login status
@@ -47,7 +50,9 @@ export class SignInComponent implements OnInit {
   }
 
   // Convenience getter for easy access to form fields
-  get form() { return this.signInForm.controls; }
+  get form() {
+    return this.signInForm.controls;
+  }
 
   // Submits the form
   onSubmit() {
@@ -58,21 +63,30 @@ export class SignInComponent implements OnInit {
       return;
     }
 
-    // Set url to redirect to after signin
-    if (this.form.email.value === 'admin@mail.com') {
-      this.returnUrl = '/home-admin';
-    } else {
-      this.returnUrl = '/home-user';
-    }
+    console.debug("Going to authenticate user with email:", this.form.email.value);
 
     this.authenticationService.login(this.form.email.value, this.form.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
+      .pipe(first()).subscribe(
+        user => {
+          this.currentUser = user;
+
+          //console.debug("UserIDis:", this.currentUser.id);
+
+          // Set url to redirect to after signIn
+          if ( this.form.email.value === 'admin@mail.com' ) {
+            if ( !this.router.navigate(['/home-admin']) ) {
+              console.error("Navigation from \"SignIn\" to \"/home-admin\" failed!");
+            }
+          } else {
+            if ( !this.router.navigate(['/users', this.currentUser.id]) ) {
+              console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
+            }
+          }
         },
-        error => {
-          this.alertService.error(error.error.message);
-      });
+        error => { this.alertService.error(error.message); }
+        )
+    ;
+
   }
+
 }
