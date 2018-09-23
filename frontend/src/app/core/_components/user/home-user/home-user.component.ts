@@ -11,6 +11,7 @@ import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 import { DateService } from "../../../_services/date.service";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
 
+
 @Component({
   selector: 'app-home-user',
   templateUrl: './home-user.component.html',
@@ -25,7 +26,7 @@ export class HomeUserComponent implements OnInit {
   addEducationForm: FormGroup;
   submitted = false;
   public profilePhotosEndpoint: string;
-  private userId: number;
+  public userId: number;
 
   years: { id: number, name: string }[] = [];
   months = [

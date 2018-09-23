@@ -100,12 +100,13 @@ export class SignUpComponent implements OnInit {
       );
   }
 
-  onImageChanged($event) {
-    this.fileUploader.onImageChanged($event)
+  onImageChange($event) {
+    console.debug("Inside \"onImageChange()\"!");
+    this.fileUploader.onImageChange($event)
   }
 
   onImageReset() {
-    console.debug("Going to reset the \"fileToUpload\".")
+    console.debug("Going to reset the \"fileToUpload\".");
     this.fileUploader.onFileReset();
   }
 

@@ -15,27 +15,27 @@ export class FileUploaderService {
   ) { }
 
 
-  public onImageChanged(event) {
+  public onImageChange($event) {
 
-    //console.debug("Inside 'onImageChanged' in the file-service!");
+    //console.debug("Inside 'onImageChange' in the file-service!");
 
-    this.onFileChanged(event);
+    this.onFileChange($event);
 
     //console.debug("After taking the file from event! Filename is: ", this.fileToUpload.name);
 
-    // Test: We want to split the fileName into two strings and take only the fileFormat (the 2nd string). --> It works!
-    //console.debug("FileType: " + this.fileToUpload.name.split(".", 2)[1])
-
-    if ( !this.imgFormatsAllowed.includes(this.fileToUpload.name.split(".", 2)[1]) ) {  // If it's not an imageType-file..
+    // Take the file-extension.
+    let curFileExtension = this.fileToUpload.name.split(".", 2)[1];
+    //console.debug("FileType: " + curFileExtension)
+    if ( !this.imgFormatsAllowed.includes(curFileExtension) ) {  // If it's not an imageType-file..
       this.fileToUpload = null; // Don't accept this file (don't send it to the backend).
-      console.warn("Invalid file detected! Allowed file types are: ");
+      console.warn("Invalid file detected: " + curFileExtension + "\nAllowed file types are: ");
       for( let fileType of this.imgFormatsAllowed )
         console.debug(fileType);
     }
   }
 
-  public onFileChanged(event) {
-    this.fileToUpload = event.target.files[0];
+  public onFileChange($event) {
+    this.fileToUpload = $event.target.files[0];
   }
 
   public onFileReset() {
