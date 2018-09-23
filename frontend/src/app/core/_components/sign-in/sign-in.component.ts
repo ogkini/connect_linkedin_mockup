@@ -15,6 +15,7 @@ import { User } from "../../_models";
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+
   title = 'Sign In to Connect';
   currentUser: User;
   signInForm: FormGroup;
@@ -34,7 +35,6 @@ export class SignInComponent implements OnInit {
   }
 
   maxEmailLength = 65;
-
   minPasswordLength = 6;
   maxPasswordLength = 100;
 
@@ -70,23 +70,19 @@ export class SignInComponent implements OnInit {
         user => {
           this.currentUser = user;
 
-          //console.debug("UserIDis:", this.currentUser.id);
-
           // Set url to redirect to after signIn
-          if ( this.form.email.value === 'admin@mail.com' ) {
-            if ( !this.router.navigate(['/home-admin']) ) {
+          if (this.form.email.value === 'admin@mail.com') {
+            if (!this.router.navigate(['/home-admin'])) {
               console.error("Navigation from \"SignIn\" to \"/home-admin\" failed!");
             }
           } else {
-            if ( !this.router.navigate(['/users', this.currentUser.id]) ) {
+            if (!this.router.navigate(['/users', this.currentUser.id])) {
               console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
             }
           }
         },
         error => { this.alertService.error(error.message); }
-        )
-    ;
-
+      );
   }
 
 }

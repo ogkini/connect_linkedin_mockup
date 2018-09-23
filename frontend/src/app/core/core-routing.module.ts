@@ -34,7 +34,6 @@ const routes: Routes = [
   },
   {
     path: 'users/:id',
-    component: HomeUserComponent,
     canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -5,13 +5,8 @@ import { first } from 'rxjs/operators';
 import { ActivatedRoute } from "@angular/router";
 
 import { User, Experience, Education, CreationResponse } from '../../../_models/index';
-import {
-  UserService,
-  ExperienceService,
-  EducationService,
-  AlertService,
-  ConnectionConfigService
-} from '../../../_services/index';
+import { UserService, ExperienceService, EducationService } from '../../../_services/index';
+import { AlertService, ConnectionConfigService } from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 import { DateService } from "../../../_services/date.service";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
@@ -61,18 +56,13 @@ export class HomeUserComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
-    this.route.params.subscribe( params => {
-      this.userId = +params['id']; // (+) converts string 'id' to a number
-      console.debug("UserID coming from url-parameters is:", this.userId);
-    });
 
-    // Test "getByEmail"..
-    /*let id = 0;
-    this.userService.getByEmail(this.currentUser.email).subscribe(user => {
-      id = user.id;
-      console.debug("UserID received by \"getByEmail()\" is: ", id);
-    });*/
+    // this.route.params.subscribe( params => {
+    //   this.userId = +params['id']; // (+) converts string 'id' to a number
+    //   console.debug("UserID coming from url-parameters is:", this.userId);
+    // });
+    //
+    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
 
     // Occupy years array
     for (let i: number = 2018; i >= 1950; i--) {
