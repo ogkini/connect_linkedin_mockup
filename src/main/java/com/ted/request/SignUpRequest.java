@@ -27,6 +27,7 @@ public class SignUpRequest {
     @Size(min = 6, max = 100)
     private String password;
 
+    @Size(max = 200)
     private String picture;
 
 
