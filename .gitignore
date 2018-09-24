@@ -1,1 +1,5 @@
-.gradle
+/.gradle/*
+/.idea/*
+/build/*
+/uploads/*
+/node_modules/*
