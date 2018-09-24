@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ConnectionConfigService } from "../connection-config.service";
 
-
 @Injectable()
 export class FileUploaderService {
 
@@ -15,7 +14,7 @@ export class FileUploaderService {
   ) { }
 
 
-  public onImageChange($event) {
+  public onImageChange($event): boolean {
 
     //console.debug("Inside 'onImageChange' in the file-service!");
 
@@ -31,7 +30,10 @@ export class FileUploaderService {
       console.warn("Invalid file detected: " + curFileExtension + "\nAllowed file types are: ");
       for( let fileType of this.imgFormatsAllowed )
         console.debug(fileType);
+      return false;
     }
+    else
+      return true;
   }
 
   public onFileChange($event) {

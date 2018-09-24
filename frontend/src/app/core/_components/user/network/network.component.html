@@ -3,29 +3,90 @@
 <div class="row margin-t">
 
   <!-- First column -->
-  <div class="col-4">
+  <div class="col-3">
 
     <!-- Navigation -->
     <div class="list-group" id="list-tab" role="tablist">
-      <button class="list-group-item list-group-item-action" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests</button>
-      <button class="list-group-item list-group-item-action" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests</button>
-      <button class="list-group-item list-group-item-action" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections</button>
+      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests
+        <span class="badge cyan badge-pill" *ngIf="network?.receivedRequests?.length>0">{{network?.receivedRequests?.length}}</span>
+      </button>
+
+      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests
+        <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
+      </button>
+
+      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
+        <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>
+      </button>
     </div>
-    <!-- Navigation -->
 
   </div>
-  <!-- First column -->
 
   <!-- Second column -->
-  <div class="col-8">
+  <div class="col-9">
 
-    <!-- Content -->
-      <p *ngIf="showReceived">Received</p>
-      <p *ngIf="showSent">Sent</p>
-      <p *ngIf="showConnections">Connections</p>
-    <!-- Content -->
+    <!-- Received Request -->
+    <div *ngIf="showReceived">
+      <div class="wrapper border" *ngFor="let received of network?.receivedRequests">
+        <div class="product-img">
+          <img src="http:{{profilePhotosEndpoint}}?user_id={{received?.sender?.id}}" height="118" width="120">
+        </div>
+        <div class="product-info">
+          <div class="product-text">
+            <h1>{{received?.sender?.firstname}} {{received?.sender?.lastname}}</h1>
+            <h2>Occupation</h2>
+            <p>{{received?.sender?.email}}</p>
+          </div>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-sm btn-primary req-btn" (click)="accept(received?.id)">Accept</button>
+          <button type="button" class="btn btn-sm btn-secondary req-btn" (click)="decline(received?.id)">Decline</button>
+          <button type="button" class="btn btn-sm btn-info req-btn" (click)="accept(received?.id)">Visit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sent Requests -->
+    <div *ngIf="showReceived">
+      <div class="wrapper border" *ngFor="let received of network?.sentRequests">
+        <div class="product-img">
+          <img src="http:{{profilePhotosEndpoint}}?user_id={{received?.sender?.id}}" height="118" width="120">
+        </div>
+        <div class="product-info">
+          <div class="product-text">
+            <h1>{{received?.sender?.firstname}} {{received?.sender?.lastname}}</h1>
+            <h2>Occupation</h2>
+            <p>{{received?.sender?.email}}</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary cancel">Delete</button>
+
+      </div>
+    </div>
+
+    <!-- Connections -->
+    <div *ngIf="showConnections">
+      <div class="wrapper border" *ngFor="let user of network?.connections">
+        <div class="product-img">
+          <img src="http:{{profilePhotosEndpoint}}?user_id={{user.id}}" height="118" width="120">
+        </div>
+        <div class="product-info">
+          <div class="product-text">
+            <h1>{{user.firstname}} {{user.lastname}}</h1>
+            <h2>Occupation</h2>
+            <p>{{user.email}}</p>
+          </div>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-info con-btn">Visit Profile</button>
+          <button type="button" class="btn btn-secondary con-btn">Delete</button>
+        </div>
+
+      </div>
+    </div>
 
   </div>
-  <!-- Second column -->
-
 </div>

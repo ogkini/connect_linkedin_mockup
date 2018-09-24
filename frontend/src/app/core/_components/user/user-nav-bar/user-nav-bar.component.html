@@ -13,24 +13,28 @@
 
         <li class="nav-item waves-light" mdbWavesEffect>
           <a class="nav-link" [routerLink]="['../network']">Network
-            <span class="badge badge-danger badge-pill">4</span>
+            <span class="badge badge-danger badge-pill" *ngIf="message!='0'">{{message}}</span>
           </a>
         </li>
 
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="#">Discussions</a>
+          <a class="nav-link" [routerLink]="['../job-offers']">Job offers</a>
         </li>
 
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="#">Notifications</a>
+          <a class="nav-link" [routerLink]="['../messaging']">Messaging</a>
         </li>
 
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="#">Personal Information</a>
+          <a class="nav-link" [routerLink]="['../notifications']">Notifications</a>
         </li>
 
         <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" routerLink="#">Settings</a>
+          <a class="nav-link" [routerLink]="['../info']">Personal Information</a>
+        </li>
+
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" [routerLink]="['../settings']">Settings</a>
         </li>
 
         <li class="nav-item waves-light" mdbWavesEffect>

@@ -7,3 +7,81 @@
 .a {
   color: white;
 }
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+  height: 120px;
+  width: 750px;
+  margin-bottom: 20px;
+  border-radius: 5px 5px 5px 5px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  float: left;
+  height: 118px;
+  width: 120px;
+}
+
+.product-img img {
+  border-radius: 4px 0 0 4px;
+}
+
+.product-info {
+  float: left;
+  height: 110px;
+  width: 420px;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff;
+}
+
+.product-text h1 {
+  margin: 0 0 0 38px;
+  padding-top: 10px;
+  font-size: 34px;
+  color: #474747;
+}
+
+.product-text h2 {
+  margin: 2px 0 12px 38px;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #808080;
+  letter-spacing: 0.2em;
+}
+
+.product-text p {
+  margin: 0 0 0 38px;
+  font-family: 'Georgia', serif;
+  color: #808080;
+  line-height: 1.7em;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+.view {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.req-btn {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 1px;
+  width: 160px;
+}
+
+.con-btn {
+  float: right;
+  margin-right: 20px;
+  width: 160px;
+}

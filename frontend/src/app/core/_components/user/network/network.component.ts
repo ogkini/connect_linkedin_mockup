@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
+import {first} from "rxjs/operators";
+
+import { User, Network } from '../../../_models/index';
+import { RelationshipService, ConnectionConfigService, AlertService } from '../../../_services/index';
 
 @Component({
   selector: 'app-network',
@@ -10,7 +14,9 @@ import { Title } from "@angular/platform-browser";
 export class NetworkComponent implements OnInit {
 
   title = 'My Network';
-  public userId: number;
+  currentUser: User;
+  network: Network;
+  public profilePhotosEndpoint: string;
 
   showReceived = true;
   showSent = false;
@@ -18,17 +24,53 @@ export class NetworkComponent implements OnInit {
 
   public constructor(
     private titleService: Title,
+    private relationshipService: RelationshipService,
+    private connConfig: ConnectionConfigService,
+    private alertService: AlertService,
     private route: ActivatedRoute
   ) {
     this.titleService.setTitle(this.title);
-    this.route.params.subscribe( params => {
-      this.userId = +params['id'];
-      console.debug("UserID coming from url-parameters is:", this.userId);
-    })
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getNetwork(this.currentUser.id);
+  }
 
+  private getNetwork(userId: number) {
+    this.relationshipService.getAll(userId).subscribe(network => { this.network = network; });
+  }
+
+  // Declines a friend request
+  decline(id: number) {
+    this.relationshipService.decline(id)
+      .pipe(first())
+      .subscribe(response => {
+          // Remove the request from the array
+          this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
+        }, error => {
+          this.alertService.error(error.error.message);
+        }
+      );
+}
+
+  // Accepts a friend request
+  accept(id: number) {
+    this.relationshipService.accept(id)
+      .pipe(first())
+      .subscribe(response => {
+          // Move the request from the requests array to the connections
+          let newConnection = this.network.receivedRequests.find(item => item.id === id);
+          this.network.connections.push(newConnection.sender);
+          this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
+        }, error => {
+          this.alertService.error(error.error.message);
+        }
+      );
+}
+
+  // To manage the right side view based on active button
   showReceivedTrue() {
     this.showReceived = true;
     this.showSent = false;

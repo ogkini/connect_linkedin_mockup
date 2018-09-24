@@ -51,7 +51,7 @@ public class UserService {
         });
 
         // Get the pending friend requests
-        user.setFriendRequests(relationshipRepository.getReceivedRequestsByUserId(userId).size());
+        user.setNewFriendRequests(relationshipRepository.getNewReceivedRequestsByUserId(userId).size());
 
         return user;
     }

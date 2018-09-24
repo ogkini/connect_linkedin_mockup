@@ -65,24 +65,7 @@ export class SignInComponent implements OnInit {
 
     console.debug("Going to authenticate user with email:", this.form.email.value);
 
-    this.authenticationService.login(this.form.email.value, this.form.password.value)
-      .pipe(first()).subscribe(
-        user => {
-          this.currentUser = user;
-
-          // Set url to redirect to after signIn
-          if (this.form.email.value === 'admin@mail.com') {
-            if (!this.router.navigate(['/home-admin'])) {
-              console.error("Navigation from \"SignIn\" to \"/home-admin\" failed!");
-            }
-          } else {
-            if (!this.router.navigate(['/users', this.currentUser.id])) {
-              console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
-            }
-          }
-        },
-        error => { this.alertService.error(error.message); }
-      );
+    this.authenticationService.authenticateUserAndGoToHome(this.form.email.value, this.form.password.value);
   }
 
 }

@@ -26,7 +26,7 @@ public class RelationshipService {
     private RelationshipRepository relationshipRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
     private ValidatePathService validatePathService;
@@ -35,12 +35,10 @@ public class RelationshipService {
 
     // Creates a friend request
     public Relationship create(Long userId, RelationshipRequest relationshipRequest) {
-        User me = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
+        User me = userService.getById(userId);
 
         // Check that the request receiver exists
-        User receiver = userRepository.findById(relationshipRequest.getReceiver())
-                .orElseThrow(() -> new ResourceNotFoundException("User", "id", relationshipRequest.getReceiver()));
+        User receiver = userService.getById(relationshipRequest.getReceiver());
 
         Relationship relationship = new Relationship();
 
@@ -48,6 +46,7 @@ public class RelationshipService {
         relationship.setReceiver(receiver);
         relationship.setStatus(0);
         relationship.setActionUser(me);
+        relationship.setSeen(false);
 
         return relationshipRepository.save(relationship);
     }
@@ -55,8 +54,22 @@ public class RelationshipService {
     // Returns a user's connections, received friend requests and sent friend requests
     public NetworkResponse getAll(Long userId) {
         NetworkResponse networkResponse = new NetworkResponse();
+        List<User> network = new ArrayList<>();
+        List<Relationship> connections = new ArrayList<>();
 
-        networkResponse.setConnections(relationshipRepository.getConnectionsByUserId(userId));
+        // Get the conncetions in the form of Relationship objects
+        // and then extract the User objects tha form the network
+        connections = relationshipRepository.getConnectionsByUserId(userId);
+
+        for (Relationship c : connections) {
+            if (userId == c.getSender().getId()) {
+                network.add(userService.getById(c.getReceiver().getId()));
+            } else {
+                network.add(userService.getById(c.getSender().getId()));
+            }
+        }
+
+        networkResponse.setConnections(network);
         networkResponse.setReceivedRequests(relationshipRepository.getReceivedRequestsByUserId(userId));
         networkResponse.setSentRequests(relationshipRepository.getSentRequestsByUserId(userId));
 

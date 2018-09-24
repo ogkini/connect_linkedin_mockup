@@ -38,13 +38,17 @@ public class Relationship {
     @Fetch(FetchMode.SELECT)
     private User actionUser;
 
+    @Column(name = "seen")
+    private boolean seen;
+
     public Relationship () {}
 
-    public Relationship(User sender, User receiver, int status, User actionUser) {
+    public Relationship(User sender, User receiver, int status, User actionUser, boolean seen) {
         this.sender = sender;
         this.receiver = receiver;
         this.status = status;
         this.actionUser = actionUser;
+        this.seen = seen;
     }
 
     public Long getId() {
@@ -87,6 +91,14 @@ public class Relationship {
         this.actionUser = actionUser;
     }
 
+    public boolean getSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,12 +108,13 @@ public class Relationship {
                 Objects.equals(sender, that.sender) &&
                 Objects.equals(receiver, that.receiver) &&
                 status == that.status &&
-                Objects.equals(actionUser, that.actionUser);
+                Objects.equals(actionUser, that.actionUser) &&
+                seen == that.seen;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sender, receiver, status, actionUser);
+        return Objects.hash(id, sender, receiver, status, actionUser, seen);
     }
 
 }

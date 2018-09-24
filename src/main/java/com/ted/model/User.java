@@ -66,7 +66,7 @@ public class User {
     private List<Relationship> relationships = new ArrayList<>();
 
     @Transient
-    private int friendRequests;
+    private int newFriendRequests;
 
     public User () {}
 
@@ -166,12 +166,12 @@ public class User {
         this.skills = skills;
     }
 
-    public int getFriendRequests() {
-        return friendRequests;
+    public int getNewFriendRequests() {
+        return newFriendRequests;
     }
 
-    public void setFriendRequests(int friendRequests) {
-        this.friendRequests = friendRequests;
+    public void setNewFriendRequests(int newFriendRequests) {
+        this.newFriendRequests = newFriendRequests;
     }
 
     @Override

@@ -21,6 +21,10 @@ public interface RelationshipRepository extends JpaRepository<Relationship, Long
     @Query("select r from Relationship r where r.receiver.id = :userId and r.status = 0")
     List<Relationship> getReceivedRequestsByUserId(@Param("userId") Long userId);
 
+    // Returns a user's new pending received requests
+    @Query("select r from Relationship r where r.receiver.id = :userId and r.status = 0 and r.seen = false")
+    List<Relationship> getNewReceivedRequestsByUserId(@Param("userId") Long userId);
+
 
     // Returns a user's pending sent requests
     @Query("select r from Relationship r where r.sender.id = :userId and r.status = 0")

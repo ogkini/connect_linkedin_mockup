@@ -10,6 +10,8 @@ import { NetworkComponent } from './_components/user/network/network.component';
 
 import { AuthGuard, RoleGuard } from './_guards/index';
 import { PageNotFoundComponent } from "./_components/page-not-found/page-not-found.component";
+import {UserInfoComponent} from "./_components/user/user-info/user-info.component";
+import {UserSettingsComponent} from "./_components/user/user-settings/user-settings.component";
 
 const routes: Routes = [
   {
@@ -38,8 +40,14 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component:  HomeUserComponent },
-      { path: 'network', component:  NetworkComponent }
-    ]
+      { path: 'network', component:  NetworkComponent },
+      //{ path: 'job-offers', component:  JobOffersComponent },
+      //{ path: 'messaging', component:  MessagingComponent },
+      //{ path: 'notifications', component:  NotificationsComponent },
+      { path: 'info', component:  UserInfoComponent },
+      { path: 'settings', component:  UserSettingsComponent, runGuardsAndResolvers: 'always' }
+    ],
+    runGuardsAndResolvers: 'always'
   },
   {
     path: '**',

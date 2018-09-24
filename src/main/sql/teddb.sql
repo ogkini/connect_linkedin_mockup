@@ -5,17 +5,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-#DROP SCHEMA IF EXISTS `teddb` ;
-CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
-USE `teddb` ;
+DROP SCHEMA IF EXISTS `teddb` ;
 
 -- -----------------------------------------------------
--- SUser with privileges
+-- Schema teddb
 -- -----------------------------------------------------
-#DROP USER IF EXISTS ‘ted_user’@‘localhost’;
-CREATE USER IF NOT EXISTS 'ted_user'@'localhost' IDENTIFIED BY 'ted';
-GRANT ALL PRIVILEGES ON * . * TO 'ted_user'@'localhost';
-FLUSH PRIVILEGES;
+CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
+USE `teddb` ;
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Roles`
@@ -42,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `picture` VARCHAR(200) NULL,
   `role_id` BIGINT NOT NULL,
+  `picture` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
@@ -54,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
 ENGINE = InnoDB;
 
 INSERT INTO Users (firstname, lastname, email, password, picture, role_id)
-VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', NULL, 1);
+VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5PhYBLuGBznW0PNdaA9VRBqgEJgS', 'generic_profile_photo.png', 1);
 
 -- -----------------------------------------------------
 -- Table `teddb`.`Occupation`
@@ -152,6 +148,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Relationship` (
   `user_two_id` BIGINT NOT NULL,
   `status` INT NOT NULL,
   `action_user_id` BIGINT NOT NULL,
+  `seen` TINYINT(1) NOT NULL,
   PRIMARY KEY (`relationship_id`),
   INDEX `fk_Relationship_1_idx` (`user_one_id` ASC),
   INDEX `fk_Relationship_2_idx` (`user_two_id` ASC),

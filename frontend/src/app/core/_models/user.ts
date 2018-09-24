@@ -12,4 +12,6 @@ export class User {
   experience: Array<Experience>;
   education: Array<Education>;
   skills: Array<Skill>;
+
+  newFriendRequests: number;
 }
