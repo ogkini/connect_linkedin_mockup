@@ -5,14 +5,20 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 import { ConnectionConfigService } from './connection-config.service';
+import {first} from "rxjs/operators";
+import {User} from "../_models";
+import {AlertService} from "./alert.service";
 
 @Injectable()
 export class AuthenticationService {
 
+  currentUser: User;
+
   constructor(
     private http: HttpClient,
     private router: Router,
-    private connConfig: ConnectionConfigService
+    private connConfig: ConnectionConfigService,
+    private alertService: AlertService
   ) { }
 
   login(email: string, password: string) {
@@ -36,4 +42,27 @@ export class AuthenticationService {
       console.error("Navigation to \"/sign-in\" has failed!");
     }
   }
+
+  public authenticateUserAndGoToHome(email: string, password: string ) {
+
+    this.login(email, password)
+      .pipe(first()).subscribe(
+      user => {
+        this.currentUser = user;
+
+        // Set url to redirect to after signIn
+        if (email === 'admin@mail.com') {
+          if (!this.router.navigate(['/home-admin'])) {
+            console.error("Navigation from \"SignIn\" to \"/home-admin\" failed!");
+          }
+        } else {
+          if (!this.router.navigate(['/users', this.currentUser.id])) {
+            console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
+          }
+        }
+      },
+      error => { this.alertService.error(error.message); }
+    );
+  }
+
 }

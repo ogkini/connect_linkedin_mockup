@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { User } from '../../_models/index';
-import { AlertService, UserService } from '../../_services/index';
+import {AlertService, AuthenticationService, UserService} from '../../_services/index';
 import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
 import { FileUploaderService } from './../../_services/file-uploader/file-uploader.service';
 import { PasswordConfirmValidatorDirective } from '../../_directives/validators/password-confirm-validator.directive';
@@ -21,9 +21,9 @@ export class SignUpComponent implements OnInit {
 
   title = 'Sign Up to Connect';
   signUpForm: FormGroup;
-  returnUrl: string;
   submitted = false;
   data: object;
+  user: User;
   fileToUpload: File;
 
   constructor(
@@ -33,6 +33,7 @@ export class SignUpComponent implements OnInit {
       private alertService: AlertService,
       private titleService: Title,
       private formBuilder: FormBuilder,
+      private authenticationService: AuthenticationService,
       private fileUploader: FileUploaderService
   ) {
     this.titleService.setTitle(this.title);
@@ -55,9 +56,6 @@ export class SignUpComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]],
       confirmPassword: ['', [PasswordConfirmValidatorDirective.validatePasswordConfirmation]]
     });
-
-    // Get return url from route parameters or default to '/sign-in'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/sign-in';
   }
 
   // Convenience getter for easy access to form fields
@@ -90,9 +88,9 @@ export class SignUpComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.data = data;
+          //this.data = data; // Unused..
           this.alertService.success('Registration successful.', true);
-          setTimeout(() => { this.router.navigate([this.returnUrl]); }, 2000);
+          this.authenticationService.authenticateUserAndGoToHome(email, password);
         },
         error => {
           this.alertService.error(error.message);
