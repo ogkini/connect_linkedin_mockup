@@ -1,0 +1,104 @@
+<app-user-nav-bar></app-user-nav-bar>
+
+<div class="container margin-t">
+  <h1 align="center">Edit your account information</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img src="http:{{profilePhotosEndpoint}}?user_id={{user.id}}" height="200" width="200" class="avatar img-circle" alt="profile_photo">
+        <!--<h6>Upload a different photo...</h6>-->
+
+        <!--<input class="form-control" type="file">-->
+        <div class="input-group mt-4 mb-3">
+          <input type="file" aria-describedby="inputGroupFileAddon01" style="display: none" (change)="onImageChange($event)" #fileInput>
+          <label class="btn btn-primary" (click)="fileInput.click()">Change your profile picture</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <!--<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div>-->
+
+      <form class="form-horizontal" role="form" [formGroup]="updateForm" (ngSubmit)=onSubmit()>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">First name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" formControlName="firstname" value="{{user.firstname}}" type="text" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && form.firstname.errors }">
+            <div *ngIf="submitted && form.firstname.errors" class="invalid-feedback">
+              <div *ngIf="form.firstname.errors.required">First name is required.</div>
+              <div *ngIf="form.firstname.errors.minLength || form.firstname.errors.maxLength">Text should be between {{minTextLength}} and {{maxTextLength}} characters.</div>
+              <div *ngIf="form.firstname.errors.text_val">First name must contain letters only.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Last name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" formControlName="lastname" value="{{user.lastname}}" type="text" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && form.lastname.errors }">
+            <div *ngIf="submitted && form.lastname.errors" class="invalid-feedback">
+              <div *ngIf="form.lastname.errors.required">Last name is required.</div>
+              <div *ngIf="form.lastname.errors.minLength || form.lastname.errors.maxLength">Text should be between {{minTextLength}} and {{maxTextLength}} characters.</div>
+              <div *ngIf="form.lastname.errors.text_val">Last name must contain letters only.</div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="form-group">
+          <label class="col-lg-3 control-label">Occupation:</label>
+          <div class="col-lg-8">
+            <input class="form-control" formControlName="occupation" value="{{user.occupation}}" type="text">
+            <div *ngIf="submitted && form.occupation.errors" class="invalid-feedback">
+              <div *ngIf="form.occupation.errors.required">Occupation is required.</div>
+            </div>
+          </div>
+        </div>-->
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input class="form-control" formControlName="email" value="{{user.email}}" type="email">
+            <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+              <div *ngIf="form.email.errors.required">Email is required.</div>
+              <div *ngIf="form.email.errors.email">Email is invalid.</div>
+              <div *ngIf="form.email.errors.maxLength">Email should not exceed the {{maxEmailLength}} characters.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">New password:</label>
+          <div class="col-md-8">
+            <input class="form-control" formControlName="password" type="password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }">
+            <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+              <div *ngIf="form.password.errors.required">Password is required.</div>
+              <div *ngIf="form.password.errors.minLength || form.password.errors.maxLength">Password should be between {{minPasswordLength}} and {{maxPasswordLength}} characters.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Confirm new password:</label>
+          <div class="col-md-8">
+            <input class="form-control" formControlName="confirmNewPassword" type="password" ngModel #compare_pass_fail="compare_pass_fail" compare_pass_fail [ngClass]="{ 'is-invalid': submitted && form.confirmNewPassword.errors }">
+            <div *ngIf="submitted && form.confirmNewPassword.errors && (form.confirmNewPassword.dirty || form.confirmNewPassword.touched)" class="invalid-feedback">
+              <div *ngIf="form.confirmNewPassword.errors.compare_pass">Passwords do not match!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <!--<input class="btn btn-primary" value="Save Changes" type="submit">-->
+            <button class="btn btn-primary btn-block my-4" type="submit">Save form changes</button>
+            <!--<span></span>-->
+            <!--<input class="btn btn-default" value="Cancel" type="reset">-->
+            <button class="btn btn-primary btn-block my-4" type="reset">Discard changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

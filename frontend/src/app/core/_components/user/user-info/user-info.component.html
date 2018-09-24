@@ -1,0 +1,278 @@
+<app-user-nav-bar></app-user-nav-bar>
+
+<div class="container margin-t">
+  <h1 align="center">Your Information</h1>
+  <!-- Experience -->
+  <div class="wrapper-2 border">
+
+    <!-- Header -->
+    <div class="row">
+      <div class="col">
+        <h1 class="left">Experience</h1>
+      </div>
+
+      <div class="col">
+          <span class="clickableIcon" (click)="addExperienceModal.show()">
+            <i class="fa fa-plus text-primary" aria-hidden="true"></i>
+          </span>
+      </div>
+    </div>
+
+    <!-- Items -->
+    <div *ngFor="let exp of user?.experience">
+      <hr>
+      <div class="row">
+        <div class="col">
+          <h2>{{exp?.title}}</h2>
+          <h3>{{exp?.company}}</h3>
+          <h4>{{exp?.startDate | date:'MMMM yyyy'}} - {{exp?.endDate | date:'MMMM yyyy'}}</h4>
+        </div>
+
+        <div class="col">
+            <span class="clickableIcon" (click)="deleteExperience(exp.id)">
+              <i class="fa fa-times text-primary" aria-hidden="true"></i>
+            </span>
+
+          <span class="clickableIcon">
+              <i class="fa fa-pencil text-primary" aria-hidden="true">
+              </i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="wrapper-2 border">
+
+    <!-- Header -->
+    <div class="row">
+      <div class="col">
+        <h1 class="left">Education</h1>
+      </div>
+
+      <div class="col">
+          <span class="clickableIcon" (click)="addEducationModal.show()">
+            <i class="fa fa-plus text-primary" aria-hidden="true"></i>
+          </span>
+      </div>
+    </div>
+
+    <!-- Items -->
+    <div *ngFor="let edu of user?.education">
+      <hr>
+      <div class="row">
+        <div class="col">
+          <h2>{{edu?.title}}</h2>
+          <h3>{{edu?.school}}</h3>
+          <h4>{{edu?.startDate | date:'MMMM yyyy'}} - {{edu?.endDate | date:'MMMM yyyy'}}</h4>
+        </div>
+
+        <div class="col">
+            <span id="clickableIcon" (click)="deleteEducation(edu.id)">
+              <i class="fa fa-times text-primary" aria-hidden="true"></i>
+            </span>
+
+          <span class="clickableIcon">
+              <i class="fa fa-pencil text-primary" aria-hidden="true">
+              </i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="wrapper-2 border">
+    <h1>Skills</h1>
+    <div *ngFor="let skill of user?.skills">
+      <hr>
+      <h2>{{skill?.name}}</h2>
+      <h3>{{skill?.strength}}</h3>
+    </div>
+  </div>
+
+
+
+  <!-- Add Experience Modal -->
+  <div mdbModal #addExperienceModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="addExperienceModal.hide();addExperienceFormInit();clearAlert();">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel1">Add an experience</h4>
+        </div>
+
+        <div class="modal-body">
+          <form [formGroup]="addExperienceForm" (ngSubmit)=addExperience()>
+
+            <!-- Alert component-->
+            <app-alert></app-alert>
+
+            <!-- Title -->
+            <input type="text" class="form-control mb-2" placeholder="Title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.title.errors }" autofocus>
+            <div *ngIf="submitted && getAddExperienceForm.title.errors" class="invalid-feedback">
+              <div *ngIf="getAddExperienceForm.title.errors.required">Title is required.</div>
+            </div>
+
+            <!-- Company -->
+            <input type="text" class="form-control mt-3 mb-2" placeholder="Company" formControlName="company" [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.company.errors }">
+            <div *ngIf="submitted && getAddExperienceForm.company.errors" class="invalid-feedback">
+              <div *ngIf="getAddExperienceForm.company.errors.required">Company is required.</div>
+            </div>
+
+            <!-- Start date -->
+            <fieldset class="mt-2">
+              <label>Starting month and year</label>
+              <div class="row">
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="startMonth" [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.startMonth.errors }">
+                    <option *ngFor="let month of months" [value]="month.id">{{month.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddExperienceForm.startMonth.errors" class="invalid-feedback">
+                    <div *ngIf="getAddExperienceForm.startMonth.errors.required">Starting month is required.</div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="startYear" [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.startYear.errors }">
+                    <option *ngFor="let year of years" [value]="year.id">{{year.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddExperienceForm.startYear.errors" class="invalid-feedback">
+                    <div *ngIf="getAddExperienceForm.startYear.errors.required">Starting year is required.</div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- End date -->
+            <fieldset class="mt-2">
+              <label>Ending month and year</label>
+
+              <div class="row">
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="endMonth" [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.endMonth.errors }">
+                    <option *ngFor="let month of months" [value]="month.id">{{month.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddExperienceForm.endMonth.errors" class="invalid-feedback">
+                    <div *ngIf="getAddExperienceForm.endMonth.errors.required">Ending month is required.</div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="endYear" ngModel #date_check_fail="date_check_fail" date_check_fail [ngClass]="{ 'is-invalid': submitted && getAddExperienceForm.endYear.errors }">
+                    <option *ngFor="let year of years" [value]="year.id">{{year.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddExperienceForm.endYear.errors" class="invalid-feedback">
+                    <div *ngIf="getAddExperienceForm.endYear.errors.required">Ending year is required.</div>
+                    <div *ngIf="getAddExperienceForm.endYear.errors.date_check_fail">Ending date is earlier that the start date.</div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addExperienceModal.hide();addExperienceFormInit();clearAlert();" mdbWavesEffect>Close</button>
+              <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect type="submit">Add</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Education Modal -->
+  <div mdbModal #addEducationModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="addEducationModal.hide();addEducationFormInit();clearAlert();">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel2">Add an education</h4>
+        </div>
+
+        <div class="modal-body">
+          <form [formGroup]="addEducationForm" (ngSubmit)=addEducation()>
+
+            <!-- Alert component-->
+            <app-alert></app-alert>
+
+            <!-- Title -->
+            <input type="text" class="form-control mb-2" placeholder="Title" formControlName="title" [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.title.errors }" autofocus>
+            <div *ngIf="submitted && getAddEducationForm.title.errors" class="invalid-feedback">
+              <div *ngIf="getAddEducationForm.title.errors.required">Title is required.</div>
+            </div>
+
+            <!-- School -->
+            <input type="text" class="form-control mt-3 mb-2" placeholder="School" formControlName="school" [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.school.errors }">
+            <div *ngIf="submitted && getAddEducationForm.school.errors" class="invalid-feedback">
+              <div *ngIf="getAddEducationForm.school.errors.required">School is required.</div>
+            </div>
+
+            <!-- Start date -->
+            <fieldset class="mt-2">
+              <label>Starting month and year</label>
+
+              <div class="row">
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="startMonth" [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.startMonth.errors }">
+                    <option *ngFor="let month of months" [value]="month.id">{{month.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddEducationForm.startMonth.errors" class="invalid-feedback">
+                    <div *ngIf="getAddEducationForm.startMonth.errors.required">Starting month is required.</div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="startYear" [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.startYear.errors }">
+                    <option *ngFor="let year of years" [value]="year.id">{{year.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddEducationForm.startYear.errors" class="invalid-feedback">
+                    <div *ngIf="getAddEducationForm.startYear.errors.required">Starting year is required.</div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- End date -->
+            <fieldset class="mt-2">
+              <label>Ending month and year</label>
+              <div class="row">
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="endMonth" [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.endMonth.errors }">
+                    <option *ngFor="let month of months" [value]="month.id">{{month.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddEducationForm.endMonth.errors" class="invalid-feedback">
+                    <div *ngIf="getAddEducationForm.endMonth.errors.required">Ending month is required.</div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <select class="form-control mb-2" formControlName="endYear" ngModel #date_check_fail="date_check_fail" date_check_fail [ngClass]="{ 'is-invalid': submitted && getAddEducationForm.endYear.errors }">
+                    <option *ngFor="let year of years" [value]="year.id">{{year.name}}</option>
+                  </select>
+                  <div *ngIf="submitted && getAddEducationForm.endYear.errors" class="invalid-feedback">
+                    <div *ngIf="getAddEducationForm.endYear.errors.required">Ending year is required.</div>
+                    <div *ngIf="getAddEducationForm.endYear.errors.date_check_fail">Ending date is earlier that the start date.</div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addEducationModal.hide();addEducationFormInit();clearAlert();" mdbWavesEffect>Close</button>
+              <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect type="submit">Add</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

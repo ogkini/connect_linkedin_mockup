@@ -29,6 +29,8 @@ import { PasswordConfirmValidatorDirective } from './_directives/validators/pass
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
 import { DatePeriodValidatorDirective } from "./_directives/validators/date-period-validator.directive";
 import { DateService } from "./_services/date.service";
+import {UserInfoComponent} from "./_components/user/user-info/user-info.component";
+import {UserSettingsComponent} from "./_components/user/user-settings/user-settings.component";
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { DateService } from "./_services/date.service";
     AlertComponent,
     NetworkComponent,
     PageNotFoundComponent,
+    UserInfoComponent,
+    UserSettingsComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
     DatePeriodValidatorDirective
