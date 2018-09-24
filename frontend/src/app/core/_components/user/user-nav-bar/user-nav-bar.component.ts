@@ -12,10 +12,7 @@ import { AuthenticationService } from '../../../_services/index';
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 
-
 export class UserNavBarComponent implements OnInit {
-
-  public pendingNotifications: number = 5;
 
   constructor(
     private authenticationService: AuthenticationService

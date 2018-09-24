@@ -12,6 +12,10 @@ export class NetworkComponent implements OnInit {
   title = 'My Network';
   public userId: number;
 
+  showReceived = true;
+  showSent = false;
+  showConnections = false;
+
   public constructor(
     private titleService: Title,
     private route: ActivatedRoute
@@ -24,5 +28,23 @@ export class NetworkComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  showReceivedTrue() {
+    this.showReceived = true;
+    this.showSent = false;
+    this.showConnections = false;
+  }
+
+  showSentTrue() {
+    this.showReceived = false;
+    this.showSent = true;
+    this.showConnections = false;
+  }
+
+  showConnectionsTrue() {
+    this.showReceived = false;
+    this.showSent = false;
+    this.showConnections = true;
+  }
 
 }

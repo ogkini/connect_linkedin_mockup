@@ -1,5 +1,31 @@
 <app-user-nav-bar></app-user-nav-bar>
 
-<p>
-  network works!
-</p>
+<div class="row margin-t">
+
+  <!-- First column -->
+  <div class="col-4">
+
+    <!-- Navigation -->
+    <div class="list-group" id="list-tab" role="tablist">
+      <button class="list-group-item list-group-item-action" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests</button>
+      <button class="list-group-item list-group-item-action" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests</button>
+      <button class="list-group-item list-group-item-action" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections</button>
+    </div>
+    <!-- Navigation -->
+
+  </div>
+  <!-- First column -->
+
+  <!-- Second column -->
+  <div class="col-8">
+
+    <!-- Content -->
+      <p *ngIf="showReceived">Received</p>
+      <p *ngIf="showSent">Sent</p>
+      <p *ngIf="showConnections">Connections</p>
+    <!-- Content -->
+
+  </div>
+  <!-- Second column -->
+
+</div>
