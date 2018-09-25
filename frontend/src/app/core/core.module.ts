@@ -30,6 +30,7 @@ import { DatePeriodValidatorDirective } from "./_directives/validators/date-peri
 import { DateService } from "./_services/date.service";
 import { UserInfoComponent } from "./_components/user/user-info/user-info.component";
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
+import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
 
 @NgModule({
   imports: [
@@ -55,6 +56,7 @@ import { UserSettingsComponent } from "./_components/user/user-settings/user-set
     PageNotFoundComponent,
     UserInfoComponent,
     UserSettingsComponent,
+    UserProfileComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
     DatePeriodValidatorDirective
