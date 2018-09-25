@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="- Fix THE bug: User_profile_photo was not showing after signUp.&#10;- Update file-endpoints (lots of changes).">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+    <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Update buttons in &quot;user-settings&quot;.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ted/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ted/controller/FileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/relationship.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/relationship.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
     </list>
@@ -112,7 +99,7 @@
           <entry key="gitignore" value="2" />
           <entry key="gradle" value="13" />
           <entry key="gradlew" value="2" />
-          <entry key="html" value="119" />
+          <entry key="html" value="120" />
           <entry key="ico" value="1" />
           <entry key="java" value="212" />
           <entry key="jpg" value="14" />
@@ -124,7 +111,7 @@
           <entry key="rnc" value="1" />
           <entry key="scss" value="22" />
           <entry key="sh" value="27" />
-          <entry key="sql" value="19" />
+          <entry key="sql" value="20" />
           <entry key="ts" value="407" />
           <entry key="txt" value="4" />
           <entry key="xml" value="2" />
@@ -135,7 +122,7 @@
           <entry key="Bash" value="16" />
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="13" />
-          <entry key="HTML" value="119" />
+          <entry key="HTML" value="120" />
           <entry key="Image" value="23" />
           <entry key="JAVA" value="212" />
           <entry key="JSON" value="3" />
@@ -145,7 +132,7 @@
           <entry key="Properties" value="13" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="22" />
-          <entry key="SQL" value="18" />
+          <entry key="SQL" value="19" />
           <entry key="Scratch" value="1" />
           <entry key="TypeScript" value="407" />
           <entry key="XML" value="2" />
@@ -158,7 +145,7 @@
           <entry key="dummy" value="16" />
           <entry key="gitignore" value="48" />
           <entry key="gradle" value="130" />
-          <entry key="html" value="2308" />
+          <entry key="html" value="2329" />
           <entry key="java" value="6287" />
           <entry key="json" value="4" />
           <entry key="properties" value="134" />
@@ -166,7 +153,7 @@
           <entry key="sh" value="122" />
           <entry key="sql" value="72" />
           <entry key="ts" value="11636" />
-          <entry key="txt" value="4613" />
+          <entry key="txt" value="4683" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -174,10 +161,10 @@
         <counts>
           <entry key="Bash" value="82" />
           <entry key="Groovy" value="130" />
-          <entry key="HTML" value="2308" />
+          <entry key="HTML" value="2329" />
           <entry key="JAVA" value="6287" />
           <entry key="JSON" value="4" />
-          <entry key="PLAIN_TEXT" value="4718" />
+          <entry key="PLAIN_TEXT" value="4788" />
           <entry key="Properties" value="134" />
           <entry key="SCSS" value="18" />
           <entry key="SQL" value="72" />
@@ -243,15 +230,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="86" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="70">
@@ -275,22 +253,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/app-routing.module.ts">
+        <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
             </state>
           </provider>
         </entry>
@@ -298,8 +274,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            <state relative-caret-position="340">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -757,7 +742,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" />
@@ -769,6 +753,7 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html" />
       </list>
     </option>
   </component>
@@ -1140,7 +1125,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537851512365" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537852620891" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1511,7 +1496,7 @@
       <workItem from="1537728896674" duration="27659000" />
       <workItem from="1537758529183" duration="57000" />
       <workItem from="1537758633540" duration="23000" />
-      <workItem from="1537824504022" duration="25346000" />
+      <workItem from="1537824504022" duration="26514000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1765,11 +1750,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537849480473</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Update more endpoints in the FrontEnd.">
+      <created>1537851603016</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1537851603016</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="385720000" />
+    <option name="totallyTimeSpent" value="386888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1873,7 +1865,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Admin now sees only regular-users in &quot;home-admin&quot;, not itself.&#10;- Add &quot;user.email&quot; in users-view in &quot;home-admin&quot;." />
     <MESSAGE value="- Fix a bug where a non-imageType &quot;profile_photo&quot; was being send to the backend.&#10;- Leave the &quot;user.picture=null&quot; instead of assigning the &quot;generic&quot;-one, when the user has not selected a profile_photo during SignUp." />
     <MESSAGE value="New Feature: Display user's profile_photos in &quot;home-admin&quot;." />
     <MESSAGE value="Handle case when user's profile_photo, was not found in storage, even though the user provided one.&#10;In this case, display the &quot;image_not_found.png&quot; instead." />
@@ -1898,7 +1889,8 @@
     <MESSAGE value="Resolve non-merged DataBase." />
     <MESSAGE value="Add more paths to &quot;.gitignore&quot;." />
     <MESSAGE value="- Fix THE bug: User_profile_photo was not showing after signUp.&#10;- Update file-endpoints (lots of changes)." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fix THE bug: User_profile_photo was not showing after signUp.&#10;- Update file-endpoints (lots of changes)." />
+    <MESSAGE value="Update more endpoints in the FrontEnd." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update more endpoints in the FrontEnd." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2059,13 +2051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -2115,13 +2100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -2265,13 +2243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -2295,7 +2266,28 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/experience.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>

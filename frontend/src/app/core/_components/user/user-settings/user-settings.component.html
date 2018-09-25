@@ -13,7 +13,7 @@
         <!--<input class="form-control" type="file">-->
         <div class="input-group mt-4 mb-3">
           <input type="file" aria-describedby="inputGroupFileAddon01" style="display: none" (change)="onImageChange($event)" #fileInput>
-          <label class="btn btn-primary" (click)="fileInput.click()">Change your profile picture</label>
+          <label class="btn btn-info" (click)="fileInput.click()">Change your profile picture</label>
         </div>
       </div>
     </div>
@@ -88,17 +88,13 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label"></label>
-          <div class="col-md-8">
-            <!--<input class="btn btn-primary" value="Save Changes" type="submit">-->
-            <button class="btn btn-primary btn-block my-4" type="submit">Save form changes</button>
-            <!--<span></span>-->
-            <!--<input class="btn btn-default" value="Cancel" type="reset">-->
-            <button class="btn btn-primary btn-block my-4" type="reset">Discard changes</button>
-          </div>
-        </div>
       </form>
+      <div class="col-md-8">
+        <div class="button-group">
+          <button class="btn btn-primary" type="submit">Save form changes</button>
+          <button class="btn btn-warning" type="reset">Discard changes</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
