@@ -62,8 +62,6 @@ export class SignInComponent implements OnInit {
       return;
     }
 
-    console.debug("Going to authenticate user with email:", this.form.email.value);
-
     this.authenticationService.authenticateUserAndGoToHome(this.form.email.value, this.form.password.value);
   }
 

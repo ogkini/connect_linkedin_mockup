@@ -38,31 +38,31 @@ export class AuthenticationService {
   logout() {
     // Remove user from local storage to log user out
     localStorage.removeItem('currentUser');
-    if ( !this.router.navigate(['/sign-in']) ) {
+    if (!this.router.navigate(['/sign-in'])) {
       console.error("Navigation to \"/sign-in\" has failed!");
     }
   }
 
   public authenticateUserAndGoToHome(email: string, password: string ) {
-
     this.login(email, password)
-      .pipe(first()).subscribe(
-      user => {
-        this.currentUser = user;
+      .pipe(first()).
+      subscribe(
+        user => {
+          this.currentUser = user;
 
-        // Set url to redirect to after signIn
-        if (email === 'admin@mail.com') {
-          if (!this.router.navigate(['/home-admin'])) {
-            console.error("Navigation from \"SignIn\" to \"/home-admin\" failed!");
+          // Set url to redirect to after signIn
+          if (email === 'admin@mail.com') {
+            if (!this.router.navigate(['/home-admin'])) {
+              console.error("Navigation from \"SignIn\" to \"/home-admin\" failed!");
+            }
+          } else {
+            if (!this.router.navigate(['/users', this.currentUser.id])) {
+              console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
+            }
           }
-        } else {
-          if (!this.router.navigate(['/users', this.currentUser.id])) {
-            console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
-          }
-        }
-      },
-      error => { this.alertService.error(error.message); }
-    );
-  }
+        },
+        error => { this.alertService.error("Invalid email or password.");}
+      );
+    }
 
 }
