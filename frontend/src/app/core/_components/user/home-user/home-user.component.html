@@ -14,8 +14,6 @@
         <h2>{{user?.occupation?.title}}</h2>
         <h2>{{user?.occupation?.company}}</h2>
       </div>
-
-      <!-- <button type="button" class="btn btn-lg blue darken-4">Connect</button> -->
     </div>
 
     <div class="stats text-center bg-primary">
@@ -29,6 +27,9 @@
         <div class="stat-name">Following</div>
       </div>
     </div>
+
+    <button type="button" class="btn btn-lg blue darken-4" [routerLink]="['../profile']">Check how others see me!</button>
+
   </div>
 
 </div>
