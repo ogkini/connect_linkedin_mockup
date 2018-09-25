@@ -1,6 +1,7 @@
 package com.ted.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -64,6 +65,11 @@ public class User {
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Relationship> relationships = new ArrayList<>();
+
+    @JsonIgnoreProperties("owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<Post> posts = new ArrayList<>();
 
     @Transient
     private int newFriendRequests;
@@ -167,6 +173,14 @@ public class User {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public int getNewFriendRequests() {

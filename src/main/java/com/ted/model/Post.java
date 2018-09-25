@@ -1,0 +1,90 @@
+package com.ted.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.sql.Timestamp;
+import javax.persistence.*;
+import java.util.*;
+
+@Entity
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "Post", schema = "teddb")
+public class Post {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
+    private Long id;
+
+    @JsonIgnoreProperties("posts")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;
+
+    @Column(name = "text")
+    private String text;
+
+    @CreatedDate
+    @Column(name = "created_time", updatable = false)
+    private Timestamp createdTime;
+
+    public Post () {}
+
+    public Post(String text) {
+        this.text = text;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Timestamp getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Timestamp createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post that = (Post) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(text, that.text) &&
+                Objects.equals(createdTime, that.createdTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, text, createdTime);
+    }
+
+}
