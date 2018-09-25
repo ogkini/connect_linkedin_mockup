@@ -10,7 +10,7 @@ CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
 USE `teddb`;
 
 -- -----------------------------------------------------
--- SUser with privileges
+-- User with privileges
 -- -----------------------------------------------------
 #DROP USER IF EXISTS ‘ted_user’@‘localhost’;
 CREATE USER IF NOT EXISTS 'ted_user'@'localhost' IDENTIFIED BY 'ted';
