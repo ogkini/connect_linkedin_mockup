@@ -14,20 +14,20 @@ export class RelationshipService {
   ) { }
 
   getAll(userId: number) {
-    return this.httpClient.get<Network>(this.connConfig.serverUrl + this.connConfig.usersEndpoint +
+    return this.httpClient.get<Network>(this.connConfig.usersEndpoint +
         '/' + userId + '/' + this.connConfig.networkEndpoint);
   }
 
   create(friendRequest: FriendRequest) {
-    return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.relationshipEndpoint, friendRequest);
+    return this.httpClient.post(this.connConfig.relationshipEndpoint, friendRequest);
   }
 
   decline(id: number) {
-    return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.relationshipEndpoint + '/' + id);
+    return this.httpClient.delete(this.connConfig.relationshipEndpoint + '/' + id);
   }
 
   accept(id: number) {
-    return this.httpClient.put(this.connConfig.serverUrl + this.connConfig.relationshipEndpoint + '/' + id, null)
+    return this.httpClient.put(this.connConfig.relationshipEndpoint + '/' + id, null)
   }
 
 }

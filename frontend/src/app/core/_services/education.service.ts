@@ -14,7 +14,7 @@ export class EducationService {
   ) { }
 
   create(education: Education, userId: number) {
-    return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' +
+    return this.httpClient.post(this.connConfig.usersEndpoint + '/' +
         userId + '/' + this.connConfig.educationEndpoint, education);
   }
 
@@ -23,7 +23,7 @@ export class EducationService {
   // }
 
   delete(id: number, userId: number) {
-    return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' +
+    return this.httpClient.delete(this.connConfig.usersEndpoint + '/' +
         userId + '/' + this.connConfig.educationEndpoint + '/' + id);
   }
 }

@@ -7,11 +7,15 @@ export class ConnectionConfigService {
   signInEndpoint  = this.serverUrl + 'signin';
 
   usersEndpoint = this.serverUrl + 'users';
-  experienceEndpoint = this.serverUrl + 'experience';
-  educationEndpoint = this.serverUrl + 'education';
-  relationshipEndpoint = this.serverUrl + 'relationships';
-  networkEndpoint = this.serverUrl + 'network';
 
   generalFilesEndpoint = this.serverUrl + 'uploads';
   //userFilesEndpoint = this.serverUrl + this.generalFilesEndpoint + '/' + this.usersEndpoint;
+
+  relationshipEndpoint = this.serverUrl + 'relationships';
+
+  // These are just "endings", as between them and the "serverUrl" will be the userId.
+  experienceEndpoint = 'experience';
+  educationEndpoint = 'education';
+  networkEndpoint = 'network';
+
 }
