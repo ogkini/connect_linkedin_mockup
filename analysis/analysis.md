@@ -33,6 +33,13 @@ Add ```/api``` at the front of every uri.
     | **GET**     | returns a user's experience   |
     | **POST**    | a user adds experience        |
 
+* ```/users/{id}/experience/{id}```
+
+    | Http Method | Result                               |
+    | ----------- | ------------------------------------ |
+    | **PUT**     | a user updates a specific experience |
+    | **DELETE**  | a user deletes a specific experience |
+
 * ```/users/{id}/education```
 
     | Http Method | Result                       |
@@ -40,9 +47,42 @@ Add ```/api``` at the front of every uri.
     | **GET**     | returns a user's education   |
     | **POST**    | a user adds education        |
 
+* ```/users/{id}/education/{id}```
+
+    | Http Method | Result                              |
+    | ----------- | ----------------------------------- |
+    | **PUT**     | a user updates a specific education |
+    | **DELETE**  | a user deletes a specific education |
+
 * ```/users/{id}/skills```
 
     | Http Method | Result                    |
     | ----------- | ------------------------- |
     | **GET**     | returns a user's skills   |
     | **POST**    | a user adds a skill       |
+
+* ```/users/{id}/skills/{id}```
+
+    | Http Method | Result                          |
+    | ----------- | ------------------------------- |
+    | **PUT**     | a user updates a specific skill |
+    | **DELETE**  | a user deletes a specific skill |
+
+* ```/relationships```
+
+    | Http Method | Result                                                     |
+    | ----------- | ---------------------------------------------------------- |
+    | **POST**    | a user sends a friend request (receiver specified in JSON) |
+
+* ```/relationships/{id}```
+
+    | Http Method | Result                           |
+    | ----------- | -------------------------------- |
+    | **PUT**     | a user accepts a friend request  |
+    | **DELETE**  | a user declines a friend request |
+
+* ```/users/{id}/network```
+
+    | Http Method | Result                                                           |
+    | ----------- | ---------------------------------------------------------------- |
+    | **GET**     | a user gets his connections, received requests and sent requests |
