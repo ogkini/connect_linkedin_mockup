@@ -50,7 +50,7 @@ public class RelationshipController {
                                   @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
         if (currentUser.getId() != userId) {
-            // Don't show the private staff to other users..
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
         return relationshipService.getAll(userId);

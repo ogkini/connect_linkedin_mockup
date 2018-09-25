@@ -68,6 +68,9 @@ public class User {
     @Transient
     private int newFriendRequests;
 
+    @Transient
+    private boolean relationshipBetween;
+
     public User () {}
 
     public User(String firstname, String lastname, String email, String password, String picture) {
@@ -172,6 +175,14 @@ public class User {
 
     public void setNewFriendRequests(int newFriendRequests) {
         this.newFriendRequests = newFriendRequests;
+    }
+
+    public boolean getRelationshipBetween() {
+        return relationshipBetween;
+    }
+
+    public void setRelationshipBetween(boolean relationshipBetween) {
+        this.relationshipBetween = relationshipBetween;
     }
 
     @Override

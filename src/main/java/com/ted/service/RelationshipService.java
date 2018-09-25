@@ -53,14 +53,12 @@ public class RelationshipService {
 
     // Returns a user's connections, received friend requests and sent friend requests
     public NetworkResponse getAll(Long userId) {
-        NetworkResponse networkResponse = new NetworkResponse();
         List<User> network = new ArrayList<>();
-        List<Relationship> connections = new ArrayList<>();
+        List<Relationship> connections = relationshipRepository.getConnectionsByUserId(userId);
+        List<Relationship> receivedRequests = relationshipRepository.getReceivedRequestsByUserId(userId);
+        List<Relationship> sentRequests = relationshipRepository.getSentRequestsByUserId(userId);
 
-        // Get the conncetions in the form of Relationship objects
-        // and then extract the User objects tha form the network
-        connections = relationshipRepository.getConnectionsByUserId(userId);
-
+        // Extract the User objects that form the network.
         for (Relationship c : connections) {
             if (userId == c.getSender().getId()) {
                 network.add(userService.getById(c.getReceiver().getId()));
@@ -69,9 +67,18 @@ public class RelationshipService {
             }
         }
 
+        // Create the network response
+        NetworkResponse networkResponse = new NetworkResponse();
+
         networkResponse.setConnections(network);
-        networkResponse.setReceivedRequests(relationshipRepository.getReceivedRequestsByUserId(userId));
-        networkResponse.setSentRequests(relationshipRepository.getSentRequestsByUserId(userId));
+        networkResponse.setReceivedRequests(receivedRequests);
+        networkResponse.setSentRequests(sentRequests);
+
+        // Update the received requests as seen.
+        for (Relationship r : receivedRequests) {
+            r.setSeen(true);
+            relationshipRepository.save(r);
+        }
 
         return networkResponse;
     }
@@ -102,6 +109,11 @@ public class RelationshipService {
         relationshipRepository.delete(relationship);
 
         return ResponseEntity.ok().body(new ApiResponse(true, "Successfully deleted relationship."));
+    }
+
+    // Checks if there is a relationship between two users
+    public boolean areRelated(Long userOne, Long userTwo) {
+        return relationshipRepository.areRelated(userOne, userTwo).size() > 0;
     }
 
 }

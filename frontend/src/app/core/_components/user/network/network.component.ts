@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import {first} from "rxjs/operators";
+import { first } from "rxjs/operators";
 
 import { User, Network } from '../../../_models/index';
-import { RelationshipService, ConnectionConfigService, AlertService } from '../../../_services/index';
+import { RelationshipService, ConnectionConfigService, AlertService, DataService } from '../../../_services/index';
 
 @Component({
   selector: 'app-network',
@@ -16,6 +16,7 @@ export class NetworkComponent implements OnInit {
   title = 'My Network';
   currentUser: User;
   network: Network;
+  message: string;
   public profilePhotosEndpoint: string;
 
   showReceived = true;
@@ -27,6 +28,7 @@ export class NetworkComponent implements OnInit {
     private relationshipService: RelationshipService,
     private connConfig: ConnectionConfigService,
     private alertService: AlertService,
+    private dataService: DataService,
     private route: ActivatedRoute
   ) {
     this.titleService.setTitle(this.title);
@@ -36,6 +38,8 @@ export class NetworkComponent implements OnInit {
 
   ngOnInit() {
     this.getNetwork(this.currentUser.id);
+    this.dataService.currentMessage.subscribe(message => this.message = message);
+    this.dataService.changeMessage('');
   }
 
   private getNetwork(userId: number) {
@@ -50,7 +54,7 @@ export class NetworkComponent implements OnInit {
           // Remove the request from the array
           this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.message);
+          this.alertService.error(error.error.message);
         }
       );
 }
@@ -65,7 +69,7 @@ export class NetworkComponent implements OnInit {
           this.network.connections.push(newConnection.sender);
           this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.message);
+          this.alertService.error(error.error.message);
         }
       );
 }

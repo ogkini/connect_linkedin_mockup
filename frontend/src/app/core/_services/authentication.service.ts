@@ -61,8 +61,8 @@ export class AuthenticationService {
             }
           }
         },
-        error => { this.alertService.error("Invalid email or password.");}
+        error => { this.alertService.error(error.error.message); }
       );
-    }
+  }
 
 }

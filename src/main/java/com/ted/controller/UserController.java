@@ -101,17 +101,9 @@ public class UserController {
     }
 
     // Returns a specific user.
-    // Only the admin or the user himself can perform this action.
     @GetMapping("/users/{userId}")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public User getById(@PathVariable(value = "userId") Long userId, @Valid @CurrentUser UserDetailsImpl currentUser) {
-        // Check if the logged in user is authorized to access the path
-        if (!currentUser.getId().equals(userId)
-            && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
-            throw new NotAuthorizedException("You are not authorized to access this resource.");
-        }
-
-        return userService.getById(userId);
+        return userService.getById(userId, currentUser);
     }
 
     // Returns a specific user.

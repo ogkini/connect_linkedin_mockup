@@ -45,8 +45,8 @@ export class HomeUserComponent implements OnInit {
     this.userService.getById(id).subscribe( user => {
       this.user = user;
       this.dataService.changeMessage(this.user.newFriendRequests.toString());
-      this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.user.id + '/photos';  // We use this approach here as it's safer from writing to the template..
-    }); // ..since we can come here right after signUp and get all kind of weird behaviour!
+      this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.user.id + '/photos';
+    });
   }
 
   clearAlert() {

@@ -14,4 +14,5 @@ export class User {
   skills: Array<Skill>;
 
   newFriendRequests: number;
+  relationshipBetween: boolean;
 }

@@ -6,14 +6,17 @@ import com.ted.model.Experience;
 import com.ted.model.User;
 import com.ted.repository.RelationshipRepository;
 import com.ted.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.ted.security.UserDetailsImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class UserService {
@@ -24,6 +27,9 @@ public class UserService {
     @Autowired
     private RelationshipRepository relationshipRepository;
 
+    @Autowired
+    private RelationshipService relationshipService;
+
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     // Returns all users
@@ -31,7 +37,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    // Returns a specific user based on its ID.
+    // Returns a specific user.
     public User getById(Long userId) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -52,6 +58,36 @@ public class UserService {
 
         // Get the pending friend requests
         user.setNewFriendRequests(relationshipRepository.getNewReceivedRequestsByUserId(userId).size());
+
+        return user;
+    }
+
+    // Returns a specific user.
+    public User getById(Long userId, UserDetailsImpl currentUser) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
+
+        // Sort the experience list in chronological order
+        Collections.sort(user.getExperience(), new Comparator<Experience>(){
+            public int compare(Experience e1, Experience e2) {
+                return e2.getEndDate().compareTo(e1.getEndDate());
+            }
+        });
+
+        // Sort the education list in chronological order
+        Collections.sort(user.getEducation(), new Comparator<Education>(){
+            public int compare(Education e1, Education e2) {
+                return e2.getEndDate().compareTo(e1.getEndDate());
+            }
+        });
+
+        // Get the pending friend requests
+        user.setNewFriendRequests(relationshipRepository.getNewReceivedRequestsByUserId(userId).size());
+
+        // Check if there is a relationship between the users
+        if (userId != currentUser.getId()) {
+            user.setRelationshipBetween(relationshipService.areRelated(userId, currentUser.getId()));
+        }
 
         return user;
     }
