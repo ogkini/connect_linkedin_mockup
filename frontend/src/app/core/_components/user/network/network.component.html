@@ -42,7 +42,7 @@
         <div>
           <button type="button" class="btn btn-sm btn-primary req-btn" (click)="accept(received?.id)">Accept</button>
           <button type="button" class="btn btn-sm btn-secondary req-btn" (click)="decline(received?.id)">Decline</button>
-          <button type="button" class="btn btn-sm btn-info req-btn">Visit Profile</button>
+          <button type="button" class="btn btn-sm btn-info req-btn" [routerLink]="['../../' + received?.id + '/profile']">Visit Profile</button>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
         </div>
 
         <button type="button" class="btn btn-secondary con-btn">Delete</button>
-        <button type="button" class="btn btn-info con-btn">Visit Profile</button>
+        <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + sent?.receiver?.id + '/profile']">Visit Profile</button>
 
       </div>
     </div>
@@ -82,7 +82,7 @@
         </div>
 
         <div>
-          <button type="button" class="btn btn-info con-btn">Visit Profile</button>
+          <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
           <button type="button" class="btn btn-secondary con-btn">Delete</button>
         </div>
 

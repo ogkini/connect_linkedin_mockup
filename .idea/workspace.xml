@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="New feature: &quot;User-profile&quot;.">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -146,7 +154,7 @@
           <entry key="dummy" value="16" />
           <entry key="gitignore" value="48" />
           <entry key="gradle" value="154" />
-          <entry key="html" value="2507" />
+          <entry key="html" value="2548" />
           <entry key="java" value="6561" />
           <entry key="json" value="4" />
           <entry key="properties" value="134" />
@@ -154,7 +162,7 @@
           <entry key="sh" value="122" />
           <entry key="sql" value="72" />
           <entry key="ts" value="11840" />
-          <entry key="txt" value="5086" />
+          <entry key="txt" value="5135" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -162,10 +170,10 @@
         <counts>
           <entry key="Bash" value="82" />
           <entry key="Groovy" value="154" />
-          <entry key="HTML" value="2507" />
+          <entry key="HTML" value="2548" />
           <entry key="JAVA" value="6561" />
           <entry key="JSON" value="4" />
-          <entry key="PLAIN_TEXT" value="5191" />
+          <entry key="PLAIN_TEXT" value="5240" />
           <entry key="Properties" value="134" />
           <entry key="SCSS" value="30" />
           <entry key="SQL" value="72" />
@@ -206,8 +214,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="307">
+              <caret line="84" column="73" lean-forward="true" selection-start-line="84" selection-start-column="73" selection-end-line="84" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -1128,7 +1136,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537896199501" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537896596635" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1498,7 +1506,7 @@
       <workItem from="1537758529183" duration="57000" />
       <workItem from="1537758633540" duration="23000" />
       <workItem from="1537824504022" duration="40322000" />
-      <workItem from="1537895566278" duration="627000" />
+      <workItem from="1537895566278" duration="994000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1794,11 +1802,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537866988784</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Fix user_profile_photos not showing in &quot;Network&quot;.">
+      <created>1537896270494</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1537896270494</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="401323000" />
+    <option name="totallyTimeSpent" value="401690000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1928,7 +1943,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Load user-profile_photo in &quot;user-home&quot;." />
     <MESSAGE value="- Add date-validator.&#10;- Guard &quot;EducationForm&quot;-submission against invalid factors.&#10;- Code cleanup." />
     <MESSAGE value="- Navigate users and admin to their &quot;homePage&quot; instead of the general &quot;welcomePage&quot;, when clicking the &quot;Home-button&quot;.&#10;- Add the ability to &quot;fix potential vulnerabilities&quot; in the &quot;AppInstaller.sh&quot;-script." />
     <MESSAGE value="Resolve conflicts." />
@@ -1953,7 +1967,8 @@
     <MESSAGE value="New feature: &quot;User-profile&quot;." />
     <MESSAGE value="Add user-following-stats in &quot;user-profile&quot;." />
     <MESSAGE value="- Fix error-messages not-showing.&#10;- Update signIn-validators.&#10;- Add &quot;My profile&quot; in userNavBar." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fix error-messages not-showing.&#10;- Update signIn-validators.&#10;- Add &quot;My profile&quot; in userNavBar." />
+    <MESSAGE value="Fix user_profile_photos not showing in &quot;Network&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix user_profile_photos not showing in &quot;Network&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2313,8 +2328,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="307">
+          <caret line="84" column="73" lean-forward="true" selection-start-line="84" selection-start-column="73" selection-end-line="84" selection-end-column="73" />
         </state>
       </provider>
     </entry>
