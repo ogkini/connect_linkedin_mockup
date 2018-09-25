@@ -78,7 +78,7 @@ export class UserSettingsComponent implements OnInit {
     // .subscribe((response: any) => {
     //     this.user = response.content;
     //   }, error => {
-    //     this.alertService.error(error.error.message);
+    //     this.alertService.error(error.message);
     //     console.log(error);
     //   }
     // );

@@ -69,10 +69,9 @@ export class FileUploaderService {
 
       const formData: FormData = new FormData();
       formData.append('file', this.fileToUpload, this.fileToUpload.name);
+      this.fileToUpload = null;
 
-      return this.httpClient.post(this.endpoint , formData)
-                            .subscribe(response => console.log("Response: " + response),
-                                                        this.fileToUpload = null);  // Reset value.
+      return this.httpClient.post(this.endpoint , formData);
   }
 
 }

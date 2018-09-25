@@ -87,8 +87,17 @@ export class SignUpComponent implements OnInit {
         data => {
           //this.data = data; // Unused..
           this.alertService.success('Registration successful.', true);
-          this.fileUploader.postFile(email);  // Send photo to backend
-          this.authenticationService.authenticateUserAndGoToHome(email, password);
+          if ( this.fileUploader.fileToUpload != null )
+          {
+            this.fileUploader.postFile(email).subscribe( // Send photo to backend
+              response => {
+                console.log("Response: " + response);
+                this.authenticationService.authenticateUserAndGoToHome(email, password);
+              }
+            );
+          }
+          else
+            this.authenticationService.authenticateUserAndGoToHome(email, password);
         },
         error => {
           this.alertService.error(error.message);

@@ -1,21 +1,17 @@
 package com.ted.controller;
 
+import com.ted.exception.NotAuthorizedException;
 import com.ted.model.Occupation;
 import com.ted.request.OccupationRequest;
-import com.ted.service.OccupationService;
 import com.ted.response.ApiResponse;
-import com.ted.exception.NotAuthorizedException;
 import com.ted.security.CurrentUser;
 import com.ted.security.UserDetailsImpl;
-
+import com.ted.service.OccupationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.http.ResponseEntity;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -54,7 +50,7 @@ public class OccupationController {
                           @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
         if (currentUser.getId() != userId) {
-            throw new NotAuthorizedException("You are not authorized to access this resource.");
+            // Don't show the private staff to other users..
         }
 
         return occupationService.get(userId);

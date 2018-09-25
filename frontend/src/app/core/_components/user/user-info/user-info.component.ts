@@ -76,7 +76,7 @@ export class UserInfoComponent implements OnInit {
     // .subscribe((response: any) => {
     //     this.user = response.content;
     //   }, error => {
-    //     this.alertService.error(error.error.message);
+    //     this.alertService.error(error.message);
     //     console.log(error);
     //   }
     // );
@@ -131,7 +131,7 @@ export class UserInfoComponent implements OnInit {
             this.user.experience.push(response.object);
           }
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
           console.log(error);
         }
       );
@@ -145,7 +145,7 @@ export class UserInfoComponent implements OnInit {
           // Remove the experience from the array
           this.user.experience = this.user.experience.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
         }
       );
   }
@@ -199,7 +199,7 @@ export class UserInfoComponent implements OnInit {
             this.user.education.push(response.object);
           }
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
           console.log(error);
         }
       );
@@ -213,7 +213,7 @@ export class UserInfoComponent implements OnInit {
           // Remove the education from the array
           this.user.education = this.user.education.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
         }
       );
   }

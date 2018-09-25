@@ -50,7 +50,7 @@ export class NetworkComponent implements OnInit {
           // Remove the request from the array
           this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
         }
       );
 }
@@ -65,7 +65,7 @@ export class NetworkComponent implements OnInit {
           this.network.connections.push(newConnection.sender);
           this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.message);
         }
       );
 }

@@ -48,9 +48,11 @@ public class FileController {
         this.userFileStoragePath = Paths.get(this.fileStorageService.getFileStorageLocation() + "/users");
     }*/
 
+
     @PostMapping("/users/{email}/photos")
     public UploadFileResponse uploadProfilePhoto(@RequestParam("file") MultipartFile file,
                                                  @PathVariable(value = "email") String email) {
+
         String fileName = file.getOriginalFilename();
 
         if ( fileName == null ) {
@@ -131,11 +133,11 @@ public class FileController {
 
 
     @GetMapping("/users/{userId}/photos")
-    public ResponseEntity<Resource> LoadUserFile(@PathVariable(value = "userId") Long userId, HttpServletRequest request) {
+    public ResponseEntity<Resource> getProfilePhoto(@PathVariable(value = "userId") Long userId, HttpServletRequest request) {
         // Load file as Resource
 
         if ( userId == null ) {
-            logger.warn("Incoming id in \"LoadUserFile()\" was null!");
+            logger.warn("Incoming id in \"getProfilePhoto()\" was null!");
             return ResponseEntity.notFound().build();
         }
         else
@@ -177,7 +179,7 @@ public class FileController {
 
                 // Wait a bit and retry.. since the user may has just signUp-ed and the file may not be available right-away..
                 try {
-                    Thread.sleep(7000);
+                    Thread.sleep(5000);
                     resource = fileStorageService.loadFileAsResource(fileFullPath);
                 } catch(Exception e) {
                     logger.error("", e);
