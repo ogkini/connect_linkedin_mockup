@@ -42,7 +42,7 @@
         <div>
           <button type="button" class="btn btn-sm btn-primary req-btn" (click)="accept(received?.id)">Accept</button>
           <button type="button" class="btn btn-sm btn-secondary req-btn" (click)="decline(received?.id)">Decline</button>
-          <button type="button" class="btn btn-sm btn-info req-btn">Visit Profile</button>
+          <button type="button" class="btn btn-sm btn-info req-btn" [routerLink]="['../../' + received?.id + '/profile']">Visit Profile</button>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
     <div *ngIf="showSent">
       <div class="wrapper border" *ngFor="let sent of network?.sentRequests">
         <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}?user_id={{sent?.receiver?.id}}" height="118" width="120">
+          <img src="http:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120">
         </div>
         <div class="product-info">
           <div class="product-text">
@@ -62,7 +62,7 @@
         </div>
 
         <button type="button" class="btn btn-secondary con-btn">Delete</button>
-        <button type="button" class="btn btn-info con-btn">Visit Profile</button>
+        <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + sent?.receiver?.id + '/profile']">Visit Profile</button>
 
       </div>
     </div>
@@ -71,7 +71,7 @@
     <div *ngIf="showConnections">
       <div class="wrapper border" *ngFor="let user of network?.connections">
         <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}?user_id={{user.id}}" height="118" width="120">
+          <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
         </div>
         <div class="product-info">
           <div class="product-text">
@@ -82,7 +82,7 @@
         </div>
 
         <div>
-          <button type="button" class="btn btn-info con-btn">Visit Profile</button>
+          <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
           <button type="button" class="btn btn-secondary con-btn">Delete</button>
         </div>
 

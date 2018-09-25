@@ -5,23 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/core/_components/sign-up/sign-up.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/out-tsc/app/app/core/_components/sign-up/sign-up.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/core/_components/sign-in/sign-in.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/out-tsc/spec/app/core/_components/sign-in/sign-in.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -96,9 +88,9 @@
     <session id="-866693793">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="34" />
+          <entry key="project.closed" value="35" />
           <entry key="project.open.time.10" value="8" />
-          <entry key="project.open.time.11" value="11" />
+          <entry key="project.open.time.11" value="12" />
           <entry key="project.open.time.12" value="12" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -106,7 +98,7 @@
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -116,9 +108,9 @@
           <entry key="gitignore" value="2" />
           <entry key="gradle" value="14" />
           <entry key="gradlew" value="2" />
-          <entry key="html" value="135" />
+          <entry key="html" value="137" />
           <entry key="ico" value="1" />
-          <entry key="java" value="235" />
+          <entry key="java" value="236" />
           <entry key="jpg" value="14" />
           <entry key="js" value="3" />
           <entry key="json" value="6" />
@@ -128,7 +120,7 @@
           <entry key="rnc" value="1" />
           <entry key="scss" value="29" />
           <entry key="sh" value="27" />
-          <entry key="sql" value="20" />
+          <entry key="sql" value="21" />
           <entry key="ts" value="431" />
           <entry key="txt" value="4" />
           <entry key="xml" value="2" />
@@ -139,9 +131,9 @@
           <entry key="Bash" value="16" />
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="14" />
-          <entry key="HTML" value="135" />
+          <entry key="HTML" value="137" />
           <entry key="Image" value="23" />
-          <entry key="JAVA" value="235" />
+          <entry key="JAVA" value="236" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="3" />
           <entry key="Log" value="1" />
@@ -149,7 +141,7 @@
           <entry key="Properties" value="13" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="29" />
-          <entry key="SQL" value="19" />
+          <entry key="SQL" value="20" />
           <entry key="Scratch" value="1" />
           <entry key="TypeScript" value="431" />
           <entry key="XML" value="2" />
@@ -162,7 +154,7 @@
           <entry key="dummy" value="16" />
           <entry key="gitignore" value="48" />
           <entry key="gradle" value="154" />
-          <entry key="html" value="2490" />
+          <entry key="html" value="2548" />
           <entry key="java" value="6561" />
           <entry key="json" value="4" />
           <entry key="properties" value="134" />
@@ -170,7 +162,7 @@
           <entry key="sh" value="122" />
           <entry key="sql" value="72" />
           <entry key="ts" value="11840" />
-          <entry key="txt" value="4977" />
+          <entry key="txt" value="5135" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -178,10 +170,10 @@
         <counts>
           <entry key="Bash" value="82" />
           <entry key="Groovy" value="154" />
-          <entry key="HTML" value="2490" />
+          <entry key="HTML" value="2548" />
           <entry key="JAVA" value="6561" />
           <entry key="JSON" value="4" />
-          <entry key="PLAIN_TEXT" value="5082" />
+          <entry key="PLAIN_TEXT" value="5240" />
           <entry key="Properties" value="134" />
           <entry key="SCSS" value="30" />
           <entry key="SQL" value="72" />
@@ -191,7 +183,7 @@
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="32" />
+          <entry key="Angular2LanguageService" value="33" />
         </counts>
       </usages-collector>
     </session>
@@ -199,28 +191,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/utils/POJOsToXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="154">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -229,19 +203,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html">
+        <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="160">
+              <caret line="146" column="45" lean-forward="true" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="84" column="73" lean-forward="true" selection-start-line="84" selection-start-column="73" selection-end-line="84" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="156">
+              <caret line="136" column="32" lean-forward="true" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -249,8 +232,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="62" column="46" lean-forward="true" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+            <state relative-caret-position="1060">
+              <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -258,11 +241,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+            <state relative-caret-position="1040">
+              <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -288,8 +271,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="480">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -331,9 +323,9 @@
       <find>UserDetailsImpl</find>
       <find>userFileStoragePath</find>
       <find>error.error</find>
-      <find>stat</find>
       <find>stats</find>
       <find>error.message</find>
+      <find>stat</find>
     </findStrings>
     <replaceStrings>
       <replace>getAllUsers</replace>
@@ -731,7 +723,6 @@
         <option value="$PROJECT_DIR$/frontend/.angular-cli.json" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" />
@@ -758,13 +749,14 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/utils/POJOsToXML.java" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" />
       </list>
     </option>
   </component>
@@ -783,8 +775,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="210" />
-    <option name="y" value="288" />
+    <option name="x" value="335" />
+    <option name="y" value="92" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -796,7 +788,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1138,13 +1129,14 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537866877094" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537896596635" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1182,41 +1174,38 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/model/Relationship.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/RelationshipController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/controller/UserController.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/model/User.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/repository/RelationshipRepository.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/response/NetworkResponse.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/RelationshipService.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/UserService$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/UserService$2.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/java/main/com/ted/service/UserService.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/index.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/user.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/index.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/relationship.service.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/core.module.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/controller/RelationshipController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/model/Relationship.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/model/User.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/repository/RelationshipRepository.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/response/NetworkResponse.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/service/RelationshipService.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/ted/service/UserService.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/sql/teddb.sql</PATH>
@@ -1227,11 +1216,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/friendRequest.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/network.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_models/relationship.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/app/core/_services/data.service.ts</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/uploads/users/6/photos/profile_photo_{6}.png</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1239,6 +1223,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/vcsWorkingDirs/gc.properties</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1515,7 +1505,8 @@
       <workItem from="1537728896674" duration="27659000" />
       <workItem from="1537758529183" duration="57000" />
       <workItem from="1537758633540" duration="23000" />
-      <workItem from="1537824504022" duration="39177000" />
+      <workItem from="1537824504022" duration="40322000" />
+      <workItem from="1537895566278" duration="994000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1804,11 +1795,25 @@
       <option name="project" value="LOCAL" />
       <updated>1537863592704</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="- Fix error-messages not-showing.&#10;- Update signIn-validators.&#10;- Add &quot;My profile&quot; in userNavBar.">
+      <created>1537866988783</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1537866988784</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Fix user_profile_photos not showing in &quot;Network&quot;.">
+      <created>1537896270494</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1537896270494</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399551000" />
+    <option name="totallyTimeSpent" value="401690000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1823,7 +1828,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20149253" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1833,12 +1838,12 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.24295011" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" weight="0.24295011" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49626866" weight="0.40455532" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49626866" visible="true" weight="0.40455532" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" weight="0.32321042" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50373137" side_tool="true" weight="0.40455532" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.329718" />
@@ -1908,12 +1913,36 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Resolve merge-conflicts." />
-    <MESSAGE value="Load user-profile_photo in &quot;user-home&quot;." />
     <MESSAGE value="- Add date-validator.&#10;- Guard &quot;EducationForm&quot;-submission against invalid factors.&#10;- Code cleanup." />
     <MESSAGE value="- Navigate users and admin to their &quot;homePage&quot; instead of the general &quot;welcomePage&quot;, when clicking the &quot;Home-button&quot;.&#10;- Add the ability to &quot;fix potential vulnerabilities&quot; in the &quot;AppInstaller.sh&quot;-script." />
     <MESSAGE value="Resolve conflicts." />
@@ -1937,7 +1966,9 @@
     <MESSAGE value="Various optimizations (see details).&#10;- Optimize SignUp-handling.&#10;- Prepare Controllers' GET for profile-access.&#10;- Add test css-code in footer (currently commented).&#10;- Code cleanup." />
     <MESSAGE value="New feature: &quot;User-profile&quot;." />
     <MESSAGE value="Add user-following-stats in &quot;user-profile&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add user-following-stats in &quot;user-profile&quot;." />
+    <MESSAGE value="- Fix error-messages not-showing.&#10;- Update signIn-validators.&#10;- Add &quot;My profile&quot; in userNavBar." />
+    <MESSAGE value="Fix user_profile_photos not showing in &quot;Network&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix user_profile_photos not showing in &quot;Network&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1945,37 +1976,14 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts</url>
           <line>29</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.scss">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1994,13 +2002,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/footer/footer.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/footer/footer.component.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -2134,27 +2136,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -2172,9 +2157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="613">
           <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2182,9 +2164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-end-line="223" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2192,9 +2171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2236,9 +2212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2256,13 +2229,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -2272,15 +2238,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
+        <state relative-caret-position="740">
           <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/EducationController.java">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="53" column="57" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="60" />
+        <state relative-caret-position="440">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1060">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -2291,44 +2281,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/EducationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="53" column="57" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/utils/POJOsToXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="154">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html">
+    <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="160">
+          <caret line="146" column="45" lean-forward="true" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="156">
+          <caret line="136" column="32" lean-forward="true" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="62" column="46" lean-forward="true" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/authentication.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        <state relative-caret-position="307">
+          <caret line="84" column="73" lean-forward="true" selection-start-line="84" selection-start-column="73" selection-end-line="84" selection-end-column="73" />
         </state>
       </provider>
     </entry>
