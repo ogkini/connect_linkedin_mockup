@@ -45,7 +45,7 @@ export class UserSettingsComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
+    this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.currentUser.id + '/photos';
   }
 
   minTextLength = 2;

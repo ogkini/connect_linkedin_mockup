@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,11 +28,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // Returns user_id based on user_email.
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)
-    int getIdByEmail(@Param("email") String email);
+    List<BigInteger> getIdByEmail(@Param("email") String email);
 
     // Get the picture of a user.
     @Query(value = "select picture from Users u where u.user_id = :user_id", nativeQuery = true)
-    List<String> getPictureById(@Param("user_id") int user_id); // Returns the numOfRows affected.. so either 1 or 0.
+    List<String> getPictureById(@Param("user_id") Long user_id); // Returns the numOfRows affected.. so either 1 or 0.
 
     // Update the "picture" of a user.
     @Transactional

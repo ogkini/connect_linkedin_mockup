@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -47,17 +48,17 @@ public class FileController {
         this.userFileStoragePath = Paths.get(this.fileStorageService.getFileStorageLocation() + "/users");
     }*/
 
-    @PostMapping("/uploads/users")
+    @PostMapping("/users/{email}/photos")
     public UploadFileResponse uploadProfilePhoto(@RequestParam("file") MultipartFile file,
-                                                 @RequestParam("email") String email) {
+                                                 @PathVariable(value = "email") String email) {
         String fileName = file.getOriginalFilename();
 
-        if (fileName == null) {
+        if ( fileName == null ) {
             logger.error("Failure when retrieving the filename of the incoming file!");
             return new UploadFileResponse(null, /*null,*/null, -1);
         }
 
-        try {   // Wait for the user registration to finish.. before searching for his email.
+        try {   // Wait for the user registration to finish.. before hitting the dataBase using his email.
             Thread.sleep(1000);
         } catch (Exception e) {
             logger.warn("", e);
@@ -65,18 +66,18 @@ public class FileController {
 
         // Find ID based on email. Connect with the DB and retrieve it.
 
-        // First check if the user actually exists in DataBase.
-        if ( !userRepository.findByEmail(email).isPresent() ) {
-            logger.error("The user with the following email doesn't exist! email: " + email);
-            return new UploadFileResponse(fileName, /*null,*/null, -1);
-        }
-
         int user_id = 0;
-        user_id = userRepository.getIdByEmail(email); // != 0.
-        if ( user_id == 0 ) {
+        List<BigInteger> userIDs = userRepository.getIdByEmail(email); // != 0.
+        if ( userIDs == null || userIDs.isEmpty() ) {
             logger.error("Could not retrieve the id of the user with the email: " + email);
             return new UploadFileResponse(fileName, /*null,*/null, -1);
         }
+        else if ( userIDs.size() > 1 ) {    // This should never happen!
+            logger.error("Found more than one user with the email: " + email);
+            return new UploadFileResponse(fileName, /*null,*/null, -1);
+        }
+        else
+            user_id = ((BigInteger)userIDs.get(0)).intValue();
 
         fileName = StringUtils  // StringUtils is faster ;-)
                 .replace(fileName, fileName, profilePhotoBaseName + "{" + user_id + "}." + FilenameUtils.getExtension(fileName))
@@ -87,6 +88,8 @@ public class FileController {
             logger.error("Could not update the picture for user with id: " + user_id);
             return new UploadFileResponse(fileName, /*null,*/null, -1); // Don't want to store afile having n relation with the database.. so return..
         }
+        else
+            userRepository.flush(); // We want the DB to be updated immediately.
 
         // Send file to be stored.
         return uploadFile(file, fileName, File.separator + "users" + File.separator + Integer.toString(user_id) + File.separator + "photos");
@@ -127,26 +130,28 @@ public class FileController {
     }
 
 
-    @GetMapping("/uploads/users")
-    public ResponseEntity<Resource> LoadUserFile(@RequestParam("user_id") String user_id, HttpServletRequest request) {
+    @GetMapping("/users/{userId}/photos")
+    public ResponseEntity<Resource> LoadUserFile(@PathVariable(value = "userId") Long userId, HttpServletRequest request) {
         // Load file as Resource
 
-        if ( user_id == null ) {
+        if ( userId == null ) {
             logger.warn("Incoming id in \"LoadUserFile()\" was null!");
             return ResponseEntity.notFound().build();
         }
+        else
+            userRepository.flush(); // Updated the DB.
 
         // Get "Users.picture" for the "u.user_id". (from UserRepository)
-        List<String> pictureList = userRepository.getPictureById(Integer.parseInt(user_id));
+        List<String> pictureList = userRepository.getPictureById(userId);
         String user_picture;
         String fileFullPath;
 
         if ( pictureList.isEmpty() ) {
-            logger.error("No pictureList was returned for user with \"user_id\": ", user_id);
+            logger.error("No pictureList was returned for user with \"user_id\": ", userId);
             return ResponseEntity.notFound().build();
         }
         else if ( pictureList.size() > 1 ) {
-            logger.error("PictureList returned more than one pictures for user with \"user_id\": ", user_id);
+            logger.error("PictureList returned more than one pictures for user with \"user_id\": ", userId);
             return ResponseEntity.notFound().build();
         }
         else {
@@ -155,12 +160,12 @@ public class FileController {
 
             user_picture = pictureList.get(0);
             if ( user_picture == null ) {
-                logger.debug("No picture was found for user with \"user_id\": {}. Loading the generic one.", user_id);
+                logger.debug("No picture was found for user with \"user_id\": {}. Loading the generic one.", userId);
                 user_picture = genericPhotoName;
                 fileFullPath = localImageDirectory + File.separator + user_picture;
             }
             else {
-                fileFullPath = userFileStoragePath + File.separator + user_id + File.separator + "photos" + File.separator + user_picture;
+                fileFullPath = userFileStoragePath + File.separator + userId + File.separator + "photos" + File.separator + user_picture;
             }
         }
 
@@ -169,13 +174,21 @@ public class FileController {
             resource = fileStorageService.loadFileAsResource(fileFullPath);
         } catch (FileNotFoundException fnfe) {
             if ( user_picture != null ) {   // If the dataBase says that this user has its own profilePhoto, but it was not found in storage..
-                // Loading the "image_not_found", so that the user will be notified that sth's wrong with the storage of its picture, even though one was given.
-                fileFullPath = localImageDirectory + File.separator + imageNotFoundName;
+
+                // Wait a bit and retry.. since the user may has just signUp-ed and the file may not be available right-away..
                 try {
+                    Thread.sleep(7000);
                     resource = fileStorageService.loadFileAsResource(fileFullPath);
-                } catch (FileNotFoundException fnfe2) {
-                    logger.error("The \"" + imageNotFoundName + "\" was not found in storage!");
-                    return ResponseEntity.notFound().build();
+                } catch(Exception e) {
+                    logger.error("", e);
+                    // Loading the "image_not_found", so that the user will be notified that sth's wrong with the storage of its picture, even though one was given.
+                    fileFullPath = localImageDirectory + File.separator + imageNotFoundName;
+                    try {
+                        resource = fileStorageService.loadFileAsResource(fileFullPath);
+                    } catch (FileNotFoundException fnfe2) {
+                        logger.error("The \"" + imageNotFoundName + "\" was not found in storage!");
+                        return ResponseEntity.notFound().build();
+                    }
                 }
             }
             else {

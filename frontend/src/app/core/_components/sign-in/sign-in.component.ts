@@ -20,7 +20,6 @@ export class SignInComponent implements OnInit {
   currentUser: User;
   signInForm: FormGroup;
   submitted = false;
-  returnUrl: string;
   data: HttpResponse<{}>;
 
   public constructor(

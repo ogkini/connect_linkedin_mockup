@@ -14,29 +14,29 @@ export class UserService {
   ) { }
 
   getAll() {
-    return this.httpClient.get<User[]>(this.connConfig.serverUrl + this.connConfig.usersEndpoint);
+    return this.httpClient.get<User[]>(this.connConfig.usersEndpoint);
   }
 
   getById(id: number): Observable<User> {
-    return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + id);
+    return this.httpClient.get<User>(this.connConfig.usersEndpoint + '/' + id);
   }
 
   getByEmail(email: string): Observable<User> {
-    return this.httpClient.get<User>(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/getUserByEmail',
+    return this.httpClient.get<User>(this.connConfig.usersEndpoint + '/getUserByEmail',
       {params: { userEmail: email }}
     );
   }
 
   create(user: User) {
-    return this.httpClient.post(this.connConfig.serverUrl + this.connConfig.usersEndpoint, user);
+    return this.httpClient.post(this.connConfig.usersEndpoint, user);
   }
 
   update(user: User) {
-    return this.httpClient.put(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + user.id, user);
+    return this.httpClient.put(this.connConfig.usersEndpoint + '/' + user.id, user);
   }
 
   delete(id: number) {
-    return this.httpClient.delete(this.connConfig.serverUrl + this.connConfig.usersEndpoint + '/' + id);
+    return this.httpClient.delete(this.connConfig.usersEndpoint + '/' + id);
   }
 
 }

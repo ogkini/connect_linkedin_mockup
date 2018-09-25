@@ -72,9 +72,6 @@ export class SignUpComponent implements OnInit {
 
     // Create the user
     this.createUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value, this.fileUploader.fileName);
-
-    // Send photo to backend
-    this.fileUploader.postFile(this.form.email.value)
   }
 
   createUser(firstname: string, lastname: string, email: string, password: string, picture: string) {
@@ -90,6 +87,7 @@ export class SignUpComponent implements OnInit {
         data => {
           //this.data = data; // Unused..
           this.alertService.success('Registration successful.', true);
+          this.fileUploader.postFile(email);  // Send photo to backend
           this.authenticationService.authenticateUserAndGoToHome(email, password);
         },
         error => {

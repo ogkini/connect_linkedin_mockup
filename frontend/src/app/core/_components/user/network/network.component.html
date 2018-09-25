@@ -29,7 +29,7 @@
     <div *ngIf="showReceived">
       <div class="wrapper border" *ngFor="let received of network?.receivedRequests">
         <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}?user_id={{received?.sender?.id}}" height="118" width="120">
+          <img src="http:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120">
         </div>
         <div class="product-info">
           <div class="product-text">

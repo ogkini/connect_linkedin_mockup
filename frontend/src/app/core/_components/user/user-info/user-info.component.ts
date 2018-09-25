@@ -56,7 +56,6 @@ export class UserInfoComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
 
     // Occupy years array
     for (let i: number = 2018; i >= 1950; i--) {

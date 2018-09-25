@@ -63,15 +63,14 @@ export class FileUploaderService {
         console.debug("1 step away from the POST... Our filename is: ", this.fileName);*/
 
       if ( user_email != null ) // Going to upload to UsersEndpoint..
-        this.endpoint = this.connConfig.userFilesEndpoint;
+        this.endpoint = this.connConfig.usersEndpoint + '/' + user_email + '/photos';
       else
-        this.endpoint = this.connConfig.filesEndpoint;
+        this.endpoint = this.connConfig.generalFilesEndpoint;
 
       const formData: FormData = new FormData();
       formData.append('file', this.fileToUpload, this.fileToUpload.name);
-      formData.append("email", user_email); // It's ok to send null.. it's useful in the backend.
 
-      return this.httpClient.post(this.connConfig.serverUrl + this.endpoint , formData)
+      return this.httpClient.post(this.endpoint , formData)
                             .subscribe(response => console.log("Response: " + response),
                                                         this.fileToUpload = null);  // Reset value.
   }

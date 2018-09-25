@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
 export class ConnectionConfigService {
   serverUrl = '//localhost:9090/api/';
 
-  signInEndpoint  = 'signin';
+  signInEndpoint  = this.serverUrl + 'signin';
 
-  usersEndpoint = 'users';
-  experienceEndpoint = 'experience';
-  educationEndpoint = 'education';
-  relationshipEndpoint = 'relationships';
-  networkEndpoint = 'network';
+  usersEndpoint = this.serverUrl + 'users';
+  experienceEndpoint = this.serverUrl + 'experience';
+  educationEndpoint = this.serverUrl + 'education';
+  relationshipEndpoint = this.serverUrl + 'relationships';
+  networkEndpoint = this.serverUrl + 'network';
 
-  filesEndpoint = 'uploads';
-  userFilesEndpoint = this.filesEndpoint + '/' + this.usersEndpoint;
+  generalFilesEndpoint = this.serverUrl + 'uploads';
+  //userFilesEndpoint = this.serverUrl + this.generalFilesEndpoint + '/' + this.usersEndpoint;
 }

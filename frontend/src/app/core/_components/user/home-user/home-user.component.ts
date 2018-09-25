@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { ActivatedRoute } from "@angular/router";
+import { FormBuilder } from '@angular/forms';
 
-import { User, Experience, Education, CreationResponse } from '../../../_models/index';
+import { User } from '../../../_models/index';
 import { UserService, ExperienceService, EducationService } from '../../../_services/index';
 import { AlertService, ConnectionConfigService, DataService } from '../../../_services/index';
 import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
-import { DateService } from "../../../_services/date.service";
-import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
 
 @Component({
   selector: 'app-home-user',
@@ -38,7 +34,6 @@ export class HomeUserComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.profilePhotosEndpoint = this.connConfig.serverUrl + this.connConfig.userFilesEndpoint;
   }
 
   ngOnInit() {
@@ -50,7 +45,8 @@ export class HomeUserComponent implements OnInit {
     this.userService.getById(id).subscribe( user => {
       this.user = user;
       this.dataService.changeMessage(this.user.newFriendRequests.toString());
-    });
+      this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.user.id + '/photos';  // We use this approach here as it's safer from writing to the template..
+    }); // ..since we can come here right after signUp and get all kind of weird behaviour!
   }
 
   clearAlert() {
