@@ -98,4 +98,13 @@ public class UserService {
         return user;
     }
 
+
+    // Returns a specific user based on its email.
+    public List<User> getBySearch(String firstName, String lastName) {
+
+        List<User> users = userRepository.getAllRelated(firstName, lastName);
+
+        return users;
+    }
+
 }

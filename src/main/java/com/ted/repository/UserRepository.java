@@ -27,8 +27,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
 
     // Get all users related to this search.
-    @Query(value = "SELECT * FROM Users u WHERE u.firstname LIKE CONCAT('%', :searchString,'%') OR u.lastname LIKE CONCAT('%', :searchString,'%')", nativeQuery = true)
-    List<User> getAllRelated(@Param("searchString") String searchString);
+    @Query(value = "SELECT * FROM Users u WHERE u.firstname LIKE CONCAT('%', :firstName,'%') OR u.lastname LIKE CONCAT('%', :lastName,'%')", nativeQuery = true)
+    List<User> getAllRelated(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     // Returns user_id based on user_email.
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)
