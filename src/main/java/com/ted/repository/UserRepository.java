@@ -26,6 +26,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("from User user where user.role = 2 order by user.firstname asc")
     List<User> findAll();
 
+    // Get all users related to this search.
+    @Query(value = "SELECT * FROM Users u WHERE u.firstname LIKE CONCAT('%', :searchString,'%') OR u.lastname LIKE CONCAT('%', :searchString,'%')", nativeQuery = true)
+    List<User> getAllRelated(@Param("searchString") String searchString);
+
     // Returns user_id based on user_email.
     @Query(value = "select user_id from Users u where u.email = :email", nativeQuery = true)
     List<BigInteger> getIdByEmail(@Param("email") String email);
