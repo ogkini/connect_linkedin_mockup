@@ -33,11 +33,14 @@ export class UserProfileComponent implements OnInit {
     private alertService: AlertService,
     private formBuilder: FormBuilder,
     private connConfig: ConnectionConfigService,
-  ) { }
+  ) {
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.getUserById(this.userId);
+    });
+  }
 
   ngOnInit() {
-    this.route.params.subscribe(params => { this.userId = +params['id']; });
-    this.getUserById(this.userId);
   }
 
   private getUserById(id: number) {

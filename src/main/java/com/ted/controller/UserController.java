@@ -18,6 +18,8 @@ import com.ted.security.JwtTokenProvider;
 import com.ted.security.CurrentUser;
 import com.ted.security.UserDetailsImpl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -37,6 +39,8 @@ import java.util.*;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private AuthenticationManager authenticationManager;

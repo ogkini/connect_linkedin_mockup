@@ -17,6 +17,8 @@ import org.slf4j.LoggerFactory;
 @Service
 public class ValidatePathService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ValidatePathService.class);
+
     @Autowired
     private ExperienceRepository experienceRepository;
 
@@ -25,8 +27,6 @@ public class ValidatePathService {
 
     @Autowired
     private RelationshipRepository relationshipRepository;
-
-    private static final Logger logger = LoggerFactory.getLogger(ValidatePathService.class);
 
     // Returns an experience if the path is valid
     public Experience validatePathAndGetExperience(Long experienceId) {

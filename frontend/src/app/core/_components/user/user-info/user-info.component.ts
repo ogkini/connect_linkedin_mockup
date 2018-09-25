@@ -51,11 +51,15 @@ export class UserInfoComponent implements OnInit {
     private educationService: EducationService,
     private alertService: AlertService,
     private formBuilder: FormBuilder,
-    private connConfig: ConnectionConfigService
+    private connConfig: ConnectionConfigService,
+    private route: ActivatedRoute
     //private route: ActivatedRoute
   ) {
     this.titleService.setTitle(this.title);
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.getUserById(this.userId);
+    });
 
     // Occupy years array
     for (let i: number = 2018; i >= 1950; i--) {
@@ -64,8 +68,6 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserById(this.currentUser.id);
-
     // Initialise form contents
     this.addExperienceFormInit();
     this.addEducationFormInit();

@@ -8,12 +8,11 @@
     <div class="product-info">
       <div class="product-text">
         <h1>{{user.firstname}} {{user.lastname}}</h1>
-        <h2>Occupation</h2>
         <p>{{user.email}}</p>
       </div>
+      <!--<div class="product-price-btn col-sm-4">-->
+        <button type="button" class="btn btn-md btn-info" [routerLink]="['../users/' + user.id + '/info']">Check {{user.firstname}}'s data</button>
+      <!--</div>-->
     </div>
-    <!--<div class="product-price-btn col-md-4">
-      <button type="button">Configure user</button>
-    </div>-->
   </div>
 </div>

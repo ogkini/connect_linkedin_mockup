@@ -1,31 +1,26 @@
 package com.ted.service;
 
+import com.ted.exception.ResourceNotFoundException;
 import com.ted.model.Occupation;
 import com.ted.model.User;
 import com.ted.repository.OccupationRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.OccupationRequest;
-import com.ted.exception.ResourceNotFoundException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class OccupationService {
+
+    private static final Logger logger = LoggerFactory.getLogger(OccupationService.class);
 
     @Autowired
     private OccupationRepository occupationRepository;
 
     @Autowired
     private UserRepository userRepository;
-
-    private static final Logger logger = LoggerFactory.getLogger(OccupationService.class);
 
     // Adds an occupation for a user
     public Occupation create(Long userId, OccupationRequest occupationRequest) {
