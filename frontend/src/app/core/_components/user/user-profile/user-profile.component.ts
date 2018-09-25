@@ -64,7 +64,7 @@ export class UserProfileComponent implements OnInit {
       this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
     },
 error => {
-        this.alertService.error(error.message);
+        this.alertService.error(error.error.message);
         console.log(error);
       }
     );
@@ -129,7 +129,7 @@ error => {
             this.user.experience.push(response.object);
           }
         }, error => {
-          this.alertService.error(error.message);
+          this.alertService.error(error.error.message);
           console.log(error);
         }
       );
@@ -172,7 +172,7 @@ error => {
             this.user.education.push(response.object);
           }
         }, error => {
-          this.alertService.error(error.message);
+          this.alertService.error(error.error.message);
           console.log(error);
         }
       );

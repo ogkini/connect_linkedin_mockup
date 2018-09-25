@@ -100,7 +100,7 @@ export class SignUpComponent implements OnInit {
             this.authenticationService.authenticateUserAndGoToHome(email, password);
         },
         error => {
-          this.alertService.error(error.message);
+          this.alertService.error(error.error.message);
         }
       );
   }

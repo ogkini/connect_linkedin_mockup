@@ -78,7 +78,7 @@ export class UserSettingsComponent implements OnInit {
     // .subscribe((response: any) => {
     //     this.user = response.content;
     //   }, error => {
-    //     this.alertService.error(error.message);
+    //     this.alertService.error(error.error.message);
     //     console.log(error);
     //   }
     // );
@@ -126,7 +126,7 @@ export class UserSettingsComponent implements OnInit {
           this.alertService.success("User's update successful.", true);
         },
         error => {
-          this.alertService.error(error.message);
+          this.alertService.error(error.error.message);
         }
       );
   }

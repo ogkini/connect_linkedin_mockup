@@ -61,7 +61,7 @@ export class AuthenticationService {
           }
         }
       },
-      error => { this.alertService.error(error.message); }
+      error => { this.alertService.error(error.error.message); }
     );
   }
 
