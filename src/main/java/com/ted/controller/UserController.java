@@ -102,6 +102,7 @@ public class UserController {
 
     // Returns a specific user.
     @GetMapping("/users/{userId}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public User getById(@PathVariable(value = "userId") Long userId, @Valid @CurrentUser UserDetailsImpl currentUser) {
         return userService.getById(userId, currentUser);
     }

@@ -5,9 +5,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-#DROP SCHEMA IF EXISTS `teddb` ;
+DROP SCHEMA IF EXISTS `teddb` ;
+
+-- -----------------------------------------------------
+-- Schema teddb
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
-USE `teddb`;
+USE `teddb` ;
 
 -- -----------------------------------------------------
 -- User with privileges
@@ -42,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `picture` VARCHAR(200) NULL,
   `role_id` BIGINT NOT NULL,
+  `picture` VARCHAR(200) NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
@@ -169,6 +173,26 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Relationship` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Relationship_3`
     FOREIGN KEY (`action_user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Post`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Post` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Post` (
+  `post_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `owner_id` BIGINT NOT NULL,
+  `text` VARCHAR(500) NOT NULL,
+  `created_time` DATETIME NOT NULL,
+  PRIMARY KEY (`post_id`),
+  INDEX `fk_Post_1_idx` (`owner_id` ASC),
+  CONSTRAINT `fk_Post_1`
+    FOREIGN KEY (`owner_id`)
     REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
