@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="New feature: &quot;User-profile&quot;.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ted/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ted/controller/FileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -113,7 +99,7 @@
           <entry key="gitignore" value="2" />
           <entry key="gradle" value="13" />
           <entry key="gradlew" value="2" />
-          <entry key="html" value="132" />
+          <entry key="html" value="133" />
           <entry key="ico" value="1" />
           <entry key="java" value="232" />
           <entry key="jpg" value="14" />
@@ -136,7 +122,7 @@
           <entry key="Bash" value="16" />
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="13" />
-          <entry key="HTML" value="132" />
+          <entry key="HTML" value="133" />
           <entry key="Image" value="23" />
           <entry key="JAVA" value="232" />
           <entry key="JSON" value="3" />
@@ -159,14 +145,14 @@
           <entry key="dummy" value="16" />
           <entry key="gitignore" value="48" />
           <entry key="gradle" value="130" />
-          <entry key="html" value="2459" />
+          <entry key="html" value="2471" />
           <entry key="java" value="6440" />
           <entry key="json" value="4" />
           <entry key="properties" value="134" />
           <entry key="scss" value="30" />
           <entry key="sh" value="122" />
           <entry key="sql" value="72" />
-          <entry key="ts" value="11822" />
+          <entry key="ts" value="11833" />
           <entry key="txt" value="4927" />
           <entry key="xml" value="32" />
         </counts>
@@ -175,14 +161,14 @@
         <counts>
           <entry key="Bash" value="82" />
           <entry key="Groovy" value="130" />
-          <entry key="HTML" value="2459" />
+          <entry key="HTML" value="2471" />
           <entry key="JAVA" value="6440" />
           <entry key="JSON" value="4" />
           <entry key="PLAIN_TEXT" value="5032" />
           <entry key="Properties" value="134" />
           <entry key="SCSS" value="30" />
           <entry key="SQL" value="72" />
-          <entry key="TypeScript" value="11822" />
+          <entry key="TypeScript" value="11833" />
           <entry key="XML" value="32" />
         </counts>
       </usages-collector>
@@ -194,97 +180,117 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="31" column="97" selection-start-line="31" selection-start-column="97" selection-end-line="31" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="94" column="32" lean-forward="true" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="64" column="6" lean-forward="true" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1270">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-510">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="129" column="72" selection-start-line="129" selection-start-column="72" selection-end-line="129" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core.module.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="413">
+                  <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#0#59#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="100">
+                  <caret line="94" column="32" lean-forward="true" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="336">
+                  <caret line="64" column="6" lean-forward="true" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+                  <folding>
+                    <element signature="e#0#50#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="40">
+                  <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-end-line="99" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.scss">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-510">
+                  <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="206">
+                  <caret line="129" column="72" selection-start-line="129" selection-start-column="72" selection-end-line="129" selection-end-column="72" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="479">
+                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="499">
+                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -748,11 +754,11 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/file-uploader/file-uploader.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
       </list>
     </option>
   </component>
@@ -771,8 +777,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="566" />
+    <option name="y" value="-12" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -1159,7 +1165,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537862606177" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537863522609" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1530,7 +1536,7 @@
       <workItem from="1537728896674" duration="27659000" />
       <workItem from="1537758529183" duration="57000" />
       <workItem from="1537758633540" duration="23000" />
-      <workItem from="1537824504022" duration="35229000" />
+      <workItem from="1537824504022" duration="36138000" />
     </task>
     <task id="LOCAL-00001" summary="- Add root-user in DataBase and change the default Charset to 'utf8mb4'.&#10;- Update dependencies.">
       <created>1536352689100</created>
@@ -1805,11 +1811,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537858437384</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="New feature: &quot;User-profile&quot;.">
+      <created>1537862630245</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1537862630245</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395603000" />
+    <option name="totallyTimeSpent" value="396512000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1913,7 +1926,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Handle case when user's profile_photo, was not found in storage, even though the user provided one.&#10;In this case, display the &quot;image_not_found.png&quot; instead." />
     <MESSAGE value="- Update form-validators.&#10;- Initial &quot;reset-picture&quot;-code.&#10;- Code cleanup." />
     <MESSAGE value="Resolve merge-conflicts." />
     <MESSAGE value="Load user-profile_photo in &quot;user-home&quot;." />
@@ -1938,7 +1950,8 @@
     <MESSAGE value="Update more endpoints in the FrontEnd." />
     <MESSAGE value="Update buttons in &quot;user-settings&quot;." />
     <MESSAGE value="Various optimizations (see details).&#10;- Optimize SignUp-handling.&#10;- Prepare Controllers' GET for profile-access.&#10;- Add test css-code in footer (currently commented).&#10;- Code cleanup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Various optimizations (see details).&#10;- Optimize SignUp-handling.&#10;- Prepare Controllers' GET for profile-access.&#10;- Add test css-code in footer (currently commented).&#10;- Code cleanup." />
+    <MESSAGE value="New feature: &quot;User-profile&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="New feature: &quot;User-profile&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2274,20 +2287,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="31" column="97" selection-start-line="31" selection-start-column="97" selection-end-line="31" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -2302,24 +2301,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.scss">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1270">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="413">
+          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="40">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-end-line="99" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
+        <state relative-caret-position="250">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
