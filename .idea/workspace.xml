@@ -16,10 +16,14 @@
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/page-not-found/page-not-found.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/page-not-found/page-not-found.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/text_validator.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/text_validator.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/alert.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/alert.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ted/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ted/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ted/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -113,9 +117,9 @@
           <entry key="gitignore" value="2" />
           <entry key="gradle" value="16" />
           <entry key="gradlew" value="2" />
-          <entry key="html" value="170" />
+          <entry key="html" value="172" />
           <entry key="ico" value="1" />
-          <entry key="java" value="350" />
+          <entry key="java" value="353" />
           <entry key="jpg" value="14" />
           <entry key="js" value="7" />
           <entry key="json" value="15" />
@@ -124,10 +128,10 @@
           <entry key="png" value="8" />
           <entry key="properties" value="18" />
           <entry key="rnc" value="1" />
-          <entry key="scss" value="39" />
+          <entry key="scss" value="42" />
           <entry key="sh" value="28" />
-          <entry key="sql" value="24" />
-          <entry key="ts" value="550" />
+          <entry key="sql" value="25" />
+          <entry key="ts" value="551" />
           <entry key="txt" value="4" />
           <entry key="xml" value="2" />
         </counts>
@@ -137,9 +141,9 @@
           <entry key="Bash" value="17" />
           <entry key="CLASS" value="3" />
           <entry key="Groovy" value="16" />
-          <entry key="HTML" value="170" />
+          <entry key="HTML" value="172" />
           <entry key="Image" value="23" />
-          <entry key="JAVA" value="350" />
+          <entry key="JAVA" value="353" />
           <entry key="JSON" value="10" />
           <entry key="JavaScript" value="7" />
           <entry key="Log" value="1" />
@@ -147,10 +151,10 @@
           <entry key="PLAIN_TEXT" value="22" />
           <entry key="Properties" value="18" />
           <entry key="RNG Compact" value="1" />
-          <entry key="SCSS" value="39" />
-          <entry key="SQL" value="23" />
+          <entry key="SCSS" value="42" />
+          <entry key="SQL" value="24" />
           <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="550" />
+          <entry key="TypeScript" value="551" />
           <entry key="XML" value="2" />
           <entry key="tsconfig" value="5" />
         </counts>
@@ -161,17 +165,17 @@
           <entry key="dummy" value="51" />
           <entry key="gitignore" value="48" />
           <entry key="gradle" value="191" />
-          <entry key="html" value="3841" />
-          <entry key="java" value="9900" />
+          <entry key="html" value="4015" />
+          <entry key="java" value="9910" />
           <entry key="js" value="22" />
           <entry key="json" value="43" />
           <entry key="md" value="512" />
           <entry key="properties" value="182" />
-          <entry key="scss" value="60" />
+          <entry key="scss" value="107" />
           <entry key="sh" value="124" />
           <entry key="sql" value="146" />
-          <entry key="ts" value="13510" />
-          <entry key="txt" value="6468" />
+          <entry key="ts" value="13815" />
+          <entry key="txt" value="6610" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -179,16 +183,16 @@
         <counts>
           <entry key="Bash" value="84" />
           <entry key="Groovy" value="191" />
-          <entry key="HTML" value="3841" />
-          <entry key="JAVA" value="9900" />
+          <entry key="HTML" value="4015" />
+          <entry key="JAVA" value="9910" />
           <entry key="JSON" value="43" />
           <entry key="JavaScript" value="22" />
           <entry key="Markdown" value="512" />
-          <entry key="PLAIN_TEXT" value="6608" />
+          <entry key="PLAIN_TEXT" value="6750" />
           <entry key="Properties" value="182" />
-          <entry key="SCSS" value="60" />
+          <entry key="SCSS" value="107" />
           <entry key="SQL" value="146" />
-          <entry key="TypeScript" value="13510" />
+          <entry key="TypeScript" value="13815" />
           <entry key="XML" value="32" />
         </counts>
       </usages-collector>
@@ -204,17 +208,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="113" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="80">
+              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="733">
+              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="49" column="10" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="233">
-              <caret line="157" column="12" lean-forward="true" selection-start-line="157" selection-start-column="12" selection-end-line="157" selection-end-column="12" />
+              <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -223,29 +245,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/alert.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/node_modules/rxjs/src/Subject.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2933">
-              <caret line="166" column="21" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="21" />
-              <caret line="164" column="21" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state relative-caret-position="75">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -256,56 +259,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/admin-nav-bar/admin-nav-bar.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="157">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="160" column="13" lean-forward="true" selection-start-line="160" selection-start-column="13" selection-end-line="160" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/validators/date-period-validator.directive.ts">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
-              <folding>
-                <element signature="e#0#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="e#0#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_directives/validators/text_validator.directive.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#0#58#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="297">
+              <caret line="104" column="49" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -321,7 +312,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Validatos</find>
       <find>:9090</find>
       <find>Incoming fileName</find>
       <find>Integer</find>
@@ -351,6 +341,7 @@
       <find>/index</find>
       <find>signedInUser</find>
       <find>currentUser</find>
+      <find>message</find>
     </findStrings>
     <replaceStrings>
       <replace>getAllUsers</replace>
@@ -362,6 +353,7 @@
       <replace>error.error.message</replace>
       <replace>signedInUser</replace>
       <replace />
+      <replace>errorMessage</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -738,8 +730,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/config/SslWebConfigurerAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/config/SslWebSecurityConfigurerAdapter.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/scripts/GenerateSelfSignedCertificate.sh" />
@@ -763,7 +753,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/RelationshipController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/PostController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/users-interaction/users-interaction.service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" />
@@ -772,14 +761,10 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/index.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/page-not-found/page-not-found.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/page-not-found/page-not-found.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" />
@@ -787,8 +772,15 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/password-confirm-validator.directive.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_directives/validators/text_validator.directive.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/alert.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -807,8 +799,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="575" />
-    <option name="y" value="166" />
+    <option name="x" value="481" />
+    <option name="y" value="-25" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -1133,6 +1125,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ted" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ted" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1170,7 +1171,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537994021653" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537999971810" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1391,14 +1392,7 @@
       <workItem from="1537758633540" duration="23000" />
       <workItem from="1537824504022" duration="40322000" />
       <workItem from="1537895566278" duration="21545000" />
-      <workItem from="1537949006488" duration="41266000" />
-    </task>
-    <task id="LOCAL-00005" summary="- Enhance profilePhotos-Storage-reliability by storing them with the unique &quot;user_id&quot;.&#10;- Code cleanup.">
-      <created>1536800664016</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1536800664016</updated>
+      <workItem from="1537949006488" duration="47146000" />
     </task>
     <task id="LOCAL-00006" summary="- Add more Form-Validators (including password-confirmation).&#10;- Code cleanup.">
       <created>1536980889083</created>
@@ -1736,11 +1730,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537992011138</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="- Handle case when no user was found with search, in &quot;Network&quot;.&#10;- Add &quot;warning()&quot; in &quot;AlertService&quot;.">
+      <created>1537994185356</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1537994185356</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463507000" />
+    <option name="totallyTimeSpent" value="469387000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1755,7 +1756,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20362474" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20362474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1765,7 +1766,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.5" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1870,7 +1871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Update &quot;PageNotFoundComponent&quot; to allow the user to go &quot;back&quot;.&#10;- Add &quot;.gitignore&quot;." />
     <MESSAGE value="- Add &quot;Job offers&quot; menu-item in UserNavBar.&#10;- Set the maxAllowed length of &quot;picture&quot;-String, in &quot;SignUpRequest&quot;." />
     <MESSAGE value="Fix a bug, which was causing the file-picker to open two-successive-times in &quot;Google Chrome&quot;." />
     <MESSAGE value="New feature: now go directly to homePage after SignUp." />
@@ -1895,7 +1895,8 @@
     <MESSAGE value="- Show the &quot;Received&quot; &amp; &quot;Sent&quot; requests in &quot;Network&quot;, only to the signedIn user.&#10;- Allow the &quot;ADMIN&quot; to have access to users' network and posts.&#10;- Code cleanup." />
     <MESSAGE value="- FrontEnd for User-search done!&#10;- Added authorization-control for user-search in the BackEnd.&#10;- Add new &quot;UsersInteractionService&quot; which handled friendRequests and -in the future- messages." />
     <MESSAGE value="- Improve user's navigation.&#10;- Code cleanup." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Improve user's navigation.&#10;- Code cleanup." />
+    <MESSAGE value="- Handle case when no user was found with search, in &quot;Network&quot;.&#10;- Add &quot;warning()&quot; in &quot;AlertService&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Handle case when no user was found with search, in &quot;Network&quot;.&#10;- Add &quot;warning()&quot; in &quot;AlertService&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1910,30 +1911,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/utils/POJOsToXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="37" column="47" lean-forward="true" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/messaging/messaging.component.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/footer/footer.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1990,13 +1967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -2041,13 +2011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="91" column="1" lean-forward="true" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -2072,24 +2035,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="140" column="85" lean-forward="true" selection-start-line="140" selection-start-column="85" selection-end-line="140" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -2121,23 +2070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="8" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/page-not-found/page-not-found.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2283,10 +2215,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/page-not-found/page-not-found.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="47" column="101" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="104" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="75">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -2295,25 +2285,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="313">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
+    <entry file="file://$PROJECT_DIR$/src/main/sql/teddb.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        <state relative-caret-position="276">
+          <caret line="49" column="10" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="157" column="12" lean-forward="true" selection-start-line="157" selection-start-column="12" selection-end-line="157" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="157">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="104" column="49" selection-start-line="104" selection-start-column="49" selection-end-line="104" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="160" column="13" lean-forward="true" selection-start-line="160" selection-start-column="13" selection-end-line="160" selection-end-column="13" />
         </state>
       </provider>
     </entry>

@@ -169,7 +169,6 @@ public class UserController {
 
             users = userService.getBySearch(fisrtTerm, secondTerm);  // Takes: 1stArg=firstName, 2ndArg=lastName
             if ( users == null || users.isEmpty() ) {
-                logger.warn("No users found for searchTerm: \"" + searchTerm + "\"! Going to switch the position of the individual terms and try again.");
                 // We assumed that the user entered the firstName first and then the lastName.. but that may not be the case.. so try again by switching them.
                 users = userService.getBySearch(secondTerm, fisrtTerm);
                 if ( users == null || users.isEmpty() ) {
