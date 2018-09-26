@@ -29,11 +29,16 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
 	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 	compile("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
+	compile("org.springframework.security:spring-security-core:${springVersion}")
+	compile("org.springframework.security:spring-security-web:${springVersion}")
+	compile("org.springframework.security:spring-security-config:${springVersion}")
 	compile("io.jsonwebtoken:jjwt:0.9.1")
 	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
 	compile group: 'commons-io', name: 'commons-io', version: '2.6'
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+	compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.6'
+	compile group: 'com.fasterxml.woodstox', name: 'woodstox-core', version: '5.1.0'
 	runtime("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
 	runtime('mysql:mysql-connector-java')
 	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")

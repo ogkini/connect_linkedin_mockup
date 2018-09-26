@@ -2,8 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from './_helpers/index';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { WelcomeComponent } from './_components/welcome/welcome.component';
@@ -31,6 +30,7 @@ import { DateService } from "./_services/date.service";
 import { UserInfoComponent } from "./_components/user/user-info/user-info.component";
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
 import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
+import {httpInterceptorProviders} from "./_interceptors";
 
 @NgModule({
   imports: [
@@ -78,11 +78,7 @@ import {UserProfileComponent} from "./_components/user/user-profile/user-profile
     DataService,
     FileUploaderService,
     DateService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    }
+    httpInterceptorProviders
   ],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

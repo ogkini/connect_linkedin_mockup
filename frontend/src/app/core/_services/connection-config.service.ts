@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ConnectionConfigService {
-  serverUrl = '//localhost:9090/api/';
+  serverUrl = '//localhost:9090/api/'; // HTTP
+  //serverUrl = 'https//localhost:8443/api/'; // HTTPS
+  //serverUrl = '//localhost:8443/api/'; // HTTPS <-- try this with base URL to be n HTTPS
 
   signInEndpoint  = this.serverUrl + 'signin';
 

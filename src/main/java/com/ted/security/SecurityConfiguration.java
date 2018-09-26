@@ -69,13 +69,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .frameOptions()
                     .sameOrigin()
                         .and()
-            .cors()
-                .and()
-            .csrf()
-                .disable()
+                    .cors()
+                        .and()
+                    .csrf()
+                        .disable()
             .exceptionHandling()
                 .authenticationEntryPoint(unauthorizedHandler)
-                .and()
+            .and()
             .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
@@ -83,11 +83,44 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
                 .antMatchers(HttpMethod.POST, SIGN_IN_URL).permitAll()
-            .anyRequest()
-                .authenticated();
+                .anyRequest().authenticated()
+            /*.and()
+            .requiresChannel()
+                .anyRequest().requiresSecure()*/;
 
         // Add our custom JWT security filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
+    /*
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
+            @Override
+            protected void postProcessContext(Context context) {
+                SecurityConstraint securityConstraint = new SecurityConstraint();
+                securityConstraint.setUserConstraint("CONFIDENTIAL");
+                SecurityCollection collection = new SecurityCollection();
+                collection.addPattern("/*");
+                securityConstraint.addCollection(collection);
+                context.addConstraint(securityConstraint);
+            }
+        };
+
+        tomcat.addAdditionalTomcatConnectors(redirectConnector());
+        return tomcat;
+    }
+
+    // Redirect HTTP to HTTPS
+    private Connector redirectConnector() {
+        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+        connector.setScheme("http");
+        connector.setPort(9090);
+        connector.setSecure(false);
+        connector.setRedirectPort(8443);
+
+        return connector;
+    }
+    */
 
 }
