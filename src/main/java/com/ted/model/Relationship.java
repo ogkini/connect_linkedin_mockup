@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "Relationship", schema = "teddb")
+@Table(name = "Relationships", schema = "teddb")
 public class Relationship {
 
     @Id

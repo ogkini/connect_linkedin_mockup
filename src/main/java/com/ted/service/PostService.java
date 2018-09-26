@@ -34,6 +34,9 @@ public class PostService {
     private RelationshipRepository relationshipRepository;
 
     @Autowired
+    private LikeService likeService;
+
+    @Autowired
     private ValidatePathService validatePathService;
 
     private static final Logger logger = LoggerFactory.getLogger(PostService.class);
@@ -53,7 +56,13 @@ public class PostService {
 
     // Returns a user's posts
     public List<Post> getAll(Long userId) {
-        return postRepository.getAllByUserId(userId);
+        List<Post> posts = postRepository.getAllByUserId(userId);
+
+        for (Post p : posts) {
+            p.setLikesCount(likeService.getLikesCount(p.getId()));
+        }
+
+        return posts;
     }
 
     // Returns a user's friends' posts
@@ -66,9 +75,9 @@ public class PostService {
         // Get the posts of the specific users and add them to the list
         for (Relationship c : connections) {
             if (userId == c.getSender().getId()) {
-                posts.addAll(postRepository.getAllByUserId(c.getReceiver().getId()));
+                posts.addAll(getAll(c.getReceiver().getId()));
             } else {
-                posts.addAll(postRepository.getAllByUserId(c.getSender().getId()));
+                posts.addAll(getAll(c.getSender().getId()));
             }
         }
 

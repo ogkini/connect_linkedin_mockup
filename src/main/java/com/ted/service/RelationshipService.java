@@ -116,4 +116,9 @@ public class RelationshipService {
         return relationshipRepository.areRelated(userOne, userTwo).size() > 0;
     }
 
+    // Checks if there is a connection between two users
+    public boolean areConnected(Long userOne, Long userTwo) {
+        return relationshipRepository.areConnected(userOne, userTwo).size() > 0;
+    }
+
 }
