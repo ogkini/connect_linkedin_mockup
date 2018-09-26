@@ -55,6 +55,7 @@ export class UserInfoComponent implements OnInit {
     private route: ActivatedRoute
     //private route: ActivatedRoute
   ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.titleService.setTitle(this.title);
     this.route.params.subscribe(params => {
       this.userId = +params['id'];

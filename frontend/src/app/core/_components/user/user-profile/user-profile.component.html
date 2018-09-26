@@ -15,7 +15,10 @@
         <h2>{{user?.occupation?.title}} TTT</h2>
         <h2>{{user?.occupation?.company}} CCC</h2>
       </div>
-      <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
+      <div *ngIf="signedInUser.id != user.id">  <!--Show these buttons only if this profile belongs to a different user.-->
+        <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
+        <button type="button" class="btn btn-primary" (click)="sendMessage()">Message</button>
+      </div>
     </div>
 
     <div class="stats text-center bg-primary">

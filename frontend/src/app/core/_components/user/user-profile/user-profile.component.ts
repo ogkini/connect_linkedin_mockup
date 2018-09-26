@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   userId: number;
   profilePhotosEndpoint: string;
   user: User;
-  currentUser: User;
+  signedInUser: User;
   disabledButton = false;
 
   constructor(
@@ -34,6 +34,7 @@ export class UserProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private connConfig: ConnectionConfigService,
   ) {
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
       this.getUserById(this.userId);
@@ -76,6 +77,10 @@ export class UserProfileComponent implements OnInit {
         console.log(error.error);
       }
       );
+  }
+
+  sendMessage() {
+    console.debug("Going to send a message..");
   }
 
 }

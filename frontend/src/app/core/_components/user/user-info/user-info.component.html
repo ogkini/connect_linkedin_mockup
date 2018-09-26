@@ -1,4 +1,11 @@
-<app-user-nav-bar></app-user-nav-bar>
+<ng-container *ngIf="currentUser.email == 'admin@mail.com'; then admin else user"></ng-container>
+<ng-template #admin>
+  <app-admin-nav-bar></app-admin-nav-bar>
+</ng-template>
+<ng-template #user>
+  <app-user-nav-bar></app-user-nav-bar>
+</ng-template>
+
 
 <div class="container margin-t">
   <h1 align="center">Your Information</h1>
