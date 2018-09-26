@@ -18,7 +18,7 @@ export class TextValidatorDirective implements Validator {
 
 
   static validateCharacters(c: AbstractControl): ValidationErrors | null {
-    
+
     // first check if the control has a value
     if ( c.value && c.value.length == 0 ) {
       //console.warn("Empty text-field.");
