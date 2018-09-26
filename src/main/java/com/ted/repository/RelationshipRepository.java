@@ -35,4 +35,10 @@ public interface RelationshipRepository extends JpaRepository<Relationship, Long
             "(r.sender.id = :userTwo and r.receiver.id = :userOne)")
     List<Relationship> areRelated(@Param("userOne") Long userOne, @Param("userTwo") Long userTwo);
 
+    // Checks if there is a connection between two users
+    @Query("select r from Relationship r where" +
+            "(r.sender.id = :userOne and r.receiver.id = :userTwo and r.status = 1) or" +
+            "(r.sender.id = :userTwo and r.receiver.id = :userOne and r.status = 1)")
+    List<Relationship> areConnected(@Param("userOne") Long userOne, @Param("userTwo") Long userTwo);
+
 }

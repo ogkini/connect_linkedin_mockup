@@ -86,3 +86,27 @@ Add ```/api``` at the front of every uri.
     | Http Method | Result                                                           |
     | ----------- | ---------------------------------------------------------------- |
     | **GET**     | a user gets his connections, received requests and sent requests |
+
+* ```/users/{id}/posts```
+
+    | Http Method | Result                |
+    | ----------- | --------------------- |
+    | **POST**    | a user creates a post |
+
+* ```/users/{id}/home```
+
+    | Http Method | Result                                   |
+    | ----------- | ---------------------------------------- |
+    | **GET**     | a user gets the posts of his connections |
+
+* ```/users/{id}/posts/{id}/likes```
+
+    | Http Method | Result              |
+    | ----------- | ------------------- |
+    | **POST**    | a user likes a post |
+
+* ```/users/{id}/posts/{id}/likes/{id}```
+
+    | Http Method | Result                |
+    | ----------- | --------------------- |
+    | **DELETE**  | a user deletes a like |

@@ -1,9 +1,11 @@
 package com.ted.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,7 +16,7 @@ import java.util.*;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "Post", schema = "teddb")
+@Table(name = "Posts", schema = "teddb")
 public class Post {
 
     @Id
@@ -23,8 +25,9 @@ public class Post {
     private Long id;
 
     @JsonIgnoreProperties("posts")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "owner_id", nullable = false)
+    @Fetch(FetchMode.SELECT)
     private User owner;
 
     @Column(name = "text")
@@ -33,6 +36,13 @@ public class Post {
     @CreatedDate
     @Column(name = "created_time", updatable = false)
     private Timestamp createdTime;
+
+    // @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    // @Fetch(FetchMode.SELECT)
+    // private List<Like> likes = new ArrayList<>();
+
+    @Transient
+    private int likesCount;
 
     public Post () {}
 
@@ -70,6 +80,22 @@ public class Post {
 
     public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
+    }
+
+    // public List<Like> getLikes() {
+    //     return likes;
+    // }
+    //
+    // public void setLikes(List<Like> likes) {
+    //     this.likes = likes;
+    // }
+
+    public int getLikesCount() {
+        return likesCount;
+    }
+
+    public void setLikesCount(int likesCount) {
+        this.likesCount = likesCount;
     }
 
     @Override

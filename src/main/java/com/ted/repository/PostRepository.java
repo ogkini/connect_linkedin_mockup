@@ -17,4 +17,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query("select p from Post p where p.owner.id = :userId")
     List<Post> getAllByUserId(@Param("userId") Long userId);
 
+    // Returns a specific post of a specific user
+    @Query("select p from Post p where p.id = :postId and p.owner.id = :userId")
+    Optional<Post> findByIdAndUserId(@Param("postId") Long postId, @Param("userId") Long userId);
+
 }

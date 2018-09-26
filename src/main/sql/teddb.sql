@@ -146,11 +146,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `teddb`.`Relationship`
+-- Table `teddb`.`Relationships`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Relationship` ;
+DROP TABLE IF EXISTS `teddb`.`Relationships` ;
 
-CREATE TABLE IF NOT EXISTS `teddb`.`Relationship` (
+CREATE TABLE IF NOT EXISTS `teddb`.`Relationships` (
   `relationship_id` BIGINT NOT NULL AUTO_INCREMENT,
   `user_one_id` BIGINT NOT NULL,
   `user_two_id` BIGINT NOT NULL,
@@ -180,11 +180,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `teddb`.`Post`
+-- Table `teddb`.`Posts`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Post` ;
+DROP TABLE IF EXISTS `teddb`.`Posts` ;
 
-CREATE TABLE IF NOT EXISTS `teddb`.`Post` (
+CREATE TABLE IF NOT EXISTS `teddb`.`Posts` (
   `post_id` BIGINT NOT NULL AUTO_INCREMENT,
   `owner_id` BIGINT NOT NULL,
   `text` VARCHAR(500) NOT NULL,
@@ -193,6 +193,31 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Post` (
   INDEX `fk_Post_1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_Post_1`
     FOREIGN KEY (`owner_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Likes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Likes` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Likes` (
+  `like_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `post_id` BIGINT NOT NULL,
+  `user_id` BIGINT NOT NULL,
+  PRIMARY KEY (`like_id`),
+  INDEX `fk_Like_1_idx` (`post_id` ASC),
+  INDEX `fk_Like_2_idx` (`user_id` ASC),
+  CONSTRAINT `fk_Like_1`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `teddb`.`Posts` (`post_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Like_2`
+    FOREIGN KEY (`user_id`)
     REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
