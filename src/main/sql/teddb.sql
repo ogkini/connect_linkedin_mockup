@@ -5,12 +5,12 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `teddb` ;
+#DROP SCHEMA IF EXISTS `teddb` ;
 
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8mb4 ;
 USE `teddb` ;
 
 -- -----------------------------------------------------
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
+  `picture` VARCHAR(200) NULL,  # The "NULL" is intentional, since the "picture" is optional.
   `role_id` BIGINT NOT NULL,
-  `picture` VARCHAR(200) NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`

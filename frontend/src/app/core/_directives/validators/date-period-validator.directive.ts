@@ -68,7 +68,7 @@ export class DatePeriodValidatorDirective implements Validator {
     let endDate = DateService.createDate(endYear, endMonthControl.value);
     let startDate = DateService.createDate(startYearControl.value, startMonthControl.value);
 
-    console.debug("DateObjects:\nStartDate:", startDate, "\nEndDate:", endDate);
+    //console.debug("DateObjects:\nStartDate:", startDate, "\nEndDate:", endDate);
 
     if ( startDate < endDate )
       console.debug("StartDate is earlier than the endDate, all good!");

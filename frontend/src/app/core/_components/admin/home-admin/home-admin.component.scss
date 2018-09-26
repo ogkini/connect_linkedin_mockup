@@ -63,34 +63,34 @@ body {
   overflow: hidden;
 }
 
-// .product-price-btn {
-//   float: right;
-//   height: 100px;
-//   width: 100px;
-//   margin-top: 5px;
-//   position: relative;
-// }
-//
-// .product-price-btn button {
-//   float: right;
-//   display: inline-block;
-//   height: 40px;
-//   width: 176px;
-//   margin: 0 40px 0 16px;
-//   box-sizing: border-box;
-//   border: transparent;
-//   border-radius: 10px;
-//   font-family: 'Raleway', sans-serif;
-//   font-size: 14px;
-//   font-weight: 500;
-//   text-transform: uppercase;
-//   letter-spacing: 0.2em;
-//   color: #ffffff;
-//   background-color: #9cebd5;
-//   cursor: pointer;
-//   outline: none;
-// }
-//
-// .product-price-btn button:hover {
-//   background-color: #79b0a1;
-// }
+.product-price-btn {
+ float: right;
+ height: 100px;
+ width: 100px;
+ margin-top: 5px;
+ position: relative;
+}
+
+.product-price-btn button {
+ float: right;
+ display: inline-block;
+ /*height: 40px;
+ width: 176px;
+ margin: 0 40px 0 16px;*/
+ box-sizing: border-box;
+ border: transparent;
+ border-radius: 10px;
+ font-family: 'Raleway', sans-serif;
+ font-size: 12px;
+ font-weight: 500;
+ text-transform: uppercase;
+ letter-spacing: 0.2em;
+ color: #ffffff;
+ background-color: #9cebd5;
+ cursor: pointer;
+ outline: none;
+}
+
+.product-price-btn button:hover {
+ background-color: #79b0a1;
+}

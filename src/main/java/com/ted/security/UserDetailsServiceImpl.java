@@ -3,6 +3,8 @@ package com.ted.security;
 import com.ted.model.User;
 import com.ted.repository.UserRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
     @Autowired
     private UserRepository userRepository;

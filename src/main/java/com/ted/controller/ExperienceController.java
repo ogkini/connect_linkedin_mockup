@@ -7,9 +7,12 @@ import com.ted.response.ApiResponse;
 import com.ted.security.CurrentUser;
 import com.ted.security.UserDetailsImpl;
 import com.ted.service.ExperienceService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -21,17 +24,19 @@ import java.util.List;
 @RequestMapping("/api")
 public class ExperienceController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ExperienceController.class);
+
     @Autowired
     private ExperienceService experienceService;
 
     // Adds an experience for a user
     @PostMapping("/users/{userId}/experience")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<?> create(@Valid @RequestBody ExperienceRequest experienceRequest,
                                     @PathVariable(value = "userId") Long userId,
                                     @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
-        if (currentUser.getId() != userId) {
+        if ( currentUser.getId() != userId && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
             throw new NotAuthorizedException("You are not authorized to create this resource.");
         }
 
@@ -46,12 +51,13 @@ public class ExperienceController {
 
     // Returns a user's experience
     @GetMapping("/users/{userId}/experience")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public List<Experience> getAll(@PathVariable(value = "userId") Long userId,
                                    @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
-        if (currentUser.getId() != userId) {
+        if ( currentUser.getId() != userId && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
             // Don't show the private staff to other users..
+            // Return null or empty Set ? --> Test how each case gets handled by the FrontEnd.
         }
 
         return experienceService.getAll(userId);
@@ -59,12 +65,12 @@ public class ExperienceController {
 
     // Deletes a specific user experience
     @DeleteMapping("/users/{userId}/experience/{experienceId}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<?> deleteById(@PathVariable(value = "userId") Long userId,
                                         @PathVariable(value = "experienceId") Long experienceId,
                                         @Valid @CurrentUser UserDetailsImpl currentUser) {
         // Check if the logged in user is authorized to access the path
-        if (currentUser.getId() != userId) {
+        if ( currentUser.getId() != userId && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 

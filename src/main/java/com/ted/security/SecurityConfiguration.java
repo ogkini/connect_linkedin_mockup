@@ -1,8 +1,11 @@
 package com.ted.security;
 
-import static com.ted.security.SecurityConstants.SIGN_UP_URL;
-import static com.ted.security.SecurityConstants.SIGN_IN_URL;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,10 +18,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+import static com.ted.security.SecurityConstants.SIGN_IN_URL;
+import static com.ted.security.SecurityConstants.SIGN_UP_URL;
 
 @Configuration
 @EnableWebSecurity
@@ -28,6 +29,8 @@ import org.springframework.http.HttpMethod;
         prePostEnabled = true
 )
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfiguration.class);
 
     @Autowired
     private UserDetailsServiceImpl userDetailsServiceImpl;

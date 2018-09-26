@@ -1,19 +1,15 @@
 package com.ted.security;
 
-import com.ted.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ted.model.Role;
-
+import com.ted.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.stream.*;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /*
@@ -22,6 +18,8 @@ import java.util.stream.Collectors;
  * object to perform authentication and authorization.
  */
 public class UserDetailsImpl implements UserDetails {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserDetailsImpl.class);
 
     private Long id;
     private String firstname;

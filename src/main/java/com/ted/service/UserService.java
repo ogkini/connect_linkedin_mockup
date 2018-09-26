@@ -7,7 +7,8 @@ import com.ted.model.User;
 import com.ted.repository.RelationshipRepository;
 import com.ted.repository.UserRepository;
 import com.ted.security.UserDetailsImpl;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +16,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 @Service
 public class UserService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -29,8 +29,6 @@ public class UserService {
 
     @Autowired
     private RelationshipService relationshipService;
-
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     // Returns all users
     public List<User> getAll() {
@@ -98,6 +96,15 @@ public class UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "email", userEmail));
 
         return user;
+    }
+
+
+    // Returns a specific user based on its email.
+    public List<User> getBySearch(String firstName, String lastName) {
+
+        List<User> users = userRepository.getAllRelated(firstName, lastName);
+
+        return users;
     }
 
 }

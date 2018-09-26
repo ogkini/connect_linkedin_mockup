@@ -1,25 +1,27 @@
 package com.ted.service;
 
+import com.ted.exception.NotAuthorizedException;
+import com.ted.exception.ResourceNotFoundException;
 import com.ted.model.Education;
 import com.ted.model.User;
 import com.ted.repository.EducationRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.EducationRequest;
-import com.ted.exception.ResourceNotFoundException;
-import com.ted.exception.NotAuthorizedException;
 import com.ted.response.ApiResponse;
 import com.ted.security.UserDetailsImpl;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EducationService {
+
+    private static final Logger logger = LoggerFactory.getLogger(EducationService.class);
 
     @Autowired
     private EducationRepository educationRepository;
@@ -29,8 +31,6 @@ public class EducationService {
 
     @Autowired
     private ValidatePathService validatePathService;
-
-    private static final Logger logger = LoggerFactory.getLogger(EducationService.class);
 
     // Adds an education for a user
     public Education create(Long userId, EducationRequest educationRequest) {
@@ -58,7 +58,7 @@ public class EducationService {
         Education education = validatePathService.validatePathAndGetEducation(educationId);
 
         // Check if the education belongs to the current user
-        if (currentUser.getId() != education.getUser().getId()) {
+        if (currentUser.getId() != education.getUser().getId() && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 

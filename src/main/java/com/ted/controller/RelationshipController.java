@@ -2,29 +2,27 @@ package com.ted.controller;
 
 import com.ted.model.Relationship;
 import com.ted.request.RelationshipRequest;
-import com.ted.service.RelationshipService;
 import com.ted.response.ApiResponse;
 import com.ted.response.NetworkResponse;
-import com.ted.exception.NotAuthorizedException;
 import com.ted.security.CurrentUser;
 import com.ted.security.UserDetailsImpl;
-
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.http.ResponseEntity;
-
+import com.ted.service.RelationshipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class RelationshipController {
+
+    private static final Logger logger = LoggerFactory.getLogger(RelationshipController.class);
 
     @Autowired
     private RelationshipService relationshipService;
@@ -48,10 +46,12 @@ public class RelationshipController {
     @PreAuthorize("hasRole('USER')")
     public NetworkResponse getAll(@PathVariable(value = "userId") Long userId,
                                   @Valid @CurrentUser UserDetailsImpl currentUser) {
+
         // Check if the logged in user is authorized to access the path
-        if (currentUser.getId() != userId) {
+        // Network will be public.. so this is commented-out!
+        /*if (currentUser.getId() != userId) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
-        }
+        }*/
 
         return relationshipService.getAll(userId);
     }

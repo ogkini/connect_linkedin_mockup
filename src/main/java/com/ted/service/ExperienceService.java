@@ -1,25 +1,27 @@
 package com.ted.service;
 
+import com.ted.exception.NotAuthorizedException;
+import com.ted.exception.ResourceNotFoundException;
 import com.ted.model.Experience;
 import com.ted.model.User;
 import com.ted.repository.ExperienceRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.ExperienceRequest;
-import com.ted.exception.ResourceNotFoundException;
-import com.ted.exception.NotAuthorizedException;
 import com.ted.response.ApiResponse;
 import com.ted.security.UserDetailsImpl;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ExperienceService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ExperienceService.class);
 
     @Autowired
     private ExperienceRepository experienceRepository;
@@ -29,8 +31,6 @@ public class ExperienceService {
 
     @Autowired
     private ValidatePathService validatePathService;
-
-    private static final Logger logger = LoggerFactory.getLogger(ExperienceService.class);
 
     // Adds an experience for a user
     public Experience create(Long userId, ExperienceRequest experienceRequest) {
@@ -58,7 +58,7 @@ public class ExperienceService {
         Experience experience = validatePathService.validatePathAndGetExperience(experienceId);
 
         // Check if the experience belongs to the current user
-        if (currentUser.getId() != experience.getUser().getId()) {
+        if (currentUser.getId() != experience.getUser().getId() && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 

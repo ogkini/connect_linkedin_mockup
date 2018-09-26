@@ -1,26 +1,26 @@
 package com.ted.service;
 
+import com.ted.exception.NotAuthorizedException;
 import com.ted.model.Relationship;
 import com.ted.model.User;
 import com.ted.repository.RelationshipRepository;
-import com.ted.repository.UserRepository;
 import com.ted.request.RelationshipRequest;
-import com.ted.exception.ResourceNotFoundException;
-import com.ted.exception.NotAuthorizedException;
 import com.ted.response.ApiResponse;
 import com.ted.response.NetworkResponse;
 import com.ted.security.UserDetailsImpl;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.http.ResponseEntity;
-
-import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RelationshipService {
+
+    private static final Logger logger = LoggerFactory.getLogger(RelationshipService.class);
 
     @Autowired
     private RelationshipRepository relationshipRepository;
@@ -30,8 +30,6 @@ public class RelationshipService {
 
     @Autowired
     private ValidatePathService validatePathService;
-
-    private static final Logger logger = LoggerFactory.getLogger(RelationshipService.class);
 
     // Creates a friend request
     public Relationship create(Long userId, RelationshipRequest relationshipRequest) {
@@ -88,7 +86,7 @@ public class RelationshipService {
         Relationship relationship = validatePathService.validatePathAndGetRelationship(relationshipId);
 
         // Check if the user is the receiver of the request
-        if (currentUser.getId() != relationship.getReceiver().getId()) {
+        if ( currentUser.getId() != relationship.getReceiver().getId() ) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
@@ -102,7 +100,7 @@ public class RelationshipService {
         Relationship relationship = validatePathService.validatePathAndGetRelationship(relationshipId);
 
         // Check if the user is the receiver of the request
-        if (currentUser.getId() != relationship.getReceiver().getId()) {
+        if ( currentUser.getId() != relationship.getReceiver().getId() ) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
