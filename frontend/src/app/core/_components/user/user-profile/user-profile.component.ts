@@ -3,10 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { EducationService, ExperienceService, UserService, RelationshipService } from "../../../_services";
 import { AlertService, ConnectionConfigService } from "../../../_services";
-import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { CreationResponse, User, FriendRequest } from "../../../_models";
-import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
-import { DateService } from "../../../_services/date.service";
 import { first } from "rxjs/operators";
 
 @Component({
@@ -31,7 +28,6 @@ export class UserProfileComponent implements OnInit {
     private educationService: EducationService,
     private relationshipService: RelationshipService,
     private alertService: AlertService,
-    private formBuilder: FormBuilder,
     private connConfig: ConnectionConfigService,
   ) {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));

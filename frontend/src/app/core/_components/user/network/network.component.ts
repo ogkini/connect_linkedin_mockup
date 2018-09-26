@@ -14,7 +14,8 @@ import { RelationshipService, ConnectionConfigService, AlertService, DataService
 export class NetworkComponent implements OnInit {
 
   title = 'My Network';
-  currentUser: User;
+  signedInUser: User;
+  userId: number;
   network: Network;
   message: string;
   public profilePhotosEndpoint: string;
@@ -32,12 +33,15 @@ export class NetworkComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.titleService.setTitle(this.title);
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.getNetwork(this.userId);
+    });
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 
   ngOnInit() {
-    this.getNetwork(this.currentUser.id);
     this.dataService.currentMessage.subscribe(message => this.message = message);
     this.dataService.changeMessage('');
   }

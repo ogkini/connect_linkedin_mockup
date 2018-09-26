@@ -3,7 +3,6 @@ import { Title } from '@angular/platform-browser';
 
 import { User } from '../../../_models/index';
 import { ConnectionConfigService, UserService } from '../../../_services/index';
-import { AdminNavBarComponent } from './../admin-nav-bar/admin-nav-bar.component';
 
 
 @Component({

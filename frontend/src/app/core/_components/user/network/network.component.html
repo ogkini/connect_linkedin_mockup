@@ -7,13 +7,15 @@
 
     <!-- Navigation -->
     <div class="list-group" id="list-tab" role="tablist">
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests
-        <span class="badge cyan badge-pill" *ngIf="network?.receivedRequests?.length>0">{{network?.receivedRequests?.length}}</span>
-      </button>
+      <ng-container *ngIf="signedInUser.id == userId">
+        <button class="list-group-item d-flex justify-content-between align-items-center" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests
+          <span class="badge cyan badge-pill" *ngIf="network?.receivedRequests?.length>0">{{network?.receivedRequests?.length}}</span>
+        </button>
 
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests
-        <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
-      </button>
+        <button class="list-group-item d-flex justify-content-between align-items-center" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests
+          <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
+        </button>
+      </ng-container>
 
       <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
         <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>

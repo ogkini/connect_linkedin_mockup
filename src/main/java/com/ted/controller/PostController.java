@@ -47,7 +47,7 @@ public class PostController {
 
     // Returns a user's posts
     @GetMapping("/users/{userId}/posts")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public List<Post> getAll(@PathVariable(value = "userId") Long userId,
                              @Valid @CurrentUser UserDetailsImpl currentUser) {
         return postService.getAll(userId);

@@ -6,7 +6,6 @@ import { first } from 'rxjs/operators';
 
 import { User } from '../../_models/index';
 import {AlertService, AuthenticationService, UserService} from '../../_services/index';
-import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
 import { FileUploaderService } from './../../_services/file-uploader/file-uploader.service';
 import { PasswordConfirmValidatorDirective } from '../../_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "../../_directives/validators/text_validator.directive";

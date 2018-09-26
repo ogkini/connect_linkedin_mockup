@@ -1,7 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit } from '@angular/core';
 import { Title } from "@angular/platform-browser";
 import { Location } from '@angular/common';
-import { MainNavBarComponent } from './../main-nav-bar/main-nav-bar.component';
 
 
 @Component({

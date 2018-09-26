@@ -5,7 +5,6 @@ import { FormBuilder } from '@angular/forms';
 import { User } from '../../../_models/index';
 import { UserService, ExperienceService, EducationService } from '../../../_services/index';
 import { AlertService, ConnectionConfigService, DataService } from '../../../_services/index';
-import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 
 @Component({
   selector: 'app-home-user',

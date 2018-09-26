@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { first } from "rxjs/operators";
 
 import { EducationService, ExperienceService, UserService } from "../../../_services";
-import { AlertService, ConnectionConfigService, DataService } from "../../../_services";
+import { AlertService, ConnectionConfigService } from "../../../_services";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
 import { DateService} from "../../../_services/date.service";
 import { CreationResponse, Education, Experience, User } from "../../../_models";
