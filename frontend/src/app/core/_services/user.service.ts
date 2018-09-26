@@ -17,6 +17,12 @@ export class UserService {
     return this.httpClient.get<User[]>(this.connConfig.usersEndpoint);
   }
 
+  getAllRelatedToSearchTerm(searchTerm: string): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.connConfig.usersSearchEndpoint,
+      {params: { searchTerm: searchTerm }}
+    );
+  }
+
   getById(id: number): Observable<User> {
     return this.httpClient.get<User>(this.connConfig.usersEndpoint + '/' + id);
   }

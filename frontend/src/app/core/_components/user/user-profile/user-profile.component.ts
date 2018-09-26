@@ -5,6 +5,7 @@ import { EducationService, ExperienceService, UserService, RelationshipService }
 import { AlertService, ConnectionConfigService } from "../../../_services";
 import { CreationResponse, User, FriendRequest } from "../../../_models";
 import { first } from "rxjs/operators";
+import {UsersInteractionService} from "../../../_services/users-interaction/users-interaction.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -29,6 +30,7 @@ export class UserProfileComponent implements OnInit {
     private relationshipService: RelationshipService,
     private alertService: AlertService,
     private connConfig: ConnectionConfigService,
+    private usersInteraction: UsersInteractionService
   ) {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.route.params.subscribe(params => {
@@ -58,21 +60,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   sendFriendRequest() {
-    // Create a new Friend Request object
-    const newFriendRequest: FriendRequest = {
-      receiver: this.userId,
-    } as FriendRequest;
-
-    // Submit the experience to the server
-    this.relationshipService.create(newFriendRequest)
-      .pipe(first())
-      .subscribe((response: CreationResponse) => {
-        // Make Connect button disabled
-        this.disabledButton = true;
-      }, error => {
-        console.log(error.error);
-      }
-      );
+    this.usersInteraction.sendFriendRequest(this.userId);
+    // Make Connect button disabled
+    this.disabledButton = true;
   }
 
   sendMessage() {

@@ -127,6 +127,7 @@ public class UserController {
 
     // Returns multiple users matching the search.
     @GetMapping("/users/searchUser")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public List<User> getUsersBySearchTerm(@RequestParam("searchTerm") String searchTerm)
     {
         // Check how the frontend handles the returnes list..

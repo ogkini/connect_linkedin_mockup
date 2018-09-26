@@ -31,6 +31,7 @@ import { UserInfoComponent } from "./_components/user/user-info/user-info.compon
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
 import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
 import {httpInterceptorProviders} from "./_interceptors";
+import {UsersInteractionService} from "./_services/users-interaction/users-interaction.service";
 
 @NgModule({
   imports: [
@@ -78,6 +79,7 @@ import {httpInterceptorProviders} from "./_interceptors";
     DataService,
     FileUploaderService,
     DateService,
+    UsersInteractionService,
     httpInterceptorProviders
   ],
   schemas: [ NO_ERRORS_SCHEMA ]

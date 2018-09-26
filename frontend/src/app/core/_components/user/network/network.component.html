@@ -20,6 +20,11 @@
       <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
         <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>
       </button>
+
+      <button class="list-group-item d-flex justify-content-between align-items-center" id="search-others" (click)="showSearchBarTrue()" [ngClass]="{'active': showSearchBar}">
+        Search others
+      </button>
+
     </div>
 
   </div>
@@ -85,7 +90,58 @@
 
         <div>
           <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
-          <button type="button" class="btn btn-secondary con-btn">Delete</button>
+          <button type="button" class="btn btn-secondary con-btn">Disconnect</button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- User-Search Bar -->
+    <div *ngIf="showSearchBar" align="right">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container">
+              <div class="input-group stylish-input-group">
+                <form [formGroup]="searchForm" (ngSubmit)=onSearchSubmit()>
+                  <input type="text" class="form-control" formControlName="searchTerm" placeholder="Search users" [ngClass]="{ 'is-invalid': submitted && form.searchTerm.errors }">
+                  <span class="input-group-addon">
+                    <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show search-results -->
+    <div *ngIf="showSearchResults">
+      <div class="wrapper border" *ngFor="let user of usersFromSearch">
+        <div class="product-img">
+          <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
+        </div>
+        <div class="product-info">
+          <div class="product-text">
+            <h1>{{user.firstname}} {{user.lastname}}</h1>
+            <h2>Occupation</h2>
+            <p>{{user.email}}</p>
+          </div>
+        </div>
+
+        <div>
+          <!--<ng-container *ngIf="signedInUser.relationshipWith(user.id); else showDisconnect">  &lt;!&ndash; If this user is not  &ndash;&gt;
+            <button type="button" class="btn btn-primary" (click)="sendFriendRequest(user.id)">Connect</button>
+          </ng-container>
+          <ng-template #showDisconnect>
+            <button type="button" class="btn btn-secondary con-btn">Disconnect</button>
+          </ng-template>-->
+
+          <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
         </div>
 
       </div>

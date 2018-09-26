@@ -4,7 +4,15 @@ import { Title } from "@angular/platform-browser";
 import { first } from "rxjs/operators";
 
 import { User, Network } from '../../../_models/index';
-import { RelationshipService, ConnectionConfigService, AlertService, DataService } from '../../../_services/index';
+import {
+  RelationshipService,
+  ConnectionConfigService,
+  AlertService,
+  DataService,
+  UserService
+} from '../../../_services/index';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UsersInteractionService} from "../../../_services/users-interaction/users-interaction.service";
 
 @Component({
   selector: 'app-network',
@@ -17,20 +25,28 @@ export class NetworkComponent implements OnInit {
   signedInUser: User;
   userId: number;
   network: Network;
+  searchForm: FormGroup;
   message: string;
   public profilePhotosEndpoint: string;
+  public usersFromSearch: User[];
+  submitted = false;
 
-  showReceived = true;
+  showReceived = true;  // First thing to see when the user visits "Network".
   showSent = false;
   showConnections = false;
+  showSearchBar = false;
+  showSearchResults = false;
 
   public constructor(
     private titleService: Title,
+    private userService: UserService,
     private relationshipService: RelationshipService,
     private connConfig: ConnectionConfigService,
     private alertService: AlertService,
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private usersInteraction: UsersInteractionService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -44,6 +60,16 @@ export class NetworkComponent implements OnInit {
   ngOnInit() {
     this.dataService.currentMessage.subscribe(message => this.message = message);
     this.dataService.changeMessage('');
+
+    // Use FormBuilder to create a form group
+    this.searchForm = this.formBuilder.group({
+      searchTerm: ['', [Validators.required]]
+    });
+  }
+
+  // Convenience getter for easy access to form fields
+  get form() {
+    return this.searchForm.controls;
   }
 
   private getNetwork(userId: number) {
@@ -61,7 +87,7 @@ export class NetworkComponent implements OnInit {
           this.alertService.error(error.error.message);
         }
       );
-}
+  }
 
   // Accepts a friend request
   accept(id: number) {
@@ -76,25 +102,62 @@ export class NetworkComponent implements OnInit {
           this.alertService.error(error.error.message);
         }
       );
-}
+  }
 
   // To manage the right side view based on active button
   showReceivedTrue() {
+    this.showSearchBar = false;
+    this.showSearchResults = false;
     this.showReceived = true;
     this.showSent = false;
     this.showConnections = false;
   }
 
   showSentTrue() {
+    this.showSearchBar = false;
+    this.showSearchResults = false;
     this.showReceived = false;
     this.showSent = true;
     this.showConnections = false;
   }
 
   showConnectionsTrue() {
+    this.showSearchBar = false;
+    this.showSearchResults = false;
     this.showReceived = false;
     this.showSent = false;
     this.showConnections = true;
+  }
+
+  showSearchBarTrue() {
+    this.showSearchBar = true;
+    this.showSearchResults = false;
+    this.showConnections = false;
+    this.showReceived = false;
+    this.showSent = false;
+  }
+
+  onSearchSubmit()
+  {
+    this.submitted = true;
+
+    if ( this.searchForm.invalid )
+      return null;
+
+    // Get results from backend
+    this.userService.getAllRelatedToSearchTerm(this.form.searchTerm.value).subscribe(
+      results => {
+        this.usersFromSearch = results;
+        this.showSearchResults = true;
+      },
+      error => {
+        console.error(error);
+      }
+    )
+  }
+
+  sendFriendRequest(userId: number){
+    this.usersInteraction.sendFriendRequest(userId);
   }
 
 }

@@ -15,6 +15,8 @@ export class ConnectionConfigService {
 
   relationshipEndpoint = this.serverUrl + 'relationships';
 
+  usersSearchEndpoint = this.usersEndpoint + '/searchUser';
+
   // These are just "endings", as between them and the "serverUrl" will be the userId.
   experienceEndpoint = 'experience';
   educationEndpoint = 'education';
