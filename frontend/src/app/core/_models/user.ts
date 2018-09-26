@@ -1,4 +1,4 @@
-import { Occupation, Experience, Education, Skill } from './index';
+import { Occupation, Experience, Education, Skill } from '.';
 
 export class User {
   id: number;

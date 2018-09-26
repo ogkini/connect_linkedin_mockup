@@ -4,9 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
-import { User } from '../../_models/index';
-import {AlertService, AuthenticationService, UserService} from '../../_services/index';
-import { FileUploaderService } from './../../_services/file-uploader/file-uploader.service';
+import { User } from '../../_models';
+import {AlertService, AuthenticationService, UserService, FileUploaderService} from '../../_services';
 import { PasswordConfirmValidatorDirective } from '../../_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "../../_directives/validators/text_validator.directive";
 

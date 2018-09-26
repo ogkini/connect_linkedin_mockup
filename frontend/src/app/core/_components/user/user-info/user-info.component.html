@@ -1,9 +1,9 @@
-<ng-container *ngIf="currentUser.email == 'admin@mail.com'; then admin else user"></ng-container>
+<ng-container *ngIf="signedInUser.email == 'admin@mail.com'; then admin else user"></ng-container>
 <ng-template #admin>
   <app-admin-nav-bar></app-admin-nav-bar>
 </ng-template>
 <ng-template #user>
-  <app-user-nav-bar></app-user-nav-bar>
+  <app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
 </ng-template>
 
 

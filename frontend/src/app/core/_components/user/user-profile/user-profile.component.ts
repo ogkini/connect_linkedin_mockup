@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import { EducationService, ExperienceService, UserService, RelationshipService } from "../../../_services";
+import { EducationService, ExperienceService, UserService, RelationshipService, UsersInteractionService } from "../../../_services";
 import { AlertService, ConnectionConfigService } from "../../../_services";
-import { CreationResponse, User, FriendRequest } from "../../../_models";
-import { first } from "rxjs/operators";
-import {UsersInteractionService} from "../../../_services/users-interaction/users-interaction.service";
+import { User } from "../../../_models";
 
 @Component({
   selector: 'app-user-profile',

@@ -18,11 +18,10 @@ import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.com
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
 import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-bar.component';
 
-import { AuthGuard, RoleGuard } from './_guards/index';
+import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
-import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services/index';
-import { UserService, ExperienceService, EducationService, RelationshipService } from './_services/index';
-import { FileUploaderService } from './_services/file-uploader/file-uploader.service';
+import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services';
+import { UserService, ExperienceService, EducationService, RelationshipService, FileUploaderService, UsersInteractionService } from './_services';
 import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
 import { DatePeriodValidatorDirective } from "./_directives/validators/date-period-validator.directive";
@@ -31,7 +30,6 @@ import { UserInfoComponent } from "./_components/user/user-info/user-info.compon
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
 import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
 import {httpInterceptorProviders} from "./_interceptors";
-import {UsersInteractionService} from "./_services/users-interaction/users-interaction.service";
 
 @NgModule({
   imports: [

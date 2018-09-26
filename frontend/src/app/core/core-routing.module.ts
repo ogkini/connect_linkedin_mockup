@@ -8,7 +8,7 @@ import { HomeAdminComponent } from './_components/admin/home-admin/home-admin.co
 import { HomeUserComponent } from './_components/user/home-user/home-user.component';
 import { NetworkComponent } from './_components/user/network/network.component';
 
-import { AuthGuard, RoleGuard } from './_guards/index';
+import { AuthGuard, RoleGuard } from './_guards';
 import { PageNotFoundComponent } from "./_components/page-not-found/page-not-found.component";
 import {UserInfoComponent} from "./_components/user/user-info/user-info.component";
 import {UserSettingsComponent} from "./_components/user/user-settings/user-settings.component";

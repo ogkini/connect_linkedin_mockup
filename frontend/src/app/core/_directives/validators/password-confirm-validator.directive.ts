@@ -15,11 +15,6 @@ export class PasswordConfirmValidatorDirective implements Validator {
 
   validate(c: AbstractControl): ValidationErrors | null {
 
-    /*console.debug("Inside password validate..");
-    var retVal = PasswordConfirmValidatorDirective.validatePasswordConfirmation(c);
-    console.debug("'validatePasswordConfirmation' returned: ", retVal);
-    return retVal;*/
-
     return PasswordConfirmValidatorDirective.validatePasswordConfirmation(c);
   }
 

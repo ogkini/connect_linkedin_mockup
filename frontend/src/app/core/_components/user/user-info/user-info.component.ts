@@ -4,10 +4,8 @@ import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { first } from "rxjs/operators";
 
-import { EducationService, ExperienceService, UserService } from "../../../_services";
-import { AlertService, ConnectionConfigService } from "../../../_services";
+import { EducationService, ExperienceService, UserService, DateService, AlertService, ConnectionConfigService } from "../../../_services";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
-import { DateService} from "../../../_services/date.service";
 import { CreationResponse, Education, Experience, User } from "../../../_models";
 
 @Component({
@@ -18,7 +16,7 @@ import { CreationResponse, Education, Experience, User } from "../../../_models"
 export class UserInfoComponent implements OnInit {
 
   title: string = 'Personal Information';
-  currentUser: User;
+  signedInUser: User;
   user: User;
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
@@ -55,7 +53,7 @@ export class UserInfoComponent implements OnInit {
     private route: ActivatedRoute
     //private route: ActivatedRoute
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.titleService.setTitle(this.title);
     this.route.params.subscribe(params => {
       this.userId = +params['id'];

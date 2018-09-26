@@ -3,16 +3,16 @@ import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { first } from "rxjs/operators";
 
-import { User, Network } from '../../../_models/index';
+import { User, Network } from '../../../_models';
 import {
   RelationshipService,
   ConnectionConfigService,
   AlertService,
   DataService,
-  UserService
-} from '../../../_services/index';
+  UserService,
+  UsersInteractionService
+} from '../../../_services';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UsersInteractionService} from "../../../_services/users-interaction/users-interaction.service";
 
 @Component({
   selector: 'app-network',

@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder } from '@angular/forms';
 
-import { User } from '../../../_models/index';
-import { UserService, ExperienceService, EducationService } from '../../../_services/index';
-import { AlertService, ConnectionConfigService, DataService } from '../../../_services/index';
+import { User } from '../../../_models';
+import { UserService, ExperienceService, EducationService, AlertService, ConnectionConfigService, DataService } from '../../../_services';
 
 @Component({
   selector: 'app-home-user',
@@ -14,7 +13,7 @@ import { AlertService, ConnectionConfigService, DataService } from '../../../_se
 export class HomeUserComponent implements OnInit {
 
   title = 'Home';
-  currentUser: User;
+  signedInUser: User;
   user: User = {} as User;
   submitted = false;
   message: string;
@@ -32,11 +31,11 @@ export class HomeUserComponent implements OnInit {
       private dataService: DataService
   ) {
     this.titleService.setTitle(this.title);
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    this.getUserById(this.currentUser.id);
+    this.getUserById(this.signedInUser.id);
     this.dataService.currentMessage.subscribe(message => this.message = message);
   }
 

@@ -4,7 +4,8 @@ import {Title} from "@angular/platform-browser";
 import {
   AlertService,
   ConnectionConfigService,
-  UserService
+  UserService,
+  FileUploaderService
 } from "../../../_services";
 import {FormBuilder} from "@angular/forms";
 import {User} from "../../../_models";
@@ -12,7 +13,6 @@ import {FormGroup, Validators} from "@angular/forms";
 import {TextValidatorDirective} from "../../../_directives/validators/text_validator.directive";
 import {PasswordConfirmValidatorDirective} from "../../../_directives/validators/password-confirm-validator.directive";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FileUploaderService} from "../../../_services/file-uploader/file-uploader.service";
 import {first} from "rxjs/operators";
 
 
@@ -28,7 +28,7 @@ export class UserSettingsComponent implements OnInit {
   submitted = false;
   data: object;
   fileToUpload: File;
-  public currentUser: User;
+  public signedInUser: User;
   public user: User;
   public profilePhotosEndpoint: string;
 
@@ -44,8 +44,8 @@ export class UserSettingsComponent implements OnInit {
     private location: Location
   ) {
     this.titleService.setTitle(this.title);
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.currentUser.id + '/photos';
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.signedInUser.id + '/photos';
   }
 
   minTextLength = 2;
@@ -58,7 +58,7 @@ export class UserSettingsComponent implements OnInit {
   
   // Todo - make a form-service, which will provide the arrays of the validators for each form-field.
   ngOnInit() {
-    this.getUserById(this.currentUser.id);
+    this.getUserById(this.signedInUser.id);
 
     // Use FormBuilder to create a form group
     this.updateForm = this.formBuilder.group({
@@ -101,8 +101,8 @@ export class UserSettingsComponent implements OnInit {
     // Create the user
     this.updateUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value, this.fileUploader.fileName);
 
-    if ( !this.router.navigate(['/users', this.currentUser.id]) ) {
-      console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
+    if ( !this.router.navigate(['/users', this.signedInUser.id]) ) {
+      console.error("Navigation from \"SignIn\" to \"/users/\"" + this.signedInUser.id + "\" failed!");
     }
   }
 

@@ -131,7 +131,7 @@ public class UserController {
     public List<User> getUsersBySearchTerm(@RequestParam("searchTerm") String searchTerm)
     {
         // Check how the frontend handles the returnes list..
-        // Generally we want t display "no results" when there was an actual search term, if no searchTerm was given.. then display an error.
+        // Generally we want to display "no results" when there was an actual search term, if no searchTerm was given.. then display an error.
 
         if ( searchTerm == null || searchTerm.isEmpty() ) {
             logger.error("No searchTerm reached the backEnd!");
