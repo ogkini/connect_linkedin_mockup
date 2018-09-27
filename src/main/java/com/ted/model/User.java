@@ -81,13 +81,13 @@ public class User {
     private List<Skill> skills = new ArrayList<>();
 
     //@XmlElement
-    @JsonIgnoreProperties("sender")
+    @JsonIgnoreProperties("sender")   // It's safe to ignore just the "sender".
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Relationship> relationships = new ArrayList<>();
 
     //@XmlElement
-    @JsonIgnoreProperties("owner")
+    @JsonIgnore//Properties("owner")    // If ignore just the "owner" then we get an error: "Could not write JSON: Infinite recursion (StackOverflowError);"
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Post> posts = new ArrayList<>();
@@ -98,6 +98,7 @@ public class User {
     @Fetch(FetchMode.SELECT)
     private List<Like> likes = new ArrayList<>();
 
+    //@XmlElement
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
