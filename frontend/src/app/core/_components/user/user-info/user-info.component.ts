@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { first } from "rxjs/operators";
-
 import {
   EducationService,
   ExperienceService,
@@ -90,8 +89,7 @@ export class UserInfoComponent implements OnInit {
       user => {
         this.userInPath = user;
         this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.userInPath.id + '/photos';
-      },
- error => {
+      }, error => {
         this.alertService.error(error.error.errorMessage);
         console.log(error);
       }
@@ -123,8 +121,10 @@ export class UserInfoComponent implements OnInit {
     }
 
     // Create the start and end dates
-    let start = DateService.createDate(this.getAddExperienceForm.startYear.value, this.getAddExperienceForm.startMonth.value);
-    let end = DateService.createDate(this.getAddExperienceForm.endYear.value, this.getAddExperienceForm.endMonth.value);
+    let start = DateService.createDate(this.getAddExperienceForm.startYear.value,
+        this.getAddExperienceForm.startMonth.value);
+    let end = DateService.createDate(this.getAddExperienceForm.endYear.value,
+        this.getAddExperienceForm.endMonth.value);
 
     // Create a new Experience object
     const newExperience: Experience = {
@@ -191,8 +191,10 @@ export class UserInfoComponent implements OnInit {
     }
 
     // Create the start and end dates
-    let start = DateService.createDate(this.getAddEducationForm.startYear.value, this.getAddEducationForm.startMonth.value);
-    let end = DateService.createDate(this.getAddEducationForm.endYear.value, this.getAddEducationForm.endMonth.value);
+    let start = DateService.createDate(this.getAddEducationForm.startYear.value,
+        this.getAddEducationForm.startMonth.value);
+    let end = DateService.createDate(this.getAddEducationForm.endYear.value,
+        this.getAddEducationForm.endMonth.value);
 
     // Create a new Education object
     const newEducation: Education = {

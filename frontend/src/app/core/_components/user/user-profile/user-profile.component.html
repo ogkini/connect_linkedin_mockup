@@ -17,7 +17,7 @@
       </div>
       <div *ngIf="signedInUser.id != user?.id">  <!--Show these buttons only if this profile belongs to a different user.-->
         <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
-        <button type="button" class="btn btn-primary" (click)="sendMessage()">Message</button>
+        <button type="button" class="btn btn-secondary" (click)="sendMessage()">Message</button>
         <button type="button" class="btn btn-sm btn-info req-btn" [routerLink]="['/users/' + user?.id + '/network']">See {{user.firstname}}'s Network</button>
       </div>
     </div>

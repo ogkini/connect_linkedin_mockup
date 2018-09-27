@@ -17,9 +17,7 @@ import com.ted.security.CurrentUser;
 import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
 import com.ted.service.UserService;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -35,6 +33,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 @RestController
 @RequestMapping("/api")
@@ -128,55 +132,50 @@ public class UserController {
     // Returns multiple users matching the search.
     @GetMapping("/users/searchUser")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public List<User> getUsersBySearchTerm(@RequestParam("searchTerm") String searchTerm)
-    {
+    public List<User> getUsersBySearchTerm(@RequestParam("searchTerm") String searchTerm) {
         // Check how the frontend handles the returnes list..
-        // Generally we want to display "no results" when there was an actual search term, if no searchTerm was given.. then display an error.
-
-        if ( searchTerm == null || searchTerm.isEmpty() ) {
+        // Generally we want to display "no results" when there was an actual search term,
+        // if no searchTerm was given.. then display an error.
+        if (searchTerm == null || searchTerm.isEmpty()) {
             logger.error("No searchTerm reached the backEnd!");
             return null;
-        }
-        else
+        } else {
             searchTerm = StringUtils.lowerCase(searchTerm); // Match to more records.
+        }
 
         List<User> users;
         String firstTerm;
         String secondTerm;
 
         // Get firstName and lastName from search string.
-
         String[] multipleTerms = StringUtils.split(searchTerm, ' ');
 
-        if (  multipleTerms.length == 0 ) {
+        if (multipleTerms.length == 0) {
             logger.warn("Term-spliting provided no results!");
             return null;
-        }
-        else if ( multipleTerms.length == 1 ) {
+        } else if (multipleTerms.length == 1) {
             firstTerm = multipleTerms[0];
             users = userService.getBySearch(firstTerm, firstTerm);
-            if ( users == null || users.isEmpty() ) {
+            if (users == null || users.isEmpty()) {
                 logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
-                // Check how the frontEnd handles "null" or "empty" List.. --> See 1st method's comment..
             }
-        }
-        else {
-            if ( multipleTerms.length > 2 )
+        } else {
+            if ( multipleTerms.length > 2 ) {
                 logger.warn("More than 2 terms found in \"searchTerm\"! We will use only the first two!");
+            }
 
             firstTerm = multipleTerms[0];
             secondTerm = multipleTerms[1];
 
-            users = userService.getBySearch(firstTerm, secondTerm);  // Takes: 1stArg=firstName, 2ndArg=lastName
-            if ( users == null || users.isEmpty() ) {
-                // We assumed that the user entered the firstName first and then the lastName.. but that may not be the case.. so try again by switching them.
+            users = userService.getBySearch(firstTerm, secondTerm);
+            if (users == null || users.isEmpty()) {
+                // We assumed that the user entered the firstName first and then the lastName..
+                // but that may not be the case.. so try again by switching them.
                 users = userService.getBySearch(secondTerm, firstTerm);
-                if ( users == null || users.isEmpty() ) {
+                if (users == null || users.isEmpty()) {
                     logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
-                    // Check how the frontEnd handles "null" or "empty" List..
                 }
             }
-
         }
 
         return users;

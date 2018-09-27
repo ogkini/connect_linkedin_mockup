@@ -22,4 +22,8 @@ export class ConnectionConfigService {
   experienceEndpoint = 'experience';
   educationEndpoint = 'education';
   networkEndpoint = 'network';
+  homeEndpoint = 'home';
+  postsEndpoint = 'posts';
+  likesEndpoint = 'likes';
+  commentsEndpoint = 'comments';
 }

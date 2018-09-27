@@ -16,7 +16,7 @@ export class UsersInteractionService {
       receiver: userId,
     } as FriendRequest;
 
-    // Submit the experience to the server
+    // Submit the Friend Request to the server
     this.relationshipService.create(newFriendRequest)
       .pipe(first())
       .subscribe(error => {

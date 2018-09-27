@@ -1,6 +1,7 @@
 package com.ted.service;
 
 import com.ted.model.Post;
+import com.ted.model.Like;
 import com.ted.model.User;
 import com.ted.model.Relationship;
 import com.ted.repository.PostRepository;
@@ -18,6 +19,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,6 +39,9 @@ public class PostService {
 
     @Autowired
     private LikeService likeService;
+
+    @Autowired
+    private CommentService commentService;
 
     @Autowired
     private ValidatePathService validatePathService;
@@ -55,18 +62,25 @@ public class PostService {
     }
 
     // Returns a user's posts
-    public List<Post> getAll(Long userId) {
+    public List<Post> getAll(Long userId, UserDetailsImpl currentUser) {
         List<Post> posts = postRepository.getAllByUserId(userId);
 
         for (Post p : posts) {
+            // Check the posts that the current user has liked
+            for (Like l : p.getLikes()) {
+                p.setLikesPost(currentUser.getId() == l.getUser().getId());
+            }
+
+            // Set the likes and comments counters
             p.setLikesCount(likeService.getLikesCount(p.getId()));
+            p.setCommentsCount(commentService.getCommentsCount(p.getId()));
         }
 
         return posts;
     }
 
-    // Returns a user's friends' posts
-    public List<Post> getNetworkPosts(Long userId) {
+    // Returns a user's network's posts (including his own posts)
+    public List<Post> getNetworkPosts(Long userId, UserDetailsImpl currentUser) {
         List<Post> posts = new ArrayList<>();
 
         // Get the user's network
@@ -75,11 +89,21 @@ public class PostService {
         // Get the posts of the specific users and add them to the list
         for (Relationship c : connections) {
             if (userId == c.getSender().getId()) {
-                posts.addAll(getAll(c.getReceiver().getId()));
+                posts.addAll(getAll(c.getReceiver().getId(), currentUser));
             } else {
-                posts.addAll(getAll(c.getSender().getId()));
+                posts.addAll(getAll(c.getSender().getId(), currentUser));
             }
         }
+
+        // Add the users own posts to the list
+        posts.addAll(getAll(userId, currentUser));
+
+        // Sort the posts from newest to oldest
+        Collections.sort(posts, new Comparator<Post>(){
+            public int compare(Post p1, Post p2) {
+                return p2.getCreatedTime().compareTo(p1.getCreatedTime());
+            }
+        });
 
         return posts;
     }

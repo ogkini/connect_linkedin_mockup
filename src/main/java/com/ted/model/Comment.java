@@ -8,16 +8,21 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.sql.Timestamp;
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "Likes", schema = "teddb")
-public class Like {
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "Comments", schema = "teddb")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "like_id")
+    @Column(name = "comment_id")
     private Long id;
 
     @JsonIgnore
@@ -26,13 +31,24 @@ public class Like {
     @Fetch(FetchMode.SELECT)
     private Post post;
 
-    @JsonIgnoreProperties({"likes", "posts"})
+    @JsonIgnoreProperties("comments")
     @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     @Fetch(FetchMode.SELECT)
     private User user;
 
-    public Like () {}
+    @Column(name = "text")
+    private String text;
+
+    @CreatedDate
+    @Column(name = "created_time", updatable = false)
+    private Timestamp createdTime;
+
+    public Comment() {}
+
+    public Comment(String text) {
+        this.text = text;
+    }
 
     public Long getId() {
         return id;
@@ -58,19 +74,36 @@ public class Like {
         this.user = user;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Timestamp getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Timestamp createdTime) {
+        this.createdTime = createdTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Like that = (Like) o;
+        Comment that = (Comment) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(post, that.post) &&
-                Objects.equals(user, that.user);
+                Objects.equals(user, that.user) &&
+                Objects.equals(text, that.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, post, user);
+        return Objects.hash(id, post, user, text);
     }
 
 }

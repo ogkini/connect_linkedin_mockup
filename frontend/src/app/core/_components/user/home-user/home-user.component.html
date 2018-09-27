@@ -2,34 +2,90 @@
 
 <div class="container margin-t">
 
-  <!-- Main User Info -->
-  <div class="wrapper border">
-    <div class="product-img">
-      <img src="http:{{profilePhotosEndpoint}}" height="198" width="200" alt="profile_photo">
+  <form class="post-form" [formGroup]="addPostForm" (ngSubmit)="addPost()">
+    <textarea name="post-area" class="post-form" rows="3" class="form-control mb-2" placeholder="Create a post" formControlName="text"></textarea>
+
+    <button type="submit" class="btn btn-sm btn-primary relative waves-light" type="submit">Create Post</button>
+  </form>
+
+  <!-- Posts -->
+  <div class="wrapper border" *ngFor="let post of posts">
+
+    <!-- Uploader Info -->
+    <div class="uploader-info">
+
+      <!-- Image -->
+      <div class="uploader-img">
+        <!-- <img src="http:{{profilePhotosEndpoint}}" height="35" width="35" alt="profile_photo"> -->
+        <img src="https://via.placeholder.com/55x55" height="55" width="55" alt="profile_photo">
+      </div>
+
+      <!-- Info -->
+      <h1>{{post?.owner?.firstname}} {{post?.owner?.lastname}}</h1>
+      <h2>{{post?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</h2>
     </div>
 
-    <div class="product-info">
-      <div class="product-text">
-        <h1>{{user?.firstname}} {{user?.lastname}}</h1>
-        <h2>{{user?.occupation?.title}}</h2>
-        <h2>{{user?.occupation?.company}}</h2>
+    <hr>
+
+    <!-- Post body -->
+    <div class="post-body">
+      <p>{{post?.text}}</p>
+    </div>
+
+    <hr>
+
+    <!-- Buttons -->
+    <div class="row buttons">
+      <!-- Show simple button if user has not liked the post -->
+      <div class="likes-button" *ngIf="!post?.likesPost">
+        <span class="clickableIcon" (click)="addLike(post?.owner?.id, post?.id)">
+          <i class="fa fa-heart-o blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
+          <i class="fa fa-heart blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
+        </span>
+      </div>
+
+      <!-- Show colored button if user has liked the post -->
+      <div class="likes-button" *ngIf="post?.likesPost">
+        <span class="clickableIcon" (click)="deleteLike(post?.owner?.id, post?.id)">
+          <i class="fa fa-heart-o pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
+          <i class="fa fa-heart pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
+        </span>
+      </div>
+
+      <div class="comments-button">
+        <span class="clickableIcon" (click)="showCommentsToggle()">
+          <i class="fa fa-comment-o blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
+          <i class="fa fa-comment blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
+        </span>
       </div>
     </div>
 
-    <div class="stats text-center bg-primary">
-      <div class="stat first-stat">
-        <div class="stat-value">150</div>
-        <div class="stat-name">Followers</div>
+    <!-- Comments -->
+    <ng-container *ngIf="showComments">
+      <div class="comment-info" *ngFor= "let comment of post?.comments">
+        <hr>
+
+        <!-- Image -->
+        <div class="comment-img">
+          <!-- <img src="http:{{profilePhotosEndpoint}}" height="45" width="45" alt="profile_photo"> -->
+          <img src="https://via.placeholder.com/45x45" height="45" width="45" alt="profile_photo">
+        </div>
+
+        <!-- User -->
+        <h1>{{comment?.user?.firstname}} {{comment?.user?.lastname}}</h1>
+
+        <!-- Text -->
+        <h2>{{comment?.text}}</h2>
       </div>
 
-      <div class="stat">
-        <div class="stat-value">90</div>
-        <div class="stat-name">Following</div>
-      </div>
-    </div>
+      <!-- Input to add comment -->
+      <form class="comment-form" [formGroup]="addCommentForm" (ngSubmit)="addComment(post?.owner?.id, post?.id)">
+        <input type="text" class="form-control mb-2" placeholder="Add a comment" formControlName="text">
 
-    <button type="button" class="btn btn-lg blue darken-4" [routerLink]="['../profile']">Check how others see me!</button>
-
+        <!-- Hidden submit button (submit by pressing enter) -->
+        <button type="submit" style="display:none"></button>
+      </form>
+    </ng-container>
   </div>
 
 </div>

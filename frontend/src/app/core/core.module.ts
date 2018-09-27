@@ -21,16 +21,18 @@ import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-ba
 import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services';
-import { UserService, ExperienceService, EducationService, RelationshipService, FileUploaderService, UsersInteractionService } from './_services';
+import { UserService, ExperienceService, EducationService, RelationshipService } from './_services';
+import { PostService, LikeService, CommentService } from './_services';
+import { FileUploaderService, UsersInteractionService } from './_services';
 import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
 import { DatePeriodValidatorDirective } from "./_directives/validators/date-period-validator.directive";
 import { DateService } from "./_services/date.service";
 import { UserInfoComponent } from "./_components/user/user-info/user-info.component";
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
-import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
-import {httpInterceptorProviders} from "./_interceptors";
-import {ForbiddenComponent} from "./_components/navigation-error/forbidden/forbidden.component";
+import { UserProfileComponent } from "./_components/user/user-profile/user-profile.component";
+import { httpInterceptorProviders } from "./_interceptors";
+import { ForbiddenComponent } from "./_components/navigation-error/forbidden/forbidden.component";
 
 @NgModule({
   imports: [
@@ -75,6 +77,9 @@ import {ForbiddenComponent} from "./_components/navigation-error/forbidden/forbi
     ExperienceService,
     EducationService,
     RelationshipService,
+    PostService,
+    LikeService,
+    CommentService,
     ConnectionConfigService,
     DataService,
     FileUploaderService,

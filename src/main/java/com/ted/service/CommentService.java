@@ -1,11 +1,12 @@
 package com.ted.service;
 
-import com.ted.model.Like;
+import com.ted.model.Comment;
 import com.ted.model.User;
 import com.ted.model.Post;
-import com.ted.repository.LikeRepository;
+import com.ted.repository.CommentRepository;
 import com.ted.repository.UserRepository;
 import com.ted.repository.PostRepository;
+import com.ted.request.CommentRequest;
 import com.ted.exception.ResourceNotFoundException;
 import com.ted.exception.NotAuthorizedException;
 import com.ted.response.ApiResponse;
@@ -16,14 +17,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Service
-public class LikeService {
+public class CommentService {
 
     @Autowired
-    private LikeRepository likeRepository;
+    private CommentRepository commentRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -34,10 +38,10 @@ public class LikeService {
     @Autowired
     private ValidatePathService validatePathService;
 
-    private static final Logger logger = LoggerFactory.getLogger(LikeService.class);
+    private static final Logger logger = LoggerFactory.getLogger(CommentService.class);
 
-    // A user likes a post
-    public Like create(Long userId, Long postId, UserDetailsImpl currentUser) {
+    // A user comments on a post
+    public Comment create(Long userId, Long postId, UserDetailsImpl currentUser, CommentRequest commentRequest) {
         User owner = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 
@@ -47,31 +51,32 @@ public class LikeService {
         User user = userRepository.findById(currentUser.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 
-        Like like = new Like();
-        
-        like.setPost(post);
-        like.setUser(user);
+        Comment comment = new Comment();
 
-        return likeRepository.save(like);
+        comment.setPost(post);
+        comment.setUser(user);
+        comment.setText(commentRequest.getText());
+
+        return commentRepository.save(comment);
     }
 
-    // Returns the number of likes of a post
-    public int getLikesCount(Long postId) {
-        return likeRepository.getAllByPostId(postId).size();
+    // Returns the number of comments of a post
+    public int getCommentsCount(Long postId) {
+        return commentRepository.getAllByPostId(postId).size();
     }
 
-    // A user deletes a like
-    public ResponseEntity<?> deleteById(Long likeId, Long postId, Long userId, UserDetailsImpl currentUser) {
-        Like like = validatePathService.validatePathAndGetLike(likeId, postId, userId);
+    // A user deletes a comment
+    public ResponseEntity<?> deleteById(Long commentId, Long postId, Long userId, UserDetailsImpl currentUser) {
+        Comment comment = validatePathService.validatePathAndGetComment(commentId, postId, userId);
 
-        // Check if the like belongs to the current user
-        if (currentUser.getId() != like.getUser().getId()) {
+        // Check if the comment belongs to the current user
+        if (currentUser.getId() != comment.getUser().getId()) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
-        likeRepository.delete(like);
+        commentRepository.delete(comment);
 
-        return ResponseEntity.ok().body(new ApiResponse(true, "Successfully deleted like."));
+        return ResponseEntity.ok().body(new ApiResponse(true, "Successfully deleted comment."));
     }
 
 }

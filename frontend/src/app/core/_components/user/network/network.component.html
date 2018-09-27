@@ -7,8 +7,8 @@
 </ng-template>
 
 <div class="margin-t">
-  <h2 align="center">Network</h2>
-  <hr>
+  <!-- <h2 align="center">Network</h2>
+  <hr> -->
   <div class="row">
 
     <!-- First column -->
@@ -30,8 +30,7 @@
             <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
           </button>
 
-          <button class="list-group-item d-flex justify-content-between align-items-center" id="search-others" (click)="showSearchBarTrue()" [ngClass]="{'active': showSearchBar}">
-            Search others
+          <button class="list-group-item d-flex justify-content-between align-items-center" id="search-others" (click)="showSearchBarTrue()" [ngClass]="{'active': showSearchBar}">Search others
           </button>
         </ng-container>
 
