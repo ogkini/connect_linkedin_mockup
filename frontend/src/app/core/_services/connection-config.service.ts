@@ -21,5 +21,4 @@ export class ConnectionConfigService {
   experienceEndpoint = 'experience';
   educationEndpoint = 'education';
   networkEndpoint = 'network';
-
 }

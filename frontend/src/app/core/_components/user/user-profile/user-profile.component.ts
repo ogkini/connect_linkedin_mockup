@@ -33,6 +33,7 @@ export class UserProfileComponent implements OnInit {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
+      // Here we don't forbid access to other users!
       this.getUserById(this.userId);
     });
   }

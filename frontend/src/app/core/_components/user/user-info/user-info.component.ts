@@ -4,7 +4,15 @@ import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { first } from "rxjs/operators";
 
-import { EducationService, ExperienceService, UserService, DateService, AlertService, ConnectionConfigService } from "../../../_services";
+import {
+  EducationService,
+  ExperienceService,
+  UserService,
+  DateService,
+  AlertService,
+  ConnectionConfigService,
+  FileUploaderService, AuthenticationService
+} from "../../../_services";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
 import { CreationResponse, Education, Experience, User } from "../../../_models";
 
@@ -17,7 +25,7 @@ export class UserInfoComponent implements OnInit {
 
   title: string = 'Personal Information';
   signedInUser: User;
-  user: User;
+  public user: User;
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
   submitted = false;
@@ -50,15 +58,19 @@ export class UserInfoComponent implements OnInit {
     private alertService: AlertService,
     private formBuilder: FormBuilder,
     private connConfig: ConnectionConfigService,
-    private route: ActivatedRoute
-    //private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private fileUploader: FileUploaderService,
+    private authenticationService: AuthenticationService
   ) {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.titleService.setTitle(this.title);
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
       this.getUserById(this.userId);
     });
+
+    this.isAdmin = (this.signedInUser.email == 'admin@mail.com');
 
     // Occupy years array
     for (let i: number = 2018; i >= 1950; i--) {

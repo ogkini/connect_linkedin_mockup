@@ -65,4 +65,16 @@ export class AuthenticationService {
       );
   }
 
+  public forbidUnauthorizedAccess(signedInUser: User, userIdOfThisResource: number) {
+
+    if ( (signedInUser.id == userIdOfThisResource) || (signedInUser.email == 'admin@mail.com'))
+      return; // This user is authorized.
+    else
+    {  // Go to "ForbiddenComponent"
+      if ( !this.router.navigate(['/forbidden']) ) {
+        console.error("Navigation to \"ForbiddenComponent\" failed!");
+      }
+    }
+  }
+
 }

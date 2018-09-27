@@ -1,6 +1,7 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit } from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, Input, NgModule, OnInit} from '@angular/core';
 import { Title } from "@angular/platform-browser";
 import { Location } from '@angular/common';
+import {User} from "../../../_models/index";
 
 
 @Component({
@@ -17,12 +18,14 @@ import { Location } from '@angular/common';
 export class PageNotFoundComponent implements OnInit {
 
   title = 'Page not found!';
+  public signedInUser: User;
 
   public constructor(
     private titleService: Title,
     private location: Location
   ) {
     this.titleService.setTitle( this.title );
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {

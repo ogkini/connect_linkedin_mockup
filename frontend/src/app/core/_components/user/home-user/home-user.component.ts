@@ -3,7 +3,16 @@ import { Title } from '@angular/platform-browser';
 import { FormBuilder } from '@angular/forms';
 
 import { User } from '../../../_models';
-import { UserService, ExperienceService, EducationService, AlertService, ConnectionConfigService, DataService } from '../../../_services';
+import {
+  UserService,
+  ExperienceService,
+  EducationService,
+  AlertService,
+  ConnectionConfigService,
+  DataService,
+  AuthenticationService
+} from '../../../_services';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-home-user',
@@ -17,6 +26,7 @@ export class HomeUserComponent implements OnInit {
   user: User = {} as User;
   submitted = false;
   message: string;
+  userId: number;
 
   public profilePhotosEndpoint: string;
 
@@ -28,14 +38,20 @@ export class HomeUserComponent implements OnInit {
       private alertService: AlertService,
       private formBuilder: FormBuilder,
       private connConfig: ConnectionConfigService,
-      private dataService: DataService
+      private dataService: DataService,
+      private route: ActivatedRoute,
+      private authenticationService: AuthenticationService,
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+      this.getUserById(this.userId);
+    });
   }
 
   ngOnInit() {
-    this.getUserById(this.signedInUser.id);
     this.dataService.currentMessage.subscribe(message => this.message = message);
   }
 

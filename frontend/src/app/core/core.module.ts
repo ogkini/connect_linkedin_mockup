@@ -12,7 +12,7 @@ import { SignUpComponent } from './_components/sign-up/sign-up.component';
 import { HomeAdminComponent } from './_components/admin/home-admin/home-admin.component';
 import { HomeUserComponent } from './_components/user/home-user/home-user.component';
 import { NetworkComponent } from './_components/user/network/network.component';
-import { PageNotFoundComponent } from "./_components/page-not-found/page-not-found.component";
+import { PageNotFoundComponent } from "./_components/navigation-error/page-not-found/page-not-found.component";
 
 import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.component';
 import { AdminNavBarComponent } from './_components/admin/admin-nav-bar/admin-nav-bar.component';
@@ -30,6 +30,7 @@ import { UserInfoComponent } from "./_components/user/user-info/user-info.compon
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
 import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
 import {httpInterceptorProviders} from "./_interceptors";
+import {ForbiddenComponent} from "./_components/navigation-error/forbidden/forbidden.component";
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import {httpInterceptorProviders} from "./_interceptors";
     AlertComponent,
     NetworkComponent,
     PageNotFoundComponent,
+    ForbiddenComponent,
     UserInfoComponent,
     UserSettingsComponent,
     UserProfileComponent,

@@ -5,7 +5,7 @@ import {
   AlertService,
   ConnectionConfigService,
   UserService,
-  FileUploaderService
+  FileUploaderService, AuthenticationService
 } from "../../../_services";
 import {FormBuilder} from "@angular/forms";
 import {User} from "../../../_models";
@@ -27,9 +27,9 @@ export class UserSettingsComponent implements OnInit {
   updateForm: FormGroup;
   submitted = false;
   data: object;
-  fileToUpload: File;
   public signedInUser: User;
   public user: User;
+  public userId: number;
   public profilePhotosEndpoint: string;
 
   public constructor(
@@ -41,25 +41,26 @@ export class UserSettingsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private fileUploader: FileUploaderService,
-    private location: Location
+    private authenticationService: AuthenticationService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+      this.getUserById(this.userId);
+    });
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.signedInUser.id + '/photos';
   }
 
   minTextLength = 2;
   maxTextLength = 45;
-
   maxEmailLength = 65;
-
   minPasswordLength = 6;
   maxPasswordLength = 100;
   
   // Todo - make a form-service, which will provide the arrays of the validators for each form-field.
   ngOnInit() {
-    this.getUserById(this.signedInUser.id);
-
     // Use FormBuilder to create a form group
     this.updateForm = this.formBuilder.group({
       firstname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
@@ -69,8 +70,6 @@ export class UserSettingsComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]],
       confirmNewPassword: ['', [PasswordConfirmValidatorDirective.validatePasswordConfirmation]]
     });
-
-    // Get return url from route parameters or default to '/sign-in'
   }
 
   private getUserById(id: number) {
@@ -89,8 +88,6 @@ export class UserSettingsComponent implements OnInit {
 
   // Submits the form
   onSubmit() {
-    console.debug("Inside \"onSubmit()\"");
-
     this.submitted = true;
 
     // If form is invalid stop here
@@ -101,7 +98,8 @@ export class UserSettingsComponent implements OnInit {
     // Create the user
     this.updateUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value, this.fileUploader.fileName);
 
-    if ( !this.router.navigate(['/users', this.signedInUser.id]) ) {
+    // Go to user's-homePage.
+    if ( !this.router.navigate(['/users', this.signedInUser.id + '/home']) ) {
       console.error("Navigation from \"SignIn\" to \"/users/\"" + this.signedInUser.id + "\" failed!");
     }
   }

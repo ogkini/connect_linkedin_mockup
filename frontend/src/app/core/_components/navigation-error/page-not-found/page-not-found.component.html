@@ -1,4 +1,19 @@
-<app-main-nav-bar></app-main-nav-bar>
+<ng-container *ngIf="signedInUser == null; then main else signedIn"></ng-container>
+
+<ng-template #main>
+  <app-main-nav-bar></app-main-nav-bar>
+</ng-template>
+
+<ng-template #signedIn>
+  <ng-container *ngIf="signedInUser.email == 'admin@mail.com'; then admin else user"></ng-container>
+  <ng-template #admin>
+    <app-admin-nav-bar></app-admin-nav-bar>
+  </ng-template>
+  <ng-template #user>
+    <app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+  </ng-template>
+</ng-template>
+
 
 <!--Main layout-->
 <main class="mt-5">
@@ -7,8 +22,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="error-template">
-          <h1>
-            Oops!</h1>
+          <h1>Oops!</h1>
           <h2>404 Not Found</h2>
           <div class="error-details">
             Sorry, an error has occurred, Requested page not found!

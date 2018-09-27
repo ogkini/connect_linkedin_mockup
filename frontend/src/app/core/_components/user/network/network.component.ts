@@ -52,9 +52,16 @@ export class NetworkComponent implements OnInit {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
+      // Here we use custom forbiddance-logic.. we allow only certain parts of this page.
       this.getNetwork(this.userId);
     });
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
+
+    // If we have another user browsing this one's network.. control what the other see.
+    if ( this.signedInUser.id != this.userId ) {
+      this.showConnections = true;  // Allow the admin to inspect user's connections.
+      this.showReceived = false;  // Reset
+    }
   }
 
   ngOnInit() {

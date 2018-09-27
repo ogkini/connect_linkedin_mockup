@@ -22,7 +22,6 @@ export class SignUpComponent implements OnInit {
   submitted = false;
   data: object;
   user: User;
-  fileToUpload: File;
 
   constructor(
       private route: ActivatedRoute,
@@ -39,9 +38,7 @@ export class SignUpComponent implements OnInit {
 
   minTextLength = 2;
   maxTextLength = 45;
-
   maxEmailLength = 65;
-
   minPasswordLength = 6;
   maxPasswordLength = 100;
 

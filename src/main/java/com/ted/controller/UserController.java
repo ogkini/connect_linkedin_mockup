@@ -141,7 +141,7 @@ public class UserController {
             searchTerm = StringUtils.lowerCase(searchTerm); // Match to more records.
 
         List<User> users;
-        String fisrtTerm;
+        String firstTerm;
         String secondTerm;
 
         // Get firstName and lastName from search string.
@@ -153,8 +153,8 @@ public class UserController {
             return null;
         }
         else if ( multipleTerms.length == 1 ) {
-            fisrtTerm = multipleTerms[0];
-            users = userService.getBySearch(fisrtTerm, fisrtTerm);
+            firstTerm = multipleTerms[0];
+            users = userService.getBySearch(firstTerm, firstTerm);
             if ( users == null || users.isEmpty() ) {
                 logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
                 // Check how the frontEnd handles "null" or "empty" List.. --> See 1st method's comment..
@@ -164,13 +164,13 @@ public class UserController {
             if ( multipleTerms.length > 2 )
                 logger.warn("More than 2 terms found in \"searchTerm\"! We will use only the first two!");
 
-            fisrtTerm = multipleTerms[0];
+            firstTerm = multipleTerms[0];
             secondTerm = multipleTerms[1];
 
-            users = userService.getBySearch(fisrtTerm, secondTerm);  // Takes: 1stArg=firstName, 2ndArg=lastName
+            users = userService.getBySearch(firstTerm, secondTerm);  // Takes: 1stArg=firstName, 2ndArg=lastName
             if ( users == null || users.isEmpty() ) {
                 // We assumed that the user entered the firstName first and then the lastName.. but that may not be the case.. so try again by switching them.
-                users = userService.getBySearch(secondTerm, fisrtTerm);
+                users = userService.getBySearch(secondTerm, firstTerm);
                 if ( users == null || users.isEmpty() ) {
                     logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
                     // Check how the frontEnd handles "null" or "empty" List..
