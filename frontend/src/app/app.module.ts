@@ -17,7 +17,7 @@ import { CoreModule } from './core/core.module';
     AppComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [ ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}

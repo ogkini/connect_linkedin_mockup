@@ -48,7 +48,7 @@ public class LikeService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 
         Like like = new Like();
-
+        
         like.setPost(post);
         like.setUser(user);
 

@@ -1,0 +1,31 @@
+<app-main-nav-bar></app-main-nav-bar>
+
+<!--Main layout-->
+<main class="mt-5">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="error-template">
+          <h1>Oops!</h1>
+          <h2>Looks like you tried to access a forbidden page!</h2>
+          <div class="error-details">
+            Sorry, you don't have the privileges to access this resource.
+          </div>
+          <div class="error-actions">
+            <a class="btn btn-primary btn-lg" (click)="backClicked()"><span class="glyphicon glyphicon-home"></span>
+              Take me back
+            </a>
+            <a class="btn btn-primary btn-lg" routerLink="/welcome"><span class="glyphicon glyphicon-home"></span>
+              Go to homepage
+            </a>
+            <!--<a class="btn btn-default btn-lg" routerLink="/contact"><span class="glyphicon glyphicon-envelope"></span>
+              Contact Support
+            </a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

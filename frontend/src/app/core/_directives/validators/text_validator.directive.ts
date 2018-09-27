@@ -13,15 +13,11 @@ export class TextValidatorDirective implements Validator {
 
   validate(c: AbstractControl): ValidationErrors | null {
 
-    //console.debug("Inside TextValidator validate..");
-
     return TextValidatorDirective.validateCharacters(c);
   }
 
 
   static validateCharacters(c: AbstractControl): ValidationErrors | null {
-
-    //console.debug("Inside 'validateCharacters'");
 
     // first check if the control has a value
     if ( c.value && c.value.length == 0 ) {

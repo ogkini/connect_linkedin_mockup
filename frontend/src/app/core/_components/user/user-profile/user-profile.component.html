@@ -1,4 +1,4 @@
-<app-user-nav-bar></app-user-nav-bar>
+<app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
 
 
 <div class="container margin-t">
@@ -15,7 +15,11 @@
         <h2>{{user?.occupation?.title}} TTT</h2>
         <h2>{{user?.occupation?.company}} CCC</h2>
       </div>
-      <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
+      <div *ngIf="signedInUser.id != user?.id">  <!--Show these buttons only if this profile belongs to a different user.-->
+        <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
+        <button type="button" class="btn btn-secondary" (click)="sendMessage()">Message</button>
+        <button type="button" class="btn btn-sm btn-info req-btn" [routerLink]="['/users/' + user?.id + '/network']">See {{user.firstname}}'s Network</button>
+      </div>
     </div>
 
     <div class="stats text-center bg-primary">

@@ -131,56 +131,51 @@ public class UserController {
 
     // Returns multiple users matching the search.
     @GetMapping("/users/searchUser")
-    public List<User> getUsersBySearchTerm(@RequestParam("searchTerm") String searchTerm)
-    {
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public List<User> getUsersBySearchTerm(@RequestParam("searchTerm") String searchTerm) {
         // Check how the frontend handles the returnes list..
-        // Generally we want t display "no results" when there was an actual search term, if no searchTerm was given.. then display an error.
-
-        if ( searchTerm == null || searchTerm.isEmpty() ) {
+        // Generally we want to display "no results" when there was an actual search term,
+        // if no searchTerm was given.. then display an error.
+        if (searchTerm == null || searchTerm.isEmpty()) {
             logger.error("No searchTerm reached the backEnd!");
             return null;
-        }
-        else
+        } else {
             searchTerm = StringUtils.lowerCase(searchTerm); // Match to more records.
+        }
 
         List<User> users;
-        String fisrtTerm;
+        String firstTerm;
         String secondTerm;
 
         // Get firstName and lastName from search string.
-
         String[] multipleTerms = StringUtils.split(searchTerm, ' ');
 
-        if (  multipleTerms.length == 0 ) {
+        if (multipleTerms.length == 0) {
             logger.warn("Term-spliting provided no results!");
             return null;
-        }
-        else if ( multipleTerms.length == 1 ) {
-            fisrtTerm = multipleTerms[0];
-            users = userService.getBySearch(fisrtTerm, fisrtTerm);
-            if ( users == null || users.isEmpty() ) {
+        } else if (multipleTerms.length == 1) {
+            firstTerm = multipleTerms[0];
+            users = userService.getBySearch(firstTerm, firstTerm);
+            if (users == null || users.isEmpty()) {
                 logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
-                // Check how the frontEnd handles "null" or "empty" List.. --> See 1st method's comment..
             }
-        }
-        else {
-            if ( multipleTerms.length > 2 )
+        } else {
+            if ( multipleTerms.length > 2 ) {
                 logger.warn("More than 2 terms found in \"searchTerm\"! We will use only the first two!");
+            }
 
-            fisrtTerm = multipleTerms[0];
+            firstTerm = multipleTerms[0];
             secondTerm = multipleTerms[1];
 
-            users = userService.getBySearch(fisrtTerm, secondTerm);  // Takes: 1stArg=firstName, 2ndArg=lastName
-            if ( users == null || users.isEmpty() ) {
-                logger.warn("No users found for searchTerm: \"" + searchTerm + "\"! Going to switch the position of the individual terms and try again.");
-                // We assumed that the user entered the firstName first and then the lastName.. but that may not be the case.. so try again by switching them.
-                users = userService.getBySearch(secondTerm, fisrtTerm);
-                if ( users == null || users.isEmpty() ) {
+            users = userService.getBySearch(firstTerm, secondTerm);
+            if (users == null || users.isEmpty()) {
+                // We assumed that the user entered the firstName first and then the lastName..
+                // but that may not be the case.. so try again by switching them.
+                users = userService.getBySearch(secondTerm, firstTerm);
+                if (users == null || users.isEmpty()) {
                     logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
-                    // Check how the frontEnd handles "null" or "empty" List..
                 }
             }
-
         }
 
         return users;

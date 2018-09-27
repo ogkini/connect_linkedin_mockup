@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import {Title} from "@angular/platform-browser";
 import {
   AlertService,
   ConnectionConfigService,
-  UserService
+  UserService, AuthenticationService
 } from "../../../_services";
 import {FormBuilder} from "@angular/forms";
 import {User} from "../../../_models";
@@ -12,7 +11,6 @@ import {FormGroup, Validators} from "@angular/forms";
 import {TextValidatorDirective} from "../../../_directives/validators/text_validator.directive";
 import {PasswordConfirmValidatorDirective} from "../../../_directives/validators/password-confirm-validator.directive";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FileUploaderService} from "../../../_services/file-uploader/file-uploader.service";
 import {first} from "rxjs/operators";
 
 
@@ -27,10 +25,9 @@ export class UserSettingsComponent implements OnInit {
   updateForm: FormGroup;
   submitted = false;
   data: object;
-  fileToUpload: File;
-  public currentUser: User;
+  public signedInUser: User;
   public user: User;
-  public profilePhotosEndpoint: string;
+  public userId: number;
 
   public constructor(
     private titleService: Title,
@@ -40,26 +37,25 @@ export class UserSettingsComponent implements OnInit {
     private connConfig: ConnectionConfigService,
     private route: ActivatedRoute,
     private router: Router,
-    private fileUploader: FileUploaderService,
-    private location: Location
+    private authenticationService: AuthenticationService
   ) {
     this.titleService.setTitle(this.title);
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.currentUser.id + '/photos';
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+      this.getUserById(this.userId);
+    });
   }
 
   minTextLength = 2;
   maxTextLength = 45;
-
   maxEmailLength = 65;
-
   minPasswordLength = 6;
   maxPasswordLength = 100;
   
   // Todo - make a form-service, which will provide the arrays of the validators for each form-field.
   ngOnInit() {
-    this.getUserById(this.currentUser.id);
-
     // Use FormBuilder to create a form group
     this.updateForm = this.formBuilder.group({
       firstname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
@@ -69,19 +65,16 @@ export class UserSettingsComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]],
       confirmNewPassword: ['', [PasswordConfirmValidatorDirective.validatePasswordConfirmation]]
     });
-
-    // Get return url from route parameters or default to '/sign-in'
   }
 
   private getUserById(id: number) {
-    this.userService.getById(id).subscribe(user => { this.user = user; });
-    // .subscribe((response: any) => {
-    //     this.user = response.content;
-    //   }, error => {
-    //     this.alertService.error(error.error.message);
-    //     console.log(error);
-    //   }
-    // );
+    this.userService.getById(id).subscribe(user => {
+      this.user = user;
+      },error => {
+             this.alertService.error(error.error.message);
+             console.log(error);
+      }
+    );
   }
 
   // Convenience getter for easy access to form fields
@@ -89,33 +82,32 @@ export class UserSettingsComponent implements OnInit {
 
   // Submits the form
   onSubmit() {
-    console.debug("Inside \"onSubmit()\"");
-
     this.submitted = true;
 
     // If form is invalid stop here
-    if (this.updateForm.invalid) {
+    if ( this.updateForm.invalid ) {
       return;
     }
 
     // Create the user
-    this.updateUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value, this.fileUploader.fileName);
+    this.updateUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value);
 
-    if ( !this.router.navigate(['/users', this.currentUser.id]) ) {
-      console.error("Navigation from \"SignIn\" to \"/users/\"" + this.currentUser.id + "\" failed!");
+    // Go to user's-homePage.
+    if ( !this.router.navigate(['/users', this.signedInUser.id + '/home']) ) {
+      console.error("Navigation from \"SignIn\" to \"/users/\"" + this.signedInUser.id + "\" failed!");
     }
   }
 
-  updateUser(firstname: String, lastname: string, email: string, password: string, picture: string) {
+  updateUser(firstname: String, lastname: string, email: string, password: string) {
 
-    // TODO - Investigate case where "picture" is not present.. This should be done also for the rest of the data.
+    // "picture" will be
 
     // TODO - Make html-default"value"s to count as input.
 
     // Trim email whitespace
     email = email.trim();
 
-    const user: User = {firstname, lastname, email, password, picture} as User;
+    const user: User = {firstname, lastname, email, password} as User;
 
     // Send user to server
     this.userService.update(user)
@@ -129,37 +121,6 @@ export class UserSettingsComponent implements OnInit {
           this.alertService.error(error.error.message);
         }
       );
-  }
-
-  onImageChange($event) {
-    console.debug("Inside \"onImageChange()\"!");
-
-    if ( this.fileUploader.onImageChange($event) ) {  // If the file gets accepted.
-
-      // Send photo to backend
-      this.fileUploader.postFile(this.user.email);
-
-      this.alertService.success("Image has changed! Reload the page to see it!", true); // It doesn't get shown.. why?
-
-      // TODO - Find a way to automatically reload the page..
-      // Tried the following ways but they don't work..
-
-     /* if ( !this.router.navigateByUrl('/users/' + this.user.id + '/settings') )
-        console.error("Navigation to \"\" has failed!");*/
-
-      /*this.router.navigateByUrl('/users/' + this.user.id + '/home', {skipLocationChange: true}).then(()=>
-        this.router.navigate(['/users/' + this.user.id + '/settings']));
-       */
-
-      //this.location.go('/users/' + this.user.id + '/settings')
-      //this.location.replaceState('/users/' + this.user.id + '/home')
-      //this.location.reload()  // It's not there now.. worked in previous versions of Angular.
-    }
-  }
-
-  onImageReset() {
-    console.debug("Going to reset the \"fileToUpload\".");
-    this.fileUploader.onFileReset();
   }
 
 }

@@ -4,10 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
-import { User } from '../../_models/index';
-import {AlertService, AuthenticationService, UserService} from '../../_services/index';
-import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
-import { FileUploaderService } from './../../_services/file-uploader/file-uploader.service';
+import { User } from '../../_models';
+import {AlertService, AuthenticationService, UserService, FileUploaderService} from '../../_services';
 import { PasswordConfirmValidatorDirective } from '../../_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "../../_directives/validators/text_validator.directive";
 
@@ -24,7 +22,6 @@ export class SignUpComponent implements OnInit {
   submitted = false;
   data: object;
   user: User;
-  fileToUpload: File;
 
   constructor(
       private route: ActivatedRoute,
@@ -41,9 +38,7 @@ export class SignUpComponent implements OnInit {
 
   minTextLength = 2;
   maxTextLength = 45;
-
   maxEmailLength = 65;
-
   minPasswordLength = 6;
   maxPasswordLength = 100;
 

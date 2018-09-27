@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { User } from '../_models/index';
+import { User } from '../_models';
 import { ConnectionConfigService } from './connection-config.service';
 
 @Injectable()
@@ -15,6 +15,12 @@ export class UserService {
 
   getAll() {
     return this.httpClient.get<User[]>(this.connConfig.usersEndpoint);
+  }
+
+  getAllRelatedToSearchTerm(searchTerm: string): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.connConfig.usersSearchEndpoint,
+      {params: { searchTerm: searchTerm }}
+    );
   }
 
   getById(id: number): Observable<User> {

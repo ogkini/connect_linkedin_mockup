@@ -43,7 +43,7 @@ public class RelationshipController {
 
     // Returns a user's connections, received friend requests and sent friend requests
     @GetMapping("/users/{userId}/network")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public NetworkResponse getAll(@PathVariable(value = "userId") Long userId,
                                   @Valid @CurrentUser UserDetailsImpl currentUser) {
 

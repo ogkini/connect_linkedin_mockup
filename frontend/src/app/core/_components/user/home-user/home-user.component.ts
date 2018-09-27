@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder } from '@angular/forms';
+import { first } from "rxjs/operators";
 
-import { User } from '../../../_models/index';
-import { UserService, ExperienceService, EducationService } from '../../../_services/index';
-import { AlertService, ConnectionConfigService, DataService } from '../../../_services/index';
-import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
+import { User, Post, Like, CreationResponse } from '../../../_models';
+import { PostService, LikeService, ConnectionConfigService, AuthenticationService } from '../../../_services';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-home-user',
@@ -15,42 +15,78 @@ import { UserNavBarComponent } from './../user-nav-bar/user-nav-bar.component';
 export class HomeUserComponent implements OnInit {
 
   title = 'Home';
-  currentUser: User;
-  user: User = {} as User;
+  signedInUser: User;
+  posts: Post[] = [];
   submitted = false;
-  message: string;
+  userId: number;
 
   public profilePhotosEndpoint: string;
 
   public constructor(
       private titleService: Title,
-      private userService: UserService,
-      private experienceService: ExperienceService,
-      private educationService: EducationService,
-      private alertService: AlertService,
+      private postService: PostService,
+      private likeService: LikeService,
       private formBuilder: FormBuilder,
       private connConfig: ConnectionConfigService,
-      private dataService: DataService
+      private route: ActivatedRoute,
+      private authenticationService: AuthenticationService,
   ) {
     this.titleService.setTitle(this.title);
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    this.getUserById(this.currentUser.id);
-    this.dataService.currentMessage.subscribe(message => this.message = message);
+    this.getHomePosts(this.signedInUser.id);
   }
 
-  private getUserById(id: number) {
-    this.userService.getById(id).subscribe( user => {
-      this.user = user;
-      this.dataService.changeMessage(this.user.newFriendRequests.toString());
-      this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.user.id + '/photos';
-    });
+  private getHomePosts(id: number) {
+    this.postService.getHome(id).subscribe(posts => { this.posts = posts; });
   }
 
-  clearAlert() {
-    this.alertService.clear();
+  // A user likes a post
+  createLike(ownerId: number, postId: number) {
+    this.likeService.create(ownerId, postId)
+      .pipe(first())
+      .subscribe((response: CreationResponse) => {
+          // Add like to the array
+          if (response.object) {
+            this.posts.find(post => post.id == postId).likes.push(response.object);
+          }
+
+          // Update boolean to indicate that the user likes the post
+          this.posts.find(post => post.id == postId).likesPost = true;
+
+          // Update likes counter
+          this.posts.find(post => post.id == postId).likesCount++;
+        }, error => {
+          console.log(error);
+        }
+      );
   }
+
+  // A user deletes a like
+  deleteLike(ownerId: number, postId: number) {
+    // Find the id of the like to be deleted
+    let likeId = this.posts.find(post => post.id == postId).likes.find(like => like.user.id == this.signedInUser.id).id;
+
+    console.log(likeId);
+
+    this.likeService.delete(ownerId, postId, likeId)
+      .pipe(first())
+      .subscribe(response => {
+          // Remove like from the array
+          this.posts.find(post => post.id == postId).likes = this.posts.find(post => post.id == postId)
+              .likes.filter(like => like.user.id !== this.signedInUser.id);
+
+          // Update boolean to indicate that the user likes the post
+          this.posts.find(post => post.id == postId).likesPost = false;
+
+          // Update likes counter
+          this.posts.find(post => post.id == postId).likesCount--;
+        }, error => {
+          console.log(error);
+        }
+      );
+}
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { AuthenticationService } from '../../../_services/index';
+import { AuthenticationService } from '../../../_services';
 
 @Component({
   selector: 'app-admin-nav-bar',

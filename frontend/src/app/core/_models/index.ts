@@ -3,6 +3,8 @@ export * from './occupation';
 export * from './experience';
 export * from './education';
 export * from './skill';
+export * from './post';
+export * from './like';
 export * from './relationship';
 export * from './friendRequest';
 export * from './network';

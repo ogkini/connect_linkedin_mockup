@@ -1,6 +1,7 @@
 package com.ted.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -25,7 +26,7 @@ public class Like {
     @Fetch(FetchMode.SELECT)
     private Post post;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("likes")
     @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     @Fetch(FetchMode.SELECT)

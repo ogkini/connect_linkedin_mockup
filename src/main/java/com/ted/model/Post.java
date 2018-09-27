@@ -1,5 +1,6 @@
 package com.ted.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -44,6 +45,11 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Comment> comments = new ArrayList<>();
+
+    // Indicates whether the user requesting
+    // the post has liked it or not.
+    @Transient
+    private boolean likesPost;
 
     @Transient
     private int likesCount;
@@ -103,6 +109,14 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public boolean getLikesPost() {
+        return likesPost;
+    }
+
+    public void setLikesPost(boolean likesPost) {
+        this.likesPost = likesPost;
     }
 
     public int getLikesCount() {

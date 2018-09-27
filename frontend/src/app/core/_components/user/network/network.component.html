@@ -1,93 +1,181 @@
-<app-user-nav-bar></app-user-nav-bar>
+<ng-container *ngIf="isAdmin; then admin else user"></ng-container>
+<ng-template #admin>
+  <app-admin-nav-bar></app-admin-nav-bar>
+</ng-template>
+<ng-template #user>
+  <app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+</ng-template>
 
-<div class="row margin-t">
+<div class="margin-t">
+  <h2 align="center">Network</h2>
+  <hr>
+  <div class="row">
 
-  <!-- First column -->
-  <div class="col-3">
+    <!-- First column -->
+    <div class="col-3">
 
-    <!-- Navigation -->
-    <div class="list-group" id="list-tab" role="tablist">
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests
-        <span class="badge cyan badge-pill" *ngIf="network?.receivedRequests?.length>0">{{network?.receivedRequests?.length}}</span>
-      </button>
+      <!-- Navigation -->
+      <div class="list-group" id="list-tab" role="tablist">
 
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests
-        <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
-      </button>
+        <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
+          <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>
+        </button>
 
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
-        <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>
-      </button>
-    </div>
+        <ng-container *ngIf="signedInUser.id == userId">
+          <button class="list-group-item d-flex justify-content-between align-items-center" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests
+            <span class="badge cyan badge-pill" *ngIf="network?.receivedRequests?.length>0">{{network?.receivedRequests?.length}}</span>
+          </button>
 
-  </div>
+          <button class="list-group-item d-flex justify-content-between align-items-center" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests
+            <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
+          </button>
 
-  <!-- Second column -->
-  <div class="col-9">
-
-    <!-- Received Request -->
-    <div *ngIf="showReceived">
-      <div class="wrapper border" *ngFor="let received of network?.receivedRequests">
-        <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120">
-        </div>
-        <div class="product-info">
-          <div class="product-text">
-            <h1>{{received?.sender?.firstname}} {{received?.sender?.lastname}}</h1>
-            <h2>Occupation</h2>
-            <p>{{received?.sender?.email}}</p>
-          </div>
-        </div>
-
-        <div>
-          <button type="button" class="btn btn-sm btn-primary req-btn" (click)="accept(received?.id)">Accept</button>
-          <button type="button" class="btn btn-sm btn-secondary req-btn" (click)="decline(received?.id)">Decline</button>
-          <button type="button" class="btn btn-sm btn-info req-btn" [routerLink]="['../../' + received?.id + '/profile']">Visit Profile</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sent Requests -->
-    <div *ngIf="showSent">
-      <div class="wrapper border" *ngFor="let sent of network?.sentRequests">
-        <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120">
-        </div>
-        <div class="product-info">
-          <div class="product-text">
-            <h1>{{sent?.receiver?.firstname}} {{sent?.receiver?.lastname}}</h1>
-            <h2>Occupation</h2>
-            <p>{{sent?.receiver?.email}}</p>
-          </div>
-        </div>
-
-        <button type="button" class="btn btn-secondary con-btn">Delete</button>
-        <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + sent?.receiver?.id + '/profile']">Visit Profile</button>
+          <button class="list-group-item d-flex justify-content-between align-items-center" id="search-others" (click)="showSearchBarTrue()" [ngClass]="{'active': showSearchBar}">
+            Search others
+          </button>
+        </ng-container>
 
       </div>
+
     </div>
 
-    <!-- Connections -->
-    <div *ngIf="showConnections">
-      <div class="wrapper border" *ngFor="let user of network?.connections">
-        <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
+    <!-- Second column -->
+    <div class="col-9">
+
+      <!-- Received Request -->
+      <div *ngIf="showReceived">
+        <div *ngIf="network?.receivedRequests.length == 0; else showConn">
+          <h4>No received requests to show.</h4>
         </div>
-        <div class="product-info">
-          <div class="product-text">
-            <h1>{{user.firstname}} {{user.lastname}}</h1>
-            <h2>Occupation</h2>
-            <p>{{user.email}}</p>
+        <ng-template #showConn>
+          <div class="wrapper border" *ngFor="let received of network?.receivedRequests">
+            <div class="product-img">
+              <img src="http:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120" alt="profile_photo">
+            </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{{received?.sender?.firstname}} {{received?.sender?.lastname}}</h1>
+                <h2>Occupation</h2>
+                <p>{{received?.sender?.email}}</p>
+              </div>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-sm btn-primary req-btn" (click)="accept(received?.id)">Accept</button>
+              <button type="button" class="btn btn-sm btn-secondary req-btn" (click)="decline(received?.id)">Decline</button>
+              <button type="button" class="btn btn-sm btn-info req-btn" [routerLink]="['../../' + received?.id + '/profile']">Visit Profile</button>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+
+      <!-- Sent Requests -->
+      <div *ngIf="showSent">
+        <div *ngIf="network?.sentRequests.length == 0; else showConn">
+          <h4>No sent requests to show.</h4>
+        </div>
+        <ng-template #showConn>
+          <div class="wrapper border" *ngFor="let sent of network?.sentRequests">
+            <div class="product-img">
+              <img src="http:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120" alt="profile_photo">
+            </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{{sent?.receiver?.firstname}} {{sent?.receiver?.lastname}}</h1>
+                <h2>Occupation</h2>
+                <p>{{sent?.receiver?.email}}</p>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-secondary con-btn">Delete</button>
+            <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + sent?.receiver?.id + '/profile']">Visit Profile</button>
+
+          </div>
+        </ng-template>
+      </div>
+
+      <!-- Connections -->
+      <div *ngIf="showConnections">
+        <div *ngIf="network?.connections.length == 0; else showConn">
+          <div *ngIf="isAdmin; else userMessage">
+            <h4>No connections to show.</h4>
+          </div>
+          <ng-template #userMessage>
+            <h4>You have not connected with anyone yet, what are you waiting for? Go and search for colleagues!</h4>
+          </ng-template>
+        </div>
+        <ng-template #showConn>
+          <div class="wrapper border" *ngFor="let user of network?.connections">
+            <div class="product-img">
+              <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
+            </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{{user.firstname}} {{user.lastname}}</h1>
+                <h2>Occupation</h2>
+                <p>{{user.email}}</p>
+              </div>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
+              <button type="button" class="btn btn-secondary con-btn">Disconnect</button>
+            </div>
+
+
+          </div>
+        </ng-template>
+      </div>
+
+
+      <!-- User-Search Bar -->
+      <div *ngIf="showSearchBar">
+        <div id="imaginary_container">
+          <div class="input-group stylish-input-group">
+            <form [formGroup]="searchForm" (ngSubmit)=onSearchSubmit()>
+              <input type="text" class="form-control" formControlName="searchTerm" placeholder="Search users" [ngClass]="{ 'is-invalid': submitted && form.searchTerm.errors }">
+              <span class="input-group-addon">
+                <button type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+
+              <!-- Alert component-->
+              <app-alert></app-alert>
+
+            </form>
           </div>
         </div>
-
-        <div>
-          <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
-          <button type="button" class="btn btn-secondary con-btn">Delete</button>
-        </div>
-
       </div>
-    </div>
 
+      <!-- Show search-results -->
+      <div *ngIf="showSearchResults">
+        <div class="wrapper border" *ngFor="let user of usersFromSearch">
+          <div class="product-img">
+            <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
+          </div>
+          <div class="product-info">
+            <div class="product-text">
+              <h1>{{user.firstname}} {{user.lastname}}</h1>
+              <h2>Occupation</h2>
+              <p>{{user.email}}</p>
+            </div>
+          </div>
+
+          <div>
+            <!--<ng-container *ngIf="signedInUser.hasRelationshipWith(user.id); else showDisconnect">  &lt;!&ndash; If this user is not  &ndash;&gt;
+              <button type="button" class="btn btn-primary" (click)="sendFriendRequest(user.id)">Connect</button>
+            </ng-container>
+            <ng-template #showDisconnect>
+              <button type="button" class="btn btn-secondary con-btn" (click)="disconnect()">Disconnect</button>
+            </ng-template>-->
+
+            <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

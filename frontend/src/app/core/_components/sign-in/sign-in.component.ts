@@ -3,10 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
-import { first } from 'rxjs/operators';
-
-import { AlertService, AuthenticationService } from '../../_services/index';
-import { MainNavBarComponent } from '../main-nav-bar/main-nav-bar.component';
+import { AlertService, AuthenticationService } from '../../_services';
 import { User } from "../../_models";
 
 @Component({

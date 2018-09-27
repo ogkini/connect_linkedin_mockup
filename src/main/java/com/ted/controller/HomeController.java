@@ -26,7 +26,7 @@ public class HomeController {
     @PreAuthorize("hasRole('USER')")
     public List<Post> getNetworkPosts(@PathVariable(value = "userId") Long userId,
                           @Valid @CurrentUser UserDetailsImpl currentUser) {
-        return postService.getNetworkPosts(userId);
+        return postService.getNetworkPosts(userId, currentUser);
     }
 
 }

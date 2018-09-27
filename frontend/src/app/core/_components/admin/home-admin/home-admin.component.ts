@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { User } from '../../../_models/index';
-import { ConnectionConfigService, UserService } from '../../../_services/index';
-import { AdminNavBarComponent } from './../admin-nav-bar/admin-nav-bar.component';
+import { User } from '../../../_models';
+import { ConnectionConfigService, UserService } from '../../../_services';
 
 
 @Component({
@@ -14,7 +13,7 @@ import { AdminNavBarComponent } from './../admin-nav-bar/admin-nav-bar.component
 export class HomeAdminComponent implements OnInit {
 
   title = 'Home';
-  currentUser: User;
+  signedInUser: User;
   users: User[] = [];
   public profilePhotosEndpoint: string;
 
@@ -24,7 +23,7 @@ export class HomeAdminComponent implements OnInit {
       private connConfig: ConnectionConfigService
   ) {
     this.titleService.setTitle( this.title );
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 

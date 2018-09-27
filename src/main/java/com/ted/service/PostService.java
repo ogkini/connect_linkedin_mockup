@@ -1,6 +1,7 @@
 package com.ted.service;
 
 import com.ted.model.Post;
+import com.ted.model.Like;
 import com.ted.model.User;
 import com.ted.model.Relationship;
 import com.ted.repository.PostRepository;
@@ -58,10 +59,16 @@ public class PostService {
     }
 
     // Returns a user's posts
-    public List<Post> getAll(Long userId) {
+    public List<Post> getAll(Long userId, UserDetailsImpl currentUser) {
         List<Post> posts = postRepository.getAllByUserId(userId);
 
         for (Post p : posts) {
+            // Check the posts that the current user has liked
+            for (Like l : p.getLikes()) {
+                p.setLikesPost(currentUser.getId() == l.getUser().getId());
+            }
+
+            // Set the likes and comments counters
             p.setLikesCount(likeService.getLikesCount(p.getId()));
             p.setCommentsCount(commentService.getCommentsCount(p.getId()));
         }
@@ -70,7 +77,7 @@ public class PostService {
     }
 
     // Returns a user's friends' posts
-    public List<Post> getNetworkPosts(Long userId) {
+    public List<Post> getNetworkPosts(Long userId, UserDetailsImpl currentUser) {
         List<Post> posts = new ArrayList<>();
 
         // Get the user's network
@@ -79,9 +86,9 @@ public class PostService {
         // Get the posts of the specific users and add them to the list
         for (Relationship c : connections) {
             if (userId == c.getSender().getId()) {
-                posts.addAll(getAll(c.getReceiver().getId()));
+                posts.addAll(getAll(c.getReceiver().getId(), currentUser));
             } else {
-                posts.addAll(getAll(c.getSender().getId()));
+                posts.addAll(getAll(c.getSender().getId(), currentUser));
             }
         }
 

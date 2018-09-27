@@ -17,18 +17,11 @@ export class DatePeriodValidatorDirective implements Validator {
 
   validate(c: AbstractControl): ValidationErrors | null {
 
-    /*console.debug("Inside password validate..");
-    var retVal = DatePeriodValidatorDirective.validateDatePeriod(c);
-    console.debug("'validateDatePeriod' returned: ", retVal);
-    return retVal;*/
-
     return DatePeriodValidatorDirective.validateDatePeriod(c);
   }
 
 
   static validateDatePeriod(c: AbstractControl): ValidationErrors | null {
-
-    //console.debug("Inside validateDatePeriod !");
 
     if (c.value == null || c.value.length == 0) {
       //console.warn("Empty endYear field.");
@@ -62,18 +55,16 @@ export class DatePeriodValidatorDirective implements Validator {
       });
     }
 
-    //console.debug("StartDate:", startMonthControl.value + "/" + startYearControl.value, "\nEndDate: ",  endMonthControl.value + "/" + endYear);
-
     // Create the start and end dates
     let endDate = DateService.createDate(endYear, endMonthControl.value);
     let startDate = DateService.createDate(startYearControl.value, startMonthControl.value);
 
     //console.debug("DateObjects:\nStartDate:", startDate, "\nEndDate:", endDate);
 
-    if ( startDate < endDate )
+    /*if ( startDate < endDate )
       console.debug("StartDate is earlier than the endDate, all good!");
     else
-      console.debug("EndDate is earlier than the startDate, not good!");
+      console.debug("EndDate is earlier than the startDate, not good!");*/
 
     return haveControl && startDate > endDate ? { date_check_fail: true } : null;
   }
