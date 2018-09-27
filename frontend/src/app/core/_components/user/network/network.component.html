@@ -163,11 +163,11 @@
           </div>
 
           <div>
-            <!--<ng-container *ngIf="signedInUser.hasRelationshipWith(user.id); else showDisconnect">  &lt;!&ndash; If this user is not  &ndash;&gt;
-              <button type="button" class="btn btn-primary" (click)="sendFriendRequest(user.id)">Connect</button>
+            <!--<ng-container *ngIf="signedInUser.hasRelationshipWith(user.id); else showConnect">
+               <button type="button" class="btn btn-primary" (click)="disconnect()">Disconnect</button>
             </ng-container>
-            <ng-template #showDisconnect>
-              <button type="button" class="btn btn-secondary con-btn" (click)="disconnect()">Disconnect</button>
+            <ng-template #showConnect>
+              <button type="button" class="btn btn-primary" (click)="sendFriendRequest(user.id)">Connect</button>
             </ng-template>-->
 
             <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
