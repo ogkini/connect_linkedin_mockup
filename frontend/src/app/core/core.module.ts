@@ -21,7 +21,8 @@ import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-ba
 import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services';
-import { UserService, ExperienceService, EducationService, RelationshipService, PostService, LikeService } from './_services';
+import { UserService, ExperienceService, EducationService, RelationshipService } from './_services';
+import { PostService, LikeService, CommentService } from './_services';
 import { FileUploaderService, UsersInteractionService } from './_services';
 import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
@@ -78,6 +79,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     RelationshipService,
     PostService,
     LikeService,
+    CommentService,
     ConnectionConfigService,
     DataService,
     FileUploaderService,

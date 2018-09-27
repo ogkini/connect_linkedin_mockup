@@ -30,29 +30,55 @@
     <!-- Buttons -->
     <div class="row buttons">
       <!-- Show simple button if user has not liked the post -->
-      <div class="likes" *ngIf="!post?.likesPost">
-        <span class="clickableIcon" (click)="createLike(post?.owner?.id, post?.id)">
+      <div class="likes-button" *ngIf="!post?.likesPost">
+        <span class="clickableIcon" (click)="addLike(post?.owner?.id, post?.id)">
           <i class="fa fa-heart-o blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
           <i class="fa fa-heart blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
         </span>
       </div>
 
       <!-- Show colored button if user has liked the post -->
-      <div class="likes" *ngIf="post?.likesPost">
+      <div class="likes-button" *ngIf="post?.likesPost">
         <span class="clickableIcon" (click)="deleteLike(post?.owner?.id, post?.id)">
           <i class="fa fa-heart-o pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
           <i class="fa fa-heart pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
         </span>
       </div>
 
-      <div class="comments">
-        <span class="clickableIcon">
+      <div class="comments-button">
+        <span class="clickableIcon" (click)="showCommentsToggle()">
           <i class="fa fa-comment-o blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
           <i class="fa fa-comment blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
         </span>
       </div>
     </div>
 
+    <!-- Comments -->
+    <ng-container *ngIf="showComments">
+      <div class="comment-info" *ngFor= "let comment of post?.comments">
+        <hr>
+
+        <!-- Image -->
+        <div class="comment-img">
+          <!-- <img src="http:{{profilePhotosEndpoint}}" height="45" width="45" alt="profile_photo"> -->
+          <img src="https://via.placeholder.com/45x45" height="45" width="45" alt="profile_photo">
+        </div>
+
+        <!-- User -->
+        <h1>{{comment?.user?.firstname}} {{comment?.user?.lastname}}</h1>
+
+        <!-- Text -->
+        <h2>{{comment?.text}}</h2>
+      </div>
+
+      <!-- Input to add comment -->
+      <form class="comment-form" [formGroup]="addCommentForm" (ngSubmit)="addComment(post?.owner?.id, post?.id)">
+        <input type="text" class="form-control mb-2" placeholder="Add a comment" formControlName="text">
+
+        <!-- Hidden submit button (submit by pressing enter) -->
+        <button type="submit" style="display:none"></button>
+      </form>
+    </ng-container>
   </div>
 
 </div>

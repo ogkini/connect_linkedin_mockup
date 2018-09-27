@@ -147,26 +147,27 @@ export class NetworkComponent implements OnInit {
     this.showSent = false;
   }
 
-  onSearchSubmit()
-  {
+  onSearchSubmit() {
     this.submitted = true;
     this.alertService.clear();
 
     let searchTerm: string;
 
-    if ( this.searchForm.invalid )
+    if (this.searchForm.invalid) {
       return null;
-    else
+    } else {
       searchTerm = this.form.searchTerm.value;
+    }
 
     // Get results from backend
     this.userService.getAllRelatedToSearchTerm(searchTerm).subscribe(
       results => {
         this.usersFromSearch = results;
-        if ( this.usersFromSearch == null || this.usersFromSearch.length == 0 )
+        if (this.usersFromSearch == null || this.usersFromSearch.length == 0) {
           this.alertService.warning("No users found matching: \"" + searchTerm + "\"");
-        else
+        } else {
           this.showSearchResults = true;
+        }
       },
       error => {
         console.error(error);

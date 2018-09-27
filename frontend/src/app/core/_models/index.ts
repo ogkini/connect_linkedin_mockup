@@ -5,6 +5,7 @@ export * from './education';
 export * from './skill';
 export * from './post';
 export * from './like';
+export * from './comment';
 export * from './relationship';
 export * from './friendRequest';
 export * from './network';

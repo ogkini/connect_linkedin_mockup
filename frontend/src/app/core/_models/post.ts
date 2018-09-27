@@ -1,4 +1,4 @@
-import { User, Like } from '.';
+import { User, Like, Comment } from '.';
 
 export class Post {
   id: number;
@@ -7,7 +7,8 @@ export class Post {
   createdTime: string;
 
   likes: Array<Like>;
-  
+  comments: Array<Comment>;
+
   likesPost: boolean;
   likesCount: number;
   commentsCount: number;
