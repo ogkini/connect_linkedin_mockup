@@ -19,6 +19,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Returns a user with a specific id
     Optional<User> findById(Long id);
 
+    // Returns the user with the given id.
+    @Query(value="SELECT * FROM Users u WHERE (u.role_id = 2) AND (u.user_id = :userId)", nativeQuery = true)
+    User getByIdCustom(@Param("userId") Long userId);
+
     // Returns a user with a specific email
     Optional<User> findByEmail(String email);
 

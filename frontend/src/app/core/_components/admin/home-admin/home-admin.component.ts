@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 import { User } from '../../../_models';
 import { ConnectionConfigService, UserService } from '../../../_services';
-
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-home-admin',
@@ -33,6 +33,31 @@ export class HomeAdminComponent implements OnInit {
 
   private getAllUsers() {
     this.userService.getAll().subscribe(users => { this.users = users; });
+  }
+
+  public extractXMLData() {
+    // Extract IDs from users:
+    let usersIDs: string[] = [];
+
+    for ( let user of this.users ) {
+      usersIDs.push(user.id.toString());
+    }
+
+    this.userService.getXMLdataForUsersIDs(usersIDs)
+      .subscribe(
+      data => {
+        this.downloadFile(data);
+      },
+        error => { console.error(error); }
+    )
+  }
+
+  downloadFile(data: Response) {
+    console.debug("Inside \"downloadFile()\"");
+    var blob = new Blob([data], { type: 'application/xml' });
+    var url= window.URL.createObjectURL(blob);
+    console.debug("BLOB-url is: " + url);
+    window.open(url);
   }
 
 }

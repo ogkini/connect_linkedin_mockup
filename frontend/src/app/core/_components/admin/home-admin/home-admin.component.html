@@ -1,6 +1,9 @@
 <app-admin-nav-bar></app-admin-nav-bar>
 
 <div class="container margin-t">
+  <div>
+    <button type="button" class="btn btn-md btn-info" (click)="extractXMLData()">Extract everyone's XML data!</button>
+  </div>
   <div class="wrapper border" *ngFor="let user of users">
     <div class="product-img">
       <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">

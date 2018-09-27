@@ -106,4 +106,12 @@ public class UserService {
         return users;
     }
 
+    // Returns the data of the user having this id.
+    public User getByIdCustom(Long userId) {
+
+        User user = userRepository.getByIdCustom(userId);
+
+        return user;
+    }
+
 }
