@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ConnectionConfigService } from "../connection-config.service";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class FileUploaderService {
@@ -53,23 +54,23 @@ export class FileUploaderService {
 
   endpoint: string;
 
-  public postFile(user_email: string)
+  public postFile(user_email: string): Observable<Object>
   {
       if ( this.fileToUpload == null ) {
         console.warn("FileToUpload was null. No POST was made!");
         return;
       }
-      /*else
-        console.debug("1 step away from the POST... Our filename is: ", this.fileName);*/
 
       if ( user_email != null ) // Going to upload to UsersEndpoint..
         this.endpoint = this.connConfig.usersEndpoint + '/' + user_email + '/photos';
       else
         this.endpoint = this.connConfig.generalFilesEndpoint;
 
+      //console.debug("Endpoint to send file to: ", this.endpoint);
+
       const formData: FormData = new FormData();
       formData.append('file', this.fileToUpload, this.fileToUpload.name);
-      this.fileToUpload = null;
+      this.fileToUpload = null; // Reset
 
       return this.httpClient.post(this.endpoint , formData);
   }

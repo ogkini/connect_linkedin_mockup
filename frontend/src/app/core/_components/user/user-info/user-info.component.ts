@@ -25,11 +25,12 @@ export class UserInfoComponent implements OnInit {
 
   title: string = 'Personal Information';
   signedInUser: User;
-  public user: User;
+  public userInPath: User;
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
   submitted = false;
-  message: string;
+  isAdmin: boolean;
+  errorMessage = 'An error occurred!';
 
   public profilePhotosEndpoint: string;
   public userId: number;
@@ -85,14 +86,16 @@ export class UserInfoComponent implements OnInit {
   }
 
   private getUserById(id: number) {
-    this.userService.getById(id).subscribe(user => { this.user = user; });
-    // .subscribe((response: any) => {
-    //     this.user = response.content;
-    //   }, error => {
-    //     this.alertService.error(error.error.message);
-    //     console.log(error);
-    //   }
-    // );
+    this.userService.getById(id).subscribe(
+      user => {
+        this.userInPath = user;
+        this.profilePhotosEndpoint = this.connConfig.usersEndpoint + '/' + this.userInPath.id + '/photos';
+      },
+ error => {
+        this.alertService.error(error.error.errorMessage);
+        console.log(error);
+      }
+    );
   }
 
   // Initiliases the form to add a new experience
@@ -132,7 +135,7 @@ export class UserInfoComponent implements OnInit {
     } as Experience;
 
     // Submit the experience to the server
-    this.experienceService.create(newExperience, this.user.id)
+    this.experienceService.create(newExperience, this.userInPath.id)
       .pipe(first())
       .subscribe((response: CreationResponse) => {
           // Alert the user
@@ -141,10 +144,10 @@ export class UserInfoComponent implements OnInit {
 
           // Add experience to the array
           if (response.object) {
-            this.user.experience.push(response.object);
+            this.userInPath.experience.push(response.object);
           }
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.error.errorMessage);
           console.log(error);
         }
       );
@@ -152,13 +155,13 @@ export class UserInfoComponent implements OnInit {
 
   // Delete a specific experience
   deleteExperience(id: number) {
-    this.experienceService.delete(id, this.user.id)
+    this.experienceService.delete(id, this.userInPath.id)
       .pipe(first())
       .subscribe(response => {
           // Remove the experience from the array
-          this.user.experience = this.user.experience.filter(item => item.id !== id);
+          this.userInPath.experience = this.userInPath.experience.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.error.errorMessage);
         }
       );
   }
@@ -200,7 +203,7 @@ export class UserInfoComponent implements OnInit {
     } as Education;
 
     // Submit the education to the server
-    this.educationService.create(newEducation, this.user.id)
+    this.educationService.create(newEducation, this.userInPath.id)
       .pipe(first())
       .subscribe((response: CreationResponse) => {
           // Alert the user
@@ -209,10 +212,10 @@ export class UserInfoComponent implements OnInit {
 
           // Add education to the array
           if (response.object) {
-            this.user.education.push(response.object);
+            this.userInPath.education.push(response.object);
           }
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.error.errorMessage);
           console.log(error);
         }
       );
@@ -220,19 +223,48 @@ export class UserInfoComponent implements OnInit {
 
   // Delete a specific education
   deleteEducation(id: number) {
-    this.educationService.delete(id, this.user.id)
+    this.educationService.delete(id, this.userInPath.id)
       .pipe(first())
       .subscribe(response => {
           // Remove the education from the array
-          this.user.education = this.user.education.filter(item => item.id !== id);
+          this.userInPath.education = this.userInPath.education.filter(item => item.id !== id);
         }, error => {
-          this.alertService.error(error.error.message);
+          this.alertService.error(error.error.errorMessage);
         }
       );
   }
 
   clearAlert() {
     this.alertService.clear();
+  }
+
+
+  onImageChange($event)
+  {
+    if ( this.fileUploader.onImageChange($event) )  // If the file gets accepted.
+    {
+      // Send photo to backend
+      this.fileUploader.postFile(this.userInPath.email).subscribe(
+        data => {
+          this.alertService.success("Profile photo has changed!", true);
+          this.reloadPage();
+        },
+        error => {
+          this.alertService.error(error.error.errorMessage);
+          console.log(error);
+        }
+      );
+    }
+  }
+
+  onImageReset() {
+    console.debug("Going to reset the \"fileToUpload\".");
+    this.fileUploader.onFileReset();
+  }
+
+  reloadPage() {
+    this.alertService.clear();
+    window.history.go(0)  // 0 => go to the same page (current).
   }
 
 }
