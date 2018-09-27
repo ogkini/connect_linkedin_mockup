@@ -21,7 +21,9 @@ export class HomeUserComponent implements OnInit {
   submitted = false;
   userId: number;
   showComments = false;
+
   addCommentForm: FormGroup;
+  addPostForm: FormGroup;
 
   public profilePhotosEndpoint: string;
 
@@ -43,11 +45,19 @@ export class HomeUserComponent implements OnInit {
     this.getHomePosts(this.signedInUser.id);
 
     // Initialise form contents
+    this.addPostFormInit();
     this.addCommentFormInit();
   }
 
   private getHomePosts(id: number) {
     this.postService.getHome(id).subscribe(posts => { this.posts = posts; });
+  }
+
+  // Initiliases the form to create a new post
+  addPostFormInit() {
+    this.addPostForm = this.formBuilder.group({
+      text: ['']
+    });
   }
 
   // Initiliases the form to add a new comment
@@ -57,8 +67,33 @@ export class HomeUserComponent implements OnInit {
     });
   }
 
-  // Convenience getter for easy access to form fields
+  // Convenience getters for easy access to form fields
+  get getAddPostForm() { return this.addPostForm.controls; }
   get getAddCommentForm() { return this.addCommentForm.controls; }
+
+  // A user creates a post
+  addPost() {
+    // Create a new Post object
+    const newPost: Post = {
+      text: this.getAddPostForm.text.value
+    } as Post;
+
+    // Submit the post to the server
+    this.postService.create(newPost, this.signedInUser.id)
+      .pipe(first())
+      .subscribe((response: CreationResponse) => {
+          // Add the post to the beginning of the array
+          if (response.object) {
+            this.posts.unshift(response.object);
+          }
+
+          // Clear the form
+          this.addPostFormInit();
+        }, error => {
+          console.error(error);
+        }
+      );
+  }
 
   // A user likes a post
   addLike(ownerId: number, postId: number) {
@@ -104,6 +139,7 @@ export class HomeUserComponent implements OnInit {
       );
   }
 
+  // A user comments on a post
   addComment(ownerId: number, postId: number) {
     // Create a new Comment object
     const newComment: Comment = {
@@ -121,6 +157,9 @@ export class HomeUserComponent implements OnInit {
 
           // Update comments counter
           this.posts.find(post => post.id == postId).commentsCount++;
+
+          // Clear the form
+          this.addCommentFormInit();
         }, error => {
           console.error(error);
         }

@@ -6,6 +6,12 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.post-form {
+  width: 550px;
+  margin: 50px auto;
+  margin-bottom: 0;
+}
+
 .wrapper {
   min-height: 140px;
   height: auto;
@@ -13,6 +19,7 @@ body {
   width: 550px;
   margin: 50px auto;
   margin-bottom: 0;
+  margin-top: 30px;
   border-radius: 5px 5px 5px 5px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
   -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
@@ -111,7 +118,7 @@ hr {
 }
 
 .comment-info h1 {
-  margin: 0 0 6px 20px;
+  margin: 0 20px 6px 20px;
   padding-top: 2px;
   font-size: 15px;
   font-weight: 400;
@@ -119,7 +126,7 @@ hr {
 }
 
 .comment-info h2 {
-  margin: 0 0 6px 20px;
+  margin: 0 20px 6px 20px;
   font-size: 14px;
   color: #474747;
 }

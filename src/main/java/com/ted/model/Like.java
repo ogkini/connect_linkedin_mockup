@@ -26,7 +26,7 @@ public class Like {
     @Fetch(FetchMode.SELECT)
     private Post post;
 
-    @JsonIgnoreProperties("likes")
+    @JsonIgnoreProperties({"likes", "posts"})
     @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     @Fetch(FetchMode.SELECT)

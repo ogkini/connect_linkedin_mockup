@@ -2,6 +2,13 @@
 
 <div class="container margin-t">
 
+  <form class="post-form" [formGroup]="addPostForm" (ngSubmit)="addPost()">
+    <textarea name="post-area" class="post-form" rows="3" class="form-control mb-2" placeholder="Create a post" formControlName="text"></textarea>
+
+    <button type="submit" class="btn btn-sm btn-primary relative waves-light" type="submit">Create Post</button>
+  </form>
+
+  <!-- Posts -->
   <div class="wrapper border" *ngFor="let post of posts">
 
     <!-- Uploader Info -->

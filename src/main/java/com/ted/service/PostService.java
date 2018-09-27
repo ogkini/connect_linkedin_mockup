@@ -19,6 +19,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +79,7 @@ public class PostService {
         return posts;
     }
 
-    // Returns a user's friends' posts
+    // Returns a user's network's posts (including his own posts)
     public List<Post> getNetworkPosts(Long userId, UserDetailsImpl currentUser) {
         List<Post> posts = new ArrayList<>();
 
@@ -91,6 +94,16 @@ public class PostService {
                 posts.addAll(getAll(c.getSender().getId(), currentUser));
             }
         }
+
+        // Add the users own posts to the list
+        posts.addAll(getAll(userId, currentUser));
+
+        // Sort the posts from newest to oldest
+        Collections.sort(posts, new Comparator<Post>(){
+            public int compare(Post p1, Post p2) {
+                return p2.getCreatedTime().compareTo(p1.getCreatedTime());
+            }
+        });
 
         return posts;
     }

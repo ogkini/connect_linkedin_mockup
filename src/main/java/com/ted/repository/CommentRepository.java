@@ -14,7 +14,7 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     // Returns a post's comments
-    @Query("select c from Comment c where c.post.id = :postId")
+    @Query("select c from Comment c where c.post.id = :postId order by c.createdTime asc")
     List<Comment> getAllByPostId(@Param("postId") Long postId);
 
     // Returns a specific comment of specific post of a specific user
