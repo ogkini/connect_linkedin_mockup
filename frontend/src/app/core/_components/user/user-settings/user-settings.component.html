@@ -84,7 +84,7 @@
           <div class="col-md-8">
             <input class="form-control" formControlName="confirmNewPassword" type="password" ngModel #compare_pass_fail="compare_pass_fail" compare_pass_fail [ngClass]="{ 'is-invalid': submitted && form.confirmNewPassword.errors }">
             <div *ngIf="submitted && form.confirmNewPassword.errors && (form.confirmNewPassword.dirty || form.confirmNewPassword.touched)" class="invalid-feedback">
-              <div *ngIf="form.confirmNewPassword.errors.compare_pass">Passwords do not match!</div>
+              <div *ngIf="form.confirmNewPassword.errors.compare_pass_fail">Passwords do not match!</div>
             </div>
           </div>
         </div>
