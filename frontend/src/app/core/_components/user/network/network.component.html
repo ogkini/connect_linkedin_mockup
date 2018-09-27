@@ -1,12 +1,28 @@
-<app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+<ng-container *ngIf="isAdmin; then admin else user"></ng-container>
+<ng-template #admin>
+  <app-admin-nav-bar></app-admin-nav-bar>
+</ng-template>
+<ng-template #user>
+  <app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+</ng-template>
 
-<div class="row margin-t">
+<div class="margin-t">
+  <h2 align="center">Network</h2>
+  <hr>
+</div>
+
+<div class="row">
 
   <!-- First column -->
   <div class="col-3">
 
     <!-- Navigation -->
     <div class="list-group" id="list-tab" role="tablist">
+
+      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
+        <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>
+      </button>
+
       <ng-container *ngIf="signedInUser.id == userId">
         <button class="list-group-item d-flex justify-content-between align-items-center" id="list-home-list" (click)="showReceivedTrue()" [ngClass]="{'active': showReceived}">Received Requests
           <span class="badge cyan badge-pill" *ngIf="network?.receivedRequests?.length>0">{{network?.receivedRequests?.length}}</span>
@@ -15,15 +31,11 @@
         <button class="list-group-item d-flex justify-content-between align-items-center" id="list-profile-list" (click)="showSentTrue()" [ngClass]="{'active': showSent}">Sent Requests
           <span class="badge cyan badge-pill" *ngIf="network?.sentRequests?.length>0">{{network?.sentRequests?.length}}</span>
         </button>
+
+        <button class="list-group-item d-flex justify-content-between align-items-center" id="search-others" (click)="showSearchBarTrue()" [ngClass]="{'active': showSearchBar}">
+          Search others
+        </button>
       </ng-container>
-
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list" (click)="showConnectionsTrue()" [ngClass]="{'active': showConnections}">Connections
-        <span class="badge cyan badge-pill" *ngIf="network?.connections?.length>0">{{network?.connections?.length}}</span>
-      </button>
-
-      <button class="list-group-item d-flex justify-content-between align-items-center" id="search-others" (click)="showSearchBarTrue()" [ngClass]="{'active': showSearchBar}">
-        Search others
-      </button>
 
     </div>
 
@@ -36,7 +48,7 @@
     <div *ngIf="showReceived">
       <div class="wrapper border" *ngFor="let received of network?.receivedRequests">
         <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120">
+          <img src="http:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120" alt="profile_photo">
         </div>
         <div class="product-info">
           <div class="product-text">
@@ -58,7 +70,7 @@
     <div *ngIf="showSent">
       <div class="wrapper border" *ngFor="let sent of network?.sentRequests">
         <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120">
+          <img src="http:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120" alt="profile_photo">
         </div>
         <div class="product-info">
           <div class="product-text">
@@ -98,27 +110,21 @@
 
 
     <!-- User-Search Bar -->
-    <div *ngIf="showSearchBar" align="right">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
-            <div id="imaginary_container">
-              <div class="input-group stylish-input-group">
-                <form [formGroup]="searchForm" (ngSubmit)=onSearchSubmit()>
-                  <input type="text" class="form-control" formControlName="searchTerm" placeholder="Search users" [ngClass]="{ 'is-invalid': submitted && form.searchTerm.errors }">
-                  <span class="input-group-addon">
-                    <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
+    <div *ngIf="showSearchBar">
+      <div id="imaginary_container">
+        <div class="input-group stylish-input-group">
+          <form [formGroup]="searchForm" (ngSubmit)=onSearchSubmit()>
+            <input type="text" class="form-control" formControlName="searchTerm" placeholder="Search users" [ngClass]="{ 'is-invalid': submitted && form.searchTerm.errors }">
+            <span class="input-group-addon">
+              <button type="submit">
+                  <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
 
-                  <!-- Alert component-->
-                  <app-alert></app-alert>
+            <!-- Alert component-->
+            <app-alert></app-alert>
 
-                </form>
-              </div>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -127,7 +133,7 @@
     <div *ngIf="showSearchResults">
       <div class="wrapper border" *ngFor="let user of usersFromSearch">
         <div class="product-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
+          <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
         </div>
         <div class="product-info">
           <div class="product-text">

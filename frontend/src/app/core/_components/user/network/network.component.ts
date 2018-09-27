@@ -30,6 +30,7 @@ export class NetworkComponent implements OnInit {
   public profilePhotosEndpoint: string;
   public usersFromSearch: User[];
   submitted = false;
+  isAdmin = false;
 
   showReceived = true;  // First thing to see when the user visits "Network".
   showSent = false;
@@ -61,6 +62,8 @@ export class NetworkComponent implements OnInit {
     if ( this.signedInUser.id != this.userId ) {
       this.showConnections = true;  // Allow the admin to inspect user's connections.
       this.showReceived = false;  // Reset
+      if ( this.signedInUser.email == 'admin@mail.com' )
+        this.isAdmin = true;
     }
   }
 
