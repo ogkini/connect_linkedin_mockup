@@ -37,6 +37,9 @@ public class PostService {
     private LikeService likeService;
 
     @Autowired
+    private CommentService commentService;
+
+    @Autowired
     private ValidatePathService validatePathService;
 
     private static final Logger logger = LoggerFactory.getLogger(PostService.class);
@@ -60,6 +63,7 @@ public class PostService {
 
         for (Post p : posts) {
             p.setLikesCount(likeService.getLikesCount(p.getId()));
+            p.setCommentsCount(commentService.getCommentsCount(p.getId()));
         }
 
         return posts;

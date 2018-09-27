@@ -37,12 +37,19 @@ public class Post {
     @Column(name = "created_time", updatable = false)
     private Timestamp createdTime;
 
-    // @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    // @Fetch(FetchMode.SELECT)
-    // private List<Like> likes = new ArrayList<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<Like> likes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<Comment> comments = new ArrayList<>();
 
     @Transient
     private int likesCount;
+
+    @Transient
+    private int commentsCount;
 
     public Post () {}
 
@@ -82,13 +89,21 @@ public class Post {
         this.createdTime = createdTime;
     }
 
-    // public List<Like> getLikes() {
-    //     return likes;
-    // }
-    //
-    // public void setLikes(List<Like> likes) {
-    //     this.likes = likes;
-    // }
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public int getLikesCount() {
         return likesCount;
@@ -96,6 +111,14 @@ public class Post {
 
     public void setLikesCount(int likesCount) {
         this.likesCount = likesCount;
+    }
+
+    public int getCommentsCount() {
+        return commentsCount;
+    }
+
+    public void setCommentsCount(int commentsCount) {
+        this.commentsCount = commentsCount;
     }
 
     @Override

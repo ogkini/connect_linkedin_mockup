@@ -4,10 +4,12 @@ import com.ted.model.Experience;
 import com.ted.model.Education;
 import com.ted.model.Relationship;
 import com.ted.model.Like;
+import com.ted.model.Comment;
 import com.ted.repository.ExperienceRepository;
 import com.ted.repository.EducationRepository;
 import com.ted.repository.RelationshipRepository;
 import com.ted.repository.LikeRepository;
+import com.ted.repository.CommentRepository;
 import com.ted.exception.ResourceNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,9 @@ public class ValidatePathService {
     @Autowired
     private LikeRepository likeRepository;
 
+    @Autowired
+    private CommentRepository commentRepository;
+
     private static final Logger logger = LoggerFactory.getLogger(ValidatePathService.class);
 
     // Returns an experience if the path is valid
@@ -51,10 +56,16 @@ public class ValidatePathService {
                 .orElseThrow(() -> new ResourceNotFoundException("Relationship", "id", relationshipId));
     }
 
-    // Returns a relationship if the path is valid
+    // Returns a like if the path is valid
     public Like validatePathAndGetLike(Long likeId, Long postId, Long userId) {
         return likeRepository.findByIdAndAndPostIdAndUserId(likeId, postId, userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Like", "id", likeId));
+    }
+
+    // Returns a comment if the path is valid
+    public Comment validatePathAndGetComment(Long commentId, Long postId, Long userId) {
+        return commentRepository.findByIdAndAndPostIdAndUserId(commentId, postId, userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Comment", "id", commentId));
     }
 
 }

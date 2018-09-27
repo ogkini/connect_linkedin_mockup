@@ -76,6 +76,11 @@ public class User {
     @Fetch(FetchMode.SELECT)
     private List<Like> likes = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<Comment> comments = new ArrayList<>();
+
     @Transient
     private int newFriendRequests;
 
@@ -194,6 +199,14 @@ public class User {
 
     public void setLikes(List<Like> likes) {
         this.likes = likes;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public int getNewFriendRequests() {
