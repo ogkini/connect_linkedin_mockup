@@ -16,8 +16,7 @@
 
       <!-- Image -->
       <div class="uploader-img">
-        <!-- <img src="http:{{profilePhotosEndpoint}}" height="35" width="35" alt="profile_photo"> -->
-        <img src="https://via.placeholder.com/55x55" height="55" width="55" alt="profile_photo">
+         <img src="http:{{profilePhotosEndpoint}}/{{post?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
       </div>
 
       <!-- Info -->
@@ -67,8 +66,7 @@
 
         <!-- Image -->
         <div class="comment-img">
-          <!-- <img src="http:{{profilePhotosEndpoint}}" height="45" width="45" alt="profile_photo"> -->
-          <img src="https://via.placeholder.com/45x45" height="45" width="45" alt="profile_photo">
+          <img src="http:{{profilePhotosEndpoint}}/{{post?.owner?.id}}/photos" height="50" width="50" alt="profile_photo">
         </div>
 
         <!-- User -->
