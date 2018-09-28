@@ -5,6 +5,7 @@ import com.ted.exception.FileStorageException;
 import com.ted.repository.UserRepository;
 import com.ted.response.UploadFileResponse;
 import com.ted.service.FileStorageService;
+import com.ted.service.SerializationService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,11 +36,17 @@ public class FileController {
     FileStorageService fileStorageService;
 
     @Autowired
+    private SerializationService serializationService;
+
+    @Autowired
     private UserRepository userRepository;
 
 
     private static String userFileStoragePath;  // Set during run-time.
-    private static String localImageDirectory = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "img";
+    public static String currentDirectory = System.getProperty("user.dir");
+    public static String localResourcesDirectory = currentDirectory + File.separator + "src" + File.separator + "main" + File.separator + "resources";
+    public static String localXMLdirectory = currentDirectory + File.separator + "xml";
+    private static String localImageDirectory = localResourcesDirectory + File.separator + "img";
     private static String profilePhotoBaseName = "profile_photo_";
     private static String genericPhotoName = "generic_profile_photo.png";
     private static String imageNotFoundName = "image_not_found.png";
@@ -199,6 +207,31 @@ public class FileController {
             }
         }
 
+        return GetFileResponse(request, resource);
+    }
+
+
+    @GetMapping("/users/getXMLdata")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<Resource> getUsersXMLdata(@RequestParam("usersIDs") List<Integer> usersIDs, HttpServletRequest request) {
+
+        String fileFullPath = serializationService.serializeToXML(usersIDs);
+
+        // Get the XML data from storage.
+        Resource resource;
+        try {
+            resource = fileStorageService.loadFileAsResource(fileFullPath);
+        } catch (FileNotFoundException e) {
+            logger.error("", e);
+            return ResponseEntity.notFound().build();
+        }
+
+        return GetFileResponse(request, resource);
+    }
+
+
+    private ResponseEntity<Resource> GetFileResponse(HttpServletRequest request, Resource resource)
+    {
         // Try to determine file's content type
         String contentType = null;
         try {
@@ -217,4 +250,5 @@ public class FileController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
+
 }

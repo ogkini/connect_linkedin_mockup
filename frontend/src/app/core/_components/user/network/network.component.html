@@ -41,6 +41,38 @@
     <!-- Second column -->
     <div class="col-9">
 
+      <!-- Connections -->
+      <div *ngIf="showConnections">
+        <div *ngIf="network?.connections.length == 0; else showConn">
+          <div *ngIf="signedInUser.id != userId; else userMessage">
+            <h4>No connections to show.</h4>
+          </div>
+          <ng-template #userMessage>
+            <h4>You have not connected with anyone yet, what are you waiting for? Go and search for colleagues!</h4>
+          </ng-template>
+        </div>
+        <ng-template #showConn>
+          <div class="wrapper border" *ngFor="let user of network?.connections">
+            <div class="product-img">
+              <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
+            </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{{user.firstname}} {{user.lastname}}</h1>
+                <h2>Occupation</h2>
+                <p>{{user.email}}</p>
+              </div>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
+              <button type="button" class="btn btn-secondary con-btn">Disconnect</button>
+            </div>
+
+          </div>
+        </ng-template>
+      </div>
+
       <!-- Received Request -->
       <div *ngIf="showReceived">
         <div *ngIf="network?.receivedRequests.length == 0; else showConn">
@@ -92,40 +124,6 @@
           </div>
         </ng-template>
       </div>
-
-      <!-- Connections -->
-      <div *ngIf="showConnections">
-        <div *ngIf="network?.connections.length == 0; else showConn">
-          <div *ngIf="isAdmin; else userMessage">
-            <h4>No connections to show.</h4>
-          </div>
-          <ng-template #userMessage>
-            <h4>You have not connected with anyone yet, what are you waiting for? Go and search for colleagues!</h4>
-          </ng-template>
-        </div>
-        <ng-template #showConn>
-          <div class="wrapper border" *ngFor="let user of network?.connections">
-            <div class="product-img">
-              <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
-            </div>
-            <div class="product-info">
-              <div class="product-text">
-                <h1>{{user.firstname}} {{user.lastname}}</h1>
-                <h2>Occupation</h2>
-                <p>{{user.email}}</p>
-              </div>
-            </div>
-
-            <div>
-              <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
-              <button type="button" class="btn btn-secondary con-btn">Disconnect</button>
-            </div>
-
-
-          </div>
-        </ng-template>
-      </div>
-
 
       <!-- User-Search Bar -->
       <div *ngIf="showSearchBar">

@@ -39,6 +39,7 @@ export class HomeUserComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 
   ngOnInit() {

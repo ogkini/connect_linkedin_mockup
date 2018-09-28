@@ -98,13 +98,20 @@ public class UserService {
         return user;
     }
 
-
-    // Returns a specific user based on its email.
+    // Returns a list of users matching the parameters.
     public List<User> getBySearch(String firstName, String lastName) {
 
         List<User> users = userRepository.getAllRelated(firstName, lastName);
 
         return users;
+    }
+
+    // Returns the data of the user having this id.
+    public User getByIdCustom(Long userId) {
+
+        User user = userRepository.getByIdCustom(userId);
+
+        return user;
     }
 
 }

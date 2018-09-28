@@ -4,12 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.*;
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Users", schema = "teddb", uniqueConstraints = {
@@ -17,19 +20,30 @@ import java.util.*;
            "email"
     })
 })
+@JsonPropertyOrder(
+    {"id", "firstname", "lastname", "email", "picture", "occupation", "experiences", "educations", "skills",
+            "relationships", "posts", "likes"}
+)
+@XmlRootElement(name = "user")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
 
     @Id
+    @XmlAttribute(name = "_id")
+    @XmlID
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
+    @XmlElement
     @Column(name = "firstname")
     private String firstname;
 
+    @XmlElement
     @Column(name = "lastname")
     private String lastname;
 
+    @XmlElement
     @Column(name = "email")
     private String email;
 
@@ -42,40 +56,49 @@ public class User {
     @JoinColumn(name="role_id", nullable=false)
     private Role role;
 
+    @XmlElement
     @Column(name = "picture")
     private String picture;
 
+    @XmlElement
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private Occupation occupation;
 
+    @XmlElement
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
-    private List<Experience> expreriences = new ArrayList<>();
+    private List<Experience> experiences = new ArrayList<>();
 
+    @XmlElement
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Education> educations = new ArrayList<>();
 
+    @XmlElement
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Skill> skills = new ArrayList<>();
 
-    @JsonIgnore
+    //@XmlElement
+    @JsonIgnoreProperties("sender")   // It's safe to ignore just the "sender".
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Relationship> relationships = new ArrayList<>();
 
-    @JsonIgnoreProperties("owner")
+    //@XmlElement
+    @JsonIgnore//Properties("owner")    // If ignore just the "owner" then we get an error: "Could not write JSON: Infinite recursion (StackOverflowError);"
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Post> posts = new ArrayList<>();
 
+    //@XmlElement
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Like> likes = new ArrayList<>();
 
+    //@XmlElement
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
@@ -162,11 +185,11 @@ public class User {
     }
 
     public List<Experience> getExperience() {
-        return expreriences;
+        return experiences;
     }
 
     public void setExperience(List<Experience> expreriences) {
-        this.expreriences = expreriences;
+        this.experiences = expreriences;
     }
 
     public List<Education> getEducation() {

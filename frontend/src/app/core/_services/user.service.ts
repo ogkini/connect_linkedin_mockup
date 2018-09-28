@@ -23,6 +23,12 @@ export class UserService {
     );
   }
 
+  getXMLdataForUsersIDs(userIDs: string[]): Observable<Response> {
+    return this.httpClient.get<Response>(this.connConfig.usersXMLdataEndpoint,
+      {params: { usersIDs: userIDs, responseType: 'blob' }}
+    );
+  }
+
   getById(id: number): Observable<User> {
     return this.httpClient.get<User>(this.connConfig.usersEndpoint + '/' + id);
   }
