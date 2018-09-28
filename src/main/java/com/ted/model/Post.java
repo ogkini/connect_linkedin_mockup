@@ -46,8 +46,8 @@ public class Post {
     @Fetch(FetchMode.SELECT)
     private List<Comment> comments = new ArrayList<>();
 
-    // Indicates whether the user requesting
-    // the post has liked it or not.
+    // Indicates whether the user requesting the post
+    // has liked it or not (for button display purposes)
     @Transient
     private boolean likesPost;
 
