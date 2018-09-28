@@ -25,7 +25,7 @@ export class ForbiddenComponent implements OnInit {
   }
 
   backClicked() {
-    window.history.go(-2);  // -1 to go to the forbidden-page and -1 to go to the page before the forbidden-one.
+    window.history.go(-2);  // -1 to go to the forbidden-page, plus -1 to go to the page before the forbidden-one.
   }
 
 }

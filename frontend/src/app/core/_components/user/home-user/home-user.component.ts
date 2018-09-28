@@ -39,6 +39,10 @@ export class HomeUserComponent implements OnInit {
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+    });
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 

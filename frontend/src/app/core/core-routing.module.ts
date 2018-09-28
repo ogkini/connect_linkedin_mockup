@@ -36,6 +36,13 @@ const routes: Routes = [
       expectedRole: 'ROLE_ADMIN'
     }
   },
+  /*{ // It currently doesn't work..
+    path: 'users/1**', redirectTo: 'forbidden', pathMatch: 'full',
+    canActivate: [AuthGuard, RoleGuard],
+    data: {
+      expectedRole: 'ROLE_USER' // simple users will be redirected to 'forbidden' if they try to access an admin-id-page.
+    }
+  },*/
   {
     path: 'users/:id',
     canActivate: [AuthGuard],
@@ -54,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'forbidden',
-    component: ForbiddenComponent,
+    component: ForbiddenComponent
   },
   {
     path: '**',
