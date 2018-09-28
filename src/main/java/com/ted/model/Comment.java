@@ -31,7 +31,7 @@ public class Comment {
     @Fetch(FetchMode.SELECT)
     private Post post;
 
-    @JsonIgnoreProperties("comments")
+    @JsonIgnoreProperties({"comments", "posts"})
     @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     @Fetch(FetchMode.SELECT)
