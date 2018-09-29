@@ -32,22 +32,15 @@ public class Relationship {
     @Column(name = "status")
     private int status;
 
-    @JsonIgnore
-    @ManyToOne()
-    @JoinColumn(name = "action_user_id", nullable = false)
-    @Fetch(FetchMode.SELECT)
-    private User actionUser;
-
     @Column(name = "seen")
     private boolean seen;
 
     public Relationship () {}
 
-    public Relationship(User sender, User receiver, int status, User actionUser, boolean seen) {
+    public Relationship(User sender, User receiver, int status, boolean seen) {
         this.sender = sender;
         this.receiver = receiver;
         this.status = status;
-        this.actionUser = actionUser;
         this.seen = seen;
     }
 
@@ -83,14 +76,6 @@ public class Relationship {
         this.status = status;
     }
 
-    public User getActionUser() {
-        return actionUser;
-    }
-
-    public void setActionUser(User actionUser) {
-        this.actionUser = actionUser;
-    }
-
     public boolean getSeen() {
         return seen;
     }
@@ -108,13 +93,12 @@ public class Relationship {
                 Objects.equals(sender, that.sender) &&
                 Objects.equals(receiver, that.receiver) &&
                 status == that.status &&
-                Objects.equals(actionUser, that.actionUser) &&
                 seen == that.seen;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sender, receiver, status, actionUser, seen);
+        return Objects.hash(id, sender, receiver, status, seen);
     }
 
 }

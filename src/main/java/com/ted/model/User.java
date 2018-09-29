@@ -5,13 +5,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -80,11 +84,11 @@ public class User {
     @Fetch(FetchMode.SELECT)
     private List<Skill> skills = new ArrayList<>();
 
-    @JacksonXmlElementWrapper(localName = "relationships")
-    @JsonIgnoreProperties("sender")
-    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SELECT)
-    private List<Relationship> relationships = new ArrayList<>();
+    // @JacksonXmlElementWrapper(localName = "relationships")
+    // @JsonIgnoreProperties("sender")
+    // @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
+    // @Fetch(FetchMode.SELECT)
+    // private List<Relationship> relationships = new ArrayList<>();
 
     @JacksonXmlElementWrapper(localName = "posts")
     @JsonIgnoreProperties("owner")
@@ -106,6 +110,9 @@ public class User {
 
     @Transient
     private int newFriendRequests;
+
+    @Transient
+    private int newMessages;
 
     @Transient
     private boolean relationshipBetween;
@@ -238,6 +245,14 @@ public class User {
 
     public void setNewFriendRequests(int newFriendRequests) {
         this.newFriendRequests = newFriendRequests;
+    }
+
+    public int getNewMessages() {
+        return newMessages;
+    }
+
+    public void setNewMessages(int newMessages) {
+        this.newMessages = newMessages;
     }
 
     public boolean getRelationshipBetween() {

@@ -10,7 +10,7 @@ DROP SCHEMA IF EXISTS `teddb` ;
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8mb4 ;
+CREATE SCHEMA IF NOT EXISTS `teddb` DEFAULT CHARACTER SET utf8 ;
 USE `teddb` ;
 
 -- -----------------------------------------------------
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `picture` VARCHAR(200) NULL,  # The "NULL" is intentional, since the "picture" is optional.
   `role_id` BIGINT NOT NULL,
+  `picture` VARCHAR(200) NULL,
   PRIMARY KEY (`user_id`),
   INDEX `fk_Users_1_idx` (`role_id` ASC),
   CONSTRAINT `fk_Users_1`
@@ -155,12 +155,10 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Relationships` (
   `user_one_id` BIGINT NOT NULL,
   `user_two_id` BIGINT NOT NULL,
   `status` INT NOT NULL,
-  `action_user_id` BIGINT NOT NULL,
   `seen` TINYINT(1) NOT NULL,
   PRIMARY KEY (`relationship_id`),
   INDEX `fk_Relationship_1_idx` (`user_one_id` ASC),
   INDEX `fk_Relationship_2_idx` (`user_two_id` ASC),
-  INDEX `fk_Relationship_3_idx` (`action_user_id` ASC),
   CONSTRAINT `fk_Relationship_1`
     FOREIGN KEY (`user_one_id`)
     REFERENCES `teddb`.`Users` (`user_id`)
@@ -168,11 +166,6 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Relationships` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Relationship_2`
     FOREIGN KEY (`user_two_id`)
-    REFERENCES `teddb`.`Users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Relationship_3`
-    FOREIGN KEY (`action_user_id`)
     REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -295,6 +288,67 @@ CREATE TABLE IF NOT EXISTS `teddb`.`JobApplies` (
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
 
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Conversations`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Conversations` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Conversations` (
+  `conversation_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_one_id` BIGINT NOT NULL,
+  `user_two_id` BIGINT NOT NULL,
+  PRIMARY KEY (`conversation_id`),
+  INDEX `fk_Conversations_1_idx` (`user_one_id` ASC),
+  INDEX `fk_Conversations_2_idx` (`user_two_id` ASC),
+  CONSTRAINT `fk_Conversations_1`
+    FOREIGN KEY (`user_one_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Conversations_2`
+    FOREIGN KEY (`user_two_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Messages`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Messages` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Messages` (
+  `message_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `conversation_id` BIGINT NOT NULL,
+  `sender_id` BIGINT NOT NULL,
+  `receiver_id` BIGINT NOT NULL,
+  `text` VARCHAR(400) NOT NULL,
+  `created_time` DATETIME NOT NULL,
+  `seen` TINYINT(1) NOT NULL,
+  `opened` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`message_id`),
+  INDEX `fk_Messages_1_idx` (`sender_id` ASC),
+  INDEX `fk_Messages_2_idx` (`receiver_id` ASC),
+  INDEX `fk_Messages_3_idx` (`conversation_id` ASC),
+  CONSTRAINT `fk_Messages_1`
+    FOREIGN KEY (`sender_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Messages_2`
+    FOREIGN KEY (`receiver_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Messages_3`
+    FOREIGN KEY (`conversation_id`)
+    REFERENCES `teddb`.`Conversations` (`conversation_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

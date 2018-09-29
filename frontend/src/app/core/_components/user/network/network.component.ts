@@ -59,11 +59,12 @@ export class NetworkComponent implements OnInit {
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
 
     // If we have another user browsing this one's network.. control what the other see.
-    if ( this.signedInUser.id != this.userId ) {
+    if (this.signedInUser.id != this.userId) {
       this.showConnections = true;  // Allow the admin to inspect user's connections.
       this.showReceived = false;  // Reset
-      if ( this.signedInUser.email == 'admin@mail.com' )
+      if (this.signedInUser.email == 'admin@mail.com') {
         this.isAdmin = true;
+      }
     }
   }
 

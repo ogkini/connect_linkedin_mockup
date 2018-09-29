@@ -1,0 +1,118 @@
+<app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+
+<!-- <div class="margin-t">
+  <div class="row">
+
+    <div class="col-3">
+
+      <div class="list-group" id="list-tab" role="tablist">
+
+        <ng-container *ngFor="let conversation of conversations">
+          <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list"
+            *ngIf="signedInUser.id == conversation?.userOne?.id" (click)="showMessages(conversation?.id)">
+            {{conversation?.userTwo?.fistname}} {{conversation?.userTwo?.lastname}}
+          </button>
+
+          <button class="list-group-item d-flex justify-content-between align-items-center" id="list-messages-list"
+            *ngIf="signedInUser.id == conversation?.userTwo?.id" (click)="showMessages(conversation?.id)">
+            {{conversation?.userOne?.firstname}} {{conversation?.userOne?.lastname}}
+          </button>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <div class="col-9">
+
+      <div class="wrapper" *ngFor="let message of messages">
+        <div class="wrapper-message-received border">
+          {{message?.text}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<div class="container margin-t">
+  <div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="inbox_chat">
+
+            <!-- active_chat -->
+            <ng-container *ngFor="let conversation of conversations">
+
+              <a>
+                <div class="chat_list" *ngIf="signedInUser.id == conversation?.userOne?.id" (click)="showMessages(conversation?.id)">
+                  <div class="chat_people">
+                    <!-- Image -->
+                    <div class="chat_img">
+                      <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                    </div>
+
+                    <div class="chat_ib">
+                      <h5>{{conversation?.userTwo?.firstname}} {{conversation?.userTwo?.lastname}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a>
+                <div class="chat_list" *ngIf="signedInUser.id == conversation?.userTwo?.id" (click)="showMessages(conversation?.id)">
+                  <div class="chat_people">
+                    <!-- Image -->
+                    <div class="chat_img">
+                      <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                    </div>
+
+                    <div class="chat_ib">
+                      <h5>{{conversation?.userOne?.firstname}} {{conversation?.userOne?.lastname}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="mesgs">
+          <div class="msg_history">
+
+            <ng-container *ngFor="let message of messages">
+
+              <div class="incoming_msg" *ngIf="message?.receiver?.id == signedInUser.id">
+                <div class="incoming_msg_img">
+                  <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                </div>
+
+                <div class="received_msg">
+                  <div class="received_withd_msg">
+                    <p>{{message?.text}}</p>
+                    <span class="time_date">{{message?.createdTime | date: 'MMM d, y, h:mm a'}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="outgoing_msg" *ngIf="message?.sender?.id == signedInUser.id">
+                <div class="sent_msg">
+                  <p>{{message?.text}}</p>
+                  <span class="time_date">{{message?.createdTime | date: 'MMM d, y, h:mm a'}}</span>
+                </div>
+              </div>
+
+            </ng-container>
+          </div>
+
+          <!-- Input to send message -->
+          <form class="message-form" [formGroup]="sendMessageForm" (ngSubmit)="sendMessage()">
+            <input type="text" class="form-control mb-2" placeholder="Send a message" formControlName="text">
+
+            <button type="submit" style="display:none"></button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+</div>

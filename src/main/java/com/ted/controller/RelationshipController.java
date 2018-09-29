@@ -7,8 +7,7 @@ import com.ted.response.NetworkResponse;
 import com.ted.security.CurrentUser;
 import com.ted.security.UserDetailsImpl;
 import com.ted.service.RelationshipService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,6 +16,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api")
@@ -46,13 +47,6 @@ public class RelationshipController {
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public NetworkResponse getAll(@PathVariable(value = "userId") Long userId,
                                   @Valid @CurrentUser UserDetailsImpl currentUser) {
-
-        // Check if the logged in user is authorized to access the path
-        // Network will be public.. so this is commented-out!
-        /*if (currentUser.getId() != userId) {
-            throw new NotAuthorizedException("You are not authorized to access this resource.");
-        }*/
-
         return relationshipService.getAll(userId);
     }
 

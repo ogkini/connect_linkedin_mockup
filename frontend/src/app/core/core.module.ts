@@ -12,6 +12,7 @@ import { SignUpComponent } from './_components/sign-up/sign-up.component';
 import { HomeAdminComponent } from './_components/admin/home-admin/home-admin.component';
 import { HomeUserComponent } from './_components/user/home-user/home-user.component';
 import { NetworkComponent } from './_components/user/network/network.component';
+import { MessagesComponent } from './_components/user/messages/messages.component';
 import { PageNotFoundComponent } from "./_components/navigation-error/page-not-found/page-not-found.component";
 
 import { MainNavBarComponent } from './_components/main-nav-bar/main-nav-bar.component';
@@ -22,7 +23,7 @@ import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services';
 import { UserService, ExperienceService, EducationService, RelationshipService } from './_services';
-import { PostService, LikeService, CommentService } from './_services';
+import { PostService, LikeService, CommentService, ConversationService } from './_services';
 import { FileUploaderService, UsersInteractionService } from './_services';
 import { PasswordConfirmValidatorDirective } from './_directives/validators/password-confirm-validator.directive';
 import { TextValidatorDirective } from "./_directives/validators/text_validator.directive";
@@ -55,6 +56,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     UserNavBarComponent,
     AlertComponent,
     NetworkComponent,
+    MessagesComponent,
     PageNotFoundComponent,
     ForbiddenComponent,
     UserInfoComponent,
@@ -62,7 +64,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     UserProfileComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
-    DatePeriodValidatorDirective
+    DatePeriodValidatorDirective,
   ],
   exports: [
     FooterComponent,
@@ -80,6 +82,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     PostService,
     LikeService,
     CommentService,
+    ConversationService,
     ConnectionConfigService,
     DataService,
     FileUploaderService,
