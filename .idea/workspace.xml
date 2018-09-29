@@ -15,7 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ted/config/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ted/config/WebMvcConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ted/service/ValidatePathService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ted/service/ValidatePathService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https.interceptor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_models/index.ts" afterDir="false" />
@@ -137,7 +138,7 @@
           <entry key="scss" value="55" />
           <entry key="sh" value="31" />
           <entry key="sql" value="28" />
-          <entry key="ts" value="711" />
+          <entry key="ts" value="713" />
           <entry key="txt" value="4" />
           <entry key="xml" value="15" />
         </counts>
@@ -160,7 +161,7 @@
           <entry key="SCSS" value="55" />
           <entry key="SQL" value="27" />
           <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="711" />
+          <entry key="TypeScript" value="713" />
           <entry key="XML" value="15" />
           <entry key="tsconfig" value="5" />
         </counts>
@@ -180,8 +181,8 @@
           <entry key="scss" value="163" />
           <entry key="sh" value="127" />
           <entry key="sql" value="223" />
-          <entry key="ts" value="17962" />
-          <entry key="txt" value="8774" />
+          <entry key="ts" value="17973" />
+          <entry key="txt" value="8881" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -194,11 +195,11 @@
           <entry key="JSON" value="43" />
           <entry key="JavaScript" value="22" />
           <entry key="Markdown" value="512" />
-          <entry key="PLAIN_TEXT" value="8948" />
+          <entry key="PLAIN_TEXT" value="9055" />
           <entry key="Properties" value="183" />
           <entry key="SCSS" value="163" />
           <entry key="SQL" value="223" />
-          <entry key="TypeScript" value="17962" />
+          <entry key="TypeScript" value="17973" />
           <entry key="XML" value="32" />
         </counts>
       </usages-collector>
@@ -241,7 +242,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -269,15 +270,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/like.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/jobOffer.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
@@ -287,19 +279,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/jobApply.ts">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="219">
+              <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
+            <state relative-caret-position="380">
+              <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -740,8 +747,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/model/Post.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_interceptors/http.interceptor.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_interceptors/http-response-body-error.interceptor.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/service/SerializationService.java" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts" />
@@ -788,9 +793,11 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/job-offer.service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_models/jobOffer.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.ts" />
       </list>
     </option>
   </component>
@@ -932,6 +939,17 @@
               <item name="_components" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="job-offers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="_components" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
@@ -1118,7 +1136,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538245081989" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538245524803" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1348,14 +1366,7 @@
       <workItem from="1538094346658" duration="2220000" />
       <workItem from="1538158407361" duration="34700000" />
       <workItem from="1538195430661" duration="92000" />
-      <workItem from="1538222204143" duration="21683000" />
-    </task>
-    <task id="LOCAL-00019" summary="Resolve merge-conflicts.">
-      <created>1537541715064</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1537541715064</updated>
+      <workItem from="1538222204143" duration="22103000" />
     </task>
     <task id="LOCAL-00020" summary="Load user-profile_photo in &quot;user-home&quot;.">
       <created>1537542011273</created>
@@ -1693,11 +1704,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538240538984</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="When a user searches for others in network, exclude itself from search-results.">
+      <created>1538245184480</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1538245184480</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="578225000" />
+    <option name="totallyTimeSpent" value="578645000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1827,7 +1845,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;USE HTTPS&quot; - in progress (yet disabled)." />
     <MESSAGE value="- Show the &quot;Received&quot; &amp; &quot;Sent&quot; requests in &quot;Network&quot;, only to the signedIn user.&#10;- Allow the &quot;ADMIN&quot; to have access to users' network and posts.&#10;- Code cleanup." />
     <MESSAGE value="- FrontEnd for User-search done!&#10;- Added authorization-control for user-search in the BackEnd.&#10;- Add new &quot;UsersInteractionService&quot; which handled friendRequests and -in the future- messages." />
     <MESSAGE value="- Improve user's navigation.&#10;- Code cleanup." />
@@ -1852,7 +1869,8 @@
     <MESSAGE value="Fix an issue, where post-owner-photo would be displayed instead of commenter's-photo, in &quot;home-user&quot;." />
     <MESSAGE value="Add the ability to navigate to posters' and comenters' profiles, by clicking their profile_photo or their name." />
     <MESSAGE value="Add the ability to navigate to posters' and commenters' profiles, by clicking their profile_photo or their name." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the ability to navigate to posters' and commenters' profiles, by clicking their profile_photo or their name." />
+    <MESSAGE value="When a user searches for others in network, exclude itself from search-results." />
+    <option name="LAST_COMMIT_MESSAGE" value="When a user searches for others in network, exclude itself from search-results." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1867,16 +1885,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/like.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/post.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -2065,16 +2073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="173" selection-start-line="173" selection-end-line="175" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/core.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -2232,16 +2230,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -2284,6 +2272,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

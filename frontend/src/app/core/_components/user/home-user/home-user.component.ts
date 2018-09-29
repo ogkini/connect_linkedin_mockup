@@ -35,7 +35,7 @@ export class HomeUserComponent implements OnInit {
       private formBuilder: FormBuilder,
       private connConfig: ConnectionConfigService,
       private route: ActivatedRoute,
-      private authenticationService: AuthenticationService,
+      private authenticationService: AuthenticationService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
