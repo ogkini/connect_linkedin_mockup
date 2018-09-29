@@ -32,10 +32,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // Get all users related to this search. Given terms are in lowerCase.
     // In the given DB, the "LIKE" seems to work case-insensitive.. but in any case, keep the query like this to be cross-compatible.
-    @Query(value="SELECT * FROM Users u WHERE (u.role_id = 2) AND (LOWER(u.firstname) LIKE CONCAT('%', :firstName,'%') OR LOWER(u.lastname) LIKE CONCAT('%', :lastName,'%')) ORDER BY u.firstname ASC",
+    @Query(value="SELECT * FROM Users u WHERE (u.role_id = 2) AND (LOWER(u.firstname) LIKE CONCAT('%', :firstTerm,'%') OR LOWER(u.lastname) LIKE CONCAT('%', :secondTerm,'%') OR LOWER(u.firstname) LIKE CONCAT('%', :secondTerm,'%') OR LOWER(u.lastname) LIKE CONCAT('%', :firstTerm,'%')) ORDER BY u.firstname ASC",
             nativeQuery = true
     )
-    List<User> getAllRelated(@Param("firstName") String firstName, @Param("lastName") String lastName);
+    List<User> getAllRelated(@Param("firstTerm") String firstTerm, @Param("secondTerm") String secondTerm);
 
     // Returns user_id based on user_email.
     @Query(value="select user_id from Users u where u.email = :email", nativeQuery = true)

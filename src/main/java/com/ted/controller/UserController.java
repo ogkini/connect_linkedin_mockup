@@ -17,7 +17,9 @@ import com.ted.security.CurrentUser;
 import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
 import com.ted.service.UserService;
-
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,11 +35,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @RestController
@@ -151,7 +148,7 @@ public class UserController {
         String[] multipleTerms = StringUtils.split(searchTerm, ' ');
 
         if (multipleTerms.length == 0) {
-            logger.warn("Term-spliting provided no results!");
+            logger.warn("Term-splitting provided no results!");
             return null;
         } else if (multipleTerms.length == 1) {
             firstTerm = multipleTerms[0];
@@ -168,13 +165,12 @@ public class UserController {
             secondTerm = multipleTerms[1];
 
             users = userService.getBySearch(firstTerm, secondTerm);
+
+            // The underneath query handles the case where the both searchTerms can be either the firstName of the lastName of the user in the DB.
+            // Example case: there might be "Kwnstantinos Andreou" and "Adnreas Kwnstantinou", and the user to search for: "Kwnst Andr")
+
             if (users == null || users.isEmpty()) {
-                // We assumed that the user entered the firstName first and then the lastName..
-                // but that may not be the case.. so try again by switching them.
-                users = userService.getBySearch(secondTerm, firstTerm);
-                if (users == null || users.isEmpty()) {
-                    logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
-                }
+                logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
             }
         }
 
