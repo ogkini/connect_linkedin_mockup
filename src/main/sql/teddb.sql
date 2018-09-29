@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Comments` (
     REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDBs;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
