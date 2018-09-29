@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,28 +24,26 @@ import java.util.Objects;
 })
 @JsonPropertyOrder(
     {"id", "firstname", "lastname", "email", "picture", "occupation", "experiences", "educations", "skills",
-            "relationships", "posts", "likes"}
+            "relationships", "posts", "likes", "comments"}
 )
-@XmlRootElement(name = "user")
-@XmlAccessorType(XmlAccessType.FIELD)
+@JacksonXmlRootElement(localName = "user")
 public class User {
 
     @Id
-    @XmlAttribute(name = "_id")
-    @XmlID
+    @JacksonXmlProperty(localName = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
-    @XmlElement
+    @JacksonXmlProperty(localName = "firstname")
     @Column(name = "firstname")
     private String firstname;
 
-    @XmlElement
+    @JacksonXmlProperty(localName = "lastname")
     @Column(name = "lastname")
     private String lastname;
 
-    @XmlElement
+    @JacksonXmlProperty(localName = "email")
     @Column(name = "email")
     private String email;
 
@@ -56,49 +56,49 @@ public class User {
     @JoinColumn(name="role_id", nullable=false)
     private Role role;
 
-    @XmlElement
+    @JacksonXmlProperty(localName = "picture")
     @Column(name = "picture")
     private String picture;
 
-    @XmlElement
+    @JacksonXmlProperty(localName = "occupation")
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private Occupation occupation;
 
-    @XmlElement
+    @JacksonXmlElementWrapper(localName = "experiences")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Experience> experiences = new ArrayList<>();
 
-    @XmlElement
+    @JacksonXmlElementWrapper(localName = "educations")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Education> educations = new ArrayList<>();
 
-    @XmlElement
+    @JacksonXmlElementWrapper(localName = "skills")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Skill> skills = new ArrayList<>();
 
-    //@XmlElement
+    @JacksonXmlElementWrapper(localName = "relationships")
     @JsonIgnoreProperties("sender")
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Relationship> relationships = new ArrayList<>();
 
-    //@XmlElement
+    @JacksonXmlElementWrapper(localName = "posts")
     @JsonIgnoreProperties("owner")
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Post> posts = new ArrayList<>();
 
-    //@XmlElement
+    @JacksonXmlElementWrapper(localName = "likes")
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Like> likes = new ArrayList<>();
 
-    //@XmlElement
+    @JacksonXmlElementWrapper(localName = "comments")
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
