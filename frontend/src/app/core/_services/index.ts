@@ -7,6 +7,7 @@ export * from './relationship.service';
 export * from './post.service';
 export * from './like.service';
 export * from './comment.service';
+export * from './conversation.service';
 export * from './connection-config.service';
 export * from './data.service';
 export * from './date.service';

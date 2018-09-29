@@ -1,20 +1,23 @@
 package com.ted.service;
 
-import com.ted.exception.ResourceNotFoundException;
 import com.ted.model.Education;
 import com.ted.model.Experience;
 import com.ted.model.User;
 import com.ted.repository.RelationshipRepository;
+import com.ted.repository.MessageRepository;
 import com.ted.repository.UserRepository;
+import com.ted.exception.ResourceNotFoundException;
 import com.ted.security.UserDetailsImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class UserService {
@@ -26,6 +29,9 @@ public class UserService {
 
     @Autowired
     private RelationshipRepository relationshipRepository;
+
+    @Autowired
+    private MessageRepository messageRepository;
 
     @Autowired
     private RelationshipService relationshipService;
@@ -79,8 +85,9 @@ public class UserService {
             }
         });
 
-        // Get the pending friend requests
+        // Get the number of new friend requests and messages respectively
         user.setNewFriendRequests(relationshipRepository.getNewReceivedRequestsByUserId(userId).size());
+        user.setNewMessages(messageRepository.getNewMessagesByUserId(userId).size());
 
         // Check if there is a relationship between the users
         if (userId != currentUser.getId()) {
@@ -100,18 +107,12 @@ public class UserService {
 
     // Returns a list of users matching the parameters.
     public List<User> getBySearch(String firstName, String lastName) {
-
-        List<User> users = userRepository.getAllRelated(firstName, lastName);
-
-        return users;
+        return userRepository.getAllRelated(firstName, lastName);
     }
 
     // Returns the data of the user having this id.
     public User getByIdCustom(Long userId) {
-
-        User user = userRepository.getByIdCustom(userId);
-
-        return user;
+        return userRepository.getByIdCustom(userId);
     }
 
 }

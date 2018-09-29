@@ -7,13 +7,14 @@ import { SignUpComponent } from './_components/sign-up/sign-up.component';
 import { HomeAdminComponent } from './_components/admin/home-admin/home-admin.component';
 import { HomeUserComponent } from './_components/user/home-user/home-user.component';
 import { NetworkComponent } from './_components/user/network/network.component';
+import { MessagesComponent } from './_components/user/messages/messages.component';
 
 import { AuthGuard, RoleGuard } from './_guards';
 import { PageNotFoundComponent } from "./_components/navigation-error/page-not-found/page-not-found.component";
-import {UserInfoComponent} from "./_components/user/user-info/user-info.component";
-import {UserSettingsComponent} from "./_components/user/user-settings/user-settings.component";
-import {UserProfileComponent} from "./_components/user/user-profile/user-profile.component";
-import {ForbiddenComponent} from "./_components/navigation-error/forbidden/forbidden.component";
+import { UserInfoComponent } from "./_components/user/user-info/user-info.component";
+import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
+import { UserProfileComponent } from "./_components/user/user-profile/user-profile.component";
+import { ForbiddenComponent } from "./_components/navigation-error/forbidden/forbidden.component";
 
 const routes: Routes = [
   {
@@ -44,7 +45,7 @@ const routes: Routes = [
       { path: 'home', component:  HomeUserComponent },
       { path: 'network', component:  NetworkComponent },
       //{ path: 'job-offers', component:  JobOffersComponent },
-      //{ path: 'messaging', component:  MessagingComponent },
+      { path: 'messages', component:  MessagesComponent },
       //{ path: 'notifications', component:  NotificationsComponent },
       { path: 'info', component:  UserInfoComponent },
       { path: 'profile', component:  UserProfileComponent },

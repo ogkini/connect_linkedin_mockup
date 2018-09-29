@@ -8,14 +8,15 @@ import com.ted.request.RelationshipRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.NetworkResponse;
 import com.ted.security.UserDetailsImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class RelationshipService {
@@ -43,7 +44,6 @@ public class RelationshipService {
         relationship.setSender(me);
         relationship.setReceiver(receiver);
         relationship.setStatus(0);
-        relationship.setActionUser(me);
         relationship.setSeen(false);
 
         return relationshipRepository.save(relationship);

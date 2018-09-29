@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -81,12 +83,6 @@ public class User {
     private List<Skill> skills = new ArrayList<>();
 
     //@XmlElement
-    @JsonIgnoreProperties("sender")
-    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SELECT)
-    private List<Relationship> relationships = new ArrayList<>();
-
-    //@XmlElement
     @JsonIgnoreProperties("owner")
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
@@ -106,6 +102,9 @@ public class User {
 
     @Transient
     private int newFriendRequests;
+
+    @Transient
+    private int newMessages;
 
     @Transient
     private boolean relationshipBetween;
@@ -238,6 +237,14 @@ public class User {
 
     public void setNewFriendRequests(int newFriendRequests) {
         this.newFriendRequests = newFriendRequests;
+    }
+
+    public int getNewMessages() {
+        return newMessages;
+    }
+
+    public void setNewMessages(int newMessages) {
+        this.newMessages = newMessages;
     }
 
     public boolean getRelationshipBetween() {

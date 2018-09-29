@@ -110,3 +110,16 @@ Add ```/api``` at the front of every uri.
     | Http Method | Result                |
     | ----------- | --------------------- |
     | **DELETE**  | a user deletes a like |
+
+* ```/users/{id}/posts/{id}/comments```
+
+    | Http Method | Result                    |
+    | ----------- | ------------------------- |
+    | **POST**    | a user comments on a post |
+
+* ```/conversations```
+
+    | Http Method | Result                                                                |
+    | ----------- | --------------------------------------------------------------------- |
+    | **POST**    | a user initiates a conversation with another user (specified in JSON) |
+    | **GET**     | returns a user's conversations                                        |

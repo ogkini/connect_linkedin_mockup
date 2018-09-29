@@ -15,6 +15,9 @@ export class ConnectionConfigService {
 
   relationshipEndpoint = this.serverUrl + 'relationships';
 
+  conversationsEndpoint = this.serverUrl + 'conversations';
+  messagesEndpoint = 'messages';
+
   usersSearchEndpoint = this.usersEndpoint + '/searchUser';
   usersXMLdataEndpoint = this.usersEndpoint + '/getXMLdata';
 

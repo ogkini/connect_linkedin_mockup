@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Title} from "@angular/platform-browser";
-import {
-  AlertService,
-  ConnectionConfigService,
-  UserService, AuthenticationService
-} from "../../../_services";
-import {FormBuilder} from "@angular/forms";
-import {User} from "../../../_models";
-import {FormGroup, Validators} from "@angular/forms";
-import {TextValidatorDirective} from "../../../_directives/validators/text_validator.directive";
-import {PasswordConfirmValidatorDirective} from "../../../_directives/validators/password-confirm-validator.directive";
-import {ActivatedRoute, Router} from "@angular/router";
-import {first} from "rxjs/operators";
+import { Title } from "@angular/platform-browser";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { first } from "rxjs/operators";
 
+import { User } from "../../../_models";
+import { AlertService, ConnectionConfigService, UserService, AuthenticationService } from "../../../_services";
+import { TextValidatorDirective } from "../../../_directives/validators/text_validator.directive";
+import { PasswordConfirmValidatorDirective } from "../../../_directives/validators/password-confirm-validator.directive";
 
 @Component({
   selector: 'app-user-settings',
@@ -30,14 +25,14 @@ export class UserSettingsComponent implements OnInit {
   public userId: number;
 
   public constructor(
-    private titleService: Title,
-    private userService: UserService,
-    private alertService: AlertService,
-    private formBuilder: FormBuilder,
-    private connConfig: ConnectionConfigService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService
+      private titleService: Title,
+      private userService: UserService,
+      private alertService: AlertService,
+      private formBuilder: FormBuilder,
+      private connConfig: ConnectionConfigService,
+      private route: ActivatedRoute,
+      private router: Router,
+      private authenticationService: AuthenticationService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -53,7 +48,7 @@ export class UserSettingsComponent implements OnInit {
   maxEmailLength = 65;
   minPasswordLength = 6;
   maxPasswordLength = 100;
-  
+
   // Todo - make a form-service, which will provide the arrays of the validators for each form-field.
   ngOnInit() {
     // Use FormBuilder to create a form group
@@ -93,7 +88,7 @@ export class UserSettingsComponent implements OnInit {
     this.updateUser(this.form.firstname.value, this.form.lastname.value, this.form.email.value, this.form.password.value);
 
     // Go to user's-homePage.
-    if ( !this.router.navigate(['/users', this.signedInUser.id + '/home']) ) {
+    if (!this.router.navigate(['/users', this.signedInUser.id + '/home'])) {
       console.error("Navigation from \"SignIn\" to \"/users/\"" + this.signedInUser.id + "\" failed!");
     }
   }
