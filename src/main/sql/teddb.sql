@@ -248,7 +248,53 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Comments` (
     REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDBs;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`JobOffers`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`JobOffers` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`JobOffers` (
+  `job_offer_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `owner_id` BIGINT NOT NULL,
+  `text` VARCHAR(500) NOT NULL,
+  `created_time` DATETIME NOT NULL,
+  PRIMARY KEY (`job_offer_id`),
+  INDEX `fk_JobOffer_1_idx` (`owner_id` ASC),
+  CONSTRAINT `fk_JobOffer_1`
+  FOREIGN KEY (`owner_id`)
+  REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+  ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`JobApplies`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`JobApplies` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`JobApplies` (
+  `job_apply_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `job_offer_id` BIGINT NOT NULL,
+  `user_id` BIGINT NOT NULL,
+  PRIMARY KEY (`job_apply_id`),
+  INDEX `fk_JobApply_1_idx` (`job_offer_id` ASC),
+  INDEX `fk_JobApply_2_idx` (`user_id` ASC),
+  CONSTRAINT `fk_JobApply_1`
+  FOREIGN KEY (`job_offer_id`)
+  REFERENCES `teddb`.`JobOffers` (`job_offer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_JobApply_2`
+  FOREIGN KEY (`user_id`)
+  REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+  ENGINE = InnoDB;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
