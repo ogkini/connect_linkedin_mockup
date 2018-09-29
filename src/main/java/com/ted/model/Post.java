@@ -1,19 +1,16 @@
 package com.ted.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.sql.Timestamp;
 import javax.persistence.*;
-import java.util.*;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -25,7 +22,6 @@ public class Post {
     @Column(name = "post_id")
     private Long id;
 
-    @JsonIgnoreProperties("posts")
     @ManyToOne()
     @JoinColumn(name = "owner_id", nullable = false)
     @Fetch(FetchMode.SELECT)

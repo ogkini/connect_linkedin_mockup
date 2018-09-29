@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import 'rxjs/Rx';
+import {Observable} from 'rxjs';
 
 import { User } from '../_models';
 import { ConnectionConfigService } from './connection-config.service';
@@ -20,12 +21,6 @@ export class UserService {
   getAllRelatedToSearchTerm(searchTerm: string): Observable<User[]> {
     return this.httpClient.get<User[]>(this.connConfig.usersSearchEndpoint,
       {params: { searchTerm: searchTerm }}
-    );
-  }
-
-  getXMLdataForUsersIDs(userIDs: string[]): Observable<Response> {
-    return this.httpClient.get<Response>(this.connConfig.usersXMLdataEndpoint,
-      {params: { usersIDs: userIDs, responseType: 'blob' }}
     );
   }
 

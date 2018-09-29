@@ -2,7 +2,7 @@
 
 <div class="container margin-t">
   <div>
-    <button type="button" class="btn btn-md btn-info" (click)="extractXMLData()">Extract everyone's XML data!</button>
+    <a role="button" class="btn btn-primary" href="http:{{profilePhotosEndpoint}}/getXMLdata{{extractXMLData()}}">Extract everyone's XML data!</a>
   </div>
   <div class="wrapper border" *ngFor="let user of users">
     <div class="product-img">
@@ -14,7 +14,7 @@
         <p>{{user.email}}</p>
       </div>
       <!--<div class="product-price-btn col-sm-4">-->
-        <button type="button" class="btn btn-md btn-info" [routerLink]="['../users/' + user.id + '/info']">Check {{user.firstname}}'s data</button>
+        <button type="button" class="btn btn-md btn-info" [routerLink]="['../users/' + user.id + '/info']">Check {{user.firstname}}' data</button>
       <!--</div>-->
     </div>
   </div>

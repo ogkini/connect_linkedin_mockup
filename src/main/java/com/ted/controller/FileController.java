@@ -2,29 +2,38 @@ package com.ted.controller;
 
 import com.ted.exception.FileNotFoundException;
 import com.ted.exception.FileStorageException;
+import com.ted.exception.NotAuthorizedException;
 import com.ted.repository.UserRepository;
 import com.ted.response.UploadFileResponse;
+import com.ted.security.CurrentUser;
+import com.ted.security.UserDetailsImpl;
 import com.ted.service.FileStorageService;
 import com.ted.service.SerializationService;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Paths;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api")
@@ -40,7 +49,6 @@ public class FileController {
 
     @Autowired
     private UserRepository userRepository;
-
 
     private static String userFileStoragePath;  // Set during run-time.
     public static String currentDirectory = System.getProperty("user.dir");
@@ -107,7 +115,7 @@ public class FileController {
 
 
     @PostMapping("/uploads")
-    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file, String fileName, String innerDir /* e.g.: "/users", "/articles", ect. */) {
+    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file, String fileName, String innerDir) {
 
         String file_name;
         if ( fileName == null ) {
@@ -210,10 +218,17 @@ public class FileController {
         return GetFileResponse(request, resource);
     }
 
-
     @GetMapping("/users/getXMLdata")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<Resource> getUsersXMLdata(@RequestParam("usersIDs") List<Integer> usersIDs, HttpServletRequest request) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Resource> getUsersXMLdata(@RequestParam("usersIDs") List<String> usersIDs,
+                                                    HttpServletRequest request,
+                                                    @Valid @CurrentUser UserDetailsImpl currentUser) {
+
+        if (currentUser == null)
+            logger.debug("Current user is null");
+        else if (!currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
 
         String fileFullPath = serializationService.serializeToXML(usersIDs);
 
@@ -230,8 +245,7 @@ public class FileController {
     }
 
 
-    private ResponseEntity<Resource> GetFileResponse(HttpServletRequest request, Resource resource)
-    {
+    private ResponseEntity<Resource> GetFileResponse(HttpServletRequest request, Resource resource) {
         // Try to determine file's content type
         String contentType = null;
         try {
@@ -244,6 +258,8 @@ public class FileController {
         if ( contentType == null ) {
             contentType = "application/octet-stream";
         }
+        /*else
+            logger.debug("File: \"" + resource.getFilename() + "\" has contentType: \"" + contentType + "\"");*/
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
