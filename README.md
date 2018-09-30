@@ -22,8 +22,8 @@ A linkedin mockup website.
 
 #### Frameworks:
 
-* SpringBoot -- for the backend
-* Angular5 -- for the frontend
+* Spring Boot (backend)
+* Angular 5 (frontend)
 
 ---
 
@@ -43,4 +43,8 @@ npm install --save jwt-decode
 ng serve --open
 ```
 
-which opens a windown on **localhost:4200**
+which opens a browser window on **localhost:4200**
+
+### Bonus
+
+We have also implemented the bonus requirement.
