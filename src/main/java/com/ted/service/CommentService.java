@@ -3,6 +3,7 @@ package com.ted.service;
 import com.ted.model.Comment;
 import com.ted.model.User;
 import com.ted.model.Post;
+import com.ted.request.NotificationRequest;
 import com.ted.repository.CommentRepository;
 import com.ted.repository.UserRepository;
 import com.ted.repository.PostRepository;
@@ -19,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import static java.lang.Math.min;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +36,9 @@ public class CommentService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private NotificationService notificationService;
 
     @Autowired
     private ValidatePathService validatePathService;
@@ -56,6 +61,11 @@ public class CommentService {
         comment.setPost(post);
         comment.setUser(user);
         comment.setText(commentRequest.getText());
+
+        // Create a notification for the owner
+        String action = "commented on your post";
+        NotificationRequest notificationRequest = new NotificationRequest(user, action, post);
+        notificationService.create(userId, notificationRequest);
 
         return commentRepository.save(comment);
     }

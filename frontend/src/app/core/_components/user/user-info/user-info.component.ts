@@ -64,6 +64,7 @@ export class UserInfoComponent implements OnInit {
   ) {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.titleService.setTitle(this.title);
+
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
       this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);

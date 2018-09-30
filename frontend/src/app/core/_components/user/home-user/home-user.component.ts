@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { first } from "rxjs/operators";
 
 import { User, Post, Like, Comment, CreationResponse } from '../../../_models';
-import {PostService, LikeService, CommentService, UserService} from '../../../_services';
-import { ConnectionConfigService, AuthenticationService } from '../../../_services';
+import { PostService, LikeService, CommentService, UserService } from '../../../_services';
+import { ConnectionConfigService, AuthenticationService, DataService } from '../../../_services';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -17,10 +17,12 @@ export class HomeUserComponent implements OnInit {
 
   title = 'Home';
   signedInUser: User;
+  user: User = {} as User;
   posts: Post[] = [];
   submitted = false;
   userId: number;
   showComments = false;
+  message: string;
 
   addCommentForm: FormGroup;
   addPostForm: FormGroup;
@@ -36,14 +38,18 @@ export class HomeUserComponent implements OnInit {
       private formBuilder: FormBuilder,
       private connConfig: ConnectionConfigService,
       private route: ActivatedRoute,
-      private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService,
+      private dataService: DataService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
       this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+      this.getUserById(this.userId);
     });
+
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 
@@ -55,10 +61,23 @@ export class HomeUserComponent implements OnInit {
     // Initialise form contents
     this.addPostFormInit();
     this.addCommentFormInit();
+
+    this.dataService.currentMessage.subscribe(message => this.message = message);
   }
 
   private getHomePosts(id: number) {
     this.postService.getHome(id).subscribe(posts => { this.posts = posts; });
+  }
+
+  private getUserById(id: number) {
+    this.userService.getById(id).subscribe(
+      user => {
+        this.user = user;
+        this.dataService.changeMessage(`${this.user.newFriendRequests}-${this.user.newNotifications}`);
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 
   // Initiliases the form to create a new post

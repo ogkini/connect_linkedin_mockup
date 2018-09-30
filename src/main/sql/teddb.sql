@@ -245,52 +245,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `teddb`.`JobOffers`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`JobOffers` ;
-
-CREATE TABLE IF NOT EXISTS `teddb`.`JobOffers` (
-  `job_offer_id` BIGINT NOT NULL AUTO_INCREMENT,
-  `owner_id` BIGINT NOT NULL,
-  `text` VARCHAR(500) NOT NULL,
-  `created_time` DATETIME NOT NULL,
-  PRIMARY KEY (`job_offer_id`),
-  INDEX `fk_JobOffer_1_idx` (`owner_id` ASC),
-  CONSTRAINT `fk_JobOffer_1`
-  FOREIGN KEY (`owner_id`)
-  REFERENCES `teddb`.`Users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-  ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `teddb`.`JobApplies`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`JobApplies` ;
-
-CREATE TABLE IF NOT EXISTS `teddb`.`JobApplies` (
-  `job_apply_id` BIGINT NOT NULL AUTO_INCREMENT,
-  `job_offer_id` BIGINT NOT NULL,
-  `user_id` BIGINT NOT NULL,
-  PRIMARY KEY (`job_apply_id`),
-  INDEX `fk_JobApply_1_idx` (`job_offer_id` ASC),
-  INDEX `fk_JobApply_2_idx` (`user_id` ASC),
-  CONSTRAINT `fk_JobApply_1`
-  FOREIGN KEY (`job_offer_id`)
-  REFERENCES `teddb`.`JobOffers` (`job_offer_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_JobApply_2`
-  FOREIGN KEY (`user_id`)
-  REFERENCES `teddb`.`Users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-  ENGINE = InnoDB;
-
-
-
--- -----------------------------------------------------
 -- Table `teddb`.`Conversations`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `teddb`.`Conversations` ;
@@ -346,6 +300,41 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Messages` (
   CONSTRAINT `fk_Messages_3`
     FOREIGN KEY (`conversation_id`)
     REFERENCES `teddb`.`Conversations` (`conversation_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teddb`.`Notifications`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `teddb`.`Notifications` ;
+
+CREATE TABLE IF NOT EXISTS `teddb`.`Notifications` (
+  `notification_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `from_id` BIGINT NOT NULL,
+  `action` VARCHAR(20) NOT NULL,
+  `post_id` BIGINT NOT NULL,
+  `created_time` DATETIME NOT NULL,
+  `seen` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`notification_id`),
+  INDEX `fk_Notifications_1_idx` (`user_id` ASC),
+  INDEX `fk_Notifications_2_idx` (`post_id` ASC),
+  INDEX `fk_Notifications_3_idx` (`from_id` ASC),
+  CONSTRAINT `fk_Notifications_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Notifications_2`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `teddb`.`Posts` (`post_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Notifications_3`
+    FOREIGN KEY (`from_id`)
+    REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

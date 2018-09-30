@@ -29,4 +29,5 @@ export class ConnectionConfigService {
   postsEndpoint = 'posts';
   likesEndpoint = 'likes';
   commentsEndpoint = 'comments';
+  notificationsEndpoint = 'notifications'
 }

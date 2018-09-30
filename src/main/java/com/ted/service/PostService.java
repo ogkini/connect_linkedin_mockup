@@ -118,6 +118,8 @@ public class PostService {
         int usersCount = userRepository.findAll().size();
         int postsCount = postRepository.findAll().size();
 
+        if (postsCount == 0) return new ArrayList<>();
+
         // Create a 2d matrix with rows representing users and columns representing posts,
         // thus, creating a vector for every user. Default value is zero when created.
         int[][] scores = new int[usersCount][postsCount];

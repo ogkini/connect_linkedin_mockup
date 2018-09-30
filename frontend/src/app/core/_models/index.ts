@@ -8,6 +8,7 @@ export * from './like';
 export * from './comment';
 export * from './conversation';
 export * from './message';
+export * from './notification';
 export * from './relationship';
 export * from './friendRequest';
 export * from './conversationRequest';

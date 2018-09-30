@@ -6,6 +6,7 @@ import com.ted.model.Experience;
 import com.ted.model.User;
 import com.ted.repository.MessageRepository;
 import com.ted.repository.RelationshipRepository;
+import com.ted.repository.NotificationRepository;
 import com.ted.repository.UserRepository;
 import com.ted.security.UserDetailsImpl;
 import org.slf4j.Logger;
@@ -30,6 +31,9 @@ public class UserService {
 
     @Autowired
     private MessageRepository messageRepository;
+
+    @Autowired
+    private NotificationRepository notificationRepository;
 
     @Autowired
     private RelationshipService relationshipService;
@@ -86,6 +90,7 @@ public class UserService {
         // Get the number of new friend requests and messages respectively
         user.setNewFriendRequests(relationshipRepository.getNewReceivedRequestsByUserId(userId).size());
         user.setNewMessages(messageRepository.getNewMessagesByUserId(userId).size());
+        user.setNewNotifications(notificationRepository.getAllByUserId(userId).size());
 
         // Check if there is a relationship between the users
         if (userId != currentUser.getId()) {
