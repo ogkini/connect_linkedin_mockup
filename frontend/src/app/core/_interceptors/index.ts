@@ -9,7 +9,6 @@ import {JwtInterceptor} from "./jwt.interceptor";
 
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
-  { provide: 'BASE_URL', useValue: 'https://localhost/' },
-  { provide: HTTP_INTERCEPTORS, useClass: EnsureHttpsInterceptor, multi: true },
+  //{ provide: HTTP_INTERCEPTORS, useClass: EnsureHttpsInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
 ];
