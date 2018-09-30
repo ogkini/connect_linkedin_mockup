@@ -15,5 +15,7 @@ export class User {
 
   newFriendRequests: number;
   newMessages: number;
+  newNotifications: number;
+
   relationshipBetween: boolean;
 }

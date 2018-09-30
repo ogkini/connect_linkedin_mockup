@@ -1,0 +1,55 @@
+.margin-t {
+  margin-top: 120px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+  height: 120px;
+  width: 750px;
+  margin: 30px auto;
+  border-radius: 5px 5px 5px 5px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  float: left;
+  height: 118px;
+  width: 120px;
+}
+
+.product-img img {
+  border-radius: 4px 0 0 4px;
+}
+
+.product-info {
+  float: left;
+  height: 118px;
+  width: 628px;
+  border-radius: 0 4px 4px 0;
+  background-color: #ffffff;
+}
+
+.product-text h1 {
+  margin: 0 0 0 38px;
+  padding-top: 10px;
+  font-size: 22px;
+  color: #474747;
+}
+
+.product-text h2 {
+  margin: 10px 0 12px 38px;
+  font-size: 18px;
+  color: #808080;
+}
+
+.product-text p {
+  margin: 10px 0 5px 38px;
+  font-size: 12px;
+  color: #A0A0A0;
+}

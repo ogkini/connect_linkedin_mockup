@@ -5,6 +5,7 @@ import com.ted.model.Relationship;
 import com.ted.model.User;
 import com.ted.repository.RelationshipRepository;
 import com.ted.request.RelationshipRequest;
+import com.ted.request.ConversationRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.NetworkResponse;
 import com.ted.security.UserDetailsImpl;
@@ -28,6 +29,9 @@ public class RelationshipService {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ConversationService conversationService;
 
     @Autowired
     private ValidatePathService validatePathService;
@@ -86,11 +90,15 @@ public class RelationshipService {
         Relationship relationship = validatePathService.validatePathAndGetRelationship(relationshipId);
 
         // Check if the user is the receiver of the request
-        if ( currentUser.getId() != relationship.getReceiver().getId() ) {
+        if (currentUser.getId() != relationship.getReceiver().getId()) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 
         relationship.setStatus(1);
+
+        // Create a conversation between the two users
+        ConversationRequest conversationRequest = new ConversationRequest(relationship.getSender().getId());
+        conversationService.create(currentUser.getId(), conversationRequest);
 
         return relationshipRepository.save(relationship);
     }
@@ -100,7 +108,7 @@ public class RelationshipService {
         Relationship relationship = validatePathService.validatePathAndGetRelationship(relationshipId);
 
         // Check if the user is the receiver of the request
-        if ( currentUser.getId() != relationship.getReceiver().getId() ) {
+        if (currentUser.getId() != relationship.getReceiver().getId()) {
             throw new NotAuthorizedException("You are not authorized to access this resource.");
         }
 

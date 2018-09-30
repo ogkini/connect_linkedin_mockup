@@ -3,9 +3,11 @@ package com.ted.service;
 import com.ted.model.Like;
 import com.ted.model.User;
 import com.ted.model.Post;
+import com.ted.request.NotificationRequest;
 import com.ted.repository.LikeRepository;
 import com.ted.repository.UserRepository;
 import com.ted.repository.PostRepository;
+import com.ted.service.NotificationService;
 import com.ted.exception.ResourceNotFoundException;
 import com.ted.exception.NotAuthorizedException;
 import com.ted.response.ApiResponse;
@@ -32,6 +34,9 @@ public class LikeService {
     private PostRepository postRepository;
 
     @Autowired
+    private NotificationService notificationService;
+
+    @Autowired
     private ValidatePathService validatePathService;
 
     private static final Logger logger = LoggerFactory.getLogger(LikeService.class);
@@ -48,9 +53,14 @@ public class LikeService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 
         Like like = new Like();
-        
+
         like.setPost(post);
         like.setUser(user);
+
+        // Create a notification for the owner
+        String action = "liked your post";
+        NotificationRequest notificationRequest = new NotificationRequest(user, action, post);
+        notificationService.create(userId, notificationRequest);
 
         return likeRepository.save(like);
     }

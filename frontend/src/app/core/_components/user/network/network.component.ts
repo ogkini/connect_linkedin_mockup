@@ -10,7 +10,8 @@ import {
   AlertService,
   DataService,
   UserService,
-  UsersInteractionService
+  UsersInteractionService,
+  ConversationService
 } from '../../../_services';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -32,9 +33,9 @@ export class NetworkComponent implements OnInit {
   submitted = false;
   isAdmin = false;
 
-  showReceived = true;  // First thing to see when the user visits "Network".
+  showConnections = true; // First thing to see when the user visits "Network".
+  showReceived = false;
   showSent = false;
-  showConnections = false;
   showSearchBar = false;
   showSearchResults = false;
 
@@ -47,15 +48,17 @@ export class NetworkComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private usersInteraction: UsersInteractionService
+    private usersInteraction: UsersInteractionService,
+    private conversationService: ConversationService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
-      // Here we use custom forbiddance-logic.. we allow only certain parts of this page.
       this.getNetwork(this.userId);
     });
+
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
 
     // If we have another user browsing this one's network.. control what the other see.
@@ -176,8 +179,10 @@ export class NetworkComponent implements OnInit {
     )
   }
 
-  sendFriendRequest(userId: number){
+  sendFriendRequest(userId: number) {
     this.usersInteraction.sendFriendRequest(userId);
   }
+
+  startConversation(userId: number) {}
 
 }

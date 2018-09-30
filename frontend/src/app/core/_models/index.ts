@@ -10,6 +10,7 @@ export * from './jobOffer';
 export * from './jobApply';
 export * from './conversation';
 export * from './message';
+export * from './notification';
 export * from './relationship';
 export * from './friendRequest';
 export * from './conversationRequest';

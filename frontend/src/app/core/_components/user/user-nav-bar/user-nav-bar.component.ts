@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthenticationService, DataService } from '../../../_services';
-
 
 @Component({
   selector: 'app-user-nav-bar',
@@ -17,7 +16,7 @@ export class UserNavBarComponent implements OnInit {
 
   @Input() public signedInUserId: number;
 
-  message: string;
+  message: string [];
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -25,7 +24,7 @@ export class UserNavBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataService.currentMessage.subscribe(message => this.message = message);
+    this.dataService.currentMessage.subscribe(message => this.message = message.split("-", 3));
   }
 
   logout() {

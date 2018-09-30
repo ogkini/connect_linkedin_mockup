@@ -80,12 +80,6 @@ public class User {
     @Fetch(FetchMode.SELECT)
     private List<Skill> skills = new ArrayList<>();
 
-    // @JacksonXmlElementWrapper(localName = "relationships")
-    // @JsonIgnoreProperties("sender")
-    // @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
-    // @Fetch(FetchMode.SELECT)
-    // private List<Relationship> relationships = new ArrayList<>();
-
     @JacksonXmlElementWrapper(localName = "posts")
     @JsonIgnoreProperties("owner")
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
@@ -121,6 +115,9 @@ public class User {
 
     @Transient
     private int newMessages;
+
+    @Transient
+    private int newNotifications;
 
     @Transient
     private boolean relationshipBetween;
@@ -282,6 +279,14 @@ public class User {
 
     public void setNewMessages(int newMessages) {
         this.newMessages = newMessages;
+    }
+
+    public int getNewNotifications() {
+        return newNotifications;
+    }
+
+    public void setNewNotifications(int newNotifications) {
+        this.newNotifications = newNotifications;
     }
 
     public boolean getRelationshipBetween() {
