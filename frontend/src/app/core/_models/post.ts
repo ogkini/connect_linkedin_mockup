@@ -12,4 +12,6 @@ export class Post {
   likesPost: boolean;
   likesCount: number;
   commentsCount: number;
+  
+  isRecommended: boolean;
 }

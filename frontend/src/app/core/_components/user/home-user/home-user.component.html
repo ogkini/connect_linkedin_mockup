@@ -11,6 +11,11 @@
   <!-- Posts -->
   <div class="wrapper border" *ngFor="let post of posts">
 
+    <div class="recommended" *ngIf="post?.isRecommended">
+      <p>Your connections like this post.</p>
+      <hr class="recommended-hr">
+    </div>
+
     <!-- Uploader Info -->
     <div class="uploader-info">
 

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "Posts", schema = "teddb")
@@ -52,6 +51,10 @@ public class Post {
 
     @Transient
     private int commentsCount;
+
+    // Indicates whether the post is recommended by the system or not
+    @Transient
+    private boolean isRecommended;
 
     public Post () {}
 
@@ -129,6 +132,14 @@ public class Post {
 
     public void setCommentsCount(int commentsCount) {
         this.commentsCount = commentsCount;
+    }
+
+    public boolean getIsRecommended() {
+        return isRecommended;
+    }
+
+    public void setIsRecommended(boolean isRecommended) {
+        this.isRecommended = isRecommended;
     }
 
     @Override
