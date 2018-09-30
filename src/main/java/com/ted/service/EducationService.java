@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import org.slf4j.Logger;
@@ -37,6 +38,7 @@ public class EducationService {
     private ValidatePathService validatePathService;
 
     // Adds an education for a user
+    @Transactional
     public Education create(Long userId, EducationRequest educationRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -58,6 +60,7 @@ public class EducationService {
     }
 
     // Deletes a specific user education
+    @Transactional
     public ResponseEntity<?> deleteById(Long educationId, UserDetailsImpl currentUser) {
         Education education = validatePathService.validatePathAndGetEducation(educationId);
 
