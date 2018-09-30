@@ -2,6 +2,8 @@
 
 A linkedin mockup website.
 
+---
+
 ### Team
 
 * Gkini Orest 1115 2014 00036
@@ -20,12 +22,12 @@ A linkedin mockup website.
 
 #### Frameworks:
 
-* SpringBoot for the backend
-* Angular5 for the frontend
+* SpringBoot -- for the backend
+* Angular5 -- for the frontend
 
 ---
 
-### Run
+### How to Run
 
 To run the backend execute the following command
 
