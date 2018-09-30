@@ -29,4 +29,8 @@ export class ConnectionConfigService {
   postsEndpoint = 'posts';
   likesEndpoint = 'likes';
   commentsEndpoint = 'comments';
+
+  jobOffersTimelineEndpoint = 'networkJobOffers';
+  jobOffersEndpoint = 'jobOffers';
+  jobAppliesEndpoint = 'jobApplies';
 }

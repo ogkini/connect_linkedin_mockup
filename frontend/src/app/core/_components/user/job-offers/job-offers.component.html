@@ -1,0 +1,97 @@
+<app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+
+<div class="container margin-t">
+
+  <form class="jobOffer-form" [formGroup]="addJobOfferForm" (ngSubmit)="addJobOffer()">
+    <textarea name="jobOffer-area" class="jobOffer-form" rows="3" class="form-control mb-2" placeholder="Create a Job-offer" formControlName="text"></textarea>
+
+    <button type="submit" class="btn btn-sm btn-primary relative waves-light" type="submit">Create Job-offer</button>
+  </form>
+
+  <!-- JobOffers -->
+  <div class="wrapper border" *ngFor="let jobOffer of jobOffers">
+
+    <!-- Uploader Info -->
+    <div class="uploader-info">
+
+      <!-- Image -->
+      <div class="uploader-img">
+        <a [routerLink]="['../../' + jobOffer?.owner?.id + '/profile']">
+          <img src="http:{{profilePhotosEndpoint}}/{{jobOffer?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
+        </a>
+      </div>
+
+      <!-- Info -->
+      <a [routerLink]="['../../' + jobOffer?.owner?.id + '/profile']">
+        <h1>{{jobOffer?.owner?.firstname}} {{jobOffer?.owner?.lastname}}</h1>
+      </a>
+      <h2>{{jobOffer?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</h2>
+    </div>
+
+    <hr>
+
+    <!-- JobOffer body -->
+    <div class="jobOffer-body">
+      <p>{{jobOffer?.text}}</p>
+    </div>
+
+    <hr>
+
+    <!-- Buttons -->
+    <div class="row buttons">
+      <!-- Show simple button if user has not applied for the jobOffer -->
+      <div class="likes-button" *ngIf="!jobOffer?.appliedToJob">
+        <span class="clickableIcon" (click)="apply(jobOffer?.owner?.id, jobOffer?.id)">
+          <i class="fa fa-heart-o blue-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+          <i class="fa fa-heart blue-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+        </span>
+      </div>
+
+      <!-- Show colored button if user has applied for the jobOffer -->
+      <div class="likes-button" *ngIf="jobOffer?.appliedToJob">
+        <span class="clickableIcon" (click)="unApply(jobOffer?.owner?.id, jobOffer?.id)">
+          <i class="fa fa-heart-o pink-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+          <i class="fa fa-heart pink-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+        </span>
+      </div>
+
+      <div class="jobApplies-button">
+        <span class="clickableIcon" (click)="showAppliesToggle()">
+          <i class="fa fa-jobApply-o blue-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+          <i class="fa fa-jobApply blue-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+        </span>
+      </div>
+    </div>
+
+    <!-- JobApplies -->
+    <ng-container *ngIf="showApplies"> <!--Only the job-offer-owner will be able to see the applicants.. other people will see just the number of applicants.-->
+      <div class="jobApply-info" *ngFor= "let jobApply of jobOffer?.applies">
+        <hr>
+
+        <!-- Image -->
+        <div class="jobApply-img">
+          <a [routerLink]="['../../' + jobApply?.user?.id + '/profile']">
+            <img src="http:{{profilePhotosEndpoint}}/{{jobApply?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
+          </a>
+        </div>
+
+        <!-- User -->
+        <a [routerLink]="['../../' + jobApply?.user?.id + '/profile']">
+          <h1>{{jobApply?.user?.firstname}} {{jobApply?.user?.lastname}}</h1>
+        </a>
+
+        <!-- Visit Profile button -->
+        <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + jobApply?.user?.id + '/profile']">Visit Profile</button>
+      </div>
+
+      <!-- Input to add comment -->
+      <!--<form class="jobApply-form" [formGroup]="addCommentForm" (ngSubmit)="addComment(jobOffer?.owner?.id, jobOffer?.id)">
+        <input type="text" class="form-control mb-2" placeholder="Add a comment" formControlName="text">
+
+        &lt;!&ndash; Hidden submit button (submit by pressing enter) &ndash;&gt;
+        <button type="submit" style="display:none"></button>
+      </form>-->
+    </ng-container>
+  </div>
+
+</div>

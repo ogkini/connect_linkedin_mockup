@@ -35,6 +35,9 @@ import { UserProfileComponent } from "./_components/user/user-profile/user-profi
 import { httpInterceptorProviders } from "./_interceptors";
 import {AboutComponent} from "./_components/about/about.component";
 import { ForbiddenComponent } from "./_components/navigation-error/forbidden/forbidden.component";
+import {JobOffersComponent} from "./_components/user/job-offers/job-offers.component";
+import {JobOfferService} from "./_services/job-offer.service";
+import {JobApplyService} from "./_services/job-apply.service";
 
 @NgModule({
   imports: [
@@ -64,6 +67,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     UserInfoComponent,
     UserSettingsComponent,
     UserProfileComponent,
+    JobOffersComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
     DatePeriodValidatorDirective,
@@ -84,6 +88,8 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     PostService,
     LikeService,
     CommentService,
+    JobOfferService,
+    JobApplyService,
     ConversationService,
     ConnectionConfigService,
     DataService,
