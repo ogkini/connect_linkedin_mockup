@@ -10,6 +10,7 @@ import { NetworkComponent } from './_components/user/network/network.component';
 import { MessagesComponent } from './_components/user/messages/messages.component';
 
 import { AuthGuard, RoleGuard } from './_guards';
+import {AboutComponent} from "./_components/about/about.component";
 import { PageNotFoundComponent } from "./_components/navigation-error/page-not-found/page-not-found.component";
 import { UserInfoComponent } from "./_components/user/user-info/user-info.component";
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
@@ -59,6 +60,10 @@ const routes: Routes = [
       { path: 'settings', component:  UserSettingsComponent, runGuardsAndResolvers: 'always' }
     ],
     runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'forbidden',

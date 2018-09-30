@@ -33,6 +33,7 @@ import { UserInfoComponent } from "./_components/user/user-info/user-info.compon
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
 import { UserProfileComponent } from "./_components/user/user-profile/user-profile.component";
 import { httpInterceptorProviders } from "./_interceptors";
+import {AboutComponent} from "./_components/about/about.component";
 import { ForbiddenComponent } from "./_components/navigation-error/forbidden/forbidden.component";
 
 @NgModule({
@@ -57,6 +58,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     AlertComponent,
     NetworkComponent,
     MessagesComponent,
+    AboutComponent,
     PageNotFoundComponent,
     ForbiddenComponent,
     UserInfoComponent,
