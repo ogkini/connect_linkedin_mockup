@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Add the ability to update user-account-data (add backend, fix frontend).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/frontend/startFrontendDEV.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/frontend/startFrontendDEV.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/teddb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/teddb.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -36,7 +33,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="ExternalProjectsData">
@@ -102,46 +104,46 @@
           <entry key="bat" value="2" />
           <entry key="class" value="5" />
           <entry key="gitignore" value="2" />
-          <entry key="gradle" value="18" />
+          <entry key="gradle" value="19" />
           <entry key="gradlew" value="2" />
           <entry key="html" value="273" />
           <entry key="ico" value="1" />
-          <entry key="java" value="645" />
+          <entry key="java" value="669" />
           <entry key="jpg" value="15" />
           <entry key="js" value="9" />
           <entry key="json" value="15" />
           <entry key="log" value="2" />
           <entry key="md" value="6" />
           <entry key="png" value="8" />
-          <entry key="properties" value="22" />
+          <entry key="properties" value="24" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="69" />
-          <entry key="sh" value="31" />
+          <entry key="sh" value="35" />
           <entry key="sql" value="31" />
-          <entry key="ts" value="804" />
+          <entry key="ts" value="813" />
           <entry key="txt" value="4" />
           <entry key="xml" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="20" />
+          <entry key="Bash" value="24" />
           <entry key="CLASS" value="5" />
-          <entry key="Groovy" value="18" />
+          <entry key="Groovy" value="19" />
           <entry key="HTML" value="273" />
           <entry key="Image" value="24" />
-          <entry key="JAVA" value="645" />
+          <entry key="JAVA" value="669" />
           <entry key="JSON" value="10" />
           <entry key="JavaScript" value="9" />
           <entry key="Log" value="1" />
           <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="22" />
-          <entry key="Properties" value="22" />
+          <entry key="Properties" value="24" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="69" />
           <entry key="SQL" value="30" />
           <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="804" />
+          <entry key="TypeScript" value="813" />
           <entry key="XML" value="15" />
           <entry key="tsconfig" value="5" />
         </counts>
@@ -151,35 +153,35 @@
           <entry key="bat" value="1" />
           <entry key="dummy" value="85" />
           <entry key="gitignore" value="48" />
-          <entry key="gradle" value="191" />
+          <entry key="gradle" value="198" />
           <entry key="html" value="6635" />
-          <entry key="java" value="15544" />
+          <entry key="java" value="15575" />
           <entry key="js" value="22" />
           <entry key="json" value="43" />
           <entry key="md" value="674" />
-          <entry key="properties" value="183" />
+          <entry key="properties" value="188" />
           <entry key="scss" value="320" />
-          <entry key="sh" value="127" />
+          <entry key="sh" value="197" />
           <entry key="sql" value="223" />
-          <entry key="ts" value="20052" />
-          <entry key="txt" value="9758" />
+          <entry key="ts" value="20694" />
+          <entry key="txt" value="9927" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="87" />
-          <entry key="Groovy" value="191" />
+          <entry key="Bash" value="157" />
+          <entry key="Groovy" value="198" />
           <entry key="HTML" value="6635" />
-          <entry key="JAVA" value="15544" />
+          <entry key="JAVA" value="15575" />
           <entry key="JSON" value="43" />
           <entry key="JavaScript" value="22" />
           <entry key="Markdown" value="674" />
-          <entry key="PLAIN_TEXT" value="9932" />
-          <entry key="Properties" value="183" />
+          <entry key="PLAIN_TEXT" value="10101" />
+          <entry key="Properties" value="188" />
           <entry key="SCSS" value="320" />
           <entry key="SQL" value="223" />
-          <entry key="TypeScript" value="20052" />
+          <entry key="TypeScript" value="20694" />
           <entry key="XML" value="32" />
         </counts>
       </usages-collector>
@@ -193,102 +195,97 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/SecurityConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="294">
+              <caret line="86" column="14" selection-start-line="86" selection-start-column="14" selection-end-line="86" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/config/EmbeddedTomcatConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+            <state relative-caret-position="60">
+              <caret line="3" selection-start-line="2" selection-end-line="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.html">
+        <entry file="file://$PROJECT_DIR$/scripts/GenerateSelfSignedCertificate.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="17" column="114" lean-forward="true" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="117" />
+            <state relative-caret-position="120">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.html">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="320">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/config/ConnectorConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="273">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -592,7 +589,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4612261634437" />
+        <entry key="$PROJECT_DIR$" value="4613051257397" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3886042631" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="2903118947" />
@@ -728,17 +725,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/model/JobApply.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/JobApplyController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/job-offer.service.ts" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/response/UpdateResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/request/UpdateRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/model/User.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.ts" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_services/user.service.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java" />
@@ -767,7 +753,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ted/service/ValidatePathService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/SkillController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/controller/OccupationController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/service/OccupationService.java" />
         <option value="$PROJECT_DIR$/src/main/sql/teddb.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/ted/model/Skill.java" />
@@ -779,6 +764,18 @@
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-profile/user-profile.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https.interceptor.ts" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/config/ConnectorConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/config/WebMvcConfig.java" />
+        <option value="$PROJECT_DIR$/scripts/GenerateSelfSignedCertificate.sh" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/config/EmbededTomcatConfiguration.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/config/EmbeddedTomcatConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ted/security/SecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -820,6 +817,19 @@
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
               <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name=".gradle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
+              <item name="4.10.1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name=".gradle" type="462c0819:PsiDirectoryNode" />
+              <item name="4.10.1" type="462c0819:PsiDirectoryNode" />
+              <item name="javaCompile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
@@ -969,31 +979,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="_models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="_services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="_services" type="462c0819:PsiDirectoryNode" />
-              <item name="file-loader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
               <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ted" type="b2602c69:ProjectViewProjectNode" />
@@ -1064,24 +1067,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ted" type="462c0819:PsiDirectoryNode" />
-              <item name="request" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ted" type="462c0819:PsiDirectoryNode" />
-              <item name="response" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ted" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1107,32 +1092,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ted_project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
-              <item name="photos" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -1145,7 +1104,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538325315545" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538340049851" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1158,15 +1117,15 @@
     <property name="ts.external.directory.path" value="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\frontend\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\src\main\resources\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\frontend\src\app\core\_components" />
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\frontend\src\app\core\_components\user" />
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\frontend\src\app\core\_components\navigation-error" />
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\frontend\src\app\core\_services\users-interaction" />
       <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\frontend\src\app\core\_helpers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Users\DEMANARAS\Documents\MEGASync\6th Semester\WebDevelopment\Ergasia-2018\ted_project\src\main\resources\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1376,28 +1335,7 @@
       <workItem from="1538158407361" duration="34700000" />
       <workItem from="1538195430661" duration="92000" />
       <workItem from="1538222204143" duration="52995000" />
-      <workItem from="1538301355963" duration="21891000" />
-    </task>
-    <task id="LOCAL-00026" summary="Keep the given-url in the address-bar when having a pageNotFound-error.">
-      <created>1537673975060</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1537673975060</updated>
-    </task>
-    <task id="LOCAL-00027" summary="New feature, bugFix &amp; optimizations (see details).&#10;- New feature: set individual user-url-paths based on the &quot;userId&quot;.&#10;- Add &quot;get-user-ByEmail()&quot; capability.&#10;- Fix a bug, where the content in &quot;home-user&quot; was being displayed twice. &#10;- Add navigation-fail-handling.&#10;- Add in &quot;NetworkComponent&quot;: &quot;user-nav-bar&quot; &amp; &quot;browser-tab-title&quot;.&#10;- Code cleanup.">
-      <created>1537676959989</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1537676959989</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Update &quot;org.springframework.security:spring-security-test&quot; to v.5.1.0">
-      <created>1537677414997</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1537677414997</updated>
+      <workItem from="1538301355963" duration="35549000" />
     </task>
     <task id="LOCAL-00029" summary="- Add notifications-count in user-navbar.&#10;- Allow user-id retrieval from router in &quot;NetworkComponent&quot;.&#10;- Code cleanup.">
       <created>1537720926791</created>
@@ -1721,11 +1659,32 @@
       <option name="project" value="LOCAL" />
       <updated>1538321782045</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="- Add Occupation-info in profile-label-tags.&#10;- Add Connections-count in &quot;user-profile&quot;.&#10;- Comment-out some unused icons in &quot;user-info&quot;.">
+      <created>1538325613624</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1538325613624</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Switch back to Json in http-responses.">
+      <created>1538334250060</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1538334250060</updated>
+    </task>
+    <task id="LOCAL-00077" summary="- Add new &quot;keytool&quot; commands for certificate generation.&#10;- Add &quot;keystore.p12&quot; &amp; &quot;tedCertificate.crt&quot;.">
+      <created>1538337384184</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1538337384184</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631428000" />
+    <option name="totallyTimeSpent" value="645086000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1750,19 +1709,19 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49520257" visible="true" weight="0.4197397" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49413645" visible="true" weight="0.4197397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49413645" weight="0.40455532" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4936034" weight="0.40455532" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" weight="0.32321042" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50479746" side_tool="true" weight="0.43167028" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50586355" side_tool="true" weight="0.4197397" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Spring" order="11" weight="0.329718" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49671772" weight="0.33296824" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" sideWeight="0.49946696" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="14" sideWeight="0.4989339" weight="0.329718" />
       <window_info anchor="bottom" id="TypeScript" order="15" weight="0.22342733" />
       <window_info anchor="bottom" id="Inspection Results" order="16" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1774,7 +1733,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Gradle" order="8" weight="0.18017058" />
-      <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32995737" />
       <window_info anchor="right" id="Bean Validation" order="10" />
     </layout>
     <layout-to-restore>
@@ -1855,8 +1814,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Add the ability for admin to check user's Network.&#10;- Re-order buttons in &quot;Network&quot; and stop showing the &quot;SearchUsers&quot; when on different user's Network.&#10;- Code cleanup." />
-    <MESSAGE value="- New UI for &quot;user-info&quot; &amp; &quot;user-settings&quot;. Picture-update was moved to &quot;user-info&quot;.&#10;- Typescript-code-fix: user-info not showing and profilePicture not updating." />
     <MESSAGE value="- Optimize &quot;Network&quot;-UI, add messages (per-user-role) for no-connection-data." />
     <MESSAGE value="- Show user-search results in alphabetical order.&#10;- Correct no-connections-message in user-network.&#10;- Fix &quot;invalid-path-sequence-check&quot; in &quot;FileStorageService&quot;.&#10;- Code cleanup." />
     <MESSAGE value="The Admin can now extract some users-data to XML." />
@@ -1880,7 +1837,9 @@
     <MESSAGE value="Job-Offers in progress (almost done, some fixes pending)." />
     <MESSAGE value="Update Personal-Information(see details).&#10;- New UI.&#10;- Add the ability to add and delete occupation and skills.&#10;- Changed the varType of &quot;Strength&quot; of a skill, from &quot;int&quot; to &quot;String&quot; (DB changed)." />
     <MESSAGE value="- Add Occupation-info in profile-label-tags.&#10;- Add Connections-count in &quot;user-profile&quot;.&#10;- Comment-out some unused icons in &quot;user-info&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Add Occupation-info in profile-label-tags.&#10;- Add Connections-count in &quot;user-profile&quot;.&#10;- Comment-out some unused icons in &quot;user-info&quot;." />
+    <MESSAGE value="Switch back to Json in http-responses." />
+    <MESSAGE value="- Add new &quot;keytool&quot; commands for certificate generation.&#10;- Add &quot;keystore.p12&quot; &amp; &quot;tedCertificate.crt&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add new &quot;keytool&quot; commands for certificate generation.&#10;- Add &quot;keystore.p12&quot; &amp; &quot;tedCertificate.crt&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1895,181 +1854,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/education.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="29" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1747">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-nav-bar/user-nav-bar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="84" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/job-offers/job-offers.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/jobApply.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/jobOffer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/education.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/home-user/home-user.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/network/network.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/skill.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/sign-in/sign-in.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_models/occupation.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/PostController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/model/Like.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/occupation.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/LikeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/EducationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="35" selection-start-line="35" selection-end-line="36" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/ValidatePathService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/ConversationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/repository/MessageRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/repository/EducationRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/EducationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="71" selection-start-line="71" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/skill.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -2077,13 +1861,6 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -2282,8 +2059,200 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/UserDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/UserDetailsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/JwtAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-193">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/backend/startBackend.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_interceptors/http-response-body-error.interceptor.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https.interceptor.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/controller/EducationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="71" selection-start-line="71" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/CrossOriginResourceSharingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/JwtTokenProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/SecurityConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/CurrentUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/JwtAuthenticationEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/SerializationService.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <caret line="50" column="22" lean-forward="true" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/service/JobOfferService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/model/JobApply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/config/WebMvcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/GenerateSelfSignedCertificate.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/config/EmbeddedTomcatConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="2" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/config/ConnectorConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ted/security/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="86" column="14" selection-start-line="86" selection-start-column="14" selection-end-line="86" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_interceptors/ensure-https-interceptor.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_interceptors/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_services/connection-config.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
