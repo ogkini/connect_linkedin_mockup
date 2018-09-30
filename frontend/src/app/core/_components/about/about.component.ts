@@ -1,23 +1,17 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Title } from "@angular/platform-browser";
 import { Location } from '@angular/common';
-import {User} from "../../../_models/index";
+import {User} from "../../_models";
 
 
 @Component({
-  selector: 'app-page-not-found',
-  templateUrl: './page-not-found.component.html',
-  styleUrls: ['./page-not-found.component.scss']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss']
 })
+export class AboutComponent implements OnInit {
 
-@NgModule({
-  providers: [],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-})
-
-export class PageNotFoundComponent implements OnInit {
-
-  title = 'Page not found!';
+  title = 'About';
   public signedInUser: User;
 
   public constructor(

@@ -1,0 +1,56 @@
+<ng-container *ngIf="signedInUser == null; then main else signedIn"></ng-container>
+
+<ng-template #main>
+  <app-main-nav-bar></app-main-nav-bar>
+</ng-template>
+
+<ng-template #signedIn>
+  <ng-container *ngIf="signedInUser.email == 'admin@mail.com'; then admin else user"></ng-container>
+  <ng-template #admin>
+    <app-admin-nav-bar></app-admin-nav-bar>
+  </ng-template>
+  <ng-template #user>
+    <app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+  </ng-template>
+</ng-template>
+
+
+<!--Main layout-->
+<main class="mt-5">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="error-template">
+          <h1>About page</h1>
+          <h4>The name of this website is "Connect".<br>
+            Users can SignUp, add their professional information, connect with other professionals, write posts and more.
+            <hr>
+            Web Developers of "Connect":
+          </h4><br>
+          <h3><a href="https://github.com/orestig" target="_blank">orestig</a></h3><br>
+          <h3><a href="https://github.com/LSmyrnaios" target="_blank">LSmyrnaios</a></h3><br>
+          <hr>
+          <h4>
+            For the development of this project we used these languages:
+            JAVA, TypeScript, HTML, CSS, XML, JSON, Bash.
+            <br>
+            and these frameworks:
+            SpringBoot, Angular5</h4>
+          <div class="warning-actions">
+            <a class="btn btn-primary btn-lg" (click)="backClicked()"><span class="glyphicon glyphicon-home"></span>
+              Take me back
+            </a>
+            <a class="btn btn-primary btn-lg" routerLink="/welcome"><span class="glyphicon glyphicon-home"></span>
+              Go to homepage
+            </a>
+            <!--<a class="btn btn-default btn-lg" routerLink="/contact"><span class="glyphicon glyphicon-envelope"></span>
+              Contact Support
+            </a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

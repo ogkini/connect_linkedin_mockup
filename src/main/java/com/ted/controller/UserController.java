@@ -11,13 +11,17 @@ import com.ted.repository.RoleRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.SignInRequest;
 import com.ted.request.SignUpRequest;
+import com.ted.request.UpdateRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.SignInResponse;
+import com.ted.response.UpdateResponse;
 import com.ted.security.CurrentUser;
 import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
 import com.ted.service.UserService;
-
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,11 +37,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @RestController
@@ -151,7 +150,7 @@ public class UserController {
         String[] multipleTerms = StringUtils.split(searchTerm, ' ');
 
         if (multipleTerms.length == 0) {
-            logger.warn("Term-spliting provided no results!");
+            logger.warn("Term-splitting provided no results!");
             return null;
         } else if (multipleTerms.length == 1) {
             firstTerm = multipleTerms[0];
@@ -168,13 +167,12 @@ public class UserController {
             secondTerm = multipleTerms[1];
 
             users = userService.getBySearch(firstTerm, secondTerm);
+
+            // The underneath query handles the case where the both searchTerms can be either the firstName of the lastName of the user in the DB.
+            // Example case: there might be "Kwnstantinos Andreou" and "Adnreas Kwnstantinou", and the user to search for: "Kwnst Andr")
+
             if (users == null || users.isEmpty()) {
-                // We assumed that the user entered the firstName first and then the lastName..
-                // but that may not be the case.. so try again by switching them.
-                users = userService.getBySearch(secondTerm, firstTerm);
-                if (users == null || users.isEmpty()) {
-                    logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
-                }
+                logger.warn("No users found for searchTerm: \"" + searchTerm + "\"!");
             }
         }
 
@@ -210,6 +208,31 @@ public class UserController {
                 user.getRole().getName().name()
             )
         );
+    }
+
+
+    @PutMapping("/users/{userId}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<?> updateUserInfo(@PathVariable(value = "userId") Long userId,
+                                            @Valid @RequestBody UpdateRequest updateRequest) {
+
+        User user = updateRequest.asUser();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));   // Encrypt the password
+
+        //logger.debug(user.basicInfoToString());
+
+        int affectedRows = this.userService.updateUserData(user);
+        if ( affectedRows == 1 ) {
+            logger.debug("User info was updated for user with id: " + userId);
+            return ResponseEntity.ok(
+                    new UpdateResponse(updateRequest.asUser())
+            );
+        }
+        else {
+            logger.warn("No user was found in DataBase having userId: " + userId);
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
 }

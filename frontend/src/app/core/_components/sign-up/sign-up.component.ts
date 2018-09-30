@@ -41,7 +41,7 @@ export class SignUpComponent implements OnInit {
   maxEmailLength = 65;
   minPasswordLength = 6;
   maxPasswordLength = 100;
-
+  // Todo - make a form-service, which will provide the arrays of the validators for each form-field.
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signUpForm = this.formBuilder.group({

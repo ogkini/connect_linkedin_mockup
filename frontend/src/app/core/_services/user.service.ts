@@ -9,10 +9,20 @@ import { ConnectionConfigService } from './connection-config.service';
 @Injectable()
 export class UserService {
 
+  private isChangedAccountData: boolean = false;  // Useful for page-reload.
+
   constructor(
     private httpClient: HttpClient,
     private connConfig: ConnectionConfigService
   ) { }
+
+  public setIsChangedAccountData(isChanged: boolean) {
+    this.isChangedAccountData = isChanged;
+  }
+
+  public getIsChangedAccountData() {
+    return this.isChangedAccountData;
+  }
 
   getAll() {
     return this.httpClient.get<User[]>(this.connConfig.usersEndpoint);

@@ -5,17 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -120,6 +116,15 @@ public class User {
     public User () {}
 
     public User(String firstname, String lastname, String email, String password, String picture) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.picture = picture;
+    }
+
+    public User(Long id, String firstname, String lastname, String email, String password, String picture) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -261,6 +266,12 @@ public class User {
 
     public void setRelationshipBetween(boolean relationshipBetween) {
         this.relationshipBetween = relationshipBetween;
+    }
+
+
+    public String basicInfoToString() {
+        return "id: " + this.id + "\nfirstName: " + this.firstname + "\nlastName: " + this.lastname
+                + "\nemail: " + this.email + "\npassword: " + this.password + "\npicture: " + this.picture;
     }
 
     @Override

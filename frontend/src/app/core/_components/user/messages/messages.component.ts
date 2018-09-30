@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 
 import { User, Conversation, Message, CreationResponse } from '../../../_models';
-import { ConversationService, ConnectionConfigService } from '../../../_services';
+import {ConversationService, ConnectionConfigService, AuthenticationService} from '../../../_services';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-messages',
@@ -15,6 +16,7 @@ export class MessagesComponent implements OnInit {
 
   title: string = 'My Messages';
   signedInUser: User;
+  userId: number;
   conversations: Conversation[] = [];
   messages: Message[] = [];
   activeConversationId: number;
@@ -27,10 +29,16 @@ export class MessagesComponent implements OnInit {
       private titleService: Title,
       private formBuilder: FormBuilder,
       private conversationService: ConversationService,
-      private connConfig: ConnectionConfigService
+      private connConfig: ConnectionConfigService,
+      private route: ActivatedRoute,
+      private authenticationService: AuthenticationService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+    });
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 

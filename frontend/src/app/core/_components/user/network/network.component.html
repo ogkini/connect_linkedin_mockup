@@ -144,28 +144,34 @@
 
       <!-- Show search-results -->
       <div *ngIf="showSearchResults">
-        <div class="wrapper border" *ngFor="let user of usersFromSearch">
-          <div class="product-img">
-            <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
-          </div>
-          <div class="product-info">
-            <div class="product-text">
-              <h1>{{user.firstname}} {{user.lastname}}</h1>
-              <h2>Occupation</h2>
-              <p>{{user.email}}</p>
+        <div *ngFor="let user of usersFromSearch">
+          <ng-container *ngIf="user.id != signedInUser.id">
+
+            <div class="wrapper border">
+              <div class="product-img">
+                <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
+              </div>
+              <div class="product-info">
+                <div class="product-text">
+                  <h1>{{user.firstname}} {{user.lastname}}</h1>
+                  <h2>Occupation</h2>
+                  <p>{{user.email}}</p>
+                </div>
+              </div>
+
+              <div>
+                <!--<ng-container *ngIf="signedInUser.hasRelationshipWith(user.id); else showConnect">
+                   <button type="button" class="btn btn-primary" (click)="disconnect()">Disconnect</button>
+                </ng-container>
+                <ng-template #showConnect>
+                  <button type="button" class="btn btn-primary" (click)="sendFriendRequest(user.id)">Connect</button>
+                </ng-template>-->
+
+                <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
+              </div>
             </div>
-          </div>
 
-          <div>
-            <!--<ng-container *ngIf="signedInUser.hasRelationshipWith(user.id); else showConnect">
-               <button type="button" class="btn btn-primary" (click)="disconnect()">Disconnect</button>
-            </ng-container>
-            <ng-template #showConnect>
-              <button type="button" class="btn btn-primary" (click)="sendFriendRequest(user.id)">Connect</button>
-            </ng-template>-->
-
-            <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + user.id + '/profile']">Visit Profile</button>
-          </div>
+          </ng-container>
 
         </div>
       </div>

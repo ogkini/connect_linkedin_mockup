@@ -21,11 +21,16 @@
 
       <!-- Image -->
       <div class="uploader-img">
+        <a [routerLink]="['../../' + post?.owner?.id + '/profile']">
          <img src="http:{{profilePhotosEndpoint}}/{{post?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
+        </a>
       </div>
 
       <!-- Info -->
-      <h1>{{post?.owner?.firstname}} {{post?.owner?.lastname}}</h1>
+      <a [routerLink]="['../../' + post?.owner?.id + '/profile']">
+        <h1>{{post?.owner?.firstname}} {{post?.owner?.lastname}}</h1>
+      </a>
+
       <h2>{{post?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</h2>
     </div>
 
@@ -71,11 +76,15 @@
 
         <!-- Image -->
         <div class="comment-img">
-          <img src="http:{{profilePhotosEndpoint}}/{{post?.owner?.id}}/photos" height="50" width="50" alt="profile_photo">
+          <a [routerLink]="['../../' + comment?.user?.id + '/profile']">
+            <img src="http:{{profilePhotosEndpoint}}/{{comment?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
+          </a>
         </div>
 
         <!-- User -->
-        <h1>{{comment?.user?.firstname}} {{comment?.user?.lastname}}</h1>
+        <a [routerLink]="['../../' + comment?.user?.id + '/profile']">
+          <h1>{{comment?.user?.firstname}} {{comment?.user?.lastname}}</h1>
+        </a>
 
         <!-- Text -->
         <h2>{{comment?.text}}</h2>

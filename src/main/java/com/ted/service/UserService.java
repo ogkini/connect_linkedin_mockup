@@ -1,23 +1,21 @@
 package com.ted.service;
 
+import com.ted.exception.ResourceNotFoundException;
 import com.ted.model.Education;
 import com.ted.model.Experience;
 import com.ted.model.User;
-import com.ted.repository.RelationshipRepository;
 import com.ted.repository.MessageRepository;
+import com.ted.repository.RelationshipRepository;
 import com.ted.repository.UserRepository;
-import com.ted.exception.ResourceNotFoundException;
 import com.ted.security.UserDetailsImpl;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Service
 public class UserService {
@@ -106,8 +104,8 @@ public class UserService {
     }
 
     // Returns a list of users matching the parameters.
-    public List<User> getBySearch(String firstName, String lastName) {
-        return userRepository.getAllRelated(firstName, lastName);
+    public List<User> getBySearch(String firstTerm, String secondTerm) {
+        return userRepository.getAllRelated(firstTerm, secondTerm);
     }
 
     // Returns the data of the user having this id.
@@ -115,4 +113,7 @@ public class UserService {
         return userRepository.getByIdCustom(userId);
     }
 
+    public int updateUserData(User user) {
+        return userRepository.updateUserData(user.getId(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getPassword(), user.getPicture());
+    }
 }
