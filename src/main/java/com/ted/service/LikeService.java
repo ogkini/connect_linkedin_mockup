@@ -16,6 +16,7 @@ import com.ted.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import org.slf4j.Logger;
@@ -42,6 +43,7 @@ public class LikeService {
     private static final Logger logger = LoggerFactory.getLogger(LikeService.class);
 
     // A user likes a post
+    @Transactional
     public Like create(Long userId, Long postId, UserDetailsImpl currentUser) {
         User owner = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -71,6 +73,7 @@ public class LikeService {
     }
 
     // A user deletes a like
+    @Transactional
     public ResponseEntity<?> deleteById(Long likeId, Long postId, Long userId, UserDetailsImpl currentUser) {
         Like like = validatePathService.validatePathAndGetLike(likeId, postId, userId);
 

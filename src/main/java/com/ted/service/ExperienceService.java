@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class ExperienceService {
     private ValidatePathService validatePathService;
 
     // Adds an experience for a user
+    @Transactional
     public Experience create(Long userId, ExperienceRequest experienceRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -54,6 +56,7 @@ public class ExperienceService {
     }
 
     // Deletes a specific user experience
+    @Transactional
     public ResponseEntity<?> deleteById(Long experienceId, UserDetailsImpl currentUser) {
         Experience experience = validatePathService.validatePathAndGetExperience(experienceId);
 

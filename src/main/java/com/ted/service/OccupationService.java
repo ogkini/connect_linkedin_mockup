@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class OccupationService {
@@ -31,6 +32,7 @@ public class OccupationService {
     private ValidatePathService validatePathService;
 
     // Adds an occupation for a user
+    @Transactional
     public Occupation create(Long userId, OccupationRequest occupationRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -50,6 +52,7 @@ public class OccupationService {
     }
 
     // Deletes a specific user occupation
+    @Transactional
     public ResponseEntity<?> deleteById(Long occupationId, UserDetailsImpl currentUser) {
         Occupation occupation = validatePathService.validatePathAndGetOccupation(occupationId);
 

@@ -13,6 +13,7 @@ import com.ted.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class RelationshipService {
     private ValidatePathService validatePathService;
 
     // Creates a friend request
+    @Transactional
     public Relationship create(Long userId, RelationshipRequest relationshipRequest) {
         User me = userService.getById(userId);
 
@@ -86,6 +88,7 @@ public class RelationshipService {
     }
 
     // A user accepts a request
+    @Transactional
     public Relationship updateById(Long relationshipId, UserDetailsImpl currentUser) {
         Relationship relationship = validatePathService.validatePathAndGetRelationship(relationshipId);
 
@@ -104,6 +107,7 @@ public class RelationshipService {
     }
 
     // A user declines a friend request
+    @Transactional
     public ResponseEntity<?> deleteById(Long relationshipId, UserDetailsImpl currentUser) {
         Relationship relationship = validatePathService.validatePathAndGetRelationship(relationshipId);
 

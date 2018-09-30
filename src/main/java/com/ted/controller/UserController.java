@@ -33,6 +33,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -66,6 +67,7 @@ public class UserController {
     // Creates a new user
     @PostMapping("/users")
     @ResponseBody
+    @Transactional
     public ResponseEntity<?> signUp(@Valid @RequestBody SignUpRequest signUpRequest) {
         // Check if the user already exists
         userRepository.findByEmail(signUpRequest.getEmail())

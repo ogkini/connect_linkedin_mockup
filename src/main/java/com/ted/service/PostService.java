@@ -19,6 +19,7 @@ import com.ted.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -65,6 +66,7 @@ public class PostService {
     private static final Logger logger = LoggerFactory.getLogger(PostService.class);
 
     // A user creates a post
+    @Transactional
     public Post create(Long userId, PostRequest postRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -96,6 +98,7 @@ public class PostService {
     }
 
     // Returns a user's specific post
+    @Transactional
     public Post getById(Long postId, UserDetailsImpl currentUser) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId));

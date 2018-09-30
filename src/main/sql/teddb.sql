@@ -359,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Notifications` (
   `notification_id` BIGINT NOT NULL AUTO_INCREMENT,
   `user_id` BIGINT NOT NULL,
   `from_id` BIGINT NOT NULL,
-  `action` VARCHAR(20) NOT NULL,
+  `action` VARCHAR(30) NOT NULL,
   `post_id` BIGINT NOT NULL,
   `created_time` DATETIME NOT NULL,
   `seen` TINYINT(1) NOT NULL,

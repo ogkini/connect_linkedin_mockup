@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class SkillService {
     private ValidatePathService validatePathService;
 
     // Adds a skill for a user
+    @Transactional
     public Skill create(Long userId, SkillRequest skillRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -52,6 +54,7 @@ public class SkillService {
     }
 
     // Deletes a specific user skill
+    @Transactional
     public ResponseEntity<?> deleteById(Long skillId, UserDetailsImpl currentUser) {
         Skill skill = validatePathService.validatePathAndGetSkill(skillId);
 

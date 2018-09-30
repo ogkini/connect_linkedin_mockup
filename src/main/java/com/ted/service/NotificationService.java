@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import org.slf4j.Logger;
@@ -36,6 +37,7 @@ public class NotificationService {
     private PostRepository postRepository;
 
     // Creates a notification for a user
+    @Transactional
     public Notification create(Long userId, NotificationRequest notificationRequest) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
