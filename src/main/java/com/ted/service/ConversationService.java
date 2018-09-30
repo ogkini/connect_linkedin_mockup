@@ -16,6 +16,7 @@ import com.ted.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class ConversationService {
     private UserService userService;
 
     // A user initiates a conversation
+    @Transactional
     public Conversation create(Long userId, ConversationRequest conversationRequest) {
         User me = userService.getById(userId);
 
@@ -57,6 +59,7 @@ public class ConversationService {
     }
 
     // A user sends a message in a conversation
+    @Transactional
     public Message createMessage(Long userId, Long conversationId, MessageRequest messageRequest) {
         Conversation conversation = conversationRepository.findById(conversationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Conversation", "id", conversationId));

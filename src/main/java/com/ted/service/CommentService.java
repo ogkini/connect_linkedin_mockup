@@ -16,6 +16,7 @@ import com.ted.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Collections;
@@ -46,6 +47,7 @@ public class CommentService {
     private static final Logger logger = LoggerFactory.getLogger(CommentService.class);
 
     // A user comments on a post
+    @Transactional
     public Comment create(Long userId, Long postId, UserDetailsImpl currentUser, CommentRequest commentRequest) {
         User owner = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
@@ -76,6 +78,7 @@ public class CommentService {
     }
 
     // A user deletes a comment
+    @Transactional
     public ResponseEntity<?> deleteById(Long commentId, Long postId, Long userId, UserDetailsImpl currentUser) {
         Comment comment = validatePathService.validatePathAndGetComment(commentId, postId, userId);
 

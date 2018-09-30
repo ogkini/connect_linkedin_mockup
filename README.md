@@ -39,6 +39,8 @@ To run the frontend open another terminal and execute the following commands
 
 ```
 cd frontend
+npm install
+npm install @angular/cli@1.7.4
 npm install --save jwt-decode
 ng serve --open
 ```
