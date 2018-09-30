@@ -21,7 +21,14 @@ import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-ba
 
 import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
-import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services';
+import {
+  AlertService,
+  AuthenticationService,
+  ConnectionConfigService,
+  DataService,
+  OccupationService,
+  SkillService
+} from './_services';
 import { UserService, ExperienceService, EducationService, RelationshipService } from './_services';
 import { PostService, LikeService, CommentService, ConversationService } from './_services';
 import { FileUploaderService, UsersInteractionService } from './_services';
@@ -82,8 +89,10 @@ import {JobApplyService} from "./_services/job-apply.service";
     AlertService,
     AuthenticationService,
     UserService,
+    OccupationService,
     ExperienceService,
     EducationService,
+    SkillService,
     RelationshipService,
     PostService,
     LikeService,

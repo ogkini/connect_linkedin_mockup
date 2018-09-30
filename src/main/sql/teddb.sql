@@ -5,7 +5,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema teddb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `teddb` ;
+#DROP SCHEMA IF EXISTS `teddb` ;
 
 -- -----------------------------------------------------
 -- Schema teddb
@@ -24,7 +24,7 @@ FLUSH PRIVILEGES;
 -- -----------------------------------------------------
 -- Table `teddb`.`Roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Roles` ;
+#DROP TABLE IF EXISTS `teddb`.`Roles` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Roles` (
   `role_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -38,7 +38,7 @@ INSERT INTO Roles (name) VALUES ('ROLE_USER');
 -- -----------------------------------------------------
 -- Table `teddb`.`Users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Users` ;
+#DROP TABLE IF EXISTS `teddb`.`Users` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Users` (
   `user_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -63,7 +63,7 @@ VALUES ('admin', 'admin', 'admin@mail.com', '$2a$10$9kuCCkLnpqz2WFt2ycj7Nux3T5Ph
 -- -----------------------------------------------------
 -- Table `teddb`.`Occupation`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Occupation` ;
+#DROP TABLE IF EXISTS `teddb`.`Occupation` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Occupation` (
   `occupation_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -84,7 +84,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `teddb`.`Experience`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Experience` ;
+#DROP TABLE IF EXISTS `teddb`.`Experience` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Experience` (
   `experience_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -106,7 +106,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `teddb`.`Education`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Education` ;
+#DROP TABLE IF EXISTS `teddb`.`Education` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Education` (
   `education_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`Skills` (
   `skill_id` BIGINT NOT NULL AUTO_INCREMENT,
   `user_id` BIGINT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `strength` INT UNSIGNED NOT NULL,
+  `strength` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`skill_id`),
   INDEX `fk_Skills_1_idx` (`user_id` ASC),
   CONSTRAINT `fk_Skills_1`
@@ -148,7 +148,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `teddb`.`Relationships`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Relationships` ;
+#DROP TABLE IF EXISTS `teddb`.`Relationships` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Relationships` (
   `relationship_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -175,7 +175,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `teddb`.`Posts`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Posts` ;
+#DROP TABLE IF EXISTS `teddb`.`Posts` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Posts` (
   `post_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -195,7 +195,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `teddb`.`Likes`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Likes` ;
+#DROP TABLE IF EXISTS `teddb`.`Likes` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Likes` (
   `like_id` BIGINT NOT NULL AUTO_INCREMENT,
@@ -220,7 +220,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `teddb`.`Comments`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `teddb`.`Comments` ;
+#DROP TABLE IF EXISTS `teddb`.`Comments` ;
 
 CREATE TABLE IF NOT EXISTS `teddb`.`Comments` (
   `comment_id` BIGINT NOT NULL AUTO_INCREMENT,

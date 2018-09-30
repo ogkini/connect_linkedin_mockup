@@ -22,8 +22,10 @@ export class ConnectionConfigService {
   usersXMLdataEndpoint = this.usersEndpoint + '/getXMLdata';
 
   // These are just "endings", as between them and the "serverUrl" will be the userId.
+  occupationEndpoint = 'occupation';
   experienceEndpoint = 'experience';
   educationEndpoint = 'education';
+  skillEndpoint = 'skills';
   networkEndpoint = 'network';
   homeEndpoint = 'home';
   postsEndpoint = 'posts';

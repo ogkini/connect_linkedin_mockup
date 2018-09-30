@@ -14,10 +14,16 @@ import org.slf4j.LoggerFactory;
 public class ValidatePathService {
 
     @Autowired
+    private OccupationRepository occupationRepository;
+
+    @Autowired
     private ExperienceRepository experienceRepository;
 
     @Autowired
     private EducationRepository educationRepository;
+
+    @Autowired
+    private SkillRepository skillRepository;
 
     @Autowired
     private RelationshipRepository relationshipRepository;
@@ -33,6 +39,12 @@ public class ValidatePathService {
 
     private static final Logger logger = LoggerFactory.getLogger(ValidatePathService.class);
 
+    // Returns occupation if the path is valid
+    public Occupation validatePathAndGetOccupation(Long occupationId) {
+        return occupationRepository.findById(occupationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Occupation", "id", occupationId));
+    }
+
     // Returns an experience if the path is valid
     public Experience validatePathAndGetExperience(Long experienceId) {
         return experienceRepository.findById(experienceId)
@@ -43,6 +55,12 @@ public class ValidatePathService {
     public Education validatePathAndGetEducation(Long educationId) {
         return educationRepository.findById(educationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Education", "id", educationId));
+    }
+
+    // Returns a skill if the path is valid
+    public Skill validatePathAndGetSkill(Long skillId) {
+        return skillRepository.findById(skillId)
+                .orElseThrow(() -> new ResourceNotFoundException("Skill", "id", skillId));
     }
 
     // Returns a relationship if the path is valid

@@ -6,14 +6,15 @@ import { first } from "rxjs/operators";
 import {
   EducationService,
   ExperienceService,
+  SkillService,
   UserService,
   DateService,
   AlertService,
   ConnectionConfigService,
-  FileUploaderService, AuthenticationService
+  FileUploaderService, AuthenticationService, OccupationService
 } from "../../../_services";
 import { DatePeriodValidatorDirective } from "../../../_directives/validators/date-period-validator.directive";
-import { CreationResponse, Education, Experience, User } from "../../../_models";
+import {CreationResponse, Education, Experience, Occupation, Skill, User} from "../../../_models";
 
 @Component({
   selector: 'app-edit-profile',
@@ -25,8 +26,10 @@ export class UserInfoComponent implements OnInit {
   title: string = 'Personal Information';
   signedInUser: User;
   public userInPath: User;
+  addOccupationForm: FormGroup;
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
+  addSkillForm: FormGroup;
   submitted = false;
   isAdmin: boolean;
   errorMessage = 'An error occurred!';
@@ -53,8 +56,10 @@ export class UserInfoComponent implements OnInit {
   public constructor(
     private titleService: Title,
     private userService: UserService,
+    private occupationService: OccupationService,
     private experienceService: ExperienceService,
     private educationService: EducationService,
+    private skillService: SkillService,
     private alertService: AlertService,
     private formBuilder: FormBuilder,
     private connConfig: ConnectionConfigService,
@@ -80,8 +85,10 @@ export class UserInfoComponent implements OnInit {
 
   ngOnInit() {
     // Initialise form contents
+    this.addOccupationFormInit();
     this.addExperienceFormInit();
     this.addEducationFormInit();
+    this.addSkillFormInit();
   }
 
   private getUserById(id: number) {
@@ -94,6 +101,64 @@ export class UserInfoComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+
+  // Initiliases the form to add occupation
+  addOccupationFormInit() {
+    this.addOccupationForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      company: [''] // This is nt required, since someone might work by its own.
+    });
+  }
+
+  // Convenience getter for easy access to form fields
+  get getAddOccupationForm() { return this.addOccupationForm.controls; }
+
+  // Adds occupation
+  addOccupation() {
+    this.submitted = true;
+
+    // If form is invalid stop here
+    if (this.addOccupationForm.invalid) {
+      return;
+    }
+
+    // Create a new Occupation object
+    const newOccupation: Occupation = {
+      title: this.getAddOccupationForm.title.value,
+      company: this.getAddOccupationForm.company.value
+    } as Occupation;
+
+    // Submit the occupation to the server
+    this.occupationService.create(newOccupation, this.userInPath.id)
+      .pipe(first())
+      .subscribe((response: CreationResponse) => {
+          // Alert the user
+          this.alertService.success('Successfully added new occupation.');
+          this.submitted = false;
+
+          // Add Occupation
+          if (response.object) {
+            this.userInPath.occupation = response.object;
+          }
+        }, error => {
+          this.alertService.error(error.error.errorMessage);
+          console.log(error);
+        }
+      );
+  }
+
+  deleteOccupation(occupationId: number) {
+    this.occupationService.delete(occupationId, this.userInPath.id)
+      .pipe(first())
+      .subscribe(response => {
+          // Remove occupation
+          this.userInPath.occupation = { title: "", company: "" } as Occupation;  // Empty object.
+        }, error => {
+          this.alertService.error(error.error.errorMessage);
+        }
+      );
   }
 
   // Initiliases the form to add a new experience
@@ -230,6 +295,64 @@ export class UserInfoComponent implements OnInit {
       .subscribe(response => {
           // Remove the education from the array
           this.userInPath.education = this.userInPath.education.filter(item => item.id !== id);
+        }, error => {
+          this.alertService.error(error.error.errorMessage);
+        }
+      );
+  }
+
+
+  // Initiliases the form to add a new skill
+  addSkillFormInit() {
+    this.addSkillForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      strength: ['', Validators.required]
+    });
+  }
+
+  // Convenience getter for easy access to form fields
+  get getAddSkillForm() { return this.addSkillForm.controls; }
+
+  // Adds a new skill
+  addSkill() {
+    this.submitted = true;
+
+    // If form is invalid stop here
+    if (this.addSkillForm.invalid) {
+      return;
+    }
+
+    // Create a new Skill object
+    const newSkill: Skill = {
+      name: this.getAddSkillForm.name.value,
+      strength: this.getAddSkillForm.strength.value
+    } as Skill;
+
+    // Submit the skill to the server
+    this.skillService.create(newSkill, this.userInPath.id)
+      .pipe(first())
+      .subscribe((response: CreationResponse) => {
+          // Alert the user
+          this.alertService.success('Successfully added new skill.');
+          this.submitted = false;
+
+          // Add skill to the array
+          if (response.object) {
+            this.userInPath.skills.push(response.object);
+          }
+        }, error => {
+          this.alertService.error(error.error.errorMessage);
+          console.log(error);
+        }
+      );
+  }
+
+  deleteSkill(skillId: number) {
+    this.skillService.delete(skillId, this.userInPath.id)
+      .pipe(first())
+      .subscribe(response => {
+          // Remove the skill from the array
+          this.userInPath.skills = this.userInPath.skills.filter(item => item.id !== skillId);
         }, error => {
           this.alertService.error(error.error.errorMessage);
         }
