@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { User, Notification } from '../../../_models';
-import { NotificationService, UserService, ConnectionConfigService } from '../../../_services';
+import {NotificationService, UserService, ConnectionConfigService, AuthenticationService} from '../../../_services';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-notifications',
@@ -14,6 +15,7 @@ export class NotificationsComponent implements OnInit {
   title = 'Notifications';
   signedInUser: User;
   notifications: Notification[] = [];
+  userId: number;
 
   public profilePhotosEndpoint: string;
 
@@ -21,11 +23,16 @@ export class NotificationsComponent implements OnInit {
       private titleService: Title,
       private notificationService: NotificationService,
       private userService: UserService,
-      private connConfig: ConnectionConfigService
+      private connConfig: ConnectionConfigService,
+      private route: ActivatedRoute,
+      private authenticationService: AuthenticationService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
-
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
+    });
     this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
   }
 
