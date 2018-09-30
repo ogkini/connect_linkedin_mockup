@@ -6,6 +6,8 @@ export * from './skill';
 export * from './post';
 export * from './like';
 export * from './comment';
+export * from './jobOffer';
+export * from './jobApply';
 export * from './conversation';
 export * from './message';
 export * from './notification';
@@ -14,3 +16,4 @@ export * from './friendRequest';
 export * from './conversationRequest';
 export * from './network';
 export * from './response';
+

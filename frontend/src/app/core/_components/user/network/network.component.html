@@ -56,7 +56,7 @@
             <div class="product-info">
               <div class="product-text">
                 <h1>{{user.firstname}} {{user.lastname}}</h1>
-                <h2>Occupation</h2>
+                <h2>{{user?.occupation}}</h2>
                 <p>{{user.email}}</p>
               </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="product-info">
               <div class="product-text">
                 <h1>{{received?.sender?.firstname}} {{received?.sender?.lastname}}</h1>
-                <h2>Occupation</h2>
+                <h2>{{received?.sender.occupation}}</h2>
                 <p>{{received?.sender?.email}}</p>
               </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="product-info">
               <div class="product-text">
                 <h1>{{sent?.receiver?.firstname}} {{sent?.receiver?.lastname}}</h1>
-                <h2>Occupation</h2>
+                <h2>{{sent?.receiver?.occupation}}</h2>
                 <p>{{sent?.receiver?.email}}</p>
               </div>
             </div>
@@ -124,21 +124,15 @@
 
       <!-- User-Search Bar -->
       <div *ngIf="showSearchBar">
-        <div id="imaginary_container">
-          <div class="input-group stylish-input-group">
-            <form [formGroup]="searchForm" (ngSubmit)=onSearchSubmit()>
-              <input type="text" class="form-control" formControlName="searchTerm" placeholder="Search users" [ngClass]="{ 'is-invalid': submitted && form.searchTerm.errors }">
-              <span class="input-group-addon">
-                <button type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-              </span>
+        <div class="searchBar">
+          <form [formGroup]="searchForm" (ngSubmit)=onSearchSubmit()>
+            <input type="text" class="form-control" formControlName="searchTerm" placeholder="Search users" [ngClass]="{ 'is-invalid': submitted && form.searchTerm.errors }" autofocus>
+            <button class="btn btn-sm btn-primary" type="submit">Search users</button>
 
-              <!-- Alert component-->
-              <app-alert></app-alert>
+            <!-- Alert component-->
+            <app-alert></app-alert>
 
-            </form>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -154,7 +148,7 @@
               <div class="product-info">
                 <div class="product-text">
                   <h1>{{user.firstname}} {{user.lastname}}</h1>
-                  <h2>Occupation</h2>
+                  <h2>{{user?.occupation}}</h2>
                   <p>{{user.email}}</p>
                 </div>
               </div>

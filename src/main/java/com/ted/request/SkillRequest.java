@@ -10,7 +10,7 @@ public class SkillRequest {
     private String name;
 
     @NotBlank
-    private int strength;
+    private String strength;
 
     public String getName() {
         return name;
@@ -20,11 +20,11 @@ public class SkillRequest {
         this.name = name;
     }
 
-    public int getStrength() {
+    public String getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(String strength) {
         this.strength = strength;
     }
 

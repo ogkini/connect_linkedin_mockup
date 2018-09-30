@@ -62,4 +62,18 @@ public class OccupationController {
         return occupationService.get(userId);
     }
 
+    // Deletes a specific user occupation
+    @DeleteMapping("/users/{userId}/occupation/{occupationId}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<?> deleteById(@PathVariable(value = "userId") Long userId,
+                                        @PathVariable(value = "occupationId") Long occupationId,
+                                        @Valid @CurrentUser UserDetailsImpl currentUser) {
+        // Check if the logged in user is authorized to access the path
+        if ( currentUser.getId() != userId && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        return occupationService.deleteById(occupationId, currentUser);
+    }
+
 }

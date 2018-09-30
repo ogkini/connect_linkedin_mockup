@@ -22,7 +22,14 @@ import { UserNavBarComponent } from './_components/user/user-nav-bar/user-nav-ba
 
 import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
-import { AlertService, AuthenticationService, ConnectionConfigService, DataService } from './_services';
+import {
+  AlertService,
+  AuthenticationService,
+  ConnectionConfigService,
+  DataService,
+  OccupationService,
+  SkillService
+} from './_services';
 import { UserService, ExperienceService, EducationService, RelationshipService } from './_services';
 import { PostService, LikeService, CommentService, ConversationService, NotificationService } from './_services';
 import { FileUploaderService, UsersInteractionService } from './_services';
@@ -36,6 +43,9 @@ import { UserProfileComponent } from "./_components/user/user-profile/user-profi
 import { httpInterceptorProviders } from "./_interceptors";
 import { AboutComponent } from "./_components/about/about.component";
 import { ForbiddenComponent } from "./_components/navigation-error/forbidden/forbidden.component";
+import {JobOffersComponent} from "./_components/user/job-offers/job-offers.component";
+import {JobOfferService} from "./_services/job-offer.service";
+import {JobApplyService} from "./_services/job-apply.service";
 
 @NgModule({
   imports: [
@@ -65,6 +75,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     UserInfoComponent,
     UserSettingsComponent,
     UserProfileComponent,
+    JobOffersComponent,
     PasswordConfirmValidatorDirective,
     TextValidatorDirective,
     DatePeriodValidatorDirective,
@@ -80,12 +91,16 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
     AlertService,
     AuthenticationService,
     UserService,
+    OccupationService,
     ExperienceService,
     EducationService,
+    SkillService,
     RelationshipService,
     PostService,
     LikeService,
     CommentService,
+    JobOfferService,
+    JobApplyService,
     ConversationService,
     ConnectionConfigService,
     NotificationService,

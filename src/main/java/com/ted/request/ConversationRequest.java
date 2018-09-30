@@ -7,6 +7,12 @@ public class ConversationRequest {
     @NotNull
     private Long receiver;
 
+    public ConversationRequest() {}
+
+    public ConversationRequest(Long receiver) {
+        this.receiver = receiver;
+    }
+
     public Long getReceiver() {
         return receiver;
     }

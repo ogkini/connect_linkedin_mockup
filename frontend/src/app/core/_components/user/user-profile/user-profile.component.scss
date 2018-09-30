@@ -76,12 +76,12 @@ body {
   border-radius: 0 4px 4px 0;
 
   .stat {
-    padding: 15px 15px;
+    padding: 50px 9px;
     height: 50%;
   }
 
   .first-stat {
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: calc(50% * 198px) solid #FFFFFF;
   }
 
   .stat-value {
@@ -94,6 +94,7 @@ body {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 12px;
+    margin-right: 4px;
   }
 }
 

@@ -12,8 +12,8 @@
     <div class="product-info">
       <div class="product-text">
         <h1>{{user?.firstname}} {{user?.lastname}}</h1>
-        <h2>{{user?.occupation?.title}} TTT</h2>
-        <h2>{{user?.occupation?.company}} CCC</h2>
+        <h2>{{user?.occupation?.title}}</h2>
+        <h2>{{user?.occupation?.company}}</h2>
       </div>
       <div *ngIf="signedInUser.id != user?.id">  <!--Show these buttons only if this profile belongs to a different user.-->
         <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
@@ -24,13 +24,8 @@
 
     <div class="stats text-center bg-primary">
       <div class="stat first-stat">
-        <div class="stat-value">150</div>
-        <div class="stat-name">Followers</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-value">90</div>
-        <div class="stat-name">Following</div>
+        <div class="stat-value">{{network?.connections?.length}}</div>
+        <div class="stat-name">Connections</div>
       </div>
     </div>
   </div>

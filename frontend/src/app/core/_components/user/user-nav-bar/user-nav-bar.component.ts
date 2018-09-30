@@ -24,7 +24,7 @@ export class UserNavBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataService.currentMessage.subscribe(message => this.message = message.split("-", 2));
+    this.dataService.currentMessage.subscribe(message => this.message = message.split("-", 3));
   }
 
   logout() {

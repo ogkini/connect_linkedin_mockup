@@ -73,7 +73,8 @@ export class HomeUserComponent implements OnInit {
     this.userService.getById(id).subscribe(
       user => {
         this.user = user;
-        this.dataService.changeMessage(`${this.user.newFriendRequests}-${this.user.newNotifications}`);
+        var mess = `${this.user.newFriendRequests}-${this.user.newMessages}-${this.user.newNotifications}`;
+        this.dataService.changeMessage(mess);
       }, error => {
         console.log(error);
       }

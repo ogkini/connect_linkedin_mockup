@@ -63,4 +63,18 @@ public class SkillController {
         return skillService.getAll(userId);
     }
 
+    // Deletes a specific user skill
+    @DeleteMapping("/users/{userId}/skills/{skillId}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<?> deleteById(@PathVariable(value = "userId") Long userId,
+                                        @PathVariable(value = "skillId") Long skillId,
+                                        @Valid @CurrentUser UserDetailsImpl currentUser) {
+        // Check if the logged in user is authorized to access the path
+        if ( currentUser.getId() != userId && !currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")) ) {
+            throw new NotAuthorizedException("You are not authorized to access this resource.");
+        }
+
+        return skillService.deleteById(skillId, currentUser);
+    }
+
 }

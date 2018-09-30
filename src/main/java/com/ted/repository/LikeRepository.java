@@ -19,7 +19,7 @@ public interface LikeRepository extends JpaRepository<Like, Long> {
 
     // Returns a specific like of specific post of a specific user
     @Query("select l from Like l where l.id = :likeId and l.post.id = :postId and l.post.owner.id = :userId")
-    Optional<Like> findByIdAndAndPostIdAndUserId(@Param("likeId") Long likeId,
-            @Param("postId") Long postId, @Param("userId") Long userId);
+    Optional<Like> findByIdAndPostIdAndUserId(@Param("likeId") Long likeId,
+                                              @Param("postId") Long postId, @Param("userId") Long userId);
 
 }

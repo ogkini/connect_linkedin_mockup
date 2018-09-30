@@ -1,11 +1,9 @@
 package com.ted.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Skills", schema = "teddb")
@@ -25,11 +23,11 @@ public class Skill {
     private String name;
 
     @Column(name = "strength")
-    private int strength;
+    private String strength;
 
     public Skill () {}
 
-    public Skill(String name, int strength) {
+    public Skill(String name, String strength) {
         this.name = name;
         this.strength = strength;
     }
@@ -58,11 +56,11 @@ public class Skill {
         this.name = name;
     }
 
-    public int getStrength() {
+    public String getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(String strength) {
         this.strength = strength;
     }
 

@@ -17,6 +17,8 @@ import { UserInfoComponent } from "./_components/user/user-info/user-info.compon
 import { UserSettingsComponent } from "./_components/user/user-settings/user-settings.component";
 import { UserProfileComponent } from "./_components/user/user-profile/user-profile.component";
 import { ForbiddenComponent } from "./_components/navigation-error/forbidden/forbidden.component";
+import {JobOffersComponent} from "./_components/user/job-offers/job-offers.component";
+
 
 const routes: Routes = [
   {
@@ -46,7 +48,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component:  HomeUserComponent },
       { path: 'network', component:  NetworkComponent },
-      //{ path: 'job-offers', component:  JobOffersComponent },
+      { path: 'job-offers', component:  JobOffersComponent },
       { path: 'messages', component:  MessagesComponent },
       { path: 'notifications', component:  NotificationsComponent },
       { path: 'info', component:  UserInfoComponent },

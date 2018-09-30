@@ -9,7 +9,6 @@ public class OccupationRequest {
     @Size(max = 80)
     private String title;
 
-    @NotBlank
     @Size(max = 45)
     private String company;
 
