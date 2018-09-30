@@ -24,7 +24,7 @@ import java.util.Objects;
 })
 @JsonPropertyOrder(
     {"id", "firstname", "lastname", "email", "picture", "occupation", "experiences", "educations", "skills",
-            "relationships", "posts", "likes", "comments"}
+            "relationships", "posts", "likes", "comments", "jobOffers", "jobApplies"}
 )
 @JacksonXmlRootElement(localName = "user")
 public class User {
@@ -103,6 +103,18 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private List<Comment> comments = new ArrayList<>();
+
+    @JacksonXmlElementWrapper(localName = "job_offers")
+    @JsonIgnoreProperties("owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<JobOffer> jobOffers = new ArrayList<>();
+
+    @JacksonXmlElementWrapper(localName = "job_applies")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private List<JobApply> jobApplies = new ArrayList<>();
 
     @Transient
     private int newFriendRequests;
@@ -243,6 +255,18 @@ public class User {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+    public List<JobOffer> getJobOffers() {
+        return jobOffers;
+    }
+
+    public void setJobOffers(List<JobOffer> jobOffers) { this.jobOffers = jobOffers; }
+
+    public List<JobApply> getJobApplies() {
+        return jobApplies;
+    }
+
+    public void setJobApplies(List<JobApply> jobApplies) { this.jobApplies = jobApplies; }
 
     public int getNewFriendRequests() {
         return newFriendRequests;

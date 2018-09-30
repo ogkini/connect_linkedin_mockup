@@ -19,7 +19,7 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     // Returns a specific comment of specific post of a specific user
     @Query("select c from Comment c where c.id = :commentId and c.post.id = :postId and c.post.owner.id = :userId")
-    Optional<Comment> findByIdAndAndPostIdAndUserId(@Param("commentId") Long commentId,
-            @Param("postId") Long postId, @Param("userId") Long userId);
+    Optional<Comment> findByIdAndPostIdAndUserId(@Param("commentId") Long commentId,
+                                                 @Param("postId") Long postId, @Param("userId") Long userId);
 
 }

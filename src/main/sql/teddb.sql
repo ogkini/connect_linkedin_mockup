@@ -261,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`JobOffers` (
   REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-  ENGINE = InnoDB;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `teddb`.`JobApplies` (
   REFERENCES `teddb`.`Users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-  ENGINE = InnoDB;
+ENGINE = InnoDB;
 
 
 

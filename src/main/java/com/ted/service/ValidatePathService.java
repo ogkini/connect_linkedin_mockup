@@ -1,15 +1,7 @@
 package com.ted.service;
 
-import com.ted.model.Experience;
-import com.ted.model.Education;
-import com.ted.model.Relationship;
-import com.ted.model.Like;
-import com.ted.model.Comment;
-import com.ted.repository.ExperienceRepository;
-import com.ted.repository.EducationRepository;
-import com.ted.repository.RelationshipRepository;
-import com.ted.repository.LikeRepository;
-import com.ted.repository.CommentRepository;
+import com.ted.model.*;
+import com.ted.repository.*;
 import com.ted.exception.ResourceNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +28,9 @@ public class ValidatePathService {
     @Autowired
     private CommentRepository commentRepository;
 
+    @Autowired
+    private JobApplyRepository jobApplyRepository;
+
     private static final Logger logger = LoggerFactory.getLogger(ValidatePathService.class);
 
     // Returns an experience if the path is valid
@@ -58,14 +53,20 @@ public class ValidatePathService {
 
     // Returns a like if the path is valid
     public Like validatePathAndGetLike(Long likeId, Long postId, Long userId) {
-        return likeRepository.findByIdAndAndPostIdAndUserId(likeId, postId, userId)
+        return likeRepository.findByIdAndPostIdAndUserId(likeId, postId, userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Like", "id", likeId));
     }
 
     // Returns a comment if the path is valid
     public Comment validatePathAndGetComment(Long commentId, Long postId, Long userId) {
-        return commentRepository.findByIdAndAndPostIdAndUserId(commentId, postId, userId)
+        return commentRepository.findByIdAndPostIdAndUserId(commentId, postId, userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment", "id", commentId));
+    }
+
+    // Returns a jobApply if the path is valid
+    public JobApply validatePathAndGetJobApply(Long jobApplyId, Long jobOfferId, Long userId) {
+        return jobApplyRepository.findByIdAndJobOfferIdAndUserId(jobApplyId, jobOfferId, userId)
+                .orElseThrow(() -> new ResourceNotFoundException("JobApply", "id", jobApplyId));
     }
 
 }
