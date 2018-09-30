@@ -81,7 +81,7 @@ body {
   }
 
   .first-stat {
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: calc(50% * 198px) solid #FFFFFF; // We want it to cover half of the stats space (doesn't work for now)
   }
 
   .stat-value {

@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { EducationService, ExperienceService, UserService, RelationshipService, UsersInteractionService } from "../../../_services";
 import { AlertService, ConnectionConfigService } from "../../../_services";
-import { User } from "../../../_models";
+import {Network, User} from "../../../_models";
 
 @Component({
   selector: 'app-user-profile',
@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
   userId: number;
   profilePhotosEndpoint: string;
   user: User;
+  network: Network;
   signedInUser: User;
   disabledButton = false;
 
@@ -34,6 +35,7 @@ export class UserProfileComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
       // Here we don't forbid access to other users!
+      this.getNetwork(this.userId);
       this.getUserById(this.userId);
     });
   }
@@ -56,6 +58,10 @@ export class UserProfileComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  private getNetwork(userId: number) {
+    this.relationshipService.getAll(userId).subscribe(network => { this.network = network; });
   }
 
   sendFriendRequest() {
