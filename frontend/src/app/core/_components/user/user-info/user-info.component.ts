@@ -266,7 +266,7 @@ export class UserInfoComponent implements OnInit {
 
   reloadPage() {
     this.alertService.clear();
-    window.history.go(0)  // 0 => go to the same page (current).
+    window.history.go(0);  // 0 => go to the same page (current).
   }
 
 }

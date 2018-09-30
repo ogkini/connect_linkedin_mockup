@@ -11,8 +11,10 @@ import com.ted.repository.RoleRepository;
 import com.ted.repository.UserRepository;
 import com.ted.request.SignInRequest;
 import com.ted.request.SignUpRequest;
+import com.ted.request.UpdateRequest;
 import com.ted.response.ApiResponse;
 import com.ted.response.SignInResponse;
+import com.ted.response.UpdateResponse;
 import com.ted.security.CurrentUser;
 import com.ted.security.JwtTokenProvider;
 import com.ted.security.UserDetailsImpl;
@@ -206,6 +208,31 @@ public class UserController {
                 user.getRole().getName().name()
             )
         );
+    }
+
+
+    @PutMapping("/users/{userId}")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<?> updateUserInfo(@PathVariable(value = "userId") Long userId,
+                                            @Valid @RequestBody UpdateRequest updateRequest) {
+
+        User user = updateRequest.asUser();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));   // Encrypt the password
+
+        //logger.debug(user.basicInfoToString());
+
+        int affectedRows = this.userService.updateUserData(user);
+        if ( affectedRows == 1 ) {
+            logger.debug("User info was updated for user with id: " + userId);
+            return ResponseEntity.ok(
+                    new UpdateResponse(updateRequest.asUser())
+            );
+        }
+        else {
+            logger.warn("No user was found in DataBase having userId: " + userId);
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
 }

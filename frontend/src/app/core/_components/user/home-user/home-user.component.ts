@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { first } from "rxjs/operators";
 
 import { User, Post, Like, Comment, CreationResponse } from '../../../_models';
-import { PostService, LikeService, CommentService } from '../../../_services';
+import {PostService, LikeService, CommentService, UserService} from '../../../_services';
 import { ConnectionConfigService, AuthenticationService } from '../../../_services';
 import { ActivatedRoute } from "@angular/router";
 
@@ -29,6 +29,7 @@ export class HomeUserComponent implements OnInit {
 
   public constructor(
       private titleService: Title,
+      private userService: UserService,
       private postService: PostService,
       private likeService: LikeService,
       private commentService: CommentService,
@@ -47,6 +48,8 @@ export class HomeUserComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.reloadAfterAccountDataChanged();
+
     this.getHomePosts(this.signedInUser.id);
 
     // Initialise form contents
@@ -173,6 +176,16 @@ export class HomeUserComponent implements OnInit {
 
   showCommentsToggle() {
     this.showComments = !this.showComments;
+  }
+
+  /**
+   * This method reloads the "user-home"-Page, when the account data has changed, so that the new user-data will be displayed.
+   * */
+  reloadAfterAccountDataChanged() {
+    if ( this.userService.getIsChangedAccountData() ) {
+      this.userService.setIsChangedAccountData(false);
+      window.history.go(0); // 0 => go to the same page (current).
+    }
   }
 
 }

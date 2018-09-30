@@ -113,4 +113,7 @@ public class UserService {
         return userRepository.getByIdCustom(userId);
     }
 
+    public int updateUserData(User user) {
+        return userRepository.updateUserData(user.getId(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getPassword(), user.getPicture());
+    }
 }

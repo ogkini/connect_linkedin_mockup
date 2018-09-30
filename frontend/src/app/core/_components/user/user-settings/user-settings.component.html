@@ -5,13 +5,14 @@
   <hr>
   <div class="col-md personal-info" align="center">
 
-    <form class="form-horizontal" role="form" [formGroup]="updateForm" (ngSubmit)=onSubmit()>
+    <form class="form-horizontal" [formGroup]="updateForm" (ngSubmit)=onSubmit()>
+
       <div class="form-group">
         <div class="text" align="left">
-          <label class="col-lg-3 control-label">First name:</label>
+          <label class="col-lg-3 control-label">First name: {{user.firstname}}</label>
         </div>
         <div class="col-lg-8">
-          <input class="form-control" formControlName="firstname" value="{{user.firstname}}" type="text" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && form.firstname.errors }">
+          <input class="form-control" formControlName="firstname" type="text" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && form.firstname.errors }">
           <div *ngIf="submitted && form.firstname.errors" class="invalid-feedback">
             <div *ngIf="form.firstname.errors.required">First name is required.</div>
             <div *ngIf="form.firstname.errors.minLength || form.firstname.errors.maxLength">Text should be between {{minTextLength}} and {{maxTextLength}} characters.</div>
@@ -21,10 +22,10 @@
       </div>
       <div class="form-group">
         <div class="text" align="left">
-          <label class="col-lg-3 control-label">Last name:</label>
+          <label class="col-lg-3 control-label">Last name: {{user.lastname}}</label>
         </div>
         <div class="col-lg-8">
-          <input class="form-control" formControlName="lastname" value="{{user.lastname}}" type="text" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && form.lastname.errors }">
+          <input class="form-control" formControlName="lastname" type="text" ngModel #text_val="text_val" text_val [ngClass]="{ 'is-invalid': submitted && form.lastname.errors }">
           <div *ngIf="submitted && form.lastname.errors" class="invalid-feedback">
             <div *ngIf="form.lastname.errors.required">Last name is required.</div>
             <div *ngIf="form.lastname.errors.minLength || form.lastname.errors.maxLength">Text should be between {{minTextLength}} and {{maxTextLength}} characters.</div>
@@ -34,10 +35,10 @@
       </div>
       <div class="form-group">
         <div class="text" align="left">
-          <label class="col-lg-3 control-label">Email:</label>
+          <label class="col-lg-3 control-label">Email: {{user.email}}</label>
         </div>
         <div class="col-lg-8">
-          <input class="form-control" formControlName="email" value="{{user.email}}" type="email">
+          <input class="form-control" formControlName="email" type="email">
           <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
             <div *ngIf="form.email.errors.required">Email is required.</div>
             <div *ngIf="form.email.errors.email">Email is invalid.</div>
@@ -68,13 +69,14 @@
           </div>
         </div>
       </div>
-    </form>
-    <div class="col-md-8">
-      <div class="button-group">
-        <button class="btn btn-primary" type="submit">Save form changes</button>
-        <button class="btn btn-warning" type="reset">Discard changes</button>
+
+      <div class="col-md-8">
+        <div class="button-group">
+          <button class="btn btn-primary" type="submit">Submit changes</button>
+          <button class="btn btn-warning" type="reset">Discard changes</button>
+        </div>
       </div>
-    </div>
+    </form>
 
   </div>
 
