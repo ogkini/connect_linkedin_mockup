@@ -155,7 +155,7 @@ export class UserInfoComponent implements OnInit {
       .pipe(first())
       .subscribe(response => {
           // Remove occupation
-          this.userInPath.occupation = { title: "", company: "" } as Occupation;  // Empty object.
+          this.userInPath.occupation = null;  // Make it "null-undefined" instead of "empty", as the Angular checks for "undefined", inside the HTML.
         }, error => {
           this.alertService.error(error.error.errorMessage);
         }
