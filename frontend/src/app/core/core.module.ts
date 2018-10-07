@@ -46,6 +46,7 @@ import { ForbiddenComponent } from "./_components/navigation-error/forbidden/for
 import {JobOffersComponent} from "./_components/user/job-offers/job-offers.component";
 import {JobOfferService} from "./_services/job-offer.service";
 import {JobApplyService} from "./_services/job-apply.service";
+import {ValidatorService} from "./_services/validator.service";
 
 @NgModule({
   imports: [
@@ -108,6 +109,7 @@ import {JobApplyService} from "./_services/job-apply.service";
     FileUploaderService,
     DateService,
     UsersInteractionService,
+    ValidatorService,
     httpInterceptorProviders
   ],
   schemas: [ NO_ERRORS_SCHEMA ]

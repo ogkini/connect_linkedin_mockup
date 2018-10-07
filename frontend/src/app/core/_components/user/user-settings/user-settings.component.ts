@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from "@angular/platform-browser";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { first } from "rxjs/operators";
 
 import { User } from "../../../_models";
-import { AlertService, ConnectionConfigService, UserService, AuthenticationService } from "../../../_services";
-import { TextValidatorDirective } from "../../../_directives/validators/text_validator.directive";
-import { PasswordConfirmValidatorDirective } from "../../../_directives/validators/password-confirm-validator.directive";
+import { AlertService, ConnectionConfigService, UserService, AuthenticationService, ValidatorService } from "../../../_services";
 
 @Component({
   selector: 'app-user-settings',
@@ -32,7 +30,8 @@ export class UserSettingsComponent implements OnInit {
       private connConfig: ConnectionConfigService,
       private route: ActivatedRoute,
       private router: Router,
-      private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService,
+      private formService: ValidatorService
   ) {
     this.titleService.setTitle(this.title);
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -43,19 +42,13 @@ export class UserSettingsComponent implements OnInit {
     });
 
     this.updateForm = this.formBuilder.group({
-      firstname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
-      lastname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
-      email: ['', [Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
-      password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]],
-      confirmNewPassword: ['', [PasswordConfirmValidatorDirective.validatePasswordConfirmation]]
+      firstname: ['', this.formService.getFirstnameValidatorsArray()],
+      lastname: ['', this.formService.getLastnameValidatorsArray()],
+      email: ['', this.formService.getEmailValidatorsArray()],
+      password: ['', this.formService.getPasswordValidatorsArray()],
+      confirmNewPassword: ['', this.formService.getConfirmPasswordValidatorsArray()]
     });
   }
-
-  minTextLength = 2;
-  maxTextLength = 45;
-  maxEmailLength = 65;
-  minPasswordLength = 6;
-  maxPasswordLength = 100;
 
   ngOnInit() {
   }

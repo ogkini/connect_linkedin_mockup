@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { User } from '../../_models';
-import {AlertService, AuthenticationService, UserService, FileUploaderService} from '../../_services';
-import { PasswordConfirmValidatorDirective } from '../../_directives/validators/password-confirm-validator.directive';
-import { TextValidatorDirective } from "../../_directives/validators/text_validator.directive";
+import {AlertService, AuthenticationService, UserService, FileUploaderService, ValidatorService} from '../../_services';
 
 
 @Component({
@@ -31,25 +29,20 @@ export class SignUpComponent implements OnInit {
       private titleService: Title,
       private formBuilder: FormBuilder,
       private authenticationService: AuthenticationService,
-      private fileUploader: FileUploaderService
+      private fileUploader: FileUploaderService,
+      private formService: ValidatorService
   ) {
     this.titleService.setTitle(this.title);
   }
 
-  minTextLength = 2;
-  maxTextLength = 45;
-  maxEmailLength = 65;
-  minPasswordLength = 6;
-  maxPasswordLength = 100;
-  // Todo - make a form-service, which will provide the arrays of the validators for each form-field.
   ngOnInit() {
     // Use FormBuilder to create a form group
     this.signUpForm = this.formBuilder.group({
-      firstname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
-      lastname: ['', [Validators.required, TextValidatorDirective.validateCharacters, Validators.minLength(this.minTextLength), Validators.maxLength(this.maxTextLength)]],
-      email: ['', [Validators.required, Validators.email, Validators.maxLength(this.maxEmailLength)]],
-      password: ['', [Validators.required, Validators.minLength(this.minPasswordLength), Validators.maxLength(this.maxPasswordLength)]],
-      confirmPassword: ['', [PasswordConfirmValidatorDirective.validatePasswordConfirmation]]
+      firstname: ['', this.formService.getFirstnameValidatorsArray()],
+      lastname: ['', this.formService.getLastnameValidatorsArray()],
+      email: ['', this.formService.getEmailValidatorsArray()],
+      password: ['', this.formService.getPasswordValidatorsArray()],
+      confirmPassword: ['', this.formService.getConfirmPasswordValidatorsArray()]
     });
   }
 
