@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Add authorization-check in &quot;Notifications&quot;.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/validator.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/sign-up/sign-up.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/messages/messages.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/notifications/notifications.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/notifications/notifications.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/user/user-settings/user-settings.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/date.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/date.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/sql/teddb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/teddb.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -169,7 +165,7 @@
           <entry key="sh" value="197" />
           <entry key="sql" value="223" />
           <entry key="ts" value="21127" />
-          <entry key="txt" value="10073" />
+          <entry key="txt" value="10179" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -182,7 +178,7 @@
           <entry key="JSON" value="43" />
           <entry key="JavaScript" value="22" />
           <entry key="Markdown" value="674" />
-          <entry key="PLAIN_TEXT" value="10247" />
+          <entry key="PLAIN_TEXT" value="10353" />
           <entry key="Properties" value="188" />
           <entry key="SCSS" value="320" />
           <entry key="SQL" value="223" />
@@ -267,8 +263,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="306">
+              <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -1104,7 +1100,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538927147841" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538927279362" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1340,21 +1336,7 @@
       <workItem from="1538489686671" duration="626000" />
       <workItem from="1538554016386" duration="330000" />
       <workItem from="1538584057723" duration="31000" />
-      <workItem from="1538902779970" duration="7286000" />
-    </task>
-    <task id="LOCAL-00031" summary="Fix a bug, which was causing the file-picker to open two-successive-times in &quot;Google Chrome&quot;.">
-      <created>1537743788891</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1537743788891</updated>
-    </task>
-    <task id="LOCAL-00032" summary="New feature: now go directly to homePage after SignUp.">
-      <created>1537751655252</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1537751655252</updated>
+      <workItem from="1538902779970" duration="7544000" />
     </task>
     <task id="LOCAL-00033" summary="- New features: Add &quot;user-settings&quot; and transfer info-editing into the new &quot;user-info&quot;.&#10;- Update &quot;userNavBar&quot;.">
       <created>1537757322748</created>
@@ -1685,11 +1667,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538346765611</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Fix &quot;Occupation-delete-icon&quot; still appearing after occupation-deletion.">
+      <created>1538927275487</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1538927275487</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Add &quot;ValidatorService&quot;.">
+      <created>1538927394158</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1538927394158</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="660109000" />
+    <option name="totallyTimeSpent" value="660367000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1819,8 +1815,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="The Admin can now extract some users-data to XML." />
-    <MESSAGE value="- Fix bug: &quot;Could not write JSON: Infinite recursion (StackOverFlow)&quot;&#10;- Resolve DataBase-conflicts." />
     <MESSAGE value="Enable profile_pictures in posts and comments." />
     <MESSAGE value="- Add authorization-check in &quot;user-home&quot;.&#10;- Add test code for admin-id-pages-guard in &quot;core-routing&quot;." />
     <MESSAGE value="- XML-extraction works for all users (except from authorization).&#10;- Update &quot;AppInstaller.sh&quot; to guard against angular-version-change.&#10;- Code cleanup." />
@@ -1844,7 +1838,9 @@
     <MESSAGE value="- Add new &quot;keytool&quot; commands for certificate generation.&#10;- Add &quot;keystore.p12&quot; &amp; &quot;tedCertificate.crt&quot;." />
     <MESSAGE value="- Update &quot;EnsureHttpsInterceptor&quot;.&#10;- Update HTTPS-settings in &quot;application.properties&quot;." />
     <MESSAGE value="Add authorization-check in &quot;Notifications&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add authorization-check in &quot;Notifications&quot;." />
+    <MESSAGE value="Fix &quot;Occupation-delete-icon&quot; still appearing after occupation-deletion." />
+    <MESSAGE value="Add &quot;ValidatorService&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add &quot;ValidatorService&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2228,8 +2224,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/core/_components/user/user-info/user-info.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="306">
+          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>

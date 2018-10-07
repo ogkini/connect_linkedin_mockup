@@ -25,7 +25,6 @@ export class UserInfoComponent implements OnInit {
 
   title: string = 'Personal Information';
   signedInUser: User;
-  public userInPath: User;
   addOccupationForm: FormGroup;
   addExperienceForm: FormGroup;
   addEducationForm: FormGroup;
@@ -35,23 +34,10 @@ export class UserInfoComponent implements OnInit {
   errorMessage = 'An error occurred!';
 
   public profilePhotosEndpoint: string;
+  public userInPath: User;
   public userId: number;
-
-  years: { id: number, name: string }[] = [];
-  months = [
-    {'id': 1, 'name': 'JAN'},
-    {'id': 2, 'name': 'FEB'},
-    {'id': 3, 'name': 'MAR'},
-    {'id': 4, 'name': 'APR'},
-    {'id': 5, 'name': 'MAY'},
-    {'id': 6, 'name': 'JUN'},
-    {'id': 7, 'name': 'JUL'},
-    {'id': 8, 'name': 'AUG'},
-    {'id': 9, 'name': 'SEP'},
-    {'id': 10, 'name': 'OCT'},
-    {'id': 11, 'name': 'NOV'},
-    {'id': 12, 'name': 'DEC'}
-  ];
+  public months: any;
+  public years: any;
 
   public constructor(
     private titleService: Title,
@@ -65,23 +51,19 @@ export class UserInfoComponent implements OnInit {
     private connConfig: ConnectionConfigService,
     private route: ActivatedRoute,
     private fileUploader: FileUploaderService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private dateService: DateService
   ) {
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     this.titleService.setTitle(this.title);
-
     this.route.params.subscribe(params => {
       this.userId = +params['id'];
       this.authenticationService.forbidUnauthorizedAccess(this.signedInUser, this.userId);
       this.getUserById(this.userId);
     });
-
     this.isAdmin = (this.signedInUser.email == 'admin@mail.com');
-
-    // Occupy years array
-    for (let i: number = 2018; i >= 1950; i--) {
-      this.years.push({'id': i, 'name': i.toString()});
-    }
+    this.months = dateService.months;
+    this.years = dateService.years;
   }
 
   ngOnInit() {
@@ -103,7 +85,6 @@ export class UserInfoComponent implements OnInit {
       }
     );
   }
-
 
   // Initiliases the form to add occupation
   addOccupationFormInit() {
@@ -364,7 +345,6 @@ export class UserInfoComponent implements OnInit {
     this.alertService.clear();
   }
 
-
   onImageChange($event)
   {
     if ( this.fileUploader.onImageChange($event) )  // If the file gets accepted.
@@ -390,7 +370,7 @@ export class UserInfoComponent implements OnInit {
 
   reloadPage() {
     this.alertService.clear();
-    window.history.go(0);  // 0 => go to the same page (current).
+    window.history.go(0);  // 0 => go to the same page (the current one).
   }
 
 }

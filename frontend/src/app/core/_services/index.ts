@@ -16,5 +16,6 @@ export * from './notification.service';
 export * from './connection-config.service';
 export * from './data.service';
 export * from './date.service';
+export * from './validator.service';
 export * from './file-uploader/file-uploader.service';
 export * from './users-interaction/users-interaction.service';
