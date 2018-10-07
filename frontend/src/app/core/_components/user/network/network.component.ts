@@ -90,19 +90,6 @@ export class NetworkComponent implements OnInit {
     this.relationshipService.getAll(userId).subscribe(network => { this.network = network; });
   }
 
-  // Declines a friend request
-  decline(id: number) {
-    this.relationshipService.decline(id)
-      .pipe(first())
-      .subscribe(response => {
-          // Remove the request from the array
-          this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
-        }, error => {
-          this.alertService.error(error.error.message);
-        }
-      );
-  }
-
   // Accepts a friend request
   accept(id: number) {
     this.relationshipService.accept(id)
@@ -111,6 +98,19 @@ export class NetworkComponent implements OnInit {
           // Move the request from the requests array to the connections
           let newConnection = this.network.receivedRequests.find(item => item.id === id);
           this.network.connections.push(newConnection.sender);
+          this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
+        }, error => {
+          this.alertService.error(error.error.message);
+        }
+      );
+  }
+
+  // Declines a friend request
+  decline(id: number) {
+    this.relationshipService.decline(id)
+      .pipe(first())
+      .subscribe(response => {
+          // Remove the request from the array
           this.network.receivedRequests = this.network.receivedRequests.filter(item => item.id !== id);
         }, error => {
           this.alertService.error(error.error.message);

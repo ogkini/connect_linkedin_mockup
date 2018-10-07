@@ -143,13 +143,18 @@
 
             <div class="wrapper border">
               <div class="product-img">
-                <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
+                <img src="http:{{profilePhotosEndpoint}}/{{user?.id}}/photos" height="118" width="120" alt="profile_photo">
               </div>
               <div class="product-info">
                 <div class="product-text">
-                  <h1>{{user.firstname}} {{user.lastname}}</h1>
-                  <h2>{{user?.occupation}}</h2>
-                  <p>{{user.email}}</p>
+                  <h1>{{user?.firstname}} {{user?.lastname}}</h1>
+                    <p style="font-size:25px">
+                      {{user?.occupation?.title}}
+                      <ng-container *ngIf="user?.occupation?.company != undefined && user?.occupation?.company != ''">  <!--Company is optional-->
+                        at {{user?.occupation?.company}}
+                      </ng-container>
+                    </p>
+                  <p>{{user?.email}}</p>
                 </div>
               </div>
 

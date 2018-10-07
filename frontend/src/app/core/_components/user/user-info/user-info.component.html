@@ -59,14 +59,12 @@
         <ng-container *ngIf="userInPath?.occupation != undefined">
           <div class="row">
             <div class="col">
-              <h2>
-                <div >
-                  {{userInPath?.occupation?.title}}
-                </div>
-                <ng-container *ngIf="userInPath?.occupation?.company != ''">  <!--Company is optional-->
-                  at {{userInPath?.occupation?.company}}
+              <p style="font-size:25px">
+                {{user?.occupation?.title}}
+                <ng-container *ngIf="user?.occupation?.company != undefined && user?.occupation?.company != ''">  <!--Company is optional-->
+                  at {{user?.occupation?.company}}
                 </ng-container>
-              </h2>
+              </p>
             </div>
 
             <div class="col">

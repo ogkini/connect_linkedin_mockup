@@ -12,8 +12,12 @@
     <div class="product-info">
       <div class="product-text">
         <h1>{{user?.firstname}} {{user?.lastname}}</h1>
-        <h2>{{user?.occupation?.title}}</h2>
-        <h2>{{user?.occupation?.company}}</h2>
+        <p style="font-size:25px">
+          {{user?.occupation?.title}}
+          <ng-container *ngIf="user?.occupation?.company != undefined && user?.occupation?.company != ''">  <!--Company is optional-->
+            at {{user?.occupation?.company}}
+          </ng-container>
+        </p>
       </div>
       <div *ngIf="signedInUser.id != user?.id">  <!--Show these buttons only if this profile belongs to a different user.-->
         <button type="button" [disabled]="disabledButton" class="btn btn-primary" (click)="sendFriendRequest()">Connect</button>
