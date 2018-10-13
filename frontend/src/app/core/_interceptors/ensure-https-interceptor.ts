@@ -21,7 +21,7 @@ export class EnsureHttpsInterceptor implements HttpInterceptor {
         });
 
       const remDuplReq = fullUrlReq.clone( {
-        url: fullUrlReq.url.replace("//localhost:9090/api", "")
+        url: fullUrlReq.url.replace("//localhost:8443/api", "")
       });
 
       const secureReq = remDuplReq.clone({
