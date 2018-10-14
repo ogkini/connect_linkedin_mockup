@@ -1,3 +1,3 @@
 set -x
 cd ../../frontend
-ng serve -o
+ng serve -o --ssl --ssl-cert=./../tedCertificate.crt

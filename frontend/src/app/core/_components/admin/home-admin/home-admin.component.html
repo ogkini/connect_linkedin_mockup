@@ -2,11 +2,11 @@
 
 <div class="container margin-t">
   <div>
-    <a role="button" class="btn btn-primary" href="http:{{profilePhotosEndpoint}}/getXMLdata{{extractXMLData()}}">Extract everyone's XML data!</a>
+    <a role="button" class="btn btn-primary" href="https:{{usersEndpoint}}/getXMLdata{{extractXMLData()}}">Extract everyone's XML data!</a>
   </div>
   <div class="wrapper border" *ngFor="let user of users">
     <div class="product-img">
-      <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
+      <img src="https:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
     </div>
     <div class="product-info">
       <div class="product-text">

@@ -51,7 +51,7 @@
         <ng-template #showConn>
           <div class="wrapper border" *ngFor="let user of network?.connections">
             <div class="product-img">
-              <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
+              <img src="https:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120" alt="profile_photo">
             </div>
             <div class="product-info">
               <div class="product-text">
@@ -78,7 +78,7 @@
         <ng-template #showConn>
           <div class="wrapper border" *ngFor="let received of network?.receivedRequests">
             <div class="product-img">
-              <img src="http:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120" alt="profile_photo">
+              <img src="https:{{profilePhotosEndpoint}}/{{received?.sender?.id}}/photos" height="118" width="120" alt="profile_photo">
             </div>
             <div class="product-info">
               <div class="product-text">
@@ -105,7 +105,7 @@
         <ng-template #showConn>
           <div class="wrapper border" *ngFor="let sent of network?.sentRequests">
             <div class="product-img">
-              <img src="http:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120" alt="profile_photo">
+              <img src="https:{{profilePhotosEndpoint}}/{{sent?.receiver?.id}}/photos" height="118" width="120" alt="profile_photo">
             </div>
             <div class="product-info">
               <div class="product-text">
@@ -143,7 +143,7 @@
 
             <div class="wrapper border">
               <div class="product-img">
-                <img src="http:{{profilePhotosEndpoint}}/{{user?.id}}/photos" height="118" width="120" alt="profile_photo">
+                <img src="https:{{profilePhotosEndpoint}}/{{user?.id}}/photos" height="118" width="120" alt="profile_photo">
               </div>
               <div class="product-info">
                 <div class="product-text">

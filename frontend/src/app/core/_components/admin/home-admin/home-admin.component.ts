@@ -14,6 +14,7 @@ export class HomeAdminComponent implements OnInit {
   title = 'Home';
   signedInUser: User;
   users: User[] = [];
+  public usersEndpoint: string;
   public profilePhotosEndpoint: string;
 
   public constructor(
@@ -24,7 +25,8 @@ export class HomeAdminComponent implements OnInit {
     this.titleService.setTitle( this.title );
     this.signedInUser = JSON.parse(localStorage.getItem('currentUser'));
     //console.debug("SignedIn user-id: " + this.signedInUser.id);
-    this.profilePhotosEndpoint = this.connConfig.usersEndpoint;
+    this.usersEndpoint = this.connConfig.usersEndpoint;
+    this.profilePhotosEndpoint = this.usersEndpoint;  // We use the same endpoint with diff name just for clarity, since it's used for photos across the app.
   }
 
   ngOnInit() {

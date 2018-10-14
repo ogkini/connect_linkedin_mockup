@@ -17,7 +17,7 @@
       <!-- Image -->
       <div class="uploader-img">
         <a [routerLink]="['../../' + jobOffer?.owner?.id + '/profile']">
-          <img src="http:{{profilePhotosEndpoint}}/{{jobOffer?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
+          <img src="https:{{profilePhotosEndpoint}}/{{jobOffer?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
         </a>
       </div>
 
@@ -71,7 +71,7 @@
         <!-- Image -->
         <div class="jobApply-img">
           <a [routerLink]="['../../' + jobApply?.user?.id + '/profile']">
-            <img src="http:{{profilePhotosEndpoint}}/{{jobApply?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
+            <img src="https:{{profilePhotosEndpoint}}/{{jobApply?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
           </a>
         </div>
 
