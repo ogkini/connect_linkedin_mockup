@@ -24,7 +24,7 @@ import { AuthGuard, RoleGuard } from './_guards';
 import { AlertComponent } from './_directives/alert/alert.component';
 import {
   AlertService,
-  AuthenticationService,
+  AuthenticationService, UsersCheckBoxService,
   ConnectionConfigService,
   DataService,
   OccupationService,
@@ -92,6 +92,7 @@ import {ValidatorService} from "./_services/validator.service";
     AlertService,
     AuthenticationService,
     UserService,
+    UsersCheckBoxService,
     OccupationService,
     ExperienceService,
     EducationService,
