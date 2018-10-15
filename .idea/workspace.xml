@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beeff75a-aab4-4a9f-8c7b-005904e3d9c2" name="Default" comment="Add authorization-check in &quot;Notifications&quot;.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/usersCheckBox.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_components/admin/home-admin/home-admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/_services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/_services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ted/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ted/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xml/usersData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/usersData.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -168,7 +160,7 @@
           <entry key="sh" value="197" />
           <entry key="sql" value="223" />
           <entry key="ts" value="24025" />
-          <entry key="txt" value="10732" />
+          <entry key="txt" value="10800" />
           <entry key="xml" value="32" />
         </counts>
       </usages-collector>
@@ -181,7 +173,7 @@
           <entry key="JSON" value="43" />
           <entry key="JavaScript" value="22" />
           <entry key="Markdown" value="674" />
-          <entry key="PLAIN_TEXT" value="10906" />
+          <entry key="PLAIN_TEXT" value="10974" />
           <entry key="Properties" value="188" />
           <entry key="SCSS" value="347" />
           <entry key="SQL" value="223" />
@@ -1053,7 +1045,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539566853144" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539567014901" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -1290,21 +1282,7 @@
       <workItem from="1538554016386" duration="330000" />
       <workItem from="1538584057723" duration="31000" />
       <workItem from="1538902779970" duration="9544000" />
-      <workItem from="1539548441117" duration="16853000" />
-    </task>
-    <task id="LOCAL-00034" summary="Resolve non-merged DataBase.">
-      <created>1537828206537</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1537828206537</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Add more paths to &quot;.gitignore&quot;.">
-      <created>1537828258929</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1537828258929</updated>
+      <workItem from="1539548441117" duration="17437000" />
     </task>
     <task id="LOCAL-00036" summary="- Fix THE bug: User_profile_photo was not showing after signUp.&#10;- Update file-endpoints (lots of changes).">
       <created>1537849480473</created>
@@ -1635,11 +1613,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538927525793</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Revert uncommenting of HTTPS-settings in the backend.">
+      <created>1539566854897</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1539566854898</updated>
+    </task>
+    <task id="LOCAL-00084" summary="New feature: Allow the admin to extract data from specific users!&#10;Before, the admin could only extract all of the users' data and couldn't select individual users.&#10;Note that the selection-list is kept between page-switches (by a new service), for example when the admin selects some users, then wants to go and see a user's data but then to return and extract the data from the users that previously had selected.">
+      <created>1539566997079</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1539566997079</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="679268000" />
+    <option name="totallyTimeSpent" value="679852000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1652,9 +1644,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20948827" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1664,13 +1655,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49413645" visible="true" weight="0.4197397" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49413645" weight="0.4197397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.15401301" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4936034" weight="0.4002169" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" weight="0.32321042" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" visible="true" weight="0.32321042" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50586355" side_tool="true" weight="0.4197397" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Spring" order="11" weight="0.329718" />
@@ -1769,7 +1760,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- XML-extraction works for all users (except from authorization).&#10;- Update &quot;AppInstaller.sh&quot; to guard against angular-version-change.&#10;- Code cleanup." />
     <MESSAGE value="Add SQL tables for &quot;JobOffers&quot; and &quot;JobApplies&quot;." />
     <MESSAGE value="- Fix Merge-Conflicts." />
     <MESSAGE value="Fix an issue, where post-owner-photo would be displayed instead of commenter's-photo, in &quot;home-user&quot;." />
@@ -1794,7 +1784,8 @@
     <MESSAGE value="Add &quot;ValidatorService&quot;." />
     <MESSAGE value="Move date-initialization-code into &quot;DateService&quot;." />
     <MESSAGE value="Revert uncommenting of HTTPS-settings in the backend." />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert uncommenting of HTTPS-settings in the backend." />
+    <MESSAGE value="New feature: Allow the admin to extract data from specific users!&#10;Before, the admin could only extract all of the users' data and couldn't select individual users.&#10;Note that the selection-list is kept between page-switches (by a new service), for example when the admin selects some users, then wants to go and see a user's data but then to return and extract the data from the users that previously had selected." />
+    <option name="LAST_COMMIT_MESSAGE" value="New feature: Allow the admin to extract data from specific users!&#10;Before, the admin could only extract all of the users' data and couldn't select individual users.&#10;Note that the selection-list is kept between page-switches (by a new service), for example when the admin selects some users, then wants to go and see a user's data but then to return and extract the data from the users that previously had selected." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
