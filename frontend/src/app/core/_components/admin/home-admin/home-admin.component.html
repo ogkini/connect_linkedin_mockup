@@ -2,12 +2,11 @@
 
 <div class="container margin-t">
   <div>
-    <a role="button" class="btn btn-primary" href="https:{{usersEndpoint}}/getXMLdata{{extractXMLData()}}">Extract everyone's XML data!</a>
     <input type="button" class="btn btn-primary" id="extract" value="Extract users' XML data!" (click)="checkToExtract()">
 
     <div *ngIf="goingToExtract && areAnySelectedUsers()">
       <div style="display: none;">
-        <a id="extractXML" href="http:{{profilePhotosEndpoint}}/getXMLdata{{getUsersIDsQuery()}}"></a>
+        <a id="extractXML" href="https:{{usersEndpoint}}/getXMLdata{{getUsersIDsQuery()}}"></a>
         {{extractXMLData()}}}
       </div>
     </div>
