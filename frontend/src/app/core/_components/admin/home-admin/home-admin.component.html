@@ -2,9 +2,30 @@
 
 <div class="container margin-t">
   <div>
-    <a role="button" class="btn btn-primary" href="http:{{profilePhotosEndpoint}}/getXMLdata{{extractXMLData()}}">Extract everyone's XML data!</a>
+    <input type="button" class="btn btn-primary" id="extract" value="Extract users' XML data!" (click)="checkToExtract()">
+
+    <div *ngIf="goingToExtract && areAnySelectedUsers()">
+      <div style="display: none;">
+        <a id="extractXML" href="http:{{profilePhotosEndpoint}}/getXMLdata{{getUsersIDsQuery()}}"></a>
+        {{extractXMLData()}}}
+      </div>
+    </div>
+    <app-alert></app-alert>
   </div>
+
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="check1" [checked]="areAllSelected()" (click)="toggleAllUsers()">
+    <label class="form-check-label" for="check1">Select all users to extract their data.</label>
+  </div>
+
+
   <div class="wrapper border" *ngFor="let user of users">
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="checkUser={{user?.id}}" [checked]="areAllSelected() || isUserSelected(user?.id)" (click)="toggleSpecificUser(user?.id)">
+      <label class="form-check-label" for="checkUser={{user?.id}}">Select {{user?.firstname}}</label>
+    </div>
     <div class="product-img">
       <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
     </div>
@@ -17,5 +38,7 @@
         <button type="button" class="btn btn-md btn-info" [routerLink]="['../users/' + user.id + '/info']">Check {{user.firstname}}' data</button>
       <!--</div>-->
     </div>
+
   </div>
+
 </div>
