@@ -42,7 +42,7 @@ cd frontend
 npm install
 npm install @angular/cli@1.7.4
 npm install --save jwt-decode
-ng serve --open
+ng serve --open --ssl
 ```
 
 which opens a browser window on **localhost:4200**
