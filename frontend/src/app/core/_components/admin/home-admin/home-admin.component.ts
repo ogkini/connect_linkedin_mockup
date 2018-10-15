@@ -30,9 +30,6 @@ export class HomeAdminComponent implements OnInit {
     //console.debug("SignedIn user-id: " + this.signedInUser.id);
     this.usersEndpoint = this.connConfig.usersEndpoint;
     this.profilePhotosEndpoint = this.usersEndpoint;  // We use the same endpoint with diff name just for clarity, since it's used for photos across the app.
-  }
-
-  ngOnInit() {
     this.getAllUsers();
   }
 
