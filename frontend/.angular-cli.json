@@ -1,5 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "defaults": {
+    "serve": {
+      "sslCert": "./../tedCertificate.crt"
+    },
+    "styleExt": "scss",
+    "component": {}
+  },
   "project": {
     "name": "frontend"
   },
@@ -58,9 +65,5 @@
     "karma": {
       "config": "./karma.conf.js"
     }
-  },
-  "defaults": {
-    "styleExt": "scss",
-    "component": {}
   }
 }

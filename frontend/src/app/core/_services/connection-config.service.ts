@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ConnectionConfigService {
-  serverUrl = '//localhost:9090/api/'; // HTTP
+  //serverUrl = '//localhost:9090/api/'; // HTTP
 
   // The HTTP gets automatically transformed to HTTPS in the "EnsureHTTPSInterceptor", if we enable it to do it in "_interceptors/index.ts"
   //serverUrl = 'https//localhost:8443/api/'; // HTTPS
-  //serverUrl = '//localhost:8443/api/'; // HTTPS <-- try this with base URL to be n HTTPS
+  serverUrl = '//localhost:8443/api/'; // HTTPS <-- try this with base URL to be in HTTPS
 
   signInEndpoint  = this.serverUrl + 'signin';
 

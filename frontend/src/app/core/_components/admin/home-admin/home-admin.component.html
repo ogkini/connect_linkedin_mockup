@@ -6,7 +6,7 @@
 
     <div *ngIf="goingToExtract && areAnySelectedUsers()">
       <div style="display: none;">
-        <a id="extractXML" href="http:{{profilePhotosEndpoint}}/getXMLdata{{getUsersIDsQuery()}}"></a>
+        <a id="extractXML" href="https:{{usersEndpoint}}/getXMLdata{{getUsersIDsQuery()}}"></a>
         {{extractXMLData()}}}
       </div>
     </div>
@@ -27,7 +27,7 @@
       <label class="form-check-label" for="checkUser={{user?.id}}">Select {{user?.firstname}}</label>
     </div>
     <div class="product-img">
-      <img src="http:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
+      <img src="https:{{profilePhotosEndpoint}}/{{user.id}}/photos" height="118" width="120">
     </div>
     <div class="product-info">
       <div class="product-text">
