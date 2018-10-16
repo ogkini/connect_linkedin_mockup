@@ -51,7 +51,6 @@ export class JobOffersComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // Initialise form contents
     this.addJobOfferFormInit();
   }
@@ -99,29 +98,17 @@ export class JobOffersComponent implements OnInit {
     this.jobApplyService.create(ownerId, jobOfferId)
       .pipe(first())
       .subscribe((response: CreationResponse) => {
-
-          console.debug(this.jobOffers.length);
-
-          for ( let jobOffer of this.jobOffers )
-          {
-            if ( jobOffer.id == jobOfferId ) {
-              console.debug("Found jobOffer with Id: " + jobOfferId);
-              jobOffer.appliedToJob = true;
-              jobOffer.appliesCount ++;
-              if (response.object) {
-                jobOffer.applies.push(response.object);// Add jobApply to the array
-              }
-            }
+          // Add application to the array
+          if (response.object) {
+            this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).jobApplies.push(response.object);
           }
 
-          /*this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).applies.push(response.object);
-
           // Update boolean to indicate that the user applies to the jobOffer
-          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).appliedToJob = true;
+          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).appliedToJobOffer = true;
 
           // Update applies counter
-          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).appliesCount ++;
-          */
+          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).jobAppliesCount++;
+          
         }, error => {
           console.error(error);
         }
@@ -131,7 +118,7 @@ export class JobOffersComponent implements OnInit {
   // A user un-applies
   unApply(ownerId: number, jobOfferId: number) {
     // Find the id of the jobApply to be un-done.
-    let jobApplyId = this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).applies.find(jobApply => jobApply.user.id == this.signedInUser.id).id;
+    let jobApplyId = this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).jobApplies.find(jobApply => jobApply.user.id == this.signedInUser.id).id;
 
     this.jobApplyService.delete(ownerId, jobOfferId, jobApplyId)
       .pipe(first())
@@ -141,20 +128,20 @@ export class JobOffersComponent implements OnInit {
           {
             if ( jobOffer.id == jobOfferId ) {
               console.debug("Found jobOffer with Id: " + jobOfferId);
-              jobOffer.appliedToJob = false;
-              jobOffer.appliesCount --;
+              jobOffer.appliedToJobOffer = false;
+              jobOffer.jobAppliesCount--;
             }
           }
 
           // Remove the apply from the array
-          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).applies = this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId)
-            .applies.filter(jobApply => jobApply.user.id !== this.signedInUser.id);
+          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).jobApplies = this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId)
+            .jobApplies.filter(jobApply => jobApply.user.id !== this.signedInUser.id);
 
          /* // Update boolean to indicate that the user applies to the jobOffer
-          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).appliedToJob = false;
+          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).appliedToJobOffer = false;
 
           // Update applies counter
-          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).appliesCount --;*/
+          this.jobOffers.find(jobOffer => jobOffer.id == jobOfferId).jobAppliesCount --;*/
         }, error => {
           console.error(error);
         }
