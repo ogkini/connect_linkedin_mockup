@@ -1,4 +1,4 @@
-<app-user-nav-bar [signedInUserId]="signedInUser.id"></app-user-nav-bar>
+<app-user-nav-bar [signedInUserId]="signedInUser?.id"></app-user-nav-bar>
 
 <!-- <div class="margin-t">
   <div class="row">
@@ -48,7 +48,7 @@
                   <div class="chat_people">
                     <!-- Image -->
                     <div class="chat_img">
-                      <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                      <img src="https:{{profilePhotosEndpoint}}/{{conversation?.userTwo?.id}}/photos" height="100" width="100">
                     </div>
 
                     <div class="chat_ib">
@@ -63,7 +63,7 @@
                   <div class="chat_people">
                     <!-- Image -->
                     <div class="chat_img">
-                      <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                      <img src="https:{{profilePhotosEndpoint}}/{{conversation?.userOne?.id}}/photos" height="100" width="100">
                     </div>
 
                     <div class="chat_ib">
@@ -84,7 +84,9 @@
 
               <div class="incoming_msg" *ngIf="message?.receiver?.id == signedInUser.id">
                 <div class="incoming_msg_img">
-                  <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                  <a [routerLink]="['../../' + message?.sender?.id + '/profile']">
+                    <img src="https:{{profilePhotosEndpoint}}/{{message?.sender?.id}}/photos" height="45" width="60">
+                  </a>
                 </div>
 
                 <div class="received_msg">
