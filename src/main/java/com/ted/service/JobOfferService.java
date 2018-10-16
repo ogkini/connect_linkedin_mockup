@@ -67,6 +67,8 @@ public class JobOfferService {
             jo.setJobAppliesCount(jobApplyService.getJobAppliesCount(jo.getId()));
         }
 
+        System.out.println(jobOffers.size());
+
         return jobOffers;
     }
 

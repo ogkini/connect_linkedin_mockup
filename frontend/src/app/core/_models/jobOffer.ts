@@ -6,9 +6,8 @@ export class JobOffer {
   text: string;
   createdTime: string;
 
-  applies: Array<JobApply>;
+  jobApplies: Array<JobApply>;
 
-  appliedToJob: boolean;
-
-  appliesCount: number;
+  appliedToJobOffer: boolean;
+  jobAppliesCount: number;
 }
