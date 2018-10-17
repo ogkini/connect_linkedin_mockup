@@ -88,6 +88,7 @@ hr {
   display: inline;
 }
 
+
 // Change comment icon on hover
 .comments-button:hover .fa-comment-o,
 .comments-button .fa-comment {
@@ -106,6 +107,9 @@ hr {
 .comment-info {
   margin-bottom: 8px;
   margin-left: 50px;
+  color:black;
+  text-decoration: none;
+  background-color: none;
 }
 
 .comment-img {

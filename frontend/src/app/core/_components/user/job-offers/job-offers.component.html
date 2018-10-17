@@ -55,30 +55,33 @@
         </span>
       </div>
 
-      <!-- <div class="jobApplies-button">
-        <span class="clickableIcon" (click)="showAppliesToggle()">
-          <i class="fa fa-jobApply-o blue-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
-          <i class="fa fa-jobApply blue-text" aria-hidden="true"> {{jobOffer?.appliesCount}} </i>
+      <div class="comments-button">
+        <span class="clickableIcon" (click)="showAppliesToggle(jobOffer)">
+          <i class="fa fa-comment-o blue-text" aria-hidden="true"> {{jobOffer?.jobAppliesCount}} </i>
+          <i class="fa fa-comment blue-text" aria-hidden="true"> {{jobOffer?.jobAppliesCount}} </i>
         </span>
-      </div> -->
+      </div>
     </div>
 
-    <ng-container *ngIf="showApplies">
-      <div class="jobApply-info" *ngFor= "let jobApply of jobOffer?.jobApplies">
-        <hr>
+    <ng-container *ngIf="(jobOfferToSeeAppliesFrom != undefined) && (jobOffer?.id == jobOfferToSeeAppliesFrom?.id)">
+      <a *ngFor= "let jobApply of jobOffer?.jobApplies" [routerLink]="['../../' + jobApply?.user?.id + '/profile']">
+        <div class="comment-info">
+          <hr>
 
-        <div class="jobApply-img">
-          <a [routerLink]="['../../' + jobApply?.user?.id + '/profile']">
-            <img src="https:{{profilePhotosEndpoint}}/{{jobApply?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
-          </a>
-        </div>
+          <div class="comment-img">
+              <img src="https:{{profilePhotosEndpoint}}/{{jobApply?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
+          </div>
 
-        <a [routerLink]="['../../' + jobApply?.user?.id + '/profile']">
           <h1>{{jobApply?.user?.firstname}} {{jobApply?.user?.lastname}}</h1>
-        </a>
+          <p style="font-size:15px">
+            {{jobApply?.user?.occupation?.title}}
+            <ng-container *ngIf="jobApply?.user?.occupation?.company != undefined && jobApply?.user?.occupation?.company != ''">  <!--Company is optional-->
+              at {{jobApply?.user?.occupation?.company}}
+            </ng-container>
+          </p>
 
-        <button type="button" class="btn btn-info con-btn" [routerLink]="['../../' + jobApply?.user?.id + '/profile']">Visit Profile</button>
-      </div>
+        </div>
+      </a>
     </ng-container>
   </div>
 

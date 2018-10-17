@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CreationResponse, JobOffer, JobApply, User} from "../../../_models";
+import {CreationResponse, JobOffer, JobApply, User} from "../../../_models";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Title} from "@angular/platform-browser";
 import {
@@ -25,6 +25,7 @@ export class JobOffersComponent implements OnInit {
   submitted = false;
   userId: number;
   showApplies = false;
+  public jobOfferToSeeAppliesFrom: JobOffer;
 
   addJobOfferForm: FormGroup;
 
@@ -148,8 +149,11 @@ export class JobOffersComponent implements OnInit {
       );
   }
 
-  showAppliesToggle() {
-    this.showApplies = !this.showApplies;
+  showAppliesToggle(jobOffer: JobOffer) {
+    if ( this.jobOfferToSeeAppliesFrom == undefined)
+      this.jobOfferToSeeAppliesFrom = jobOffer;
+    else
+      this.jobOfferToSeeAppliesFrom = undefined;
   }
 
 }
