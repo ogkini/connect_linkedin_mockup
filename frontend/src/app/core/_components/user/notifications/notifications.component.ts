@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { User, Notification } from '../../../_models';
-import {NotificationService, UserService, ConnectionConfigService, AuthenticationService} from '../../../_services';
+import {User, Notification, Post} from '../../../_models';
+import {
+  NotificationService,
+  UserService,
+  ConnectionConfigService,
+  AuthenticationService
+} from '../../../_services';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -13,10 +18,10 @@ import {ActivatedRoute} from "@angular/router";
 export class NotificationsComponent implements OnInit {
 
   title = 'Notifications';
-  signedInUser: User;
+  public signedInUser: User;
   notifications: Notification[] = [];
   userId: number;
-
+  public postToShow: Post;
   public profilePhotosEndpoint: string;
 
   constructor(
@@ -42,6 +47,10 @@ export class NotificationsComponent implements OnInit {
 
   private getNotifications(id: number) {
     this.notificationService.getAll(id).subscribe(notifications => { this.notifications = notifications; });
+  }
+
+  public setPostToShow(post: Post) {
+    this.postToShow = post;
   }
 
 }

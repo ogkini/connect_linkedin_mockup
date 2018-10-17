@@ -47,6 +47,7 @@ import {JobOffersComponent} from "./_components/user/job-offers/job-offers.compo
 import {JobOfferService} from "./_services/job-offer.service";
 import {JobApplyService} from "./_services/job-apply.service";
 import {ValidatorService} from "./_services/validator.service";
+import {PostComponent} from "./_components/user/post/post.component";
 
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ import {ValidatorService} from "./_services/validator.service";
     TextValidatorDirective,
     DatePeriodValidatorDirective,
     NotificationsComponent,
+    PostComponent
   ],
   exports: [
     FooterComponent,

@@ -1,17 +1,31 @@
 <app-user-nav-bar [signedInUserId]="signedInUser?.id"></app-user-nav-bar>
 
 <div class="container margin-t">
-  <div class="wrapper border" *ngFor="let notification of notifications">
-    <div class="product-img">
-      <img src="https:{{profilePhotosEndpoint}}/{{notification?.from?.id}}/photos" height="118" width="120">
-    </div>
 
-    <div class="product-info">
-      <div class="product-text">
-        <h1>{{notification?.from?.firstname}} {{notification?.from?.lastname}} {{notification?.action}}</h1>
-        <h2>"{{notification?.post?.text}}"</h2>
-        <p>{{notification?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</p>
+  <div class="wrapper border" *ngIf="notifications.length > 0">
+    <a *ngFor="let notification of notifications" (click)="setPostToShow(notification?.post)">
+
+      <!--[routerLink]="['/users/' + notification?.user?.id + '/home#post_' + notification?.post?.id]-->
+
+      <div class="product-img">
+        <img src="https:{{profilePhotosEndpoint}}/{{notification?.from?.id}}/photos" height="118" width="120">
       </div>
-    </div>
+
+      <div class="product-info">
+        <div class="product-text">
+          <h1>{{notification?.from?.firstname}} {{notification?.from?.lastname}} {{notification?.action}}</h1>
+          <h2>"{{notification?.post?.text}}"</h2>
+          <p>{{notification?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</p>
+        </div>
+      </div>
+
+    </a>
   </div>
+
+
+  <!-- Show selected post. -->
+  <ng-container *ngIf="postToShow != undefined">
+    <app-post [postToShow]="postToShow"></app-post>
+  </ng-container>
+
 </div>

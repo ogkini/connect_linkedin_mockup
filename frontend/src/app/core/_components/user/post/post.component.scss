@@ -1,0 +1,138 @@
+// Posts
+.post-form {
+  width: 550px;
+  margin: 50px auto;
+  margin-bottom: 0;
+}
+
+.wrapper-post {
+  background-color: white;
+  min-height: 140px;
+  height: auto;
+  overflow: auto;
+  width: 550px;
+  margin: 50px auto;
+  margin-bottom: 0;
+  margin-top: 30px;
+  border-radius: 5px 5px 5px 5px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  // -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  // -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  // box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+hr {
+  margin: 5px;
+}
+
+.uploader-info {
+  height: 60px;
+}
+
+.post-body {
+  min-height: 40px;
+  height: auto;
+  margin: 12px;
+  overflow: auto;
+}
+
+.buttons {
+  height: 30px;
+}
+
+// Uploader Info
+.uploader-img {
+  float: left;
+  height: 55px;
+  width: 55px;
+  margin: 4px 14px 0px 10px;
+}
+
+.uploader-img img {
+  border-radius: 3px 3px 3px 3px;
+}
+
+.uploader-info h1 {
+  margin: 0 0 6px 20px;
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #474747;
+}
+
+.uploader-info h2 {
+  margin: 0 0 5px 20px;
+  font-size: 12px;
+  color: #A0A0A0;
+}
+
+// Buttons
+.buttons {
+  margin: 4px 1px 1px 20px;
+  padding-top: 3px;
+}
+
+// Change like icon on hover
+.likes-button:hover .fa-heart-o,
+.likes-button .fa-heart {
+  display: none;
+}
+.likes-button:hover .fa-heart {
+  display: inline;
+}
+
+// Change comment icon on hover
+.comments-button:hover .fa-comment-o,
+.comments-button .fa-comment {
+  display: none;
+}
+.comments-button:hover .fa-comment {
+  display: inline;
+}
+
+.clickableIcon {
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+// Comments
+.comment-info {
+  margin-bottom: 8px;
+  margin-left: 50px;
+}
+
+.comment-img {
+  float: left;
+  height: 45px;
+  width: 45px;
+  margin: 0 14px 5px 10px;
+}
+
+.comment-img img {
+  border-radius: 3px 3px 3px 3px;
+}
+
+.comment-info h1 {
+  margin: 0 20px 6px 20px;
+  padding-top: 2px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #474747;
+}
+
+.comment-info h2 {
+  margin: 0 20px 6px 20px;
+  font-size: 14px;
+  color: #474747;
+}
+
+// Comment form
+.comment-form {
+  padding: 0 12px 0 12px;
+  margin-top: 16px;
+}
+
+input,
+input::-webkit-input-placeholder {
+  font-size: 14px;
+}
