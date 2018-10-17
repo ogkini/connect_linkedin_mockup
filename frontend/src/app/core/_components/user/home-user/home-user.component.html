@@ -11,93 +11,98 @@
   <!-- Posts -->
   <div class="wrapper border" *ngFor="let post of posts">
 
-    <div class="recommended" *ngIf="post?.isRecommended">
-      <p>Your connections like this post.</p>
-      <hr class="recommended-hr">
-    </div>
+    <div id="post_{{post?.id}}">
 
-    <!-- Uploader Info -->
-    <div class="uploader-info">
-
-      <!-- Image -->
-      <div class="uploader-img">
-        <a [routerLink]="['../../' + post?.owner?.id + '/profile']">
-         <img src="https:{{profilePhotosEndpoint}}/{{post?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
-        </a>
+      <div class="recommended" *ngIf="post?.isRecommended">
+        <p>Your connections like this post.</p>
+        <hr class="recommended-hr">
       </div>
 
-      <!-- Info -->
-      <a [routerLink]="['../../' + post?.owner?.id + '/profile']">
-        <h1>{{post?.owner?.firstname}} {{post?.owner?.lastname}}</h1>
-      </a>
-
-      <h2>{{post?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</h2>
-    </div>
-
-    <hr>
-
-    <!-- Post body -->
-    <div class="post-body">
-      <p>{{post?.text}}</p>
-    </div>
-
-    <hr>
-
-    <!-- Buttons -->
-    <div class="row buttons">
-      <!-- Show simple button if user has not liked the post -->
-      <div class="likes-button" *ngIf="!post?.likesPost">
-        <span class="clickableIcon" (click)="addLike(post?.owner?.id, post?.id)">
-          <i class="fa fa-heart-o blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
-          <i class="fa fa-heart blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
-        </span>
-      </div>
-
-      <!-- Show colored button if user has liked the post -->
-      <div class="likes-button" *ngIf="post?.likesPost">
-        <span class="clickableIcon" (click)="deleteLike(post?.owner?.id, post?.id)">
-          <i class="fa fa-heart-o pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
-          <i class="fa fa-heart pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
-        </span>
-      </div>
-
-      <div class="comments-button">
-        <span class="clickableIcon" (click)="showCommentsToggle()">
-          <i class="fa fa-comment-o blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
-          <i class="fa fa-comment blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
-        </span>
-      </div>
-    </div>
-
-    <!-- Comments -->
-    <ng-container *ngIf="showComments">
-      <div class="comment-info" *ngFor= "let comment of post?.comments">
-        <hr>
+      <!-- Uploader Info -->
+      <div class="uploader-info">
 
         <!-- Image -->
-        <div class="comment-img">
-          <a [routerLink]="['../../' + comment?.user?.id + '/profile']">
-            <img src="https:{{profilePhotosEndpoint}}/{{comment?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
+        <div class="uploader-img">
+          <a [routerLink]="['../../' + post?.owner?.id + '/profile']">
+           <img src="https:{{profilePhotosEndpoint}}/{{post?.owner?.id}}/photos" height="60" width="60" alt="profile_photo">
           </a>
         </div>
 
-        <!-- User -->
-        <a [routerLink]="['../../' + comment?.user?.id + '/profile']">
-          <h1>{{comment?.user?.firstname}} {{comment?.user?.lastname}}</h1>
+        <!-- Info -->
+        <a [routerLink]="['../../' + post?.owner?.id + '/profile']">
+          <h1>{{post?.owner?.firstname}} {{post?.owner?.lastname}}</h1>
         </a>
 
-        <!-- Text -->
-        <h2>{{comment?.text}}</h2>
+        <h2>{{post?.createdTime | date:'EEEE, MMMM d, y, h:mm a'}}</h2>
       </div>
 
-      <!-- Input to add comment -->
-      <form class="comment-form" [formGroup]="addCommentForm" (ngSubmit)="addComment(post?.owner?.id, post?.id)">
-        <input type="text" class="form-control mb-2" placeholder="Add a comment" formControlName="text">
+      <hr>
 
-        <!-- Hidden submit button (submit by pressing enter) -->
-        <button type="submit" style="display:none"></button>
-      </form>
-    </ng-container>
+      <!-- Post body -->
+      <div class="post-body">
+        <p>{{post?.text}}</p>
+      </div>
+
+      <hr>
+
+      <!-- Buttons -->
+      <div class="row buttons">
+        <!-- Show simple button if user has not liked the post -->
+        <div class="likes-button" *ngIf="!post?.likesPost">
+          <span class="clickableIcon" (click)="addLike(post?.owner?.id, post?.id)">
+            <i class="fa fa-heart-o blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
+            <i class="fa fa-heart blue-text" aria-hidden="true"> {{post?.likesCount}} </i>
+          </span>
+        </div>
+
+        <!-- Show colored button if user has liked the post -->
+        <div class="likes-button" *ngIf="post?.likesPost">
+          <span class="clickableIcon" (click)="deleteLike(post?.owner?.id, post?.id)">
+            <i class="fa fa-heart-o pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
+            <i class="fa fa-heart pink-text" aria-hidden="true"> {{post?.likesCount}} </i>
+          </span>
+        </div>
+
+        <div class="comments-button">
+          <span class="clickableIcon" (click)="showCommentsToggle(post)">
+            <i class="fa fa-comment-o blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
+            <i class="fa fa-comment blue-text" aria-hidden="true"> {{post?.commentsCount}} </i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Comments -->
+      <ng-container *ngIf="(postToSeeCommentsFrom != undefined) && (post?.id == postToSeeCommentsFrom?.id)">
+        <div class="comment-info" *ngFor= "let comment of postToSeeCommentsFrom?.comments">
+          <hr>
+
+          <!-- Image -->
+          <div class="comment-img">
+            <a [routerLink]="['../../' + comment?.user?.id + '/profile']">
+              <img src="https:{{profilePhotosEndpoint}}/{{comment?.user?.id}}/photos" height="50" width="50" alt="profile_photo">
+            </a>
+          </div>
+
+          <!-- User -->
+          <a [routerLink]="['../../' + comment?.user?.id + '/profile']">
+            <h1>{{comment?.user?.firstname}} {{comment?.user?.lastname}}</h1>
+          </a>
+
+          <!-- Text -->
+          <h2>{{comment?.text}}</h2>
+        </div>
+
+        <!-- Input to add comment -->
+        <form class="comment-form" [formGroup]="addCommentForm" (ngSubmit)="addComment(post?.owner?.id, post?.id)">
+          <input type="text" class="form-control mb-2" placeholder="Add a comment" formControlName="text">
+
+          <!-- Hidden submit button (submit by pressing enter) -->
+          <button type="submit" style="display:none"></button>
+        </form>
+      </ng-container>
+
+    </div>
+
   </div>
 
 </div>

@@ -21,7 +21,7 @@ export class HomeUserComponent implements OnInit {
   posts: Post[] = [];
   submitted = false;
   userId: number;
-  showComments = false;
+  postToSeeCommentsFrom: Post;
   message: string;
 
   addCommentForm: FormGroup;
@@ -194,8 +194,11 @@ export class HomeUserComponent implements OnInit {
       );
   }
 
-  showCommentsToggle() {
-    this.showComments = !this.showComments;
+  showCommentsToggle(post: Post) {
+    if ( this.postToSeeCommentsFrom == undefined)
+      this.postToSeeCommentsFrom = post;
+    else
+      this.postToSeeCommentsFrom = undefined;
   }
 
   /**
