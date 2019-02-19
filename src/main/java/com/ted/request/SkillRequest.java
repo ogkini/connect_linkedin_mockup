@@ -9,7 +9,8 @@ public class SkillRequest {
     @Size(max = 45)
     private String name;
 
-    @NotBlank
+    // This may be blank.
+    @Size(max = 45)
     private String strength;
 
     public String getName() {

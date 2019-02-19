@@ -182,7 +182,11 @@
           <div class="row">
             <div class="col">
               <h2>{{skill?.name}}</h2>
-              <h3>{{skill?.strength}}</h3>
+              <h3>
+                <ng-container *ngIf="skill?.strength != undefined && skill?.strength != ''">  <!--Company is optional-->
+                  {{skill?.strength}}
+                </ng-container>
+              </h3>
             </div>
 
             <div class="col">
@@ -450,9 +454,7 @@
 
                 <!-- Strength -->
                 <input type="text" class="form-control mb-2" placeholder="Strength" formControlName="strength" [ngClass]="{ 'is-invalid': submitted && getAddSkillForm.strength.errors }" autofocus>
-                <div *ngIf="submitted && getAddSkillForm.strength.errors" class="invalid-feedback">
-                  <div *ngIf="getAddSkillForm.strength.errors.required">Strength is required.</div>
-                </div>
+                <!--Its optional, no errors-->
 
                 <!-- Buttons -->
                 <div class="modal-footer">

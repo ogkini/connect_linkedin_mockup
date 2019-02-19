@@ -90,7 +90,7 @@ export class UserInfoComponent implements OnInit {
   addOccupationFormInit() {
     this.addOccupationForm = this.formBuilder.group({
       title: ['', Validators.required],
-      company: [''] // This is nt required, since someone might work by its own.
+      company: [''] // The company name is not marked as required, since someone might work by its own.
     });
   }
 
@@ -288,7 +288,7 @@ export class UserInfoComponent implements OnInit {
   addSkillFormInit() {
     this.addSkillForm = this.formBuilder.group({
       name: ['', Validators.required],
-      strength: ['', Validators.required]
+      strength: [''] // The skill's strength is not marked as required, since someone might not want to specify it.
     });
   }
 

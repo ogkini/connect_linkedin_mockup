@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CreationResponse, JobOffer, JobApply, User} from "../../../_models";
+import {CreationResponse, JobOffer, User} from "../../../_models";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Title} from "@angular/platform-browser";
 import {
@@ -24,7 +24,6 @@ export class JobOffersComponent implements OnInit {
   jobOffers: JobOffer[] = [];
   submitted = false;
   userId: number;
-  showApplies = false;
   public jobOfferToSeeAppliesFrom: JobOffer;
 
   addJobOfferForm: FormGroup;
